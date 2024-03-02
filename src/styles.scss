@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+ background-color: #F6F7F8 !important;
+}
+
+
+
+$primary: #2A3647; 
+$primary-hover: #29ABE2; 
+
+
+
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+.form-control:focus {
+  border-color: #29ABE2!important;
+}
+
+.form-control {
+  box-shadow: none!important;
+}
+
+.btn-primary:hover {
+    background-color: $primary-hover;
+    border-color: $primary-hover;
+  }
+
+
+  .btn-default {
+    border-color: #2A3647 !important; /* Change 'blue' to your desired border color */
+    color: #2A3647 !important; /* Change 'blue' to your desired font color */
+  }
+
+
+.btn-default:hover {
+  border-color: #29ABE2 !important; /* Change 'blue' to your desired border color */
+  color: #29ABE2 !important; /* Change 'blue' to your desired font color */
+}
