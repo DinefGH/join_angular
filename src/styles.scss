@@ -2,6 +2,10 @@ body {
  background-color: #F6F7F8 !important;
 }
 
+h1 {
+  font-size: calc(2.375rem + 1.5vw)!important;
+  font-weight: 700!important;
+}
 
 
 $primary: #2A3647; 
@@ -35,4 +39,9 @@ $primary-hover: #29ABE2;
 .btn-default:hover {
   border-color: #29ABE2 !important; /* Change 'blue' to your desired border color */
   color: #29ABE2 !important; /* Change 'blue' to your desired font color */
+}
+
+
+.w180 {
+  width: 180px;
 }
