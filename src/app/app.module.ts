@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SummaryComponent } from './summary/summary.component';
+import { HeaderBarMobileComponent } from './header-bar-mobile/header-bar-mobile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SummaryComponent } from './summary/summary.component';
     ResetPasswordComponent,
     FooterBarComponent,
     SidebarComponent,
-    SummaryComponent
+    SummaryComponent,
+    HeaderBarMobileComponent
   ],
   imports: [
     BrowserModule,

@@ -4,11 +4,25 @@
     width: 100%;
     position: absolute;
     bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
+.iconContainerFooter {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
 
 .hoverFooterIcons:hover {
     background-color: #091931;
     cursor: pointer;
 }
 
+.activeRouteIcon {
+    background-color: #091931 !important;
+}
