@@ -1,4 +1,5 @@
 .headerContainer {
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
     height:10vh;
     width: 100%;
     position: absolute;
@@ -45,4 +46,14 @@
     color: #FFFFFF;
 
 }
-  
+
+
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+    .headerContainer {
+        height:15vh;
+        
+    }
+    
+}
+
+

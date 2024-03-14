@@ -11,6 +11,7 @@ import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SummaryComponent } from './summary/summary.component';
 import { HeaderBarMobileComponent } from './header-bar-mobile/header-bar-mobile.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HeaderBarMobileComponent } from './header-bar-mobile/header-bar-mobile.
     FooterBarComponent,
     SidebarComponent,
     SummaryComponent,
-    HeaderBarMobileComponent
+    HeaderBarMobileComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,

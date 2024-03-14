@@ -26,3 +26,15 @@
 .activeRouteIcon {
     background-color: #091931 !important;
 }
+
+
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+
+    .footerBar {
+        height: 15vh;
+    }
+
+    svg {
+        height: 50px;
+    }
+}
