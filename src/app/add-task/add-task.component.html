@@ -1,1 +1,37 @@
-<p>add-task works!</p>
+<div class="addTaskContainer">
+<header>
+    <app-header-bar-mobile></app-header-bar-mobile>
+</header>
+<main class="addTaskContent">
+    <article class="headlinesAddTaskContainer">
+        <h1>Add Task</h1>
+    </article>
+
+    <form>
+        <div class="mb-3 titleContainer">
+            <label for="exampleFormControlInput1" class="form-label">Title<span class="requiredStar">*</span></label>
+            <input type="email" class="form-control title" id="title" placeholder="Enter a title">
+          </div>
+          <div class="mb-3 describtionContainer">
+            <label for="describtion" class="form-label">Describtion</label>
+            <input type="email" class="form-control describtion" id="describtion" placeholder="Enter a Describtion">
+          </div>
+          <div>
+            <label for="prio" class="form-label">Prio</label>
+            <div class="btn-group">
+                <input type="radio" id="urgent" name="priority" value="Urgent" />
+                <label for="urgent" class="btn">Urgent</label>
+            
+                <input type="radio" id="medium" name="priority" value="Medium" />
+                <label for="medium" class="btn">Medium</label>
+            
+                <input type="radio" id="low" name="priority" value="Low" />
+                <label for="low" class="btn">Low</label>
+              </div>
+          </div>
+    </form>
+</main>
+<footer  class="footerAddTaskComponent">
+    <app-footer-bar></app-footer-bar>
+</footer>
+</div>
