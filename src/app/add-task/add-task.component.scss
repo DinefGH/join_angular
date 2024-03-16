@@ -28,18 +28,214 @@
   input[type="radio"] {
     display: none;
   }
-  
-  input[type="radio"] + label {
-    background-color: #f0f0f0;
+
+  .ckeckedUrgent + label {
+    background-color: #ffffff;
     border: 1px solid #dcdcdc;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    width: 112px;
+    padding: 18px 10px 18px 10px;
+    border-radius: 10px !important;
+  }
+
+  .ckeckedMedium + label {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    width: 112px;
+    padding: 18px 10px 18px 10px;
+    border-radius: 10px !important;
+  }
+
+  .ckeckedLow + label {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    width: 112px;
+    padding: 18px 10px 18px 10px;
+    border-radius: 10px !important;
+  }
+
+
+
+  .ckeckedUrgent:checked + label {
+    background-color: #FF3D00;
+    color: white;
+    border-color: #FF3D00;
+
+    svg path{
+      fill: #ffffff;
+    }
+  }
+
+  
+  .ckeckedMedium:checked + label {
+    background-color: #FFA800;
+    color: white;
+    border-color: #FFA800;
+
+    svg path{
+      fill: #ffffff;
+    }
   }
   
-  input[type="radio"]:checked + label {
-    background-color: #007bff;
+  .ckeckedLow:checked + label {
+    background-color: #7AE229;
     color: white;
-    border-color: #007bff;
+    border-color: #7AE229;
+
+    svg path{
+      fill: #ffffff;
+    }
+  }
+
+
+  .calendarButton {
+    border: none;
+    border-top:1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    border-right:1px solid #dee2e6;
+  }
+
+
+  .calendarButtonBackground {
+    background-color: white;
+  }
+
+
+  .borderNone {
+  border-right: none;
+}
+
+
+  .colorCircle {
+    background-color: #FF3D00;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  }
+
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+
+  .dropdown-input {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  
+  .options-list {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 4px;
+    padding-left: 0;
+  }
+  
+
+  .options-list li {
+    list-style: none;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+
+  .options-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+
+  .dropdown-container {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+  }
+  
+
+  .dropdown-display {
+    padding: 5px 0;
+  }
+  
+
+  .dropdown-options {
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+    overflow-y: auto;
+    max-height: 200px;
+    background-color: #ffffff;
+  }
+  
+
+  .dropdown-option {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+
+  .color-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+
+  .dropdown-container {
+    position: relative;
+    user-select: none; /* Prevent text selection */
+  }
+  
+
+  .dropdown-display {
+    position: relative;
+    cursor: pointer; /* Indicates it's clickable */
+  }
+  
+
+  .dropdown-display::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    border: 5px solid transparent; /* Creates the arrow shape */
+    border-top-color: #333; /* Arrow color */
+  }
+  
+
+  /* Rotate the arrow when the dropdown is open */
+  .dropdown-container.open .dropdown-display::after {
+    transform: translateY(-50%) rotate(180deg);
   }

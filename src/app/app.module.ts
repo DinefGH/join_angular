@@ -12,7 +12,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SummaryComponent } from './summary/summary.component';
 import { HeaderBarMobileComponent } from './header-bar-mobile/header-bar-mobile.component';
 import { AddTaskComponent } from './add-task/add-task.component';
-
+import { NgbModule,  NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { CustomDateParserFormatter } from './custom-dateparser-formatter';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,14 @@ import { AddTaskComponent } from './add-task/add-task.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    NgbDatepickerModule
   ],
-  providers: [],
+  providers: [
+    { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
