@@ -31,12 +31,12 @@
   </header>
     <div class="formContainer">
       <div class="form-floating mb-3 inputContainer">
-      <input type="email" id="floatingInput" class="form-control formInput" name="email" placeholder="Email" required>
-      <label for="floatingInput">Email address</label>
+        <input type="email" [(ngModel)]="email" id="floatingInput" class="form-control formInput" name="email" placeholder="Email" required>
+        <label for="floatingInput">Email address</label>
     </div>
   
     <div class="form-floating mb-3 inputContainer">
-      <input [type]="passwordVisible ? 'text' : 'password'" class="form-control formInputPassword" id="floatingPassword" placeholder="Password">
+      <input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password" class="form-control formInputPassword" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
       <button type="button" class="btn borderNone position-absolute h58 end-0 top-0" (click)="togglePasswordVisibility()">
         <img [src]="passwordVisible ? '/assets/img/visibility.png' : '/assets/img/visibility_off.png'" alt="Toggle Password Visibility">
@@ -53,7 +53,7 @@
       </div>
     
       
-      <button type="button" class="btn btn-primary btn-lg w180">Log in</button>
+      <button type="button" class="btn btn-primary btn-lg w180" (click)="onSubmit()">Log in</button>
       <button type="button" class="btn btn-default btn-lg w180">Guest Log in</button>
 
 </div>

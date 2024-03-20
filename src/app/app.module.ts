@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +15,7 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { NgbModule,  NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomDateParserFormatter } from './custom-dateparser-formatter';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { CustomDateParserFormatter } from './custom-dateparser-formatter';
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
     { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter }
