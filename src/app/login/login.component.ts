@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
-import { AuthService } from 'src/app/services/auth.service';
+import { LoginService } from 'src/services/login.service';
+
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +18,7 @@ export class LoginComponent {
   passwordVisible: boolean = false;
   isPasswordWrong: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
 
 
@@ -26,18 +29,18 @@ export class LoginComponent {
 
   
 
-  async onSubmit() {
-    try {
-      const resp = await this.authService.loginWithEmailAndPassword(this.email, this.password);
-      console.log(resp);
-      // Assuming the response correctly includes a token property
-      localStorage.setItem('token', resp['token']);
-      this.router.navigateByUrl('/summary'); // Navigate to '/summary' or any other desired route
-    } catch (error) {
-      console.error('Error:', error);
-      this.isPasswordWrong = true; // Set flag to show error message or handle the login error
-    }
-  }
+//   async onSubmit() {
+//     try {
+ 
+//       console.log(resp);
+//       // Assuming the response correctly includes a token property
+//       localStorage.setItem('token', resp['token']);
+//       this.router.navigateByUrl('/summary'); // Navigate to '/summary' or any other desired route
+//     } catch (error) {
+//       console.error('Error:', error);
+//       this.isPasswordWrong = true; // Set flag to show error message or handle the login error
+//     }
+//   }
 }
 
 

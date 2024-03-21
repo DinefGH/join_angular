@@ -31,7 +31,7 @@
     </header>
 
     
-    <form class="formContainer" (ngSubmit)="onSubmit()">
+    <form class="formContainer" (ngSubmit)="onSubmit()" #registrationForm="ngForm">
 
           <div class="form-floating mb-3 inputContainer">
             <input type="text" id="floatingInputName" class="form-control formInputName" [(ngModel)]="user.name" name="name" placeholder="Name" required>
@@ -62,13 +62,20 @@
       </div>
 
       
-    <div class="form-check checkboxContainer">
-      <input class="form-check-input checkboxInput" type="checkbox" [(ngModel)]="user.acceptsPrivacyPolicy" name="acceptsPrivacyPolicy" id="flexCheckDefault">
-      <span>I accept the <i class="privacyLink">Privacy policy</i></span>
-    </div>
+      <div class="form-check checkboxContainer">
+        <input class="form-check-input checkboxInput" type="checkbox" [(ngModel)]="user.acceptsPrivacyPolicy" name="acceptsPrivacyPolicy" id="flexCheckDefault" required>
+        <label class="form-check-label" for="flexCheckDefault">
+          I accept the <i class="privacyLink">Privacy policy</i>
+        </label>
+      </div>
       
+      <div *ngIf="registrationForm.submitted && !user.acceptsPrivacyPolicy" class="text-danger">
+        You must accept the privacy policy to proceed.
+      </div>
         
-    <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
+      <button type="submit" class="btn btn-primary btn-lg" [disabled]="!registrationForm.form.valid || !user.acceptsPrivacyPolicy">
+        Sign up
+      </button>    
     </form>
 
   </main>

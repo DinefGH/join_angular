@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
+import { UserRegistrationService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,10 +16,38 @@ export class SignUpComponent {
     confirmPassword: '',
     acceptsPrivacyPolicy: false
   };
-
   passwordVisible: boolean = false;
 
-  constructor(private userService: UserService) {}
+  constructor(private userRegistrationService: UserRegistrationService) {}
+
+  onSubmit(): void {
+    if (this.user.acceptsPrivacyPolicy) {
+      // Adjust the payload to match the backend's expected structure.
+      const userDataToSend = {
+        name: this.user.name, // Ensure this matches the corrected model structure
+        email: this.user.email,
+        password: this.user.password,
+        confirmPassword: this.user.confirmPassword
+      };
+  
+      this.userRegistrationService.registerUser(userDataToSend).subscribe({
+        next: (response) => {
+          console.log('User registered successfully', response);
+          // Handle successful registration (e.g., redirecting to a login page or showing a success message)
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+          console.error('Error response body:', error.error);
+          // Optionally, log the status code and error message
+          console.error(`Error status: ${error.status}, Message: ${error.message}`);
+          // Here, you might show error messages to the user in the UI.
+        }
+      });
+    } else {
+      // Handle case where privacy policy is not accepted
+      console.error('Privacy policy not accepted');
+    }
+  }
 
   togglePasswordVisibility(): void {
     this.passwordVisible = !this.passwordVisible;
@@ -27,21 +55,6 @@ export class SignUpComponent {
 
   passwordsMatch(): boolean {
     return this.user.password === this.user.confirmPassword;
-  }
-
-  onSubmit(): void {
-    if (this.passwordsMatch()) {
-      this.userService.register(this.user).subscribe({
-        next: (response) => {
-          console.log('Registration successful', response);
-        },
-        error: (error) => {
-          console.error('Registration failed', error);
-        }
-      });
-    } else {
-      console.error('Passwords do not match');
-    }
   }
 }
 

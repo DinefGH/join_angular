@@ -16,6 +16,9 @@ import { NgbModule,  NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomDateParserFormatter } from './custom-dateparser-formatter';
 import { HttpClientModule } from '@angular/common/http';
+import { UserService } from 'src/app/services/user.service';
+import { UserRegistrationService } from 'src/app/services/auth.service'; // Adjust path as needed
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
   ],
   providers: [
-    { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter }
+    { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter },
+    UserService,
+    UserRegistrationService,
 
   ],
   bootstrap: [AppComponent]

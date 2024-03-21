@@ -1,24 +1,17 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
-import { environment } from 'src/environments/environment';
-
-export interface LoginResponse {
-  token: string;
-  // Add any other properties you expect from the login response
-}
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthService {
+export class UserRegistrationService {
+  private registrationUrl = 'http://127.0.0.1:8000/signup/'; // Adjust this URL to your actual endpoint
+
   constructor(private http: HttpClient) {}
 
-  public loginWithEmailAndPassword(username: string, password: string): Promise<LoginResponse> {
-    const url = `${environment.baseUrl}/login/`;
-    const body = { username, password };
-
-    return lastValueFrom(this.http.post<LoginResponse>(url, body));
+  registerUser(userData: { name: string; email: string; password: string; confirmPassword: string }): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post(this.registrationUrl, userData, { headers: headers });
   }
 }
