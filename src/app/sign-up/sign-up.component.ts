@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserRegistrationService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,6 +9,8 @@ import { UserRegistrationService } from 'src/app/services/auth.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
+
+  signupSuccess = false;
 
   user = {
     name: '',
@@ -18,7 +21,7 @@ export class SignUpComponent {
   };
   passwordVisible: boolean = false;
 
-  constructor(private userRegistrationService: UserRegistrationService) {}
+  constructor(private userRegistrationService: UserRegistrationService, private router: Router) {}
 
   onSubmit(): void {
     if (this.user.acceptsPrivacyPolicy) {
@@ -33,7 +36,10 @@ export class SignUpComponent {
       this.userRegistrationService.registerUser(userDataToSend).subscribe({
         next: (response) => {
           console.log('User registered successfully', response);
-          // Handle successful registration (e.g., redirecting to a login page or showing a success message)
+          this.signupSuccess = true;
+          setTimeout(() => {
+            this.router.navigate(['/login']); // Navigate to the login page
+          }, 3000);
         },
         error: (error) => {
           console.error('There was an error!', error);
@@ -47,6 +53,7 @@ export class SignUpComponent {
       // Handle case where privacy policy is not accepted
       console.error('Privacy policy not accepted');
     }
+
   }
 
   togglePasswordVisibility(): void {

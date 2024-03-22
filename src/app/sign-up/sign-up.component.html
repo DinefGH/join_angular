@@ -76,8 +76,12 @@
       <button type="submit" class="btn btn-primary btn-lg" [disabled]="!registrationForm.form.valid || !user.acceptsPrivacyPolicy">
         Sign up
       </button>    
+      
     </form>
 
+<div *ngIf="signupSuccess"  class="signedSuccessContainer">
+  You Signed Up successfully
+</div>
   </main>
   
   <footer class="footerContainer">
