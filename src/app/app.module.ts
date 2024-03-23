@@ -17,7 +17,11 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomDateParserFormatter } from './custom-dateparser-formatter';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
-import { UserRegistrationService } from 'src/app/services/auth.service'; // Adjust path as needed
+import { UserRegistrationService } from 'src/app/services/auth.service';
+import { ContactsViewComponent } from './contacts/contacts-view/contacts-view.component';
+import { ContactsOverviewComponent } from './contacts/contacts-overview/contacts-overview.component';
+import { ContactsAddComponent } from './contacts/contacts-add/contacts-add.component';
+import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component'; // Adjust path as needed
 
 
 @NgModule({
@@ -30,7 +34,11 @@ import { UserRegistrationService } from 'src/app/services/auth.service'; // Adju
     SidebarComponent,
     SummaryComponent,
     HeaderBarMobileComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    ContactsViewComponent,
+    ContactsOverviewComponent,
+    ContactsAddComponent,
+    ContactsEditComponent
   ],
   imports: [
     BrowserModule,

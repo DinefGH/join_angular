@@ -18,11 +18,9 @@ export class HeaderBarMobileComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getCurrentUser().subscribe(user => {
-      console.log('Received user:', user);
       if (user && user.name) {
         // Assuming 'name' is a property of the User model and contains the full name
         this.userInitial = user.name.charAt(0).toUpperCase();
-        console.log('User initial', this.userInitial);
       }
     });
   }
