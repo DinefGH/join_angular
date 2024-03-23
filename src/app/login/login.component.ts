@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
-import { LoginService } from 'src/services/login.service';
+import { LoginService } from 'src/app/auth/login.service';
 
 
 
@@ -17,6 +17,7 @@ export class LoginComponent {
 
   passwordVisible: boolean = false;
   isPasswordWrong: boolean = false;
+  rememberMe: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router) {}
 
@@ -26,21 +27,35 @@ export class LoginComponent {
     this.passwordVisible = !this.passwordVisible;
   }
 
-
   
 
-//   async onSubmit() {
-//     try {
- 
-//       console.log(resp);
-//       // Assuming the response correctly includes a token property
-//       localStorage.setItem('token', resp['token']);
-//       this.router.navigateByUrl('/summary'); // Navigate to '/summary' or any other desired route
-//     } catch (error) {
-//       console.error('Error:', error);
-//       this.isPasswordWrong = true; // Set flag to show error message or handle the login error
-//     }
-//   }
+  login(): void {
+    this.loginService.login(this.email, this.password).subscribe({
+      next: (response) => {
+        console.log("Login successful, token:", response.token);
+        // Decide where to store the token based on "Remember me" checkbox
+        if (this.rememberMe) {
+          localStorage.setItem('auth_token', response.token); // Persistent storage
+        } else {
+          sessionStorage.setItem('auth_token', response.token); // Session-only storage
+        }
+        setTimeout(() => this.router.navigate(['/summary']), 100);
+        this.isPasswordWrong = false;
+      },
+      error: (error) => {
+        console.error("Login failed:", error);
+        this.isPasswordWrong = true;
+      }
+    });
+  }
+
+  goToSignUp(): void {
+    this.router.navigate(['/signup']);
+  }
 }
+
+
+
+
 
 
