@@ -15,14 +15,14 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { NgbModule,  NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomDateParserFormatter } from './custom-dateparser-formatter';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
 import { UserRegistrationService } from 'src/app/services/auth.service';
 import { ContactsViewComponent } from './contacts/contacts-view/contacts-view.component';
 import { ContactsOverviewComponent } from './contacts/contacts-overview/contacts-overview.component';
 import { ContactsAddComponent } from './contacts/contacts-add/contacts-add.component';
 import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component'; // Adjust path as needed
-
+import { CsrfInterceptor } from './csrf.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,6 +51,11 @@ import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.co
   ],
   providers: [
     { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CsrfInterceptor,
+      multi: true,
+    },
     UserService,
     UserRegistrationService,
 

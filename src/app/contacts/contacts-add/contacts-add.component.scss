@@ -1,0 +1,125 @@
+.addContactsContentConatiner {
+    height: 80vh;
+    width: 90vw;
+    position: absolute;
+    top: 10vh;
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.topContainerAddContacts {
+    height: 30vh;
+    width: 100%;
+    background-color: #2A3647;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    padding-left: 16px;
+}
+
+
+.closeIconContainer {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.addContactsUnderline {
+    border-bottom: 3px solid;
+    border-color: #29ABE2;
+    width: min(120px, 50%);
+    padding-bottom: 8px;
+}
+
+
+.smallHeadlineAddContacts {
+    font-size: calc(1.175rem + 0.5vw) !important;
+}
+
+.personIconContainer {
+    background-color: #D1D1D1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: solid 3px #ffffff;
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+}
+
+.bottomContainerContacts {
+    height: 50vh;
+    width: 90vw;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+
+.colorFont {
+    color: #D1D1D1;
+}
+
+
+.formInputContacsName {
+    background-image: url('/assets/img/person.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 18px);
+}
+
+
+.formInputContactsMail {
+    background-image: url('/assets/img/mail.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 18px);
+}
+
+.formInputContacsPhone {
+    background-image: url('/assets/img/phone.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 18px);
+}
+.inputContainer {
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.formContainerAddContacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-height: 740px) {
+    
+    .personIconContainer {
+        height: 100px;
+        width: 100px;
+        bottom: -50px;
+    }
+    
+    
+    .formContainerAddContacts {
+        position: absolute;
+        bottom: 8px;
+    }
+}

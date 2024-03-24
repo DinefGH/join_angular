@@ -1,1 +1,36 @@
-<p>contacts-add works!</p>
+<main class="addContactsContentConatiner">
+    <div class="topContainerAddContacts">
+        <div class="closeIconContainer">
+            <img class="closeIcon" src="./assets/img/close.png" alt="Close icon">
+        </div>
+        <div>
+            <h1>Add Contact</h1>
+            <div class="smallHeadlineAddContacts">Tasks are better with a team!</div>
+            <div class="addContactsUnderline"></div>
+        </div>
+        <div class="personIconContainer">
+            <div class="personIcon"><img src="/assets/img/personContactBig.png" alt="Person icon"></div>
+        </div>
+    </div>
+    <div class="bottomContainerContacts">
+        <form class="formContainerAddContacts">
+            <div class="form-floating mb-3 inputContainer">
+                <input type="text"  id="floatingInputContactsName" class="form-control formInputContacsName custom-input-height" name="name" placeholder="Name" required>
+                <label class="colorFont" for="floatingInputContactsName">Name</label>
+            </div>
+
+            <div class="form-floating mb-3 inputContainer">
+                <input type="email"  id="floatingInputContactsEmail" class="form-control formInputContactsMail" name="email" placeholder="Email" required>
+                <label class="colorFont" for="floatingInputContactsEmail">Email</label>
+            </div>
+
+            <div class="form-floating mb-3 inputContainer">
+                <input type="number"  id="floatingInputContactsPhone" class="form-control formInputContacsPhone" name="phone" placeholder="Phone" required>
+                <label class="colorFont" for="floatingInputContactsPhone">Phone</label>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg w180">Create contact</button>
+
+        </form>
+    </div>
+
+</main>
