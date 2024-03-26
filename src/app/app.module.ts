@@ -22,7 +22,7 @@ import { ContactsViewComponent } from './contacts/contacts-view/contacts-view.co
 import { ContactsOverviewComponent } from './contacts/contacts-overview/contacts-overview.component';
 import { ContactsAddComponent } from './contacts/contacts-add/contacts-add.component';
 import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component'; // Adjust path as needed
-import { CsrfInterceptor } from './csrf.interceptor';
+import { AuthInterceptor } from 'src/app/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,11 +51,7 @@ import { CsrfInterceptor } from './csrf.interceptor';
   ],
   providers: [
     { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CsrfInterceptor,
-      multi: true,
-    },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     UserService,
     UserRegistrationService,
 

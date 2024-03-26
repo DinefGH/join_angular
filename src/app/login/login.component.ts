@@ -20,7 +20,7 @@ export class LoginComponent {
   isPasswordWrong: boolean = false;
   rememberMe: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router, private userService: UserService) {}
+  constructor(private loginService: LoginService, private router: Router, private userService: UserService, private http: HttpClient) {}
 
 
 
@@ -44,6 +44,7 @@ export class LoginComponent {
           console.log("No user details in response"); // Log if user details are missing
         }
 
+        // Fetch CSRF token after successful login
         this.router.navigate(['/summary']);
         this.isPasswordWrong = false;
       },
