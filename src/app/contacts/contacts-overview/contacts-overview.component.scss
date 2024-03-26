@@ -8,6 +8,26 @@
 
 .contactsContent {
     height: 80vh;
-    position: absolute;
+    position: fixed;
     top: 10vh;
+    width: 100vw;
+}
+
+.addIconContainer {
+    height: 56px;
+    width: 56px;
+    background-color: #2A3647;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.personAddIcon {
+    padding-left: 4px;
+    padding-bottom: 4px;
 }

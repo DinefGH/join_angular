@@ -3,8 +3,12 @@
     <app-header-bar-mobile></app-header-bar-mobile>
 </header>
 <main class="contactsContent">
-<app-contacts-add></app-contacts-add>
+
+<div class="addIconContainer" (click)="showContactsAdd()">
+    <img class="personAddIcon" src="/assets/img/person_add.png" alt="Person add icon">
+</div>
 </main>
+<app-contacts-add  *ngIf="isVisible" (close)="isVisible = false"></app-contacts-add>
 <footer  class="footerComponent">
     <app-footer-bar></app-footer-bar>
 </footer>

@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output  } from '@angular/core';
 import { AddContactService } from 'src/app/services/add-contact.service';
-
 
 @Component({
   selector: 'app-contacts-add',
@@ -9,12 +8,18 @@ import { AddContactService } from 'src/app/services/add-contact.service';
 })
 export class ContactsAddComponent {
 
+  addContactSuccess = false
+
   contactData = {
     name: '',
     email: '',
     phone: ''
   };
+  @Output() close = new EventEmitter<void>();
 
+  closeComponent() {
+    this.close.emit();
+  }
 
   constructor(private addContactService: AddContactService) { }
 
@@ -22,6 +27,7 @@ export class ContactsAddComponent {
     this.addContactService.addContact(this.contactData).subscribe({
       next: (response) => {
         console.log('Contact added successfully:', response);
+        this.addContactSuccess = true;
         // Optionally, clear the form or provide user feedback
       },
       error: (error) => {

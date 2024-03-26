@@ -1,6 +1,6 @@
 <main class="addContactsContentConatiner">
     <div class="topContainerAddContacts">
-        <div class="closeIconContainer">
+        <div class="closeIconContainer" (click)="closeComponent()">
             <img class="closeIcon" src="./assets/img/close.png" alt="Close icon">
         </div>
         <div>
@@ -31,5 +31,7 @@
             <button type="submit" class="btn btn-primary btn-lg w180">Create contact</button>
           </form>
     </div>
-
+    <div *ngIf="addContactSuccess"  class="addedContactSuccessContainer">
+      Contact successfully created!
+    </div>
 </main>
