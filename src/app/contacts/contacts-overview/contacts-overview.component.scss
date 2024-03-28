@@ -8,9 +8,13 @@
 
 .contactsContent {
     height: 80vh;
-    position: fixed;
-    top: 10vh;
+    position: relative;
     width: 100vw;
+    padding-right: 32px;
+    padding-left: 32px;
+    overflow: scroll;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .addIconContainer {
@@ -18,8 +22,8 @@
     width: 56px;
     background-color: #2A3647;
     border-radius: 50%;
-    position: absolute;
-    bottom: 16px;
+    position: fixed;
+    bottom: calc(10vh + 16px);
     right: 16px;
     cursor: pointer;
     display: flex;
@@ -30,4 +34,48 @@
 .personAddIcon {
     padding-left: 4px;
     padding-bottom: 4px;
+}
+
+.headlineContactOverview {
+    font-size: 1.3rem;
+    padding-left: 24px;
+}
+
+.headlineUnderline {
+    border-bottom: 1px solid;
+    border-color: #D1D1D1;
+    width: 100%;
+}
+
+.initialsCircle {
+    color: #ffffff;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.contactNameEmailContainer {
+    margin-left: 32px;
+}
+
+.contactName {
+    font-size: 1.3rem;
+}
+
+.contactEmail {
+    color: #007CEE;
+    font-size: 0.75rem;
+
 }

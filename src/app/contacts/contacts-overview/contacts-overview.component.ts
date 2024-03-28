@@ -9,7 +9,7 @@ import { AddContactService } from 'src/app/services/add-contact.service';
 })
 export class ContactsOverviewComponent implements OnInit  {
   isVisible: boolean = false;
-  groupedContacts: { [key: string]: { name: string; initials: string; email: string  }[] } = {};
+  groupedContacts: { [key: string]: { name: string; initials: string; email: string; color?: string;  }[] } = {};
 
   showContactsAdd(): void {
     this.isVisible = true; // Show the <app-contacts-add> component
@@ -32,15 +32,22 @@ export class ContactsOverviewComponent implements OnInit  {
     contacts.forEach(contact => {
       const firstLetter = contact.name[0].toUpperCase();
       const initials = this.getInitials(contact.name);
-      // Include email in the object
-      const contactWithInitialsAndEmail = { ...contact, initials }; // Assuming email is already part of contact
+      const color = contact.color;
   
       if (!this.groupedContacts[firstLetter]) {
         this.groupedContacts[firstLetter] = [];
       }
-      this.groupedContacts[firstLetter].push(contactWithInitialsAndEmail);
+      
+      // Add the contact to the relevant group
+      this.groupedContacts[firstLetter].push({ ...contact, initials, color });
     });
+  
+    // Now, sort each group of contacts alphabetically by name
+    for (const letter in this.groupedContacts) {
+      this.groupedContacts[letter].sort((a, b) => a.name.localeCompare(b.name));
+    }
   }
+  
   
   getInitials(name: string): string {
     const names = name.split(' ');
@@ -58,7 +65,10 @@ export class ContactsOverviewComponent implements OnInit  {
     return Object.keys(this.groupedContacts).sort();
   }
 
-
+  onContactAdded(contactAdded: boolean): void {
+    if (contactAdded) {
+      this.loadContacts(); // Refresh the contacts list
+    }
 }
-
+}
 
