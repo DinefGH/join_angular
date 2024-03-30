@@ -5,6 +5,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SummaryComponent } from './summary/summary.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ContactsOverviewComponent } from './contacts/contacts-overview/contacts-overview.component';
+import { ContactsViewComponent } from './contacts/contacts-view/contacts-view.component';
+
 
 import { AuthGuard } from './auth.guard';
 
@@ -16,6 +18,7 @@ const routes: Routes = [
   {path: 'summary', component: SummaryComponent, canActivate: [AuthGuard]},
   {path: 'addtask', component: AddTaskComponent, canActivate: [AuthGuard]},
   {path: 'contacts', component: ContactsOverviewComponent, canActivate: [AuthGuard]},
+  {path: 'contacts-detail/:id', component: ContactsViewComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

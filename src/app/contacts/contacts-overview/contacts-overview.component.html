@@ -14,9 +14,7 @@
                 <div class="headlineUnderline"></div>
             </div>
             <div class="showContactContainer">
-              <!-- Iterating over the array of contact objects for the current letter -->
-              <div *ngFor="let contact of groupedContacts[letter]" class="contactItem">
-                <!-- Displaying the initials circle and contact name -->
+              <div *ngFor="let contact of groupedContacts[letter]" class="contactItem" (click)="goToContactDetails(contact.id)">
                 <span class="initialsCircle"  [style.background-color]="contact.color" >{{ contact.initials }}</span>
                 <div class="contactNameEmailContainer">
                     <div class="contactName">{{ contact.name }}</div>
@@ -29,6 +27,8 @@
 
 
 
+
+    
 <div class="addIconContainer" (click)="showContactsAdd()">
     <img class="personAddIcon" src="/assets/img/person_add.png" alt="Person add icon">
 </div>

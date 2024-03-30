@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AddContactService } from 'src/app/services/add-contact.service';
+import { Contact } from 'src/assets/models/contact.model';
 
 
 @Component({
@@ -9,13 +11,13 @@ import { AddContactService } from 'src/app/services/add-contact.service';
 })
 export class ContactsOverviewComponent implements OnInit  {
   isVisible: boolean = false;
-  groupedContacts: { [key: string]: { name: string; initials: string; email: string; color?: string;  }[] } = {};
+  groupedContacts: { [key: string]: Contact[] } = {};
 
   showContactsAdd(): void {
     this.isVisible = true; // Show the <app-contacts-add> component
   }
 
-  constructor(private addContactService: AddContactService) { }
+  constructor(private addContactService: AddContactService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadContacts();
@@ -23,6 +25,7 @@ export class ContactsOverviewComponent implements OnInit  {
 
   loadContacts(): void {
     this.addContactService.getContacts().subscribe(contacts => {
+      console.log('Loaded contacts:', contacts);
       this.groupContactsByFirstLetter(contacts);
     });
   }
@@ -70,5 +73,12 @@ export class ContactsOverviewComponent implements OnInit  {
       this.loadContacts(); // Refresh the contacts list
     }
 }
+
+goToContactDetails(contactId: number) {
+  if (typeof contactId === 'undefined') {
+    console.error('Contact ID is undefined');
+    return;
+  }
+  this.router.navigate(['/contacts-detail', contactId]);}
 }
 

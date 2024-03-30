@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, pipe } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap  } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+
 
 
 @Injectable({
@@ -43,5 +44,28 @@ export class AddContactService {
       'Content-Type': 'application/json',
       'Authorization': `Token ${token}` // Adjust if you use a different token prefix
     });
+  }
+
+  getContactById(contactId: number): Observable<any> {
+    const headers = this.createAuthorizationHeader();
+    return this.http.get(`${this.baseUrl}/contact/${contactId}/`, { headers })
+      .pipe(
+        tap(data => console.log(`Data loaded for contact ID ${contactId}:`, data)),
+        catchError(error => {
+          console.error(`Error occurred while fetching contact with ID ${contactId}:`, error);
+          return throwError(error);
+        })
+      );
+  }
+
+  deleteContact(contactId: number): Observable<any> {
+    const headers = this.createAuthorizationHeader();
+    return this.http.delete(`${this.baseUrl}/contact/${contactId}/`, { headers })
+      .pipe(
+        catchError(error => {
+          console.error(`Error occurred while deleting contact with ID ${contactId}:`, error);
+          return throwError(error);
+        })
+      );
   }
 }

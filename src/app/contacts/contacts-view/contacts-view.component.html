@@ -1,1 +1,61 @@
-<p>contacts-view works!</p>
+<div class="contactsViewContainer">
+
+    <header>
+        <app-header-bar-mobile></app-header-bar-mobile>
+    </header>
+
+    <main class="contactsViewContent">
+
+        <div>
+            <h1>Contacts</h1>
+            <div class="smallHeadlineContacts">Better with a team!</div>
+            <div class="contactsUnderline"></div>
+        </div>
+
+        <div class="intitialsContactNameContainer">
+            <span class="initialsCircleContactView" [style.backgroundColor]="contact?.color">{{ getInitials(contact?.name) }}</span>
+            <div class="contactName">{{ contact?.name }}</div>
+        </div>
+
+        <article class="contactsInformationContainer">
+            <p class="contactsInformation">Contact information</p>
+            <strong class="contactsEmailHeadline">Email</strong>
+            <a class="contactsEmail">{{ contact?.email }}</a>
+            <strong class="contactsPhoneHeadline">Phone</strong>
+            <p class="contactsPhone">{{ contact?.phone }}</p>
+        </article>
+
+
+            <div  class="dropup">
+
+                <div type="button" class="moreIconContainer" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="moreIcon" src="/assets/img/more.png" alt="Person add icon">
+                </div> 
+
+
+                <ul class="dropdown-menu linkContainerContactView">
+                    <li>
+                        <span class="dropdown-item linkContactView">
+                            <i class="fa-solid fa-pencil"></i>
+                        Edit
+                        </span>
+
+                    </li>
+                    <li>
+                        <span class="dropdown-item linkContactView" href="#" (click)="deleteContact()">
+                            <i class="fas fa-trash-alt"></i>
+                        Delete
+                        </span>
+                  </ul>
+            </div>
+
+
+
+    </main>
+    <app-contacts-edit class="editContactsComponent"></app-contacts-edit>
+    <footer  class="footerComponent">
+        <app-footer-bar></app-footer-bar>
+    </footer>
+
+</div>
+
