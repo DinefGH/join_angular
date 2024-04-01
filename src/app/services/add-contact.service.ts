@@ -68,4 +68,16 @@ export class AddContactService {
         })
       );
   }
+
+  updateContact(contactId: number, contactData: any): Observable<any> {
+    const headers = this.createAuthorizationHeader();
+    return this.http.put(`${this.baseUrl}/contact/${contactId}/`, contactData, { headers })
+      .pipe(
+        tap(data => console.log(`Data updated for contact ID ${contactId}:`, data)),
+        catchError(error => {
+          console.error(`Error occurred while updating contact with ID ${contactId}:`, error);
+          return throwError(error);
+        })
+      );
+  }
 }

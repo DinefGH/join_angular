@@ -35,10 +35,9 @@
 
                 <ul class="dropdown-menu linkContainerContactView">
                     <li>
-                        <span class="dropdown-item linkContactView">
-                            <i class="fa-solid fa-pencil"></i>
-                        Edit
-                        </span>
+                        <span class="dropdown-item linkContactView" (click)="showContactsEdit()">
+                            <i class="fa-solid fa-pencil"></i> Edit
+                          </span>
 
                     </li>
                     <li>
@@ -52,7 +51,7 @@
 
 
     </main>
-    <app-contacts-edit class="editContactsComponent"></app-contacts-edit>
+    <app-contacts-edit class="editContactsComponent" (contactEdited)="onContactEdited($event)"  *ngIf="showEditOverlay" (close)="showEditOverlay = false"></app-contacts-edit>
     <footer  class="footerComponent">
         <app-footer-bar></app-footer-bar>
     </footer>

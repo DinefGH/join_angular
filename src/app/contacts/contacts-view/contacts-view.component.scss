@@ -6,6 +6,7 @@
     flex-direction: column;
 }
 
+
 .contactsViewContent {
     height: 80vh;
     position: relative;
@@ -16,6 +17,7 @@
     margin-top: 10vh;
     margin-bottom: 10vh;
 }
+
 
 .smallHeadlineContacts {
     font-size: calc(1.175rem + 0.5vw) !important;
@@ -28,6 +30,7 @@
     width: min(120px, 50%);
     padding-bottom: 8px;
 }
+
 
 .contactsInformationContainer {
     display: flex;
@@ -42,6 +45,7 @@
     margin-bottom: 16px;
 }
 
+
 .initialsCircleContactView {
     color: #ffffff;
     height: 80px;
@@ -53,6 +57,7 @@
     align-items: center;
 }
 
+
 .contactName {
     font-family: 'InterBold';
     font-size: calc(1.4rem + 1.5vw);
@@ -60,9 +65,11 @@
     margin-left: 16px;
 }
 
+
 .contactsInformation {
 font-size: calc(1.175rem + 0.5vw);
 }
+
 
 .contactsEmailHeadline {
     font-family: 'InterBold';
@@ -70,11 +77,13 @@ font-size: calc(1.175rem + 0.5vw);
     margin-bottom: 8px;
 }
 
+
 .contactsEmail {
     color: #007CEE;
     margin-bottom: 8px;
 
 }
+
 
 .contactsPhoneHeadline {
     font-family: 'InterBold';
@@ -83,13 +92,12 @@ font-size: calc(1.175rem + 0.5vw);
     margin-top: 8px;
 }
 
+
 .contactsPhone {
     margin-bottom: 8px;
 }
 
-.editContactsComponent {
-    display: none;
-}
+
 
 .moreIconContainer {
     height: 56px;

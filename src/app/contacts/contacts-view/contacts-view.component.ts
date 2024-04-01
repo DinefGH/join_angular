@@ -9,10 +9,16 @@ import { Contact } from 'src/assets/models/contact.model';
   styleUrls: ['./contacts-view.component.scss']
 })
 export class ContactsViewComponent  implements OnInit {
-  
+  isVisible: boolean = false;
   contact: Contact | null = null;
   user: any; // Same here for the user, if applicable
   
+  public showEditOverlay: boolean = false;
+
+  showContactsEdit(): void {
+    this.showEditOverlay = true; // Show the <app-contacts-add> component
+  }
+
   constructor(
     private route: ActivatedRoute, 
     private router: Router,
@@ -74,4 +80,11 @@ export class ContactsViewComponent  implements OnInit {
       }
     });
   }
+
+  onContactEdited(contactEdited: boolean): void {
+    if (contactEdited) {
+      this.fetchContactDetails(this.contact!.id); // Re-fetch the contact details
+      this.showEditOverlay = false;
+    }
+}
 }

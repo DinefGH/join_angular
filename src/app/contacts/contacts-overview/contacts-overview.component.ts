@@ -24,9 +24,16 @@ export class ContactsOverviewComponent implements OnInit  {
   }
 
   loadContacts(): void {
-    this.addContactService.getContacts().subscribe(contacts => {
-      console.log('Loaded contacts:', contacts);
-      this.groupContactsByFirstLetter(contacts);
+    this.groupedContacts = {};
+  
+    this.addContactService.getContacts().subscribe({
+      next: (contacts) => {
+        this.groupContactsByFirstLetter(contacts);
+      },
+      error: (error) => {
+        console.error('Error loading contacts:', error);
+        // Handle the error, e.g., by showing a user-friendly message
+      }
     });
   }
 
