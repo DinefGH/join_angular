@@ -11,14 +11,19 @@
     height: 80vh;
     margin-top: 10vh;
     margin-bottom: 10vh;
-    margin-left: 16px;
-    margin-right: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+    overflow-y: scroll;
 }
+
+
 
 .footerAddTaskComponent {
     bottom: 0;
     left: 0;
 }
+
 
 .headlinesAddTaskContainer {
     margin-left: 16px;
@@ -26,11 +31,12 @@
 
 
 .dropdownOptionsContacts{
-  border: 1px solid #D1D1D1;
+    border: 1px solid #D1D1D1;
     padding-top: 5px;
     overflow-y: auto;
     max-height: 200px;
     background-color: #ffffff;
+    padding-left: 16px;
 }
 
 .dropdownDisplayContacts {
@@ -79,6 +85,15 @@
 .valueContainer {
   width: 100%;
 
+}
+
+
+.dueDateHeadline {
+  margin-top: 16px;
+}
+
+.prioHeadline {
+  margin-top: 16px;
 }
 
   input[type="radio"] {
@@ -214,6 +229,9 @@
     padding-left: 0;
   }
   
+  .categoryHeadline {
+    margin-top: 16px;
+  }
 
   .options-list li {
     list-style: none;
@@ -250,6 +268,7 @@
     overflow-y: auto;
     max-height: 200px;
     background-color: #ffffff;
+    padding-left: 16px;
   }
   
 
@@ -299,4 +318,21 @@
   /* Rotate the arrow when the dropdown is open */
   .dropdown-container.open .dropdown-display::after {
     transform: translateY(-50%) rotate(180deg);
+  }
+
+
+  .subtasksHeadline {
+    margin-top: 16px;
+  }
+
+
+  @media (max-width: 800px) {
+    .addTaskContent::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .addTaskContent {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
   }

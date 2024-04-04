@@ -7,7 +7,7 @@
         <h1>Add Task</h1>
     </article>
 
-    <form>
+    <form class="addTaskForm">
         <div class="mb-3 titleContainer">
             <label for="exampleFormControlInput1" class="form-label">Title<span class="requiredStar">*</span></label>
             <input type="email" class="form-control title" id="title" placeholder="Enter a title">
@@ -21,24 +21,25 @@
         <div class="categoryContainer">
             <div class="categoryHeadline">Assigned to</div>
             <div class="categoryInput">
-              <div class="dropdown-container" [class.open]="isOpenContacts" (click)="toggleDropdownContacts()">
-                <div class="dropdownDisplayContacts">
-                  <span *ngIf="selectedContact" class="colorCircleContacts" [style.backgroundColor]="selectedContact.color">{{ getInitials(selectedContact.name) }}</span>
-                  <span>{{ selectedContact?.name || 'Select a Contact' }}</span>
-                </div>
+                <div class="dropdown-container" [class.open]="isOpenContacts" (click)="toggleDropdownContacts()">
+                    <div class="dropdownDisplayContacts">
+                        <span *ngIf="selectedContact" class="colorCircleContacts" [style.backgroundColor]="selectedContact.color">{{ getInitials(selectedContact.name) }}</span>
+                        <span>{{ selectedContact?.name || 'Select a Contact' }}</span>
+                    </div>
                 <div *ngIf="isOpenContacts" class="dropdownOptionsContacts">
-                  <div *ngFor="let contact of contacts" (click)="selectContact(contact, $event);" class="dropdown-option">
-                    <span class="color-circle" [style.backgroundColor]="contact.color"></span>
-                    {{ contact.name }}
-                  </div>
+                    <div *ngFor="let contact of contacts" class="dropdown-option" (click)="handleContactClick(contact.id, $event)">
+                        <span class="colorCircleContacts" [style.backgroundColor]="contact.color">{{ getInitials(contact.name) }}</span>
+                    {{ contact.name }} 
+                    <input type="checkbox" #checkbox [checked]="selectedContacts.includes(contact.id)" (click)="$event.stopPropagation()">
                 </div>
-              </div>
+                </div>
+                </div>
             </div>
-          </div>
+            </div>
 
 
         <div class="dateContainer">
-            <div>Due date<span class="requiredStar">*</span></div>
+            <div class="dueDateHeadline">Due date<span class="requiredStar">*</span></div>
             <div>
                 <form class="row row-cols-sm-auto">
                     <div class="col-12">
@@ -64,7 +65,7 @@
 
         <div>
             <div class="prioButtonContainer">
-            <label for="prio" class="form-label">Prio<span class="requiredStar">*</span></label>
+            <label for="prio" class="form-label prioHeadline">Prio<span class="requiredStar">*</span></label>
             </div>
             <div class="btn-group valueContainer">
                 <input type="radio" class="checkedUrgent" id="urgent" name="priority" value="Urgent" />
@@ -137,6 +138,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="mb-3 subtasksContainer subtasksHeadline">
+            <label for="subtasks" class="form-label">Subtasks</label>
+            <input type="text" class="form-control subtasksInput" id="subtasks" placeholder="Add new subtask">
         </div>
     </form>
 </main>

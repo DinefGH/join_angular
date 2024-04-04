@@ -29,6 +29,7 @@ export class AddTaskComponent implements OnInit {
   contacts: Contact[] = [];
   selectedContact: Contact | null = null;
   isOpenContacts= false;
+  selectedContacts: number[] = [];
 
   constructor(private ngbDateParserFormatter: NgbDateParserFormatter, private addContactService: AddContactService) {}
 
@@ -85,5 +86,28 @@ export class AddTaskComponent implements OnInit {
                       .slice(0, 2); // Only take the first two parts for initials
     
     return initials.join('');
+  }
+
+  toggleContactSelection(contactId: number, isChecked: boolean): void {
+    if (isChecked) {
+      // Add contact ID to selectedContacts if not already present
+      if (!this.selectedContacts.includes(contactId)) {
+        this.selectedContacts.push(contactId);
+      }
+    } else {
+      // Remove contact ID from selectedContacts if unchecked
+      this.selectedContacts = this.selectedContacts.filter(id => id !== contactId);
+    }
+  }
+
+  handleContactClick(contactId: number, event: MouseEvent): void {
+    event.stopPropagation(); // Prevent click event from closing the dropdown
+  
+    const index = this.selectedContacts.indexOf(contactId);
+    if (index > -1) {
+      this.selectedContacts.splice(index, 1); // Remove the contact ID if it's already selected
+    } else {
+      this.selectedContacts.push(contactId); // Add the contact ID if it's not already selected
+    }
   }
 }
