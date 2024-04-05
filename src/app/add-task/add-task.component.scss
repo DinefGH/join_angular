@@ -36,7 +36,6 @@
     overflow-y: auto;
     max-height: 200px;
     background-color: #ffffff;
-    padding-left: 16px;
 }
 
 .dropdownDisplayContacts {
@@ -47,6 +46,8 @@
     padding: 6px 0;
     padding-left: 8px;
 }
+
+
 
 
 .dropdownDisplayContacts::after {
@@ -269,15 +270,72 @@
     max-height: 200px;
     background-color: #ffffff;
     padding-left: 16px;
+
   }
+
+
+  
   
 
   .dropdown-option {
     display: flex;
     align-items: center;
     padding: 5px 0;
+    padding-left: 16px;
+    position: relative;
+    &:hover {
+      background-color: #eeeeee;
+      
+    }
   }
   
+
+  .dropdown-option:active {
+    background-color: #091931;
+    color: #ffffff;
+  
+    .colorCircleContacts {
+      border: 2px solid #ffffff;
+    }
+  }
+
+  
+.dropdownContactsCheck {
+  position: absolute;
+    right: 32px;
+}
+
+
+.dropdownContactsCheckInput {
+  display: none; /* Hide the original checkbox */
+}
+
+.checkbox-label {
+  display: inline-block;
+  width: 16px; /* Custom width */
+  height: 16px; /* Custom height */
+  background-color: #f0f0f0; /* Default background color */
+  border: 1px solid #d1d1d1; /* Border to mimic a checkbox */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Style for when the checkbox is checked */
+.dropdownContactsCheckInput:checked + .checkbox-label {
+  background-color: #091931; /* Checked background color */
+  color: #ffffff;
+ /* You might want to use this for an icon or text inside the label */
+}
+
+/* Additional styles for the checked state (e.g., displaying a checkmark) */
+.dropdownContactsCheckInput:checked + .checkbox-label::after {
+  content: '✔'; /* Example: a checkmark */
+  color: #ffffff; /* Color of the checkmark */
+  display: block;
+  text-align: center;
+  line-height: 16px; 
+}
+
 
   .color-circle {
     display: inline-block;

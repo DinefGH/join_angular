@@ -30,7 +30,8 @@
                     <div *ngFor="let contact of contacts" class="dropdown-option" (click)="handleContactClick(contact.id, $event)">
                         <span class="colorCircleContacts" [style.backgroundColor]="contact.color">{{ getInitials(contact.name) }}</span>
                     {{ contact.name }} 
-                    <input type="checkbox" #checkbox [checked]="selectedContacts.includes(contact.id)" (click)="$event.stopPropagation()">
+                    <input id="dropdownContactsCheckInput" class="dropdownContactsCheckInput" type="checkbox" #checkbox [checked]="selectedContacts.includes(contact.id)" (click)="$event.stopPropagation()">
+                    <label for="dropdownContactsCheckInput" class="checkbox-label dropdownContactsCheck"></label>
                 </div>
                 </div>
                 </div>
