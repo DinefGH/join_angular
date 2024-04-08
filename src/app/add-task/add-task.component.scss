@@ -77,6 +77,7 @@
   align-items: center;
   margin-right: 8px;
   color: #ffffff;
+  flex-shrink: 0;
 }
 
 .requiredStar {
@@ -327,6 +328,16 @@
  /* You might want to use this for an icon or text inside the label */
 }
 
+
+.dropdown-option.selected {
+  background-color: #091931; /* Checked background color */
+  color: #ffffff;
+
+  .colorCircleContacts {
+    border: 2px solid #ffffff;
+  }
+}
+
 /* Additional styles for the checked state (e.g., displaying a checkmark) */
 .dropdownContactsCheckInput:checked + .checkbox-label::after {
   content: '✔'; /* Example: a checkmark */
@@ -344,6 +355,7 @@
     border-radius: 50%;
     margin-right: 5px;
     vertical-align: middle;
+    
   }
 
 
@@ -378,6 +390,16 @@
     transform: translateY(-50%) rotate(180deg);
   }
 
+
+.selectedContactsDisplay {
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 8px;
+}
 
   .subtasksHeadline {
     margin-top: 16px;

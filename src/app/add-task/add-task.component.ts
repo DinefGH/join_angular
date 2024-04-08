@@ -30,6 +30,7 @@ export class AddTaskComponent implements OnInit {
   selectedContact: Contact | null = null;
   isOpenContacts= false;
   selectedContacts: number[] = [];
+  maxVisibleContacts: number = 3;
 
   constructor(private ngbDateParserFormatter: NgbDateParserFormatter, private addContactService: AddContactService) {}
 
@@ -109,5 +110,8 @@ export class AddTaskComponent implements OnInit {
     } else {
       this.selectedContacts.push(contactId); // Add the contact ID if it's not already selected
     }
+  }
+  getContactById(contactId: number): Contact | undefined {
+    return this.contacts.find(contact => contact.id === contactId);
   }
 }

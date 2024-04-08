@@ -23,20 +23,42 @@
             <div class="categoryInput">
                 <div class="dropdown-container" [class.open]="isOpenContacts" (click)="toggleDropdownContacts()">
                     <div class="dropdownDisplayContacts">
-                        <span *ngIf="selectedContact" class="colorCircleContacts" [style.backgroundColor]="selectedContact.color">{{ getInitials(selectedContact.name) }}</span>
+                        <span *ngIf="selectedContact" class="colorCircleContacts" [style.backgroundColor]="selectedContact.color">
+                            {{ getInitials(selectedContact.name) }}
+                        </span>
                         <span>{{ selectedContact?.name || 'Select a Contact' }}</span>
+                        
                     </div>
-                <div *ngIf="isOpenContacts" class="dropdownOptionsContacts">
-                    <div *ngFor="let contact of contacts" class="dropdown-option" (click)="handleContactClick(contact.id, $event)">
-                        <span class="colorCircleContacts" [style.backgroundColor]="contact.color">{{ getInitials(contact.name) }}</span>
-                    {{ contact.name }} 
-                    <input id="dropdownContactsCheckInput" class="dropdownContactsCheckInput" type="checkbox" #checkbox [checked]="selectedContacts.includes(contact.id)" (click)="$event.stopPropagation()">
-                    <label for="dropdownContactsCheckInput" class="checkbox-label dropdownContactsCheck"></label>
-                </div>
-                </div>
+                    <div *ngIf="isOpenContacts" class="dropdownOptionsContacts">
+                        <div *ngFor="let contact of contacts; let i = index" 
+                            class="dropdown-option" 
+                            [class.selected]="selectedContacts.includes(contact.id)" 
+                            (click)="handleContactClick(contact.id, $event)">
+                            <span class="colorCircleContacts" [style.backgroundColor]="contact.color">
+                                {{ getInitials(contact.name) }}
+                            </span>
+                            {{ contact.name }}
+                            <input id="dropdownContactsCheckInput{{i}}" class="dropdownContactsCheckInput" type="checkbox" [checked]="selectedContacts.includes(contact.id)" (click)="$event.stopPropagation()">
+                            <label for="dropdownContactsCheckInput{{i}}" class="checkbox-label dropdownContactsCheck"></label>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
+        </div>
+        
+
+
+          <div *ngIf="!isOpenContacts" class="selectedContactsDisplay">
+            <ng-container *ngFor="let contactId of selectedContacts; let i = index">
+              <ng-container *ngIf="i < maxVisibleContacts; else moreContacts">
+                <span *ngIf="getContactById(contactId) as contact" class="colorCircleContacts" [style.backgroundColor]="contact.color">
+                  {{ getInitials(contact?.name)}}
+                </span>
+              </ng-container>
+            </ng-container>
+            <ng-template #moreContacts>...</ng-template>
+          </div>
+
 
 
         <div class="dateContainer">
