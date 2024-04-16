@@ -23,6 +23,7 @@ import { ContactsOverviewComponent } from './contacts/contacts-overview/contacts
 import { ContactsAddComponent } from './contacts/contacts-add/contacts-add.component';
 import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component'; // Adjust path as needed
 import { AuthInterceptor } from 'src/app/auth.interceptor';
+import { BoardComponent } from './board/board.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthInterceptor } from 'src/app/auth.interceptor';
     ContactsViewComponent,
     ContactsOverviewComponent,
     ContactsAddComponent,
-    ContactsEditComponent
+    ContactsEditComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,

@@ -105,8 +105,6 @@
                         </clipPath>
                         </defs>
                         </svg>
-                        
-                    
                 </label>
             
                 <input type="radio" class="checkedMedium" id="medium" name="priority" value="Medium" />
@@ -163,9 +161,20 @@
             </div>
         </div>
 
+
         <div class="mb-3 subtasksContainer subtasksHeadline">
             <label for="subtasks" class="form-label">Subtasks</label>
-            <input type="text" class="form-control subtasksInput" id="subtasks" placeholder="Add new subtask">
+            <div class="input-icon-container">
+                <input type="text" class="form-control subtasksInput" id="subtasks" placeholder="Add new subtask" #subtaskInput (focus)="toggleIcons(true)" (blur)="toggleIcons(false)">
+                <span class="icon" *ngIf="!isInputFocused">+</span>
+                <span class="icon check-icon" *ngIf="isInputFocused" >
+                    <i class="fa-solid fa-xmark"></i>
+                    <i class="fa-solid fa-check" (click)="addSubtask($event, subtaskInput.value)"></i>
+                </span>            
+            </div>
+            <ul class="subtasks-list">
+                <li *ngFor="let subtask of subtasks">{{subtask}}</li>
+            </ul>
         </div>
     </form>
 </main>

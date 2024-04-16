@@ -350,8 +350,8 @@
 
   .color-circle {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     margin-right: 5px;
     vertical-align: middle;
@@ -401,9 +401,42 @@
   margin-top: 8px;
 }
 
+.subtasksContainer {
+  display: flex;
+  flex-direction: column;
+}
+
   .subtasksHeadline {
     margin-top: 16px;
   }
+
+  .input-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.input-icon-container .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.subtasks-list {
+  list-style-type: none; /* Removes bullet points */
+  padding-left: 0; /* Removes default padding */
+  height: 30px;
+}
+
+.subtasks-list li {
+  /* Add styles for your subtasks here */
+}
+
+
+.subtasksInput {
+    padding-right: 30px; /* Adjust padding to ensure text doesn't overlap icons */
+}
 
 
   @media (max-width: 800px) {

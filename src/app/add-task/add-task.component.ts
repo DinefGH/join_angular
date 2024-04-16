@@ -31,6 +31,11 @@ export class AddTaskComponent implements OnInit {
   isOpenContacts= false;
   selectedContacts: number[] = [];
   maxVisibleContacts: number = 3;
+  isInputFocused: boolean = false;
+  
+  subtasks: string[] = [];
+  public newSubtask: string = '';
+
 
   constructor(private ngbDateParserFormatter: NgbDateParserFormatter, private addContactService: AddContactService) {}
 
@@ -114,4 +119,24 @@ export class AddTaskComponent implements OnInit {
   getContactById(contactId: number): Contact | undefined {
     return this.contacts.find(contact => contact.id === contactId);
   }
+
+  toggleIcons(focused: boolean): void {
+    if (!focused) {
+        setTimeout(() => this.isInputFocused = focused, 100); // Adjust delay as needed
+    } else {
+        this.isInputFocused = focused;
+    }
+}
+
+
+
+addSubtask(event: MouseEvent, subtaskValue: string): void {
+  event.preventDefault();
+  event.stopPropagation();
+  if (subtaskValue.trim()) {
+      this.subtasks.push(subtaskValue.trim());
+      console.log('Subtask saved');
+      // Additional logic to clear the input field, if necessary
+  }
+}
 }
