@@ -7,16 +7,16 @@
     position: fixed;
 }
 
+
 .addTaskContent {
     height: 80vh;
-    margin-top: 10vh;
+    margin-top: 8vh;
     margin-bottom: 10vh;
     padding-left: 16px;
     padding-right: 16px;
     box-sizing: border-box;
     overflow-y: scroll;
 }
-
 
 
 .footerAddTaskComponent {
@@ -38,6 +38,7 @@
     background-color: #ffffff;
 }
 
+
 .dropdownDisplayContacts {
   display: flex;
     align-items: center;
@@ -46,8 +47,6 @@
     padding: 6px 0;
     padding-left: 8px;
 }
-
-
 
 
 .dropdownDisplayContacts::after {
@@ -80,9 +79,11 @@
   flex-shrink: 0;
 }
 
+
 .requiredStar {
     color: red;
   }
+
 
 .valueContainer {
   width: 100%;
@@ -92,7 +93,9 @@
 
 .dueDateHeadline {
   margin-top: 16px;
+  margin-bottom: 0.5rem;
 }
+
 
 .prioHeadline {
   margin-top: 16px;
@@ -101,6 +104,7 @@
   input[type="radio"] {
     display: none;
   }
+
 
   .checkedUrgent + label {
     background-color: #ffffff;
@@ -117,6 +121,7 @@
     border-radius: 10px !important;
   }
 
+
   .checkedMedium + label {
     background-color: #ffffff;
     border: 1px solid #dcdcdc;
@@ -132,6 +137,7 @@
     border-radius: 10px !important;
   }
 
+
   .checkedLow + label {
     background-color: #ffffff;
     border: 1px solid #dcdcdc;
@@ -145,7 +151,6 @@
     padding: 18px 10px 18px 10px;
     border-radius: 10px !important;
   }
-
 
 
   .checkedUrgent:checked + label {
@@ -169,6 +174,7 @@
     }
   }
   
+
   .checkedLow:checked + label {
     background-color: #7AE229;
     color: white;
@@ -233,6 +239,7 @@
   
   .categoryHeadline {
     margin-top: 16px;
+    margin-bottom: 0.5rem;
   }
 
   .options-list li {
@@ -274,9 +281,6 @@
 
   }
 
-
-  
-  
 
   .dropdown-option {
     display: flex;
@@ -348,7 +352,7 @@
 }
 
 
-  .color-circle {
+.color-circle {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -356,25 +360,25 @@
     margin-right: 5px;
     vertical-align: middle;
     
-  }
+}
 
 
-  .dropdown-container {
+.dropdown-container {
     position: relative;
     user-select: none; /* Prevent text selection */
     z-index: 10;
-  }
+}
   
 
-  .dropdown-display {
+.dropdown-display {
     position: relative;
     cursor: pointer; /* Indicates it's clickable */
     padding: 6px 0;
     padding-left: 8px;
-  }
+}
   
 
-  .dropdown-display::after {
+.dropdown-display::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -382,13 +386,13 @@
     transform: translateY(-50%);
     border: 5px solid transparent; /* Creates the arrow shape */
     border-top-color: #333; /* Arrow color */
-  }
+}
   
 
   /* Rotate the arrow when the dropdown is open */
-  .dropdown-container.open .dropdown-display::after {
-    transform: translateY(-50%) rotate(180deg);
-  }
+.dropdown-container.open .dropdown-display::after {
+  transform: translateY(-50%) rotate(180deg);
+}
 
 
 .selectedContactsDisplay {
@@ -401,42 +405,140 @@
   margin-top: 8px;
 }
 
+
 .subtasksContainer {
   display: flex;
   flex-direction: column;
 }
 
-  .subtasksHeadline {
+
+.subtasksHeadline {
     margin-top: 16px;
-  }
+}
+
 
   .input-icon-container {
     position: relative;
     display: inline-block;
 }
 
+
 .input-icon-container .icon {
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: 8px;
+    top: 37%;
     transform: translateY(-50%);
     cursor: pointer;
 }
 
+
 .subtasks-list {
-  list-style-type: none; /* Removes bullet points */
-  padding-left: 0; /* Removes default padding */
+  padding-left:0;
   height: 30px;
 }
 
+
 .subtasks-list li {
-  /* Add styles for your subtasks here */
+  display: flex;
+  width: 100%;
+  margin-top: 4px;
 }
 
 
 .subtasksInput {
-    padding-right: 30px; /* Adjust padding to ensure text doesn't overlap icons */
+    padding-right: 30px; 
+    margin-bottom: 8px;
 }
+
+
+.check-icon {
+  display: flex;
+  align-items: center;
+}
+
+
+.checkContainer {
+  display: flex;
+  height:38px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+
+.xmarkContainer {
+  display: flex;
+  height:38px;
+  width: 24px;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+
+.checkIconLine {
+  border: 1px solid #D1D1D1;
+  height: 34px;
+  width: 2px;
+}
+
+
+.subtasksListContainer {
+  position: relative;
+}
+
+.editSubtask {
+  cursor: pointer;
+}
+
+
+.deleteSubtask {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+.editDeleteContainerList {
+  position: absolute;
+  right: 16px;
+  top: 0;
+}
+
+
+.subtask-item {
+  display: flex;
+  justify-content: space-between; /* Aligns content to both ends */
+  align-items: center; /* Centers items vertically */
+  margin-bottom: 10px; /* Adds space between items */
+}
+
+
+.icon-container {
+  /* No specific styling needed unless you want to add margins */
+}
+
+
+.subtask-text {
+  flex-grow: 1; /* Allows text to take up any extra space */
+}
+
+
+.editSubtask, .deleteSubtask {
+  margin-left: 8px; /* Space between icons */
+  cursor: pointer; /* Changes cursor to indicate clickable items */
+}
+
+
+.discList {
+  background-color: #000000;
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
 
 
   @media (max-width: 800px) {

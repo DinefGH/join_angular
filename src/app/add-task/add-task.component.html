@@ -165,16 +165,29 @@
         <div class="mb-3 subtasksContainer subtasksHeadline">
             <label for="subtasks" class="form-label">Subtasks</label>
             <div class="input-icon-container">
-                <input type="text" class="form-control subtasksInput" id="subtasks" placeholder="Add new subtask" #subtaskInput (focus)="toggleIcons(true)" (blur)="toggleIcons(false)">
+                <input type="text" class="form-control subtasksInput" id="subtasks" placeholder="Add new subtask" #subtaskInput (focus)="toggleIcons(true)">
                 <span class="icon" *ngIf="!isInputFocused">+</span>
-                <span class="icon check-icon" *ngIf="isInputFocused" >
-                    <i class="fa-solid fa-xmark"></i>
-                    <i class="fa-solid fa-check" (click)="addSubtask($event, subtaskInput.value)"></i>
-                </span>            
+                <div class="icon check-icon" *ngIf="isInputFocused" >
+                    <div class="xmarkContainer" (click)="clearInput()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="checkIconLine"></div>
+                    <div class="checkContainer" (click)="addSubtask($event, subtaskInput.value)">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>            
             </div>
             <ul class="subtasks-list">
-                <li *ngFor="let subtask of subtasks">{{subtask}}</li>
-            </ul>
+                
+                <li *ngFor="let subtask of subtasks; let i = index" class="subtask-item">
+                    <div class="discList"></div>
+                  <span class="subtask-text">{{subtask}}</span>
+                  <span class="icon-container">
+                    <i class="fa fa-edit editSubtask" (click)="editSubtask(i, subtask)"></i>
+                    <i class="fa-regular fa-trash-can deleteSubtask" (click)="deleteSubtask(i)"></i>
+                  </span>
+                </li>
+              </ul>
         </div>
     </form>
 </main>

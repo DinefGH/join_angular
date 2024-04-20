@@ -13,6 +13,9 @@ import { Contact } from 'src/assets/models/contact.model';
 export class AddTaskComponent implements OnInit {
   @ViewChild('dpInput') dpInput!: ElementRef<HTMLInputElement>;
   minDate!: NgbDateStruct; // To prevent past dates selection
+  @ViewChild('subtaskInput') subtaskInput!: ElementRef<HTMLInputElement>;
+
+
 
   options = [
     { name: 'User Story', color: '#FF0000' },
@@ -131,12 +134,42 @@ export class AddTaskComponent implements OnInit {
 
 
 addSubtask(event: MouseEvent, subtaskValue: string): void {
+  console.log('Function start'); // Debug log
   event.preventDefault();
   event.stopPropagation();
+  
+  console.log('Input value:', subtaskValue); // Debug log
+  
   if (subtaskValue.trim()) {
       this.subtasks.push(subtaskValue.trim());
-      console.log('Subtask saved');
+      console.log('Subtask saved:', subtaskValue.trim()); // Debug log
       // Additional logic to clear the input field, if necessary
+      this.subtaskInput.nativeElement.value = ''; // Clear the input field
+  }
+  
+  if (this.subtaskInput) {
+      console.log('Blurring input field'); // Debug log
+      this.subtaskInput.nativeElement.blur();
+      this.isInputFocused = false
+  } else {
+      console.log('Input reference not found'); // Debug log
+  }
+}
+
+clearInput(): void {
+  this.subtaskInput.nativeElement.value = '';
+}
+
+
+deleteSubtask(index: number): void {
+  this.subtasks.splice(index, 1); // Removes the subtask at the specified index
+}
+
+editSubtask(index: number, subtask: string): void {
+  // Example editing logic
+  const editedSubtask = prompt('Edit Subtask:', subtask); // Prompt user for new subtask text
+  if (editedSubtask !== null && editedSubtask.trim() !== '') {
+    this.subtasks[index] = editedSubtask.trim(); // Update the subtask
   }
 }
 }
