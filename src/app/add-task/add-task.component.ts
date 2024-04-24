@@ -4,6 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {TaskService}from 'src/app/services/task.service';
+import {CategoryService, Category}from 'src/app/services/category.service';
+
+
 
 @Component({
   selector: 'app-add-task',
@@ -13,22 +18,13 @@ import { Contact } from 'src/assets/models/contact.model';
 export class AddTaskComponent implements OnInit {
   @ViewChild('dpInput') dpInput!: ElementRef<HTMLInputElement>;
   minDate!: NgbDateStruct; // To prevent past dates selection
+  taskForm: FormGroup;
   @ViewChild('subtaskInput') subtaskInput!: ElementRef<HTMLInputElement>;
+  categories: Category[] = [];
+  selectedOption?: Category;
+  isOpen = false;
 
 
-
-  options = [
-    { name: 'User Story', color: '#FF0000' },
-    { name: 'Technical Task', color: '#00FF00' },
-    { name: 'Backend', color: '#0000FF' },
-    { name: 'Design', color: '#FFD700' }, // Example color
-    { name: 'Sales', color: '#4B0082' }, // Example color
-    { name: 'Backoffice', color: '#FF4500' }, // Example color
-    { name: 'Marketing', color: '#20B2AA' }, // Example color
-    { name: 'Other', color: '#808080' } // Example color
-  ];
-
-  selectedOption?: { name: string; color: string };  isOpen = false; // Controls the visibility of the dropdown
   contacts: Contact[] = [];
   selectedContact: Contact | null = null;
   isOpenContacts= false;
@@ -39,18 +35,41 @@ export class AddTaskComponent implements OnInit {
   subtasks: string[] = [];
   public newSubtask: string = '';
 
+  
+  constructor(private ngbDateParserFormatter: NgbDateParserFormatter, private addContactService: AddContactService,private fb: FormBuilder, private categoryService: CategoryService, private taskService: TaskService ) {
+    this.taskForm = this.fb.group({
+      title: ['', Validators.required],
+      description: [''],
+      category: [null],
+      priority: ['', Validators.required],
+      dueDate: [''],
+      assignedTo: [[]] 
+    });
+  }
 
-  constructor(private ngbDateParserFormatter: NgbDateParserFormatter, private addContactService: AddContactService) {}
+
 
   ngOnInit(): void {
     const today = new Date();
     this.minDate = { year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate() };
     this.loadContacts();
+
+    this.categoryService.getCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      },
+      error: (error) => {
+        console.error('Error fetching categories:', error);
+      }
+    });
   }
+
+
+
 
   onDateSelect(date: NgbDateStruct): void {
     const formattedDate = this.ngbDateParserFormatter.format(date);
-    this.dpInput.nativeElement.value = formattedDate;
+    this.taskForm.get('dueDate')?.setValue(formattedDate);
   }
 
   toggleDropdown(): void {
@@ -61,12 +80,13 @@ export class AddTaskComponent implements OnInit {
     this.isOpenContacts = !this.isOpenContacts;
   }
 
-  selectOption(option: { name: string; color: string }, event: MouseEvent): void {
-    event.stopPropagation(); // Prevent the click event from bubbling up to the container
-    this.selectedOption = option;
-    this.isOpen = false; // Close dropdown after selection
-    console.log(`Option selected: ${this.selectedOption.name} with color ${this.selectedOption.color}`);
+  selectOption(category: Category, event: MouseEvent): void {
+    event.stopPropagation();
+    this.selectedOption = category;
+    this.taskForm.get('category')?.setValue(category.id);
+    this.isOpen = false;
   }
+
 
   selectContact(contact: Contact, event: MouseEvent): void {
     this.selectedContact = contact;
@@ -98,15 +118,18 @@ export class AddTaskComponent implements OnInit {
   }
 
   toggleContactSelection(contactId: number, isChecked: boolean): void {
+    const currentContacts = this.taskForm.get('assignedTo')?.value || [];
     if (isChecked) {
-      // Add contact ID to selectedContacts if not already present
-      if (!this.selectedContacts.includes(contactId)) {
-        this.selectedContacts.push(contactId);
+      if (!currentContacts.includes(contactId)) {
+        currentContacts.push(contactId);
       }
     } else {
-      // Remove contact ID from selectedContacts if unchecked
-      this.selectedContacts = this.selectedContacts.filter(id => id !== contactId);
+      const index = currentContacts.indexOf(contactId);
+      if (index > -1) {
+        currentContacts.splice(index, 1);
+      }
     }
+    this.taskForm.get('assignedTo')?.setValue(currentContacts);
   }
 
   handleContactClick(contactId: number, event: MouseEvent): void {
@@ -171,5 +194,43 @@ editSubtask(index: number, subtask: string): void {
   if (editedSubtask !== null && editedSubtask.trim() !== '') {
     this.subtasks[index] = editedSubtask.trim(); // Update the subtask
   }
+}
+
+createTask(): void {
+  this.taskService.addTask(this.taskForm.value).subscribe({
+    next: (task) => {
+      console.log('Task created successfully:', task);
+      this.taskForm.reset();
+    },
+    error: (error) => {
+      console.error('Failed to create task:', error);
+      alert('Failed to create task: ' + (error.error.message || error.message));
+    }
+  });
+}
+
+onSubmit(): void {
+  if (this.taskForm.valid) {
+    console.log('Form Values:', this.taskForm.value);
+    this.createTask();
+  } else {
+    console.log('Form is not valid');
+    // Log detailed validation errors
+    Object.keys(this.taskForm.controls).forEach(key => {
+      const controlErrors = this.taskForm.get(key)?.errors;
+      if (controlErrors != null) {
+          Object.keys(controlErrors).forEach(keyError => {
+            console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value:', controlErrors[keyError]);
+          });
+      }
+    });
+  }
+}
+
+updateTask(taskId: number): void {
+  this.taskService.updateTask(taskId, this.taskForm.value).subscribe({
+    next: (task) => console.log('Task updated successfully:', task),
+    error: (error) => console.error('Failed to update task:', error)
+  });
 }
 }
