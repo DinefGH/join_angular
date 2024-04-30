@@ -11,7 +11,7 @@
 .addTaskContent {
     height: 80vh;
     margin-top: 8vh;
-    margin-bottom: 10vh;
+    margin-bottom: 20vh;
     padding-left: 16px;
     padding-right: 16px;
     box-sizing: border-box;
@@ -539,6 +539,20 @@
   margin-right: 8px;
 }
 
+
+.requiredButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  position: fixed;
+  bottom: 10vh;
+  margin-right: 16px;
+  background-color: #f6f7f8;
+  z-index: 10;
+  width: 90%;
+}
 
 
   @media (max-width: 800px) {

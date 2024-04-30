@@ -7,7 +7,7 @@
         <h1>Add Task</h1>
     </article>
 
-    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="taskForm">
         <div class="mb-3 titleContainer">
             <label for="exampleFormControlInput1" class="form-label">Title<span class="requiredStar">*</span></label>
             <input type="text" class="form-control title" id="title" placeholder="Enter a title" formControlName="title" required>
@@ -77,7 +77,7 @@
                     #d="ngbDatepicker"
                     (dateSelect)="onDateSelect($event)"
                     readonly
-                    formControlName="dueDate"
+                    formControlName="due_date"
                   />
                   <button class="btn calendarButton btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
                     <i class="fa-regular fa-calendar"></i>
@@ -181,16 +181,22 @@
                 
                 <li *ngFor="let subtask of subtasks; let i = index" class="subtask-item">
                     <div class="discList"></div>
-                  <span class="subtask-text">{{subtask}}</span>
-                  <span class="icon-container">
-                    <i class="fa-solid fa-pencil editSubtask" (click)="editSubtask(i, subtask)"></i>
+                    <span class="subtask-text">{{ subtask.text }}</span>
+                    <span class="icon-container">
+                    <i class="fa-solid fa-pencil editSubtask" (click)="editSubtask(i, subtask.text)"></i>
                     <i class="fa-regular fa-trash-can deleteSubtask" (click)="deleteSubtask(i)"></i>
                   </span>
                 </li>
               </ul>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg w180" (click)="createTask()">Creat Task</button>
-    </form>
+        <div class="requiredButtonContainer">
+          <div>
+            <span class="requiredStar">*</span>
+            <i>This field is required</i>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w180" (click)="createTask()">Creat Task</button>
+        </div>
+      </form>
 </main>
 <footer  class="footerAddTaskComponent">
     <app-footer-bar></app-footer-bar>

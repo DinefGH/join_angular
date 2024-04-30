@@ -7,7 +7,8 @@ import { Contact } from 'src/assets/models/contact.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {TaskService}from 'src/app/services/task.service';
 import {CategoryService, Category}from 'src/app/services/category.service';
-
+import {SubtaskService, Subtask}from 'src/app/services/subtask.service';
+import { forkJoin } from 'rxjs';
 
 
 @Component({
@@ -32,18 +33,18 @@ export class AddTaskComponent implements OnInit {
   maxVisibleContacts: number = 3;
   isInputFocused: boolean = false;
   
-  subtasks: string[] = [];
+  subtasks: Subtask[] = [];
   public newSubtask: string = '';
 
   
-  constructor(private ngbDateParserFormatter: NgbDateParserFormatter, private addContactService: AddContactService,private fb: FormBuilder, private categoryService: CategoryService, private taskService: TaskService ) {
+  constructor(private ngbDateParserFormatter: NgbDateParserFormatter, private addContactService: AddContactService,private fb: FormBuilder, private categoryService: CategoryService, private taskService: TaskService, private subtaskService: SubtaskService ) {
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
       category: [null],
       priority: ['', Validators.required],
-      dueDate: [''],
-      assignedTo: [[]] 
+      due_date: [null],
+      assigned_to: [[]] 
     });
   }
 
@@ -68,8 +69,9 @@ export class AddTaskComponent implements OnInit {
 
 
   onDateSelect(date: NgbDateStruct): void {
-    const formattedDate = this.ngbDateParserFormatter.format(date);
-    this.taskForm.get('dueDate')?.setValue(formattedDate);
+    const formattedDate = `${date.year}-${date.month.toString().padStart(2, '0')}-${date.day.toString().padStart(2, '0')}`;
+    this.dpInput.nativeElement.value = formattedDate; // Display the formatted date in the input
+    this.taskForm.get('due_date')?.setValue(formattedDate); // Update the form control with the formatted string
   }
 
   toggleDropdown(): void {
@@ -118,7 +120,7 @@ export class AddTaskComponent implements OnInit {
   }
 
   toggleContactSelection(contactId: number, isChecked: boolean): void {
-    const currentContacts = this.taskForm.get('assignedTo')?.value || [];
+    const currentContacts = this.taskForm.get('assigned_to')?.value || [];
     if (isChecked) {
       if (!currentContacts.includes(contactId)) {
         currentContacts.push(contactId);
@@ -129,7 +131,7 @@ export class AddTaskComponent implements OnInit {
         currentContacts.splice(index, 1);
       }
     }
-    this.taskForm.get('assignedTo')?.setValue(currentContacts);
+    this.taskForm.get('assigned_to')?.setValue(currentContacts);
   }
 
   handleContactClick(contactId: number, event: MouseEvent): void {
@@ -157,25 +159,17 @@ export class AddTaskComponent implements OnInit {
 
 
 addSubtask(event: MouseEvent, subtaskValue: string): void {
-  console.log('Function start'); // Debug log
   event.preventDefault();
-  event.stopPropagation();
-  
-  console.log('Input value:', subtaskValue); // Debug log
-  
-  if (subtaskValue.trim()) {
-      this.subtasks.push(subtaskValue.trim());
-      console.log('Subtask saved:', subtaskValue.trim()); // Debug log
-      // Additional logic to clear the input field, if necessary
-      this.subtaskInput.nativeElement.value = ''; // Clear the input field
-  }
-  
-  if (this.subtaskInput) {
-      console.log('Blurring input field'); // Debug log
-      this.subtaskInput.nativeElement.blur();
-      this.isInputFocused = false
-  } else {
-      console.log('Input reference not found'); // Debug log
+  const trimmedValue = subtaskValue.trim();
+  if (trimmedValue) {
+    const newSubtask = { text: trimmedValue, completed: false };
+    this.subtaskService.createSubtask(newSubtask).subscribe({
+      next: (subtask) => {
+        this.subtasks.push(subtask);
+        this.clearInput();
+      },
+      error: (error) => console.error('Failed to save subtask:', error)
+    });
   }
 }
 
@@ -183,24 +177,50 @@ clearInput(): void {
   this.subtaskInput.nativeElement.value = '';
 }
 
-
 deleteSubtask(index: number): void {
-  this.subtasks.splice(index, 1); // Removes the subtask at the specified index
+  this.subtasks.splice(index, 1);
 }
 
-editSubtask(index: number, subtask: string): void {
-  // Example editing logic
-  const editedSubtask = prompt('Edit Subtask:', subtask); // Prompt user for new subtask text
-  if (editedSubtask !== null && editedSubtask.trim() !== '') {
-    this.subtasks[index] = editedSubtask.trim(); // Update the subtask
+editSubtask(index: number, subtaskText: string): void {
+  const editedSubtaskText = prompt('Edit Subtask:', subtaskText);
+  if (editedSubtaskText !== null && editedSubtaskText.trim() !== '') {
+    const subtask = this.subtasks[index];
+    if (subtask && subtask.id !== undefined) {  // Check that id is defined
+      subtask.text = editedSubtaskText.trim();
+
+      this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
+        next: (updatedSubtask) => {
+          console.log('Subtask updated successfully:', updatedSubtask);
+        },
+        error: (error) => {
+          console.error('Failed to update subtask:', error);
+          alert('Failed to update subtask. Please try again.');
+        }
+      });
+    } else {
+      console.error('Subtask ID is undefined, cannot update subtask.');
+      alert('Subtask cannot be updated as it lacks a valid ID.');
+    }
   }
 }
 
+
+
+
 createTask(): void {
-  this.taskService.addTask(this.taskForm.value).subscribe({
+  if (!this.taskForm.valid) {
+    console.log('Form is not valid');
+    this.logFormErrors();
+    return;
+  }
+
+  const formattedData = this.prepareSubmitData();
+
+  // Create the main task without subtasks
+  this.taskService.addTask(formattedData).subscribe({
     next: (task) => {
       console.log('Task created successfully:', task);
-      this.taskForm.reset();
+      this.taskForm.reset(); // Reset the form after successful creation
     },
     error: (error) => {
       console.error('Failed to create task:', error);
@@ -209,22 +229,8 @@ createTask(): void {
   });
 }
 
-onSubmit(): void {
-  if (this.taskForm.valid) {
-    console.log('Form Values:', this.taskForm.value);
-    this.createTask();
-  } else {
-    console.log('Form is not valid');
-    // Log detailed validation errors
-    Object.keys(this.taskForm.controls).forEach(key => {
-      const controlErrors = this.taskForm.get(key)?.errors;
-      if (controlErrors != null) {
-          Object.keys(controlErrors).forEach(keyError => {
-            console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value:', controlErrors[keyError]);
-          });
-      }
-    });
-  }
+logFormErrors() {
+  throw new Error('Method not implemented.');
 }
 
 updateTask(taskId: number): void {
@@ -233,4 +239,18 @@ updateTask(taskId: number): void {
     error: (error) => console.error('Failed to update task:', error)
   });
 }
+
+prepareSubmitData() {
+  const formData = this.taskForm.value;
+
+  // Format dueDate if it exists
+  if (formData.due_date) {
+    const { year, month, day } = formData.due_date;
+    formData.due_date = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+  }
+  formData.assigned_to = this.selectedContacts;
+
+  return formData;
+}
+
 }
