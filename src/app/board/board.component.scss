@@ -64,6 +64,10 @@
     border-right: none;
 }
 
+.allTasksContainer {
+    display: flex;
+    overflow-x: scroll;
+}
 
 .categoryContainerDisplay {
     width: 100%;
@@ -92,10 +96,96 @@
 
 
 .tasksCard {
-    max-height: 264px;
-    min-height: 200px;
-    max-width: 252px;
+    height: clamp(200px, 100%, 300px);
+    min-width: 252px  !important;
+    max-width: 252px  !important;
     border-radius: 24px;
+    margin: 8px 8px 8px 0px;
+    padding: 16px;
+    background-color: white;
+    border: 1px solid #D1D1D1;
+    border-radius: 24px;
+}
+
+
+.categoryTasksCard {
+    color: white;
+    border-radius:8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top:4px;
+    padding-bottom: 4px;
+    width: fit-content;
+}
+
+.titleTasksCard {
+    font-family: InterBold;
+    margin-top: 16px;
+}
+
+.descriptionTasksCard {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3em;
+    line-height: 1.5em;
     margin-top: 8px;
 }
 
+.subtasksProgressbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+
+.subtasksProgressbar {
+    background-color: #e0e0e0; /* Background color for the progress bar container */
+    border-radius: 4px; /* Rounded corners for the progress bar container */
+    height: 10px; /* Height of the progress bar container */
+    position: relative;
+    width: 60%; /* Width of the progress bar container */
+    
+}
+
+.subtasksProgressbarColor {
+    background-color: #4589ff; /* Background color for the progress bar */
+    border-radius: 4px; /* Rounded corners for the progress bar */
+    height: 100%; /* Height of the progress bar (same as the container) */
+    transition: width 0.3s ease; /* Smooth transition for the width change */
+}
+
+.subtasksProgress {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.priorityTasks {
+    margin-top: 16px;
+}
+
+.contactsPriorityContainer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selectedContactsDisplay {
+    display: flex;
+}
+
+.colorCircleContacts {
+    border-radius: 50%;
+    font-size: 0.7rem;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
