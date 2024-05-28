@@ -38,7 +38,7 @@
                         </svg></div>
                     </header>
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of todoTasks" class="tasksCard">
+                        <div *ngFor="let task of todoTasks" class="tasksCard" (click)="openTaskOverlay(task)">
                             <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
                                 {{ getCategoryNameAndColor(task.category!).name  }}
                             </article>
@@ -105,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
 
 
                 <div class="inProgressContainer categoryContainerDisplay">
@@ -366,4 +366,10 @@
         </div>
     </div>
 
+
+    <app-board-task-overlay *ngIf="isOverlayVisibleTask" class="tasksOverlayBoard"
+  [selectedTask]="selectedTask" 
+  [isOverlayVisibleTask]="isOverlayVisibleTask"
+  (closeOverlay)="closeTaskOverlay()">
+</app-board-task-overlay>
 </div>

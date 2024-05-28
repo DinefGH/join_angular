@@ -18,6 +18,8 @@ export class BoardComponent implements OnInit {
   contacts: Contact[] = [];
   maxVisibleContacts = 5;
   isOverlayVisible = false;
+  isOverlayVisibleTask = false;
+  selectedTask: Task | null = null;
 
   constructor(
     private taskService: TaskService,
@@ -99,11 +101,23 @@ export class BoardComponent implements OnInit {
     return name.split(' ').map(part => part[0]).join('');
   }
 
+
+  openTaskOverlay(task: Task): void {
+    this.selectedTask = task;
+    this.isOverlayVisibleTask = true;
+  }
+
   closeOverlay() {
     this.isOverlayVisible = false;
   }
 
   openOverlay() {
     this.isOverlayVisible = true;
+  }
+
+
+  closeTaskOverlay(): void {
+    this.isOverlayVisibleTask = false;
+    this.selectedTask = null;
   }
 }
