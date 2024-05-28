@@ -1,5 +1,5 @@
-<div class="addTaskContainer">
-<header>
+<div class="addTaskContainer" [ngStyle]="{'height': height, 'width': width}">
+<header  *ngIf="!hideHeaderFooter">
     <app-header-bar-mobile></app-header-bar-mobile>
 </header>
 <main class="addTaskContent">
@@ -202,7 +202,7 @@
         Task successfully created!
       </div>
 </main>
-<footer  class="footerAddTaskComponent">
+<footer  *ngIf="!hideHeaderFooter" class="footerAddTaskComponent">
     <app-footer-bar></app-footer-bar>
 </footer>
 </div>

@@ -189,3 +189,31 @@
     color: #ffffff;
     flex-shrink: 0;
 }
+
+
+.addTaskOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.overlayContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    height: 100%; 
+    box-sizing: border-box;
+}
+
+.closeOverlayButtonContainer {
+    z-index: 10;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from 'src/app/services/task.service';
@@ -21,6 +21,10 @@ export class AddTaskComponent implements OnInit {
   categories: Category[] = [];
   selectedOption?: Category;
   isOpen = false;
+  @Input() hideHeaderFooter: boolean = false;
+  @Input() height: string = '100%';
+  @Input() width: string = '100%';
+
 
   addTaskSuccess = false
   contacts: Contact[] = [];

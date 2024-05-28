@@ -24,6 +24,8 @@ import { ContactsAddComponent } from './contacts/contacts-add/contacts-add.compo
 import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component'; // Adjust path as needed
 import { AuthInterceptor } from 'src/app/auth.interceptor';
 import { BoardComponent } from './board/board.component';
+import { BoardTaskOverlayComponent } from './board-task-overlay/board-task-overlay.component';
+import { BoardEditTaskComponent } from './board-edit-task/board-edit-task.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { BoardComponent } from './board/board.component';
     ContactsOverviewComponent,
     ContactsAddComponent,
     ContactsEditComponent,
-    BoardComponent
+    BoardComponent,
+    BoardTaskOverlayComponent,
+    BoardEditTaskComponent
   ],
   imports: [
     BrowserModule,

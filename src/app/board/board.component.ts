@@ -17,6 +17,7 @@ export class BoardComponent implements OnInit {
   categories: Category[] = [];
   contacts: Contact[] = [];
   maxVisibleContacts = 5;
+  isOverlayVisible = false;
 
   constructor(
     private taskService: TaskService,
@@ -96,5 +97,13 @@ export class BoardComponent implements OnInit {
 
   getInitials(name: string): string {
     return name.split(' ').map(part => part[0]).join('');
+  }
+
+  closeOverlay() {
+    this.isOverlayVisible = false;
+  }
+
+  openOverlay() {
+    this.isOverlayVisible = true;
   }
 }
