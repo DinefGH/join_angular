@@ -120,4 +120,8 @@ export class BoardComponent implements OnInit {
     this.isOverlayVisibleTask = false;
     this.selectedTask = null;
   }
+
+  handleTaskDeleted(): void {
+    this.loadTasks(); // Reload tasks when a task is deleted
+  }
 }

@@ -118,7 +118,7 @@
                         </svg></div>
                     </header>
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of inProgressTasks" class="tasksCard">
+                        <div *ngFor="let task of inProgressTasks" class="tasksCard" (click)="openTaskOverlay(task)">
                             <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
                                 {{ getCategoryNameAndColor(task.category!).name  }}
                             </article>
@@ -199,7 +199,7 @@
                         </svg></div>
                     </header>  
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of awaitFeedbackTasks" class="tasksCard">
+                        <div *ngFor="let task of awaitFeedbackTasks" class="tasksCard" (click)="openTaskOverlay(task)">
                             <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
                                 {{ getCategoryNameAndColor(task.category!).name  }}
                             </article>
@@ -280,7 +280,7 @@
                         </svg></div>
                     </header >
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of doneTasks" class="tasksCard">
+                        <div *ngFor="let task of doneTasks" class="tasksCard" (click)="openTaskOverlay(task)">
                             <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
                                 {{ getCategoryNameAndColor(task.category!).name  }}
                             </article>
@@ -368,8 +368,9 @@
 
 
     <app-board-task-overlay *ngIf="isOverlayVisibleTask" class="tasksOverlayBoard"
-  [selectedTask]="selectedTask" 
-  [isOverlayVisibleTask]="isOverlayVisibleTask"
-  (closeOverlay)="closeTaskOverlay()">
-</app-board-task-overlay>
+        [selectedTask]="selectedTask" 
+        [isOverlayVisibleTask]="isOverlayVisibleTask"
+        (closeTaskOverlay)="closeTaskOverlay()"
+        (taskDeleted)="handleTaskDeleted()">
+    </app-board-task-overlay>
 </div>

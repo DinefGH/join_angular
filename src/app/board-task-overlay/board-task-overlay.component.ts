@@ -1,8 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { TaskService, Task } from 'src/app/services/task.service';
 import { CategoryService, Category } from 'src/app/services/category.service';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
+import { SubtaskService, Subtask } from 'src/app/services/subtask.service';
+
 
 @Component({
   selector: 'app-board-task-overlay',
@@ -12,6 +14,8 @@ import { Contact } from 'src/assets/models/contact.model';
 export class BoardTaskOverlayComponent {
   @Input() selectedTask: Task | null = null;
   @Input() isOverlayVisibleTask: boolean = false;
+  @Output() closeTaskOverlay = new EventEmitter<void>();
+  @Output() taskDeleted = new EventEmitter<void>();
   todoTasks: Task[] = [];
   inProgressTasks: Task[] = [];
   awaitFeedbackTasks: Task[] = [];
@@ -24,7 +28,8 @@ export class BoardTaskOverlayComponent {
   constructor(
     private taskService: TaskService,
     private categoryService: CategoryService,
-    private addContactService: AddContactService
+    private addContactService: AddContactService,
+    private subtaskService: SubtaskService
   ) { }
 
   ngOnInit(): void {
@@ -101,9 +106,37 @@ export class BoardTaskOverlayComponent {
     return name.split(' ').map(part => part[0]).join('');
   }
 
-  closeTaskOverlay(): void {
-    this.isOverlayVisibleTask = false;
-    this.selectedTask = null;
+  onCloseTaskOverlay(): void {
+    this.closeTaskOverlay.emit();
   }
 
-}
+
+  toggleSubtaskCompletion(subtask: Subtask): void {
+    subtask.completed = !subtask.completed;
+    this.subtaskService.updateSubtask(subtask.id!, subtask).subscribe({
+      next: (updatedSubtask) => {
+        console.log('Subtask updated successfully:', updatedSubtask);
+      },
+      error: (error) => {
+        console.error('Error updating subtask:', error);
+      }
+    });
+  }
+
+
+  deleteTask(): void {
+    if (this.selectedTask) {
+      this.taskService.deleteTask(this.selectedTask.id!).subscribe({
+        next: () => {
+          console.log('Task deleted successfully');
+          this.taskDeleted.emit(); // Emit the taskDeleted event
+          this.onCloseTaskOverlay();
+        },
+        error: (error) => {
+          console.error('Error deleting task:', error);
+        }
+      });
+    }
+  }
+  }
+
