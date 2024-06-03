@@ -101,11 +101,18 @@ export class BoardComponent implements OnInit {
     return name.split(' ').map(part => part[0]).join('');
   }
 
+  handleTaskAdded(): void {
+    this.loadTasks(); // Reload tasks when a task is added
+    setTimeout(() => this.isOverlayVisible = false, 1000);
+  }
 
   openTaskOverlay(task: Task): void {
+    
     this.selectedTask = task;
     this.isOverlayVisibleTask = true;
   }
+
+ 
 
   closeOverlay() {
     this.isOverlayVisible = false;
