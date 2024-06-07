@@ -16,6 +16,8 @@ export class BoardTaskOverlayComponent {
   @Input() isOverlayVisibleTask: boolean = false;
   @Output() closeTaskOverlay = new EventEmitter<void>();
   @Output() taskDeleted = new EventEmitter<void>();
+  isEditTaskVisible = false;
+  isTaskOverlayContainerVisible = true;
   todoTasks: Task[] = [];
   inProgressTasks: Task[] = [];
   awaitFeedbackTasks: Task[] = [];
@@ -64,7 +66,7 @@ export class BoardTaskOverlayComponent {
     this.addContactService.getContacts().subscribe({
       next: (contacts) => {
         this.contacts = contacts;
-        console.log('Contacts loaded:', this.contacts); // Debug log
+        // console.log('Contacts loaded:', this.contacts); // Debug log
       },
       error: (error) => {
         console.error('Error loading contacts:', error);
@@ -98,7 +100,7 @@ export class BoardTaskOverlayComponent {
 
   getContactById(contactId: number): Contact | undefined {
     const contact = this.contacts.find(contact => contact.id === contactId);
-    console.log(`Contact fetched for ID ${contactId}:`, contact); // Debug log
+    // console.log(`Contact fetched for ID ${contactId}:`, contact); // Debug log
     return contact;
 }
 
@@ -124,6 +126,7 @@ export class BoardTaskOverlayComponent {
   }
 
 
+
   deleteTask(): void {
     if (this.selectedTask) {
       this.taskService.deleteTask(this.selectedTask.id!).subscribe({
@@ -138,5 +141,18 @@ export class BoardTaskOverlayComponent {
       });
     }
   }
+
+  openEditTaskOverlay() {
+    this.isEditTaskVisible = true;
+    this.isTaskOverlayContainerVisible = false;
+    
+  }
+
+
+  closeEditTaskOverlay(): void {
+    this.isEditTaskVisible = false;
+    this.selectedTask = null;
+  }
+
   }
 

@@ -93,7 +93,7 @@ export class BoardComponent implements OnInit {
 
   getContactById(contactId: number): Contact | undefined {
     const contact = this.contacts.find(contact => contact.id === contactId);
-    console.log(`Contact fetched for ID ${contactId}:`, contact); // Debug log
+    // console.log(`Contact fetched for ID ${contactId}:`, contact); // Debug log
     return contact;
 }
 

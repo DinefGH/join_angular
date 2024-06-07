@@ -26,6 +26,7 @@ import { AuthInterceptor } from 'src/app/auth.interceptor';
 import { BoardComponent } from './board/board.component';
 import { BoardTaskOverlayComponent } from './board-task-overlay/board-task-overlay.component';
 import { BoardEditTaskComponent } from './board-edit-task/board-edit-task.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BoardEditTaskComponent } from './board-edit-task/board-edit-task.compon
     ContactsEditComponent,
     BoardComponent,
     BoardTaskOverlayComponent,
-    BoardEditTaskComponent
+    BoardEditTaskComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,
