@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { OnChanges, SimpleChanges } from '@angular/core';
 import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskService, Task } from 'src/app/services/task.service';
@@ -7,6 +8,8 @@ import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
 import { SubtaskService, Subtask } from 'src/app/services/subtask.service';
 import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-edit-task',
@@ -28,6 +31,7 @@ export class EditTaskComponent implements OnInit {
   @Input() taskId!: number;  // Task ID to edit
   @Output() taskUpdated = new EventEmitter<void>();
   @Output() closeEditTaskOverlay = new EventEmitter<void>();
+  @Input() task: Task | null = null;
 
   addTaskSuccess = false;
   contacts: Contact[] = [];
@@ -64,10 +68,13 @@ export class EditTaskComponent implements OnInit {
     const today = new Date();
     this.minDate = { year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate() };
     this.loadContacts();
+    this.loadCategories();
+
 
     this.categoryService.getCategories().subscribe({
       next: (categories) => {
         this.categories = categories;
+        console.log('Categories loaded:', this.categories);
       },
       error: (error) => {
         console.error('Error fetching categories:', error);
@@ -76,7 +83,30 @@ export class EditTaskComponent implements OnInit {
 
     if (this.taskId) {
       this.loadTask(this.taskId);
+    } else if (this.task) {
+      this.setTaskFormData(this.task);
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['task'] && changes['task'].currentValue) {
+        this.setTaskFormData(changes['task'].currentValue);
+    }
+}
+
+  loadCategories(): void {
+    this.categoryService.getCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+        console.log('Categories loaded:', this.categories); // Debug log
+        if (this.task) {
+          this.setTaskFormData(this.task); // Ensure the task is set after categories are loaded
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching categories:', error);
+      }
+    });
   }
 
   onDateSelect(date: NgbDateStruct): void {
@@ -213,17 +243,50 @@ export class EditTaskComponent implements OnInit {
   }
 
   loadTask(taskId: number): void {
+    console.log('Loading task with ID:', taskId); // Debug log
     this.taskService.getTask(taskId).subscribe({
-      next: (task) => {
-        this.taskForm.patchValue(task);
-        this.selectedContacts = task.assigned_to;
-        this.subtasks = task.subtasks;
-      },
-      error: (error) => {
-        console.error('Failed to load task:', error);
-      }
+        next: (task) => {
+            console.log('Task loaded:', task); // Debug log
+            this.setTaskFormData(task);
+        },
+        error: (error) => {
+            console.error('Failed to load task:', error);
+        }
     });
-  }
+}
+
+setTaskFormData(task: Task): void {
+
+  if (task.due_date) {
+    const date = new Date(task.due_date);
+    const formattedDate: NgbDateStruct = { 
+        year: date.getFullYear(), 
+        month: date.getMonth() + 1, 
+        day: date.getDate() 
+    };
+    this.taskForm.get('due_date')?.setValue(formattedDate);
+}    if (task.due_date) {
+  const date = new Date(task.due_date);
+  const formattedDate: NgbDateStruct = { 
+      year: date.getFullYear(), 
+      month: date.getMonth() + 1, 
+      day: date.getDate() 
+  };
+  this.taskForm.get('due_date')?.setValue(formattedDate);
+}
+
+  this.taskForm.patchValue({
+      title: task.title,
+      description: task.description,
+      category: task.category,
+      priority: task.priority,
+      assigned_to: task.assigned_to,
+      status: task.status
+  });
+  this.selectedOption = this.categories.find(category => category.id === task.category);
+  console.log('Selected category:', this.selectedOption); // Debug log
+  this.subtasks = task.subtasks;
+}
 
   updateTask(): void {
     if (!this.taskForm.valid) {

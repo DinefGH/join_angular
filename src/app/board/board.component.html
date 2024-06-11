@@ -39,10 +39,24 @@
                     </header>
                     <div class="allTasksContainer">
                         <div *ngFor="let task of todoTasks" class="tasksCard" (click)="openTaskOverlay(task)">
+                            <div class="contactStatusContainer">
+                                <div class="statusContainerButton">
+                                    
                             <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
                                 {{ getCategoryNameAndColor(task.category!).name  }}
                             </article>
-                            <div class="titleTasksCard">{{ task.title }}</div>
+                            <button (click)="toggleStatusDropdown(task, $event)">Change Status</button>
+                            <div *ngIf="task.showStatusDropdown" class="statusDropdown">
+                                <button (click)="changeStatus(task, 'todo', $event)">To Do</button>
+                                <button (click)="changeStatus(task, 'inProgress', $event)">In Progress</button>
+                                <button (click)="changeStatus(task, 'awaitFeedback', $event)">Await Feedback</button>
+                                <button (click)="changeStatus(task, 'done', $event)">Done</button>
+                            </div>
+                       </div>
+                </div>
+                                <div class="titleTasksCard">{{ task.title }}</div>
+                                
+                            
                             <span class="descriptionTasksCard">{{ task.description }}</span>
 
                             <div *ngIf="task.subtasks.length > 0" class="subtasksList">

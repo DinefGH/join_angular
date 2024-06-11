@@ -1,21 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TaskService, Task } from 'src/app/services/task.service';
 import { CategoryService, Category } from 'src/app/services/category.service';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
 import { SubtaskService, Subtask } from 'src/app/services/subtask.service';
 
-
 @Component({
   selector: 'app-board-task-overlay',
   templateUrl: './board-task-overlay.component.html',
   styleUrls: ['./board-task-overlay.component.scss']
 })
-export class BoardTaskOverlayComponent {
+export class BoardTaskOverlayComponent implements OnInit {
   @Input() selectedTask: Task | null = null;
   @Input() isOverlayVisibleTask: boolean = false;
   @Output() closeTaskOverlay = new EventEmitter<void>();
   @Output() taskDeleted = new EventEmitter<void>();
+
   isEditTaskVisible = false;
   isTaskOverlayContainerVisible = true;
   todoTasks: Task[] = [];
@@ -25,7 +25,6 @@ export class BoardTaskOverlayComponent {
   categories: Category[] = [];
   contacts: Contact[] = [];
   maxVisibleContacts = 5;
-
 
   constructor(
     private taskService: TaskService,
@@ -102,7 +101,7 @@ export class BoardTaskOverlayComponent {
     const contact = this.contacts.find(contact => contact.id === contactId);
     // console.log(`Contact fetched for ID ${contactId}:`, contact); // Debug log
     return contact;
-}
+  }
 
   getInitials(name: string): string {
     return name.split(' ').map(part => part[0]).join('');
@@ -111,7 +110,6 @@ export class BoardTaskOverlayComponent {
   onCloseTaskOverlay(): void {
     this.closeTaskOverlay.emit();
   }
-
 
   toggleSubtaskCompletion(subtask: Subtask): void {
     subtask.completed = !subtask.completed;
@@ -124,8 +122,6 @@ export class BoardTaskOverlayComponent {
       }
     });
   }
-
-
 
   deleteTask(): void {
     if (this.selectedTask) {
@@ -141,18 +137,19 @@ export class BoardTaskOverlayComponent {
       });
     }
   }
-
   openEditTaskOverlay() {
     this.isEditTaskVisible = true;
     this.isTaskOverlayContainerVisible = false;
-    
+    console.log(this.isEditTaskVisible)
   }
-
 
   closeEditTaskOverlay(): void {
     this.isEditTaskVisible = false;
     this.selectedTask = null;
   }
 
+  onTaskUpdated(): void {
+    this.loadTasks(); // Reload tasks to reflect the updates
+    this.isEditTaskVisible = false; // Hide the edit task overlay
   }
-
+}

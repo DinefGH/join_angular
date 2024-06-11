@@ -131,4 +131,25 @@ export class BoardComponent implements OnInit {
   handleTaskDeleted(): void {
     this.loadTasks(); // Reload tasks when a task is deleted
   }
+
+  
+
+  toggleStatusDropdown(task: Task, event: MouseEvent): void {
+    event.stopPropagation(); // Prevent the task card from opening
+    task.showStatusDropdown = !task.showStatusDropdown;
+  }
+
+  changeStatus(task: Task, newStatus: string, event: MouseEvent): void {
+    event.stopPropagation(); // Prevent the task card from opening
+    task.status = newStatus;
+    this.taskService.updateTask(task.id!, task).subscribe({
+      next: (updatedTask) => {
+        console.log('Task status updated successfully:', updatedTask);
+        this.loadTasks(); // Refresh the tasks list
+      },
+      error: (error) => {
+        console.error('Error updating task status:', error);
+      }
+    });
+  }
 }

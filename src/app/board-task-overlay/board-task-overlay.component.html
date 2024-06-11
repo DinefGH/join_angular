@@ -32,20 +32,24 @@
               <span>{{ subtask.text }}</span>
             </div>
           </div>
-        <div class="boardTasksDeleteEditContainer">
-            
-              <div class="boardTasksDelete"  (click)="deleteTask()">
+          <div class="boardTasksDeleteEditContainer">
+            <div class="boardTasksDelete" (click)="deleteTask()">
               <i class="fas fa-trash-alt deleteEditIcon"></i> Delete
             </div>
             <div class="editDeleteLine"></div>
-            <div class="boardTasksEdit"  (click)="openEditTaskOverlay()">
+            <div class="boardTasksEdit" (click)="openEditTaskOverlay()">
               <i class="fa-solid fa-pencil deleteEditIcon"></i> Edit
             </div>
+          </div>
         </div>
-    </div>
-  </div>
-    <div class="editTaskOverlayContainer" *ngIf="isEditTaskVisible">
-    <app-edit-task>
-</app-edit-task>
-</div>
-</div>
+        </div>
+        
+        <div class="editTaskOverlayContainer" *ngIf="isEditTaskVisible">
+          <app-edit-task 
+            [task]="selectedTask" 
+            (taskUpdated)="onTaskUpdated()" 
+            (closeEditTaskOverlay)="closeEditTaskOverlay()">
+          </app-edit-task>
+        </div>
+
+
