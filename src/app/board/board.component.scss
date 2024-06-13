@@ -109,6 +109,18 @@
 }
 
 
+.moreTasksContainer {
+    height: 32px;
+    width: 32px;
+    background-color: #2A3647;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 .categoryTasksCard {
     color: white;
     border-radius:8px;
@@ -253,4 +265,6 @@
 
 .statusContainerButton {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

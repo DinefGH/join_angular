@@ -164,14 +164,9 @@ export class AddTaskComponent implements OnInit {
     event.preventDefault();
     const trimmedValue = subtaskValue.trim();
     if (trimmedValue) {
-      const newSubtask = { text: trimmedValue, completed: false };
-      this.subtaskService.createSubtask(newSubtask).subscribe({
-        next: (subtask) => {
-          this.subtasks.push(subtask);
-          this.clearInput();
-        },
-        error: (error) => console.error('Failed to save subtask:', error)
-      });
+      const newSubtask = { text: trimmedValue, completed: false }; // Do not create in backend here
+      this.subtasks.push(newSubtask);
+      this.clearInput();
     }
   }
 
@@ -187,21 +182,27 @@ export class AddTaskComponent implements OnInit {
     const editedSubtaskText = prompt('Edit Subtask:', subtaskText);
     if (editedSubtaskText !== null && editedSubtaskText.trim() !== '') {
       const subtask = this.subtasks[index];
-      if (subtask && subtask.id !== undefined) {
+      if (subtask) {
         subtask.text = editedSubtaskText.trim();
-
-        this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
-          next: (updatedSubtask) => {
-            console.log('Subtask updated successfully:', updatedSubtask);
-          },
-          error: (error) => {
-            console.error('Failed to update subtask:', error);
-            alert('Failed to update subtask. Please try again.');
-          }
-        });
+  
+        // Check if subtask has an ID, meaning it exists in the backend
+        if (subtask.id !== undefined) {
+          this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
+            next: (updatedSubtask) => {
+              console.log('Subtask updated successfully:', updatedSubtask);
+            },
+            error: (error) => {
+              console.error('Failed to update subtask:', error);
+              alert('Failed to update subtask. Please try again.');
+            }
+          });
+        } else {
+          // If no ID, it is a new subtask and just update the local array
+          this.subtasks[index] = subtask;
+        }
       } else {
-        console.error('Subtask ID is undefined, cannot update subtask.');
-        alert('Subtask cannot be updated as it lacks a valid ID.');
+        console.error('Subtask not found, cannot update.');
+        alert('Subtask cannot be updated as it was not found.');
       }
     }
   }
@@ -212,26 +213,24 @@ export class AddTaskComponent implements OnInit {
       this.logFormErrors();
       return;
     }
-
+  
     const formattedData = this.prepareSubmitData();
     console.log('Data sent to the backend:', formattedData);
-
+  
     this.taskService.addTask(formattedData).subscribe({
       next: (task) => {
         console.log('Task created successfully:', task);
         this.taskAdded.emit();
         this.taskForm.reset();
         this.subtasks = [];
-        
       },
       error: (error) => {
         console.error('Failed to create task:', error);
         alert('Failed to create task: ' + (error.error.message || error.message));
       }
     });
-
-
-    this.addTaskSuccess = true
+  
+    this.addTaskSuccess = true;
     setTimeout(() => {
       this.router.navigate(['/board']);
     }, 3000);
@@ -250,18 +249,19 @@ export class AddTaskComponent implements OnInit {
 
   prepareSubmitData() {
     const formData = this.taskForm.value;
-
+  
     if (formData.due_date) {
       const { year, month, day } = formData.due_date;
       formData.due_date = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
     }
     formData.assigned_to = this.selectedContacts;
     formData.subtasks = this.subtasks.map(subtask => ({
-      id: subtask.id,
+      id: subtask.id,  // Include ID if present
       text: subtask.text,
       completed: subtask.completed
     }));
-
+  
     return formData;
   }
+  
 }

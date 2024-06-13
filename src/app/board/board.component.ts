@@ -68,10 +68,22 @@ export class BoardComponent implements OnInit {
   }
 
   categorizeTasks(tasks: Task[]): void {
-    this.todoTasks = tasks.filter(task => task.status === 'todo');
-    this.inProgressTasks = tasks.filter(task => task.status === 'inProgress');
-    this.awaitFeedbackTasks = tasks.filter(task => task.status === 'awaitFeedback');
-    this.doneTasks = tasks.filter(task => task.status === 'done');
+    this.todoTasks = tasks.filter(task => task.status === 'todo').map(task => ({
+      ...task,
+      showStatusDropdown: false
+    }));
+    this.inProgressTasks = tasks.filter(task => task.status === 'inProgress').map(task => ({
+      ...task,
+      showStatusDropdown: false
+    }));
+    this.awaitFeedbackTasks = tasks.filter(task => task.status === 'awaitFeedback').map(task => ({
+      ...task,
+      showStatusDropdown: false
+    }));
+    this.doneTasks = tasks.filter(task => task.status === 'done').map(task => ({
+      ...task,
+      showStatusDropdown: false
+    }));
   }
 
   getCategoryNameAndColor(categoryId: number): { name: string, color: string } {
@@ -139,17 +151,36 @@ export class BoardComponent implements OnInit {
     task.showStatusDropdown = !task.showStatusDropdown;
   }
 
+
+
+
+
   changeStatus(task: Task, newStatus: string, event: MouseEvent): void {
-    event.stopPropagation(); // Prevent the task card from opening
-    task.status = newStatus;
-    this.taskService.updateTask(task.id!, task).subscribe({
+    event.stopPropagation();
+    const updatedTask = { ...task, status: newStatus, subtasks: [...task.subtasks] }; // Ensure subtasks are copied correctly
+  
+    this.taskService.updateTask(updatedTask.id!, updatedTask).subscribe({
       next: (updatedTask) => {
         console.log('Task status updated successfully:', updatedTask);
-        this.loadTasks(); // Refresh the tasks list
+        task.status = newStatus; // Update the status locally
+        task.showStatusDropdown = false; // Close the dropdown after status change
+  
+        // Find the task in the appropriate list and update it
+        this.updateTaskInList(updatedTask);
       },
       error: (error) => {
-        console.error('Error updating task status:', error);
+        console.error('Failed to update task status:', error);
       }
     });
+  }
+
+  updateTaskInList(updatedTask: Task) {
+    const allTasks = [...this.todoTasks, ...this.inProgressTasks, ...this.awaitFeedbackTasks, ...this.doneTasks];
+    const taskIndex = allTasks.findIndex(task => task.id === updatedTask.id);
+  
+    if (taskIndex !== -1) {
+      allTasks[taskIndex] = updatedTask; // Update the task in the combined list
+      this.categorizeTasks(allTasks); // Re-categorize tasks
+    }
   }
 }

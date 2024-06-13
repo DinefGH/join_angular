@@ -62,7 +62,18 @@ export class TaskService {
       .pipe(catchError(this.handleError));
   }
 
+
+
   updateTask(id: number, task: Task): Observable<Task> {
+    // Ensure no duplicate subtasks are sent to the backend
+    const uniqueSubtasks = task.subtasks.filter((subtask, index, self) =>
+      index === self.findIndex((t) => (
+        t.id === subtask.id && t.text === subtask.text
+      ))
+    );
+  
+    const updatedTask = { ...task, subtasks: uniqueSubtasks };
+  
     return this.http.put<Task>(`${this.baseUrl}/tasks/${id}/`, task)
       .pipe(catchError(this.handleError));
   }
