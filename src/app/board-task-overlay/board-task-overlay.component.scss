@@ -16,6 +16,12 @@
 
 .boardTasksCategory {
     color: #ffffff;
+    padding: 4px 16px 4px 16px;
+    border-radius:8px;
+}
+
+.boardTasksTitle {
+    margin-top: 16px;
 }
 
 .colorCircleContactsBoard {
@@ -28,6 +34,10 @@
     align-items: center;
     color: #ffffff;
     flex-shrink: 0;
+}
+
+.dateTasksOverlay {
+    font-weight: bold;
 }
 
 .boardTasksDeleteEditContainer {

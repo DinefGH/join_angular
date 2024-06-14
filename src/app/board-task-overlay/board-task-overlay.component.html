@@ -9,9 +9,9 @@
                 </svg>
                 </div>
         </div>
-        <div class="boardTasksTitle">{{ selectedTask?.title }}</div>
+        <h1 class="boardTasksTitle">{{ selectedTask?.title }}</h1>
         <div class="boardTasksDescription">{{ selectedTask?.description }}</div>
-        <div class="boardTasksDueDate">{{ selectedTask?.due_date | date }}</div>
+        <div class="boardTasksDueDate">Due date:<span class="dateTasksOverlay">{{ selectedTask?.due_date | date }}</span></div>
         <div class="boardTasksPriority"><ng-container [ngSwitch]="selectedTask?.priority">
             <span *ngSwitchCase="'Urgent'">Urgent SVG</span>
             <span *ngSwitchCase="'Medium'">Medium SVG</span>
@@ -23,6 +23,7 @@
               <span *ngIf="getContactById(contactId) as contact" class="colorCircleContactsBoard" [style.backgroundColor]="contact?.color">
                 {{ getInitials(contact.name) }}
               </span>
+              <span>{{(selectedTask?.contacts)}}</span>
             </div>
           </div>        
           <div class="boardTasksSubtasksHeadline">Subtasks:</div>
