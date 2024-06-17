@@ -65,6 +65,8 @@ export class TaskService {
 
 
   updateTask(id: number, task: Task): Observable<Task> {
+    console.log('Initial task data:', task);  // Debug log
+  
     // Ensure no duplicate subtasks are sent to the backend
     const uniqueSubtasks = task.subtasks.filter((subtask, index, self) =>
       index === self.findIndex((t) => (
@@ -73,10 +75,17 @@ export class TaskService {
     );
   
     const updatedTask = { ...task, subtasks: uniqueSubtasks };
+    
+    console.log('Unique subtasks:', uniqueSubtasks);  // Debug log
+    console.log('Updated task data being sent to backend:', updatedTask);  // Debug log
   
-    return this.http.put<Task>(`${this.baseUrl}/tasks/${id}/`, task)
-      .pipe(catchError(this.handleError));
+    return this.http.put<Task>(`${this.baseUrl}/tasks/${id}/`, updatedTask)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
+
+  
 
   deleteTask(id: number): Observable<{}> {
     return this.http.delete(`${this.baseUrl}/tasks/${id}/`)

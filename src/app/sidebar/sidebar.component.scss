@@ -1,0 +1,27 @@
+.sidebarContnentContainer {
+    background-color: #2a3647;
+    height: 100vh;
+    width: 10vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.iconContainerSidebar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.hoverSidebarIcons:hover {
+    background-color: #091931;
+    cursor: pointer;
+}
+
+.activeRouteIconSidebar {
+    background-color: #091931 !important;
+}
+

@@ -26,6 +26,7 @@
 
 
 .closeIconContainer {
+    display: block;
     position: absolute;
     top: 16px;
     right: 16px;
@@ -128,6 +129,14 @@
     animation: slideInFromBottom 0.5s ease forwards;
 }
 
+.closeIconContainerDesktop {
+    display: none;
+}
+
+.personIconFormContainer {
+    display: none;
+}
+
 @media screen and (max-height: 740px) {
     
     .personIconContainer {
@@ -141,4 +150,79 @@
         position: absolute;
         bottom: 8px;
     }
+
 }
+
+
+@media (min-width: 1025px) {
+    .addContactsContentConatiner {
+        display: flex !important;
+        width: 90%;
+        height: 50vh;
+    }
+
+    .topContainerAddContacts {
+        width: 35vw;
+        height: 50vh;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 30px;
+    }
+
+
+    .closeIconContainerDesktop {
+        display: block;
+        position: absolute;
+        top: 32px;
+        right: 3vw;
+        cursor: pointer;
+    }
+
+
+    .personIconFormContainer {
+        background-color: #ffffff;
+        width: 17vw;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .personIconContainerDesktop {
+        background-color: #D1D1D1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        border: solid 3px #ffffff;
+    }
+
+    .bottomContainerContacts {
+        width: 38vw;
+        padding-right: 3vw;
+        justify-content: flex-end;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 30px;
+    }
+
+    
+
+    .inputContainer {
+        width: 35vw;
+    }
+
+
+
+
+
+    .closeIconContainer {
+        display: none;
+    }
+
+    .personIconContainer {
+        display: none;
+    }
+  }
+

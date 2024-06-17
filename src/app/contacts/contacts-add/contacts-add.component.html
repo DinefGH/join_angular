@@ -12,7 +12,16 @@
             <div class="personIcon"><img src="/assets/img/personContactBig.png" alt="Person icon"></div>
         </div>
     </div>
+    <div class="personIconFormContainer">
+      <div class="personIconContainerDesktop">
+        <div class="personIcon"><img src="/assets/img/personContactBig.png" alt="Person icon"></div>
+    </div>
+    </div>
     <div class="bottomContainerContacts">
+      <div class="closeIconContainerDesktop" (click)="closeComponent()">
+        <img class="closeIcon" src="./assets/img/closeDark.svg" alt="Close icon">
+    </div>
+
         <form class="formContainerAddContacts" (ngSubmit)="submitContactForm()" #contactForm="ngForm">
             <div class="form-floating mb-3 inputContainer">
               <input type="text" id="floatingInputContactsName" class="form-control formInputContacsName custom-input-height" [(ngModel)]="contactData.name" name="name" placeholder="Name" required>

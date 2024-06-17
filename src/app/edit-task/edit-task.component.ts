@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.scss']
 })
-export class EditTaskComponent implements OnInit {
+export class EditTaskComponent implements OnInit, OnChanges  {
   @ViewChild('dpInput') dpInput!: ElementRef<HTMLInputElement>;
   minDate!: NgbDateStruct;
   taskForm: FormGroup;
@@ -56,12 +56,12 @@ export class EditTaskComponent implements OnInit {
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
-      category: [null],
+      category: [null, Validators.required],
       priority: ['', Validators.required],
-      due_date: [null],
+      due_date: [null, Validators.required],
       assigned_to: [[]],
-      status: ['todo']
-    });
+      status: ['todo', Validators.required]
+  });
   }
 
   ngOnInit(): void {
@@ -90,9 +90,10 @@ export class EditTaskComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['task'] && changes['task'].currentValue) {
-        this.setTaskFormData(changes['task'].currentValue);
+      this.taskId = changes['task'].currentValue.id; // Set taskId from task
+      this.setTaskFormData(changes['task'].currentValue);
     }
-}
+  }
 
   loadCategories(): void {
     this.categoryService.getCategories().subscribe({
@@ -203,7 +204,10 @@ export class EditTaskComponent implements OnInit {
       const newSubtask = { text: trimmedValue, completed: false };
       this.subtaskService.createSubtask(newSubtask).subscribe({
         next: (subtask) => {
-          this.subtasks.push(subtask);
+          // Avoid pushing duplicate subtasks
+          if (!this.subtasks.some(existingSubtask => existingSubtask.id === subtask.id)) {
+            this.subtasks.push(subtask);
+          }
           this.clearInput();
         },
         error: (error) => console.error('Failed to save subtask:', error)
@@ -256,7 +260,6 @@ export class EditTaskComponent implements OnInit {
 }
 
 setTaskFormData(task: Task): void {
-
   if (task.due_date) {
     const date = new Date(task.due_date);
     const formattedDate: NgbDateStruct = { 
@@ -265,79 +268,99 @@ setTaskFormData(task: Task): void {
         day: date.getDate() 
     };
     this.taskForm.get('due_date')?.setValue(formattedDate);
-}    if (task.due_date) {
-  const date = new Date(task.due_date);
-  const formattedDate: NgbDateStruct = { 
-      year: date.getFullYear(), 
-      month: date.getMonth() + 1, 
-      day: date.getDate() 
-  };
-  this.taskForm.get('due_date')?.setValue(formattedDate);
-}
-
+  }
+  
   this.taskForm.patchValue({
-      title: task.title,
-      description: task.description,
-      category: task.category,
-      priority: task.priority,
-      assigned_to: task.assigned_to,
-      status: task.status
+    title: task.title,
+    description: task.description,
+    category: task.category,
+    priority: task.priority,
+    assigned_to: task.assigned_to,
+    status: task.status
   });
+
+  // Ensure the selected category is correctly set
   this.selectedOption = this.categories.find(category => category.id === task.category);
   console.log('Selected category:', this.selectedOption); // Debug log
+
   this.subtasks = task.subtasks;
 }
 
-  updateTask(): void {
-    if (!this.taskForm.valid) {
-      console.log('Form is not valid');
+
+
+
+updateTask(): void {
+  console.log('updateTask() called');  // Debug log
+
+  if (!this.taskForm.valid) {
+      console.log('Form is not valid');  // Debug log
       this.logFormErrors();
       return;
-    }
+  }
 
-    const formattedData = this.prepareSubmitData();
-    console.log('Data sent to the backend:', formattedData);
+  const formattedData = this.prepareSubmitData();
+  console.log('Data prepared for backend:', formattedData);  // Debug log
 
-    this.taskService.updateTask(this.taskId, formattedData).subscribe({
+  this.taskService.updateTask(this.taskId, formattedData).subscribe({
       next: (task) => {
-        console.log('Task updated successfully:', task);
-        this.taskUpdated.emit();
-        this.taskForm.reset();
-        this.subtasks = [];
-        
+          console.log('Task updated successfully:', task);  // Debug log
+          this.taskUpdated.emit();
+          this.taskForm.reset();
+          this.subtasks = [];
+          console.log('Task form reset and subtasks cleared');  // Debug log
       },
       error: (error) => {
-        console.error('Failed to update task:', error);
-        alert('Failed to update task: ' + (error.error.message || error.message));
+          console.error('Failed to update task:', error);
+          console.error('Error details:', error.error);  // Debug log
+          alert('Failed to update task: ' + (error.error.message || error.message));
       }
-    });
+  });
 
-    this.addTaskSuccess = true;
-    setTimeout(() => {
+  this.addTaskSuccess = true;
+  console.log('addTaskSuccess set to true');  // Debug log
+
+  setTimeout(() => {
+      console.log('Navigating to /board');  // Debug log
       this.router.navigate(['/board']);
-    }, 3000);
-  }
+  }, 3000);
+}
 
-  logFormErrors() {
-    console.log('Form Errors:', this.taskForm.errors);
-  }
 
-  prepareSubmitData() {
-    const formData = this.taskForm.value;
 
-    if (formData.due_date) {
+logFormErrors() {
+  const formErrors: { [key: string]: any } = {};
+  Object.keys(this.taskForm.controls).forEach(key => {
+      const control = this.taskForm.get(key);
+      if (control && control.invalid) {
+          formErrors[key] = control.errors;
+      }
+  });
+  console.log('Form Errors:', formErrors);
+}
+
+prepareSubmitData() {
+  const formData = this.taskForm.value;
+
+  if (formData.due_date) {
       const { year, month, day } = formData.due_date;
       formData.due_date = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-    }
-    formData.assigned_to = this.selectedContacts;
-    formData.subtasks = this.subtasks.map(subtask => ({
-      id: subtask.id,
+  }
+  formData.assigned_to = this.selectedContacts;
+  
+  // Include both new subtasks (without IDs) and existing subtasks (with IDs)
+  formData.subtasks = this.subtasks.map(subtask => ({
+      id: subtask.id || null,  // Use null for new subtasks
       text: subtask.text,
       completed: subtask.completed
-    }));
+  }));
 
-    return formData;
-  }
+  console.log('Original form data:', formData);  // Debug log
+  console.log('Formatted due_date:', formData.due_date);  // Debug log
+  console.log('Assigned contacts:', formData.assigned_to);  // Debug log
+  console.log('Subtasks to be sent:', formData.subtasks);  // Debug log
+
+  return formData;
+}
 
   onCloseEditTaskOverlay(): void {
     this.closeEditTaskOverlay.emit();

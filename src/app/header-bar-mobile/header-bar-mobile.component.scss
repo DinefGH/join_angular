@@ -48,6 +48,13 @@
 }
 
 
+@media (min-width: 1025px) { 
+    .headerContainer {
+        width: 90vw;
+    }
+}
+
+
 @media screen and (orientation: landscape) and (max-width: 1024px) {
     .headerContainer {
         height:15vh;
