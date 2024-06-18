@@ -10,15 +10,22 @@
 
     <main class="contactsViewContent">
 
-        <div>
+        <div class="contactsSmallHeadline">
             <h1>Contacts</h1>
-            <div class="smallHeadlineContacts">Better with a team!</div>
+            <div class="contactsDividingLine"></div>
+            <div class="smallHeadlineContacts">Better with a team</div>
             <div class="contactsUnderline"></div>
         </div>
 
         <div class="intitialsContactNameContainer">
             <span class="initialsCircleContactView" [style.backgroundColor]="contact?.color">{{ getInitials(contact?.name) }}</span>
+            <div class="contactsNameEditContainer">
             <div class="contactName">{{ contact?.name }}</div>
+            <div class="contactsEditDeleteDesktop">
+                <span class="contactsEditLink"><i class="fa-solid fa-pencil"></i> Edit</span>
+                <span class="contactsEditLink"><i class="fas fa-trash-alt"></i> Delete</span>
+            </div>
+            </div>
         </div>
 
         <article class="contactsInformationContainer">
