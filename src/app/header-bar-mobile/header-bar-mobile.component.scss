@@ -13,6 +13,7 @@
 
 .iconContainerHeader {
     margin-left: 16px;
+    display: block;
 }
 
 .initialsContainer {
@@ -47,11 +48,26 @@
 
 }
 
+.headerText {
+    display: none;
+}
 
 @media (min-width: 1025px) { 
     .headerContainer {
-        width: 90vw;
+        width: 85vw;
+        right: 0;
     }
+    
+    .iconContainerHeader {
+        display: none;
+    }
+
+    .headerText {
+        display: block;
+        font-weight: 500;
+        margin-left: 48px;
+    }
+
 }
 
 

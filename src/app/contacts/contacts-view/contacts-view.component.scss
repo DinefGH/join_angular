@@ -16,6 +16,15 @@
     display: block;
 }
 
+
+.contactsBackArrow {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
 .contactsViewContent {
     height: 80vh;
     position: relative;
@@ -67,6 +76,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.contactsEditDeleteDesktop {
+display: none;
 }
 
 
@@ -155,6 +168,10 @@ font-size: calc(1.175rem + 0.5vw);
 
 @media (min-width: 1025px) {
 
+    .headerDesktopContactsView  {
+    display: none;  
+    }
+
 .sidebarComponent {
     display: block;
 }
@@ -168,14 +185,15 @@ font-size: calc(1.175rem + 0.5vw);
 }
 
 .contactsViewContainer {
-    width: 90vw;
+    width: 55vw;
 }
 
 
 .contactsViewContent {
-    width: 90vw;
+    width: 100%;
     margin-bottom: 0vh;
 overflow: hidden;
+margin-top: 15vh;
 }
 
 
@@ -208,6 +226,7 @@ overflow: hidden;
 }
 
 .contactsEditDeleteDesktop {
+    display: block;
     width: 100%;
     margin-left: 16px;
     margin-bottom: 8px;
@@ -223,6 +242,10 @@ overflow: hidden;
 }
 
 .moreIconContainer {
+    display: none;
+}
+
+.contactsBackArrow {
     display: none;
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
@@ -9,6 +9,7 @@ import { Contact } from 'src/assets/models/contact.model';
   styleUrls: ['./contacts-view.component.scss']
 })
 export class ContactsViewComponent  implements OnInit {
+  @Input() isOverlayVisibleContactsView: boolean = false;
   isVisible: boolean = false;
   contact: Contact | null = null;
   user: any; // Same here for the user, if applicable

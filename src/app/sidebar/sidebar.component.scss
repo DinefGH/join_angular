@@ -1,19 +1,30 @@
 .sidebarContnentContainer {
     background-color: #2a3647;
     height: 100vh;
-    width: 10vw;
-    display: flex;
-    justify-content: space-around;
+    width: 15vw;
+    display: flex;;
     align-items: center;
+    flex-direction: column
 }
 
 .iconContainerSidebar {
-    height: 100%;
     display: flex;
     align-items: center;
-    border-radius: 16px;
+    justify-content: center;
     padding-left: 8px;
     padding-right: 8px;
+    margin-top: 40px;
+    width: 15vw;
+}
+
+.boardIcon {
+    margin-left: -12px;
+}
+
+.iconText {
+    color: white;
+    font-weight: 500;
+    margin-left: 10px;
 }
 
 .hoverSidebarIcons:hover {
@@ -25,3 +36,22 @@
     background-color: #091931 !important;
 }
 
+.logoContainer {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.allIconsContainer {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+
+}
+
+.imprintContainer {
+    height: 10vh;
+}

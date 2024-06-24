@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
+import { ScreenSizeService } from 'src/app/services/screen-size.service';
 
 
 @Component({
@@ -10,18 +11,23 @@ import { Contact } from 'src/assets/models/contact.model';
   styleUrls: ['./contacts-overview.component.scss']
 })
 export class ContactsOverviewComponent implements OnInit  {
+  isOverlayVisibleContactsView= false
   isVisible: boolean = false;
   groupedContacts: { [key: string]: Contact[] } = {};
+  isHandsetOrTablet: boolean = false;
 
   showContactsAdd(): void {
     this.isVisible = true; // Show the <app-contacts-add> component
   }
 
-  constructor(private addContactService: AddContactService, private router: Router) { }
+  constructor(private addContactService: AddContactService, private router: Router, private screenSizeService: ScreenSizeService) { }
 
   ngOnInit(): void {
     this.loadContacts();
+    this.screenSizeService.isHandsetOrTablet$.subscribe(isHandsetOrTablet => this.isHandsetOrTablet = isHandsetOrTablet);
   }
+
+
 
   loadContacts(): void {
     this.groupedContacts = {};
@@ -81,11 +87,40 @@ export class ContactsOverviewComponent implements OnInit  {
     }
 }
 
+
+
+
+closeContactsView(): void {
+  this.isOverlayVisibleContactsView = false;
+
+}
+
+
+openContact(contactId: number): void {
+  if (this.isHandsetOrTablet) {
+    this.goToContactDetails(contactId);
+  } else {
+    this.goToDesktopContactDetails(contactId);
+  }
+}
+
+
 goToContactDetails(contactId: number) {
   if (typeof contactId === 'undefined') {
     console.error('Contact ID is undefined');
     return;
   }
-  this.router.navigate(['/contacts-detail', contactId]);}
+  this.router.navigate(['/contacts-detail', contactId]);
+}
+
+
+
+goToDesktopContactDetails(contactId: number) {
+  if (typeof contactId === 'undefined') {
+    console.error('Contact ID is undefined');
+    return;
+  }
+  this.isOverlayVisibleContactsView = true;
+}
 }
 

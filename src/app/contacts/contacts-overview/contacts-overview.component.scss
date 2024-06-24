@@ -80,3 +80,34 @@
     font-size: 0.75rem;
 
 }
+
+.sidebarComponent {
+    display: none;
+}
+
+@media (min-width: 1025px) {
+
+    .sidebarComponent {
+        display: block;
+    }
+    
+
+    .addIconContainer {
+        display: none;
+    }
+
+    .contactsDesktopContainer {
+        display: flex;
+    }
+
+    .footerComponent {
+        display: none;
+    }
+
+    .contactsContent {
+        height: 90vh;
+        margin-bottom: 0vh;
+        margin-top: 10vh;
+        padding-top: 5vh;
+    }
+}
