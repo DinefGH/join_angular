@@ -15,6 +15,7 @@ export class ContactsOverviewComponent implements OnInit  {
   isVisible: boolean = false;
   groupedContacts: { [key: string]: Contact[] } = {};
   isHandsetOrTablet: boolean = false;
+  contactsViewNotVisible: boolean = true
 
   showContactsAdd(): void {
     this.isVisible = true; // Show the <app-contacts-add> component
@@ -121,6 +122,7 @@ goToDesktopContactDetails(contactId: number) {
     return;
   }
   this.isOverlayVisibleContactsView = true;
+  this.contactsViewNotVisible = false
 }
 }
 

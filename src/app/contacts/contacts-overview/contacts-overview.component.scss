@@ -85,6 +85,14 @@
     display: none;
 }
 
+.contactsDesktopScreen {
+    display: none;
+}
+
+.contactsAddDesktop {
+    display: none;
+}
+
 @media (min-width: 1025px) {
 
     .sidebarComponent {
@@ -109,5 +117,64 @@
         margin-bottom: 0vh;
         margin-top: 10vh;
         padding-top: 5vh;
+        width: 30vw;
+        background-color: white;
     }
+
+    .contactsAddDesktop {
+        background-color: #2A3647;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+
+    }
+
+    .contactsAddDesktop:hover {
+        background-color: #29ABE2;
+    }
+
+
+    .addIconDesktop {
+        padding-left: 8px;
+    }
+
+    .contactItem:hover {
+        background-color: #F6F7F8;
+        border-radius: 10px;
+    }
+
+    .contactsDesktopScreen {
+        width: 55vw;
+        background-color: #F6F7F8;
+        margin-top: 15vh;
+        height: 80vh;
+        padding-left: 32px;
+        display: block;
+    }
+
+    .contactsSmallHeadline {
+        display: flex;
+        align-items: center;
+    }
+
+    .contactsDividingLine {
+        display: block  ;
+        border-right: 3px solid;
+        border-color: #29ABE2;
+        height: 48px;
+        padding-bottom: 8px;
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+    .smallHeadlineContacts {
+        font-size: calc(1.175rem + 0.5vw) !important;
+    }
+
 }
