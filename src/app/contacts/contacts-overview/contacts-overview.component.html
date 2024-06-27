@@ -45,6 +45,7 @@
 </div>
 </main>
 <app-contacts-view *ngIf="isOverlayVisibleContactsView" class="contactsViewDesktop"
+[contact]="selectedContact"
 [isOverlayVisibleContactsView]="isOverlayVisibleContactsView"
 (closeContactsView)="(closeContactsView)"
 >

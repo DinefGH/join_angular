@@ -11,7 +11,7 @@ import { Contact } from 'src/assets/models/contact.model';
 export class ContactsViewComponent  implements OnInit {
   @Input() isOverlayVisibleContactsView: boolean = false;
   isVisible: boolean = false;
-  contact: Contact | null = null;
+  @Input() contact: Contact | null = null;
   user: any; // Same here for the user, if applicable
   
   public showEditOverlay: boolean = false;
@@ -87,5 +87,10 @@ export class ContactsViewComponent  implements OnInit {
       this.fetchContactDetails(this.contact!.id); // Re-fetch the contact details
       this.showEditOverlay = false;
     }
+}
+
+
+goBackToContacts() {
+  this.router.navigate(['/contacts']);
 }
 }

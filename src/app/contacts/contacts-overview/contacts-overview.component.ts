@@ -16,6 +16,7 @@ export class ContactsOverviewComponent implements OnInit  {
   groupedContacts: { [key: string]: Contact[] } = {};
   isHandsetOrTablet: boolean = false;
   contactsViewNotVisible: boolean = true
+  selectedContact: Contact | null = null;
 
   showContactsAdd(): void {
     this.isVisible = true; // Show the <app-contacts-add> component
@@ -121,8 +122,24 @@ goToDesktopContactDetails(contactId: number) {
     console.error('Contact ID is undefined');
     return;
   }
+  const contact = this.findContactById(contactId);
+  if (!contact) {
+    console.error('Contact not found');
+    return;
+  }
+  this.selectedContact = contact;
   this.isOverlayVisibleContactsView = true;
-  this.contactsViewNotVisible = false
+  this.contactsViewNotVisible = false;
+}
+
+findContactById(contactId: number): Contact | undefined {
+  for (const letter in this.groupedContacts) {
+    const contact = this.groupedContacts[letter].find(contact => contact.id === contactId);
+    if (contact) {
+      return contact;
+    }
+  }
+  return undefined;
 }
 }
 

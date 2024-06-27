@@ -60,8 +60,20 @@ $primary-hover: #29ABE2;
 }
 
 
+
 .w180 {
   width: 180px;
 }
+
+.footerComponent {
+  display: block;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+@media (min-width: 1025px) {
+  .footerComponent {
+    display: none;
+  }
+}
