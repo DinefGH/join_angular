@@ -40,7 +40,7 @@
 
 .cardContainer {
     height:65vh;
-    width: 100vw;
+    width: min(1024px, 100vw);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -57,7 +57,7 @@
 
 
 .firstRow {
-    width: 47vw !important;
+    width: min(264px, 47vw);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -66,7 +66,7 @@
 
 
 .secondRow {
-    width: 96vw !important;
+    width: min(560px, 96vw);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -77,12 +77,12 @@
 .cardsFirstRow {
     display: flex;
     justify-content: space-between;
-    width: 96vw;
+    width: min(560px, 96vw);
 }
 
 
 .thirdRow {
-    width: 31vw !important;
+    width: min(168px, 31vw);
     display: flex;
     align-items: center;
 }
@@ -91,8 +91,7 @@
 .cardsThirdRow {
     display: flex;
     justify-content: space-between;
-    width: 96vw;
-    
+    width: min(560px, 96vw);
 }
 
 
@@ -231,6 +230,24 @@
 
     .urgentShadow {
         height: 12vh;
+    }
+}
+
+@media (min-width: 1025px) { 
+
+    .summaryDesktopContainer {
+        display: flex;
+    }
+
+    .summaryContent {
+        width: 55vw;
+        position: relative;
+        margin-left: 48px;
+    }
+
+
+    .cardContainer {
+        width: 560px;
     }
 }
 

@@ -69,6 +69,12 @@ $primary-hover: #29ABE2;
   display: block;
 }
 
+.sidebarComponent {
+  display: none;
+}
+
+
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
@@ -76,4 +82,8 @@ $primary-hover: #29ABE2;
   .footerComponent {
     display: none;
   }
+
+  .sidebarComponent {
+    display: block;
+}
 }
