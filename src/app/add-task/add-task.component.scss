@@ -10,7 +10,7 @@
 
 .addTaskContent {
     height: 80vh;
-    margin-top: 8vh;
+    margin-top: 10vh;
     margin-bottom: 20vh;
     padding-left: 16px;
     padding-right: 16px;
@@ -515,10 +515,6 @@
 }
 
 
-.icon-container {
-  /* No specific styling needed unless you want to add margins */
-}
-
 
 .subtask-text {
   flex-grow: 1; /* Allows text to take up any extra space */
@@ -583,3 +579,19 @@
       scrollbar-width: none;  /* Firefox */
     }
   }
+
+  @media (min-width: 1025px) { 
+
+    .addTaskDesktopContainer {
+        display: flex;
+    }
+    
+    .addTaskContent {
+        width: 85vw;
+        margin-bottom: 10vh;
+    }
+
+    .requiredButtonContainer {
+      bottom: 0vh;
+    }
+}

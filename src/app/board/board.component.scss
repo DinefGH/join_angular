@@ -10,7 +10,7 @@
 
 .boardContent {
     height: 80vh;
-    margin-top: 8vh;
+    margin-top: 10vh;
     margin-bottom: 10vh;
     padding-left: 16px;
     padding-right: 16px;
@@ -35,6 +35,11 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.addButton:hover {
+    background-color: #29ABE2;
+    
 }
 
 
@@ -119,6 +124,10 @@
     justify-content: center;
     align-items: center;
     
+}
+
+.moreTasksContainer:hover {
+    background-color: #29ABE2;
 }
 
 .categoryTasksCard {
@@ -264,4 +273,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+
+@media (min-width: 1025px) { 
+
+    .boardDesktopContainer {
+        display: flex;
+    }
+    
+    .boardContent {
+        width: 85vw;
+        margin-bottom: 0vh;
+        height: 90vh;
+    }
+
 }

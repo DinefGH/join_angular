@@ -26,6 +26,7 @@
 
 
 .summaryUnderline {
+    display: block;
     border-bottom: 3px solid;
     border-color: #29ABE2;
     width: min(120px, 50%);
@@ -246,8 +247,58 @@
     }
 
 
+    .headlinesContainer {
+        display: flex;
+        align-items: center;
+    }
+
+    .smallHeadline {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .summaryUnderline {
+        display: none;
+    }
+
+
+    .summaryDividingLine {
+        display: block  ;
+        border-right: 3px solid;
+        border-color: #29ABE2;
+        height: 48px;
+        padding-bottom: 8px;
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+
     .cardContainer {
         width: 560px;
+    }
+
+    .greetingContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(1.475rem + 0.5vw);
+        height: 90vh;
+        margin-top: 10vh;
+    }
+
+    .greetingNameContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .greetingContainerGreeting {
+        font-weight: 500;
+    }
+
+    .greetingContainerName {
+        color: #29ABE2;
+        font-weight: 700;
     }
 }
 

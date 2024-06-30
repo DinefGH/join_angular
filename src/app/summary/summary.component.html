@@ -8,7 +8,8 @@
     <main class="summaryContent">
         <article class="headlinesContainer">
             <h1>Join 360</h1>
-            <p class="smallHeadline">Key Metrics at a Glance</p>
+            <div class="summaryDividingLine"></div>
+            <span class="smallHeadline">Key Metrics at a Glance</span>
             <div class="summaryUnderline"></div>
         </article>
 
@@ -27,11 +28,12 @@
                         </g>
                         </svg></div>
                     <div class="numberTextContainer">
-                        <div class="numberStyle">1</div>
+                        <div class="numberStyle">{{ countTasksByStatus('todo') }}</div>
                         <div>To-do</div>
                     </div>
                 </div>
             
+                
                 <div class="card firstRow cardsStyle hoverDone">
                     <div>
                         <svg class="tickIcon" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +42,7 @@
                         </svg>
                     </div>
                     <div class="numberTextContainer">
-                        <div class="numberStyle">1</div>
+                        <div class="numberStyle">{{ countTasksByStatus('done') }}</div>
                         <div>Done</div>
                     </div>
                 </div>
@@ -64,13 +66,13 @@
                             </svg> 
                         </div>
                         <div class="numberTextContainer">
-                            <div class="numberStyle">1</div>
+                            <div class="numberStyle"> {{ countTasksByPriority('Urgent') }}</div>
                             <div>Urgent</div>
                         </div>
                     </div>
                     <div class="urgentShadow"></div>
                     <div class="urgentDateDeadline">
-                        <div class="urgentDate">{{ currentDate | date:'longDate' }}</div>
+                        <div class="urgentDate">{{ nearestDueDate | date:'longDate' }}</div>
                         <div class="urgentDeadline">Upcoming Deadline</div>
                     </div>
                 </div>
@@ -78,20 +80,26 @@
 
             <div class="cardsThirdRow">
                 <div class="card thirdRow cardsStyle hoverthirdRow">
-                    <div class="numberStyle">5</div>
+                    <div class="numberStyle"> {{ tasks.length }}</div>
                     <div class="textCenter">Tasks in Board</div>
                 </div>
                 <div class="card thirdRow cardsStyle hoverthirdRow">
-                    <div class="numberStyle">2</div>
+                    <div class="numberStyle"> {{ countTasksByStatus('inProgress') }}</div>
                     <div class="textCenter">Tasks in Progress</div>
                 </div>
                 <div class="card thirdRow cardsStyle hoverthirdRow">
-                    <div class="numberStyle">2</div>
+                    <div class="numberStyle">{{ countTasksByStatus('awaitFeedback') }}</div>
                     <div class="textCenter">Awaiting Feedback</div>
                 </div>
             </div>
         </div>
     </main>
+    <div class="greetingContainer">
+        <div class="greetingNameContainer">
+        <span class="greetingContainerGreeting">{{ greeting$ | async }}</span>        
+        <span class="greetingContainerName">{{ currentUser?.name }}</span>
+      </div>
+    </div>
 </div>
     <footer  class="footerComponent">
         <app-footer-bar></app-footer-bar>

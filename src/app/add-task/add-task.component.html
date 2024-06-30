@@ -2,6 +2,8 @@
 <header  *ngIf="!hideHeaderFooter">
     <app-header-bar-mobile></app-header-bar-mobile>
 </header>
+<div class="addTaskDesktopContainer">
+  <app-sidebar class="sidebarComponent"></app-sidebar>
 <main class="addTaskContent">
     <article class="headlinesAddTaskContainer">
         <h1>Add Task</h1>
@@ -30,9 +32,9 @@
                 </div>
                 <div *ngIf="isOpenContacts" class="dropdownOptionsContacts">
                   <div *ngFor="let contact of contacts; let i = index" 
-                       class="dropdown-option" 
-                       [class.selected]="selectedContacts.includes(contact.id)" 
-                       (click)="handleContactClick(contact.id, $event)">
+                      class="dropdown-option" 
+                      [class.selected]="selectedContacts.includes(contact.id)" 
+                      (click)="handleContactClick(contact.id, $event)">
                     <span class="colorCircleContacts" [style.backgroundColor]="contact.color">
                       {{ getInitials(contact.name) }}
                     </span>
@@ -202,6 +204,7 @@
         Task successfully created!
       </div>
 </main>
+</div>
 <footer  *ngIf="!hideHeaderFooter" class="footerAddTaskComponent footerComponent">
     <app-footer-bar></app-footer-bar>
 </footer>
