@@ -10,6 +10,8 @@
     </article>
 
     <form [formGroup]="taskForm">
+      <div class="addTaskLeftRightContainer">
+      <div class="addTaskDesktopLeft">
         <div class="mb-3 titleContainer">
             <label for="exampleFormControlInput1" class="form-label">Title<span class="requiredStar">*</span></label>
             <input type="text" class="form-control title" id="title" placeholder="Enter a title" formControlName="title" required>
@@ -62,12 +64,14 @@
             <ng-template #moreContacts>...</ng-template>
           </div>
 
-
-
+          
+        </div>
+        <div class="addTaskDividingLine"></div>
+        <div class="addTaskDesktopRight">
           <div class="dateContainer" [formGroup]="taskForm">
             <div class="dueDateHeadline">Due date<span class="requiredStar">*</span></div>
             <div class="row row-cols-sm-auto">
-              <div class="col-12">
+              <div class="col-12 dateWidth">
                 <div class="input-group calendarButtonBackground">
                   <input
                     #dpInput
@@ -191,6 +195,8 @@
                 </li>
               </ul>
         </div>
+      </div>
+    </div>
         <div class="requiredButtonContainer">
           <div>
             <span class="requiredStar">*</span>
