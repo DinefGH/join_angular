@@ -97,12 +97,13 @@
 
 .plusIconCategory {
     cursor: pointer;
+    margin-right: 8px;
 }
 
 
 .tasksCard {
     height: clamp(200px, 100%, 300px);
-    min-width: 252px  !important;
+    min-width: 252px;
     max-width: 252px  !important;
     border-radius: 24px;
     margin: 8px 8px 8px 0px;
@@ -171,7 +172,7 @@
 }
 
 .subtasksProgressbarColor {
-    background-color: #4589ff; /* Background color for the progress bar */
+    background-color: #29ABE2; /* Background color for the progress bar */
     border-radius: 4px; /* Rounded corners for the progress bar */
     height: 100%; /* Height of the progress bar (same as the container) */
     transition: width 0.3s ease; /* Smooth transition for the width change */
@@ -287,6 +288,53 @@
         width: 85vw;
         margin-bottom: 0vh;
         height: 90vh;
+        overflow-y: hidden;
     }
 
+    .tasksCategoryContainer {
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    .tasksCard {
+        width: min(20vw, 252px);
+        min-width:auto;
+        max-width: auto;
+    }
+
+    .categoryContainerDisplay {
+        width: min(20vw, 252px);
+    }
+
+
+    .allTasksContainer {
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 45vh;
+        width: min(20vw, 252px);
+    }
+
+    /* Custom scrollbar */
+.allTasksContainer[_ngcontent-ng-c3576860937]::-webkit-scrollbar {
+    width: 5px;
+    margin-left: 3px;
+    margin-right: 3px; /* Width of the scrollbar */
+}
+
+.allTasksContainer[_ngcontent-ng-c3576860937]::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+    border-radius: 5px; /* Rounded corners for the track */
+}
+
+.allTasksContainer[_ngcontent-ng-c3576860937]::-webkit-scrollbar-thumb {
+    background: #29ABE2; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.allTasksContainer[_ngcontent-ng-c3576860937]::-webkit-scrollbar-thumb:hover {
+    background: #29ABE2; /* Color of the scrollbar thumb when hovered */
+}
 }
