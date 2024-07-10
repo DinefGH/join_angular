@@ -42,6 +42,14 @@
     
 }
 
+.searchbarMobile {
+    display: block;
+}
+
+.searchbarDesktop {
+    display: none;
+}
+
 
 .inputContainer {
     width: 90%;
@@ -296,15 +304,22 @@
         justify-content: space-around;
     }
 
+    .headlineCategorys {
+        font-size: 1.3rem;
+    }
 
     .tasksCard {
-        width: min(20vw, 252px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: min(19vw, 252px);
         min-width:auto;
-        max-width: auto;
+        margin: 8px 8px 8px 4px;
     }
 
     .categoryContainerDisplay {
         width: min(20vw, 252px);
+        height: 75vh;
     }
 
 
@@ -312,29 +327,73 @@
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
-        overflow-y: scroll;
-        height: 45vh;
-        width: min(20vw, 252px);
+        overflow-y: auto;
+        height: 65vh;
+        width: min(20vw, 265px);
     }
 
-    /* Custom scrollbar */
-.allTasksContainer[_ngcontent-ng-c3576860937]::-webkit-scrollbar {
-    width: 5px;
-    margin-left: 3px;
-    margin-right: 3px; /* Width of the scrollbar */
+    .dragDropContainer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .searchbarMobile {
+        display: none;
+    }
+
+    .searchbarDesktop {
+        display: block;
+        width: 33%;
+    }
+
+
+    .categoryTasksCard {
+        padding: 4px 9px 4px 9px;
+
+    }
+    
+
+    :host ::ng-deep .allTasksContainer::-webkit-scrollbar {
+        width: 5px;
+        margin-left: 3px;
+        margin-right: 3px; /* Width of the scrollbar */
+    }
+    
+    :host ::ng-deep .allTasksContainer::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Color of the track */
+        border-radius: 5px; /* Rounded corners for the track */
+    }
+    
+    :host ::ng-deep .allTasksContainer::-webkit-scrollbar-thumb {
+        background: #29ABE2 !important; /* Color of the thumbscrollbar thumb */
+        border-radius: 10px; /* Rounded corners for the thumb */
+    }
+    
+    :host ::ng-deep .allTasksContainer::-webkit-scrollbar-thumb:hover {
+        background: #29ABE2; /* Color of the scrollbar thumb when hovered */
+    }
+    
+
+    .dragging {
+        opacity: 0.5;
+      }
+      
+      .highlight {
+        border: 2px dashed #3f51b5;
+        background-color: #e3f2fd;
+      }
 }
 
-.allTasksContainer[_ngcontent-ng-c3576860937]::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color of the track */
-    border-radius: 5px; /* Rounded corners for the track */
+
+@media (min-width: 1150px) { 
+
+.categoryTasksCard {
+    padding: 4px 16px 4px 16px;
+
 }
 
-.allTasksContainer[_ngcontent-ng-c3576860937]::-webkit-scrollbar-thumb {
-    background: #29ABE2; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-}
-
-.allTasksContainer[_ngcontent-ng-c3576860937]::-webkit-scrollbar-thumb:hover {
-    background: #29ABE2; /* Color of the scrollbar thumb when hovered */
+.headlineCategorys {
+    font-size: 1.5rem;
 }
 }

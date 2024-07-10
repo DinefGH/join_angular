@@ -27,6 +27,7 @@ import { BoardComponent } from './board/board.component';
 import { BoardTaskOverlayComponent } from './board-task-overlay/board-task-overlay.component';
 import { BoardEditTaskComponent } from './board-edit-task/board-edit-task.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     NgbDatepickerModule,
     HttpClientModule,
     FormsModule,
+    DragDropModule,
   ],
   providers: [
     { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter },

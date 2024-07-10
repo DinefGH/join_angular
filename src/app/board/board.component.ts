@@ -3,6 +3,8 @@ import { TaskService, Task } from 'src/app/services/task.service';
 import { CategoryService, Category } from 'src/app/services/category.service';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
+import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragEnter, CdkDragExit  } from '@angular/cdk/drag-drop';
+
 
 @Component({
   selector: 'app-board',
@@ -154,17 +156,18 @@ export class BoardComponent implements OnInit {
 
 
 
-
-  changeStatus(task: Task, newStatus: string, event: MouseEvent): void {
-    event.stopPropagation();
+  changeStatus(task: Task, newStatus: string, event?: MouseEvent): void {
+    if (event) {
+      event.stopPropagation();
+    }
     const updatedTask = { ...task, status: newStatus, subtasks: [...task.subtasks] }; // Ensure subtasks are copied correctly
-  
+
     this.taskService.updateTask(updatedTask.id!, updatedTask).subscribe({
       next: (updatedTask) => {
         console.log('Task status updated successfully:', updatedTask);
         task.status = newStatus; // Update the status locally
         task.showStatusDropdown = false; // Close the dropdown after status change
-  
+
         // Find the task in the appropriate list and update it
         this.updateTaskInList(updatedTask);
       },
@@ -175,12 +178,66 @@ export class BoardComponent implements OnInit {
   }
 
   updateTaskInList(updatedTask: Task) {
-    const allTasks = [...this.todoTasks, ...this.inProgressTasks, ...this.awaitFeedbackTasks, ...this.doneTasks];
-    const taskIndex = allTasks.findIndex(task => task.id === updatedTask.id);
-  
-    if (taskIndex !== -1) {
-      allTasks[taskIndex] = updatedTask; // Update the task in the combined list
-      this.categorizeTasks(allTasks); // Re-categorize tasks
+    const listMap: { [key: string]: Task[] } = {
+      'todo': this.todoTasks,
+      'inProgress': this.inProgressTasks,
+      'awaitFeedback': this.awaitFeedbackTasks,
+      'done': this.doneTasks,
+    };
+
+    for (const key of Object.keys(listMap)) {
+      const list = listMap[key];
+      const taskIndex = list.findIndex((task) => task.id === updatedTask.id);
+      if (taskIndex !== -1) {
+        list[taskIndex] = updatedTask;
+        return;
+      }
     }
+  }
+
+  drop(event: CdkDragDrop<any[]>) {
+    console.log('Previous container:', event.previousContainer.data);
+    console.log('Current container:', event.container.data);
+    console.log('Previous index:', event.previousIndex);
+    console.log('Current index:', event.currentIndex);
+  
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      const task = event.previousContainer.data[event.previousIndex];
+      console.log('Task being moved:', task);
+      const newStatus = this.getStatusFromContainerId(event.container.id);
+      this.changeStatus(task, newStatus); // Adjusted to not require event
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+    event.container.element.nativeElement.classList.remove('highlight');
+  }
+
+  getStatusFromContainerId(containerId: string): string {
+    switch (containerId) {
+      case 'todoContainer':
+        return 'todo';
+      case 'inProgressContainer':
+        return 'inProgress';
+      case 'awaitFeedbackContainer':
+        return 'awaitFeedback';
+      case 'doneContainer':
+        return 'done';
+      default:
+        return '';
+    }
+  }
+
+  highlight(event: CdkDragEnter<any>) {
+    event.container.element.nativeElement.classList.add('highlight');
+  }
+  
+  unhighlight(event: CdkDragExit<any>) {
+    event.container.element.nativeElement.classList.remove('highlight');
   }
 }

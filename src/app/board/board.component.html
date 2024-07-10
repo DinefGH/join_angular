@@ -8,13 +8,24 @@
     <main class="boardContent">
         <article class="headlinesBoardContainer">
             <h1>Board</h1>
+            <div class="col-12 searchbarDesktop">
+                <div class="input-group findBackground">
+                    <input
+                        type="text"
+                        class="form-control borderNone"
+                        placeholder="Find Task"
+                        name="dp"
+                    />
+                    <button class="btn findInputButton btn-outline-secondary bi bi-calendar3" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                </div>
             <div (click)="openOverlay()" class="addButton"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 1V21" stroke="white" stroke-width="2" stroke-linecap="round"/>
                 <path d="M21 11L1.00048 11.138" stroke="white" stroke-width="2" stroke-linecap="round"/>
                 </svg></div>
         </article>
 
-        <div class="col-12">
+        <div class="col-12 searchbarMobile">
             <div class="input-group findBackground">
                 <input
                     type="text"
@@ -29,7 +40,8 @@
 
 
             <div class="tasksCategoryContainer">
-                <div class="todoContainer categoryContainerDisplay">
+                <div cdkDropListGroup class="dragDropContainer">
+                <div id="todoContainer"  class="todoContainer categoryContainerDisplay" cdkDropList  [cdkDropListData]="todoTasks" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="highlight($event)" (cdkDropListExited)="unhighlight($event)">
                     <header class="categoryHeadlineContainer">
                     <div class="headlineCategorys">Todo</div>
                     <div class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +51,7 @@
                         </svg></div>
                     </header>
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of todoTasks" class="tasksCard" (click)="openTaskOverlay(task)">
+                        <div *ngFor="let task of todoTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)">
                             
 
 
@@ -128,7 +140,7 @@
                 </div>
 
 
-                <div class="inProgressContainer categoryContainerDisplay">
+                <div id="inProgressContainer"  class="inProgressContainer categoryContainerDisplay" cdkDropList [cdkDropListData]="inProgressTasks" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="highlight($event)" (cdkDropListExited)="unhighlight($event)">
                     <header class="categoryHeadlineContainer">
                     <div class="headlineCategorys">In Progress</div>
                     <div class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +150,7 @@
                         </svg></div>
                     </header>
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of inProgressTasks" class="tasksCard" (click)="openTaskOverlay(task)">
+                        <div *ngFor="let task of inProgressTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)">
                             <div class="statusContainerButton">
                                     
                                 <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
@@ -222,7 +234,7 @@
                 </div>
 
                 
-                <div class="awaitFeedbackContainer categoryContainerDisplay">
+                <div id="awaitFeedbackContainer" class="awaitFeedbackContainer categoryContainerDisplay" cdkDropList [cdkDropListData]="awaitFeedbackTasks" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="highlight($event)" (cdkDropListExited)="unhighlight($event)">
                     <header class="categoryHeadlineContainer">
                     <div class="headlineCategorys">Await Feedback</div>
                     <div class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -232,7 +244,7 @@
                         </svg></div>
                     </header>  
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of awaitFeedbackTasks" class="tasksCard" (click)="openTaskOverlay(task)">
+                        <div *ngFor="let task of awaitFeedbackTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)">
                             <div class="statusContainerButton">
                                     
                                 <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
@@ -315,7 +327,7 @@
                 </div>
 
 
-                <div class="doneContainer categoryContainerDisplay">
+                <div id="doneContainer" class="doneContainer categoryContainerDisplay" cdkDropList [cdkDropListData]="doneTasks" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="highlight($event)" (cdkDropListExited)="unhighlight($event)">
                     <header class="categoryHeadlineContainer">
                     <div class="headlineCategorys">Done</div>
                 
@@ -326,7 +338,7 @@
                         </svg></div>
                     </header >
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of doneTasks" class="tasksCard" (click)="openTaskOverlay(task)">
+                        <div *ngFor="let task of doneTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)">
                             <div class="statusContainerButton">
                                     
                                 <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
@@ -408,6 +420,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </main>
 
 </div>
