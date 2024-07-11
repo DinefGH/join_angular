@@ -4,7 +4,7 @@ import { CategoryService, Category } from 'src/app/services/category.service';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragEnter, CdkDragExit  } from '@angular/cdk/drag-drop';
-
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-board',
@@ -22,11 +22,13 @@ export class BoardComponent implements OnInit {
   isOverlayVisible = false;
   isOverlayVisibleTask = false;
   selectedTask: Task | null = null;
+  draggedTask: Task | null = null;
 
   constructor(
     private taskService: TaskService,
     private categoryService: CategoryService,
-    private addContactService: AddContactService
+    private addContactService: AddContactService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -161,15 +163,18 @@ export class BoardComponent implements OnInit {
       event.stopPropagation();
     }
     const updatedTask = { ...task, status: newStatus, subtasks: [...task.subtasks] }; // Ensure subtasks are copied correctly
-
+  
     this.taskService.updateTask(updatedTask.id!, updatedTask).subscribe({
       next: (updatedTask) => {
         console.log('Task status updated successfully:', updatedTask);
         task.status = newStatus; // Update the status locally
         task.showStatusDropdown = false; // Close the dropdown after status change
-
+  
         // Find the task in the appropriate list and update it
         this.updateTaskInList(updatedTask);
+  
+        // Trigger change detection manually
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Failed to update task status:', error);
@@ -184,7 +189,7 @@ export class BoardComponent implements OnInit {
       'awaitFeedback': this.awaitFeedbackTasks,
       'done': this.doneTasks,
     };
-
+  
     for (const key of Object.keys(listMap)) {
       const list = listMap[key];
       const taskIndex = list.findIndex((task) => task.id === updatedTask.id);
@@ -193,29 +198,57 @@ export class BoardComponent implements OnInit {
         return;
       }
     }
+  
+    // If task is not found in any list, add it to the appropriate list based on status
+    if (updatedTask.status && updatedTask.status in listMap) {
+      listMap[updatedTask.status].push(updatedTask);
+    } else {
+      console.error('Unknown or undefined task status:', updatedTask.status);
+    }
   }
 
-  drop(event: CdkDragDrop<any[]>) {
-    console.log('Previous container:', event.previousContainer.data);
-    console.log('Current container:', event.container.data);
+  dragStarted(task: Task) {
+    this.draggedTask = task;
+    console.log('Task being dragged:', task);
+  }
+
+
+  drop(event: CdkDragDrop<Task[]>) {
+    console.log('Previous container data:', event.previousContainer.data);
+    console.log('Current container data:', event.container.data);
     console.log('Previous index:', event.previousIndex);
     console.log('Current index:', event.currentIndex);
   
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      const task = event.previousContainer.data[event.previousIndex];
-      console.log('Task being moved:', task);
+    if (this.draggedTask) {
+      console.log('Task being moved:', this.draggedTask);
       const newStatus = this.getStatusFromContainerId(event.container.id);
-      this.changeStatus(task, newStatus); // Adjusted to not require event
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+      console.log('New status:', newStatus);
+  
+      // Remove the task from the previous container
+      const previousContainerIndex = event.previousContainer.data.findIndex(t => t.id === this.draggedTask!.id);
+      if (previousContainerIndex > -1) {
+        event.previousContainer.data.splice(previousContainerIndex, 1);
+      }
+  
+      // Add the task to the new container and update its status
+      this.changeStatus(this.draggedTask, newStatus);
+      event.container.data.splice(event.currentIndex, 0, this.draggedTask);
+      console.log('Task moved to new container:', this.draggedTask);
+  
+      this.draggedTask = null; // Reset the dragged task
+  
+      // Trigger change detection manually
+      this.cdr.detectChanges();
+    } else {
+      console.error('Dragged task is null');
     }
+  
+    // Remove the highlight class from the container after drop
     event.container.element.nativeElement.classList.remove('highlight');
+  
+    // Log the updated state of containers
+    console.log('Updated previous container data:', event.previousContainer.data);
+    console.log('Updated current container data:', event.container.data);
   }
 
   getStatusFromContainerId(containerId: string): string {

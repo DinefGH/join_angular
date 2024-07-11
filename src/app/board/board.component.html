@@ -51,7 +51,7 @@
                         </svg></div>
                     </header>
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of todoTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)">
+                        <div *ngFor="let task of todoTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)" (cdkDragStarted)="dragStarted(task)">
                             
 
 
@@ -150,7 +150,7 @@
                         </svg></div>
                     </header>
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of inProgressTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)">
+                        <div *ngFor="let task of inProgressTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)" (cdkDragStarted)="dragStarted(task)">
                             <div class="statusContainerButton">
                                     
                                 <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
@@ -244,7 +244,7 @@
                         </svg></div>
                     </header>  
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of awaitFeedbackTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)">
+                        <div *ngFor="let task of awaitFeedbackTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)" (cdkDragStarted)="dragStarted(task)">
                             <div class="statusContainerButton">
                                     
                                 <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
@@ -338,7 +338,7 @@
                         </svg></div>
                     </header >
                     <div class="allTasksContainer">
-                        <div *ngFor="let task of doneTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)">
+                        <div *ngFor="let task of doneTasks"  cdkDrag class="tasksCard" [cdkDragPreviewClass]="'dragging'" (click)="openTaskOverlay(task)" (cdkDragStarted)="dragStarted(task)">
                             <div class="statusContainerButton">
                                     
                                 <article class="categoryTasksCard" [style.background-color]="getCategoryNameAndColor(task.category!).color">
