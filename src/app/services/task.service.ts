@@ -21,6 +21,7 @@ export interface Task {
   subtasks: Subtask[];
   status?: string; // Add status field
   contacts: number[]; // Add this line
+  creator?: number; // Add this line
 
   showStatusDropdown?: boolean;
 
