@@ -23,6 +23,11 @@ export class BoardComponent implements OnInit {
   isOverlayVisibleTask = false;
   selectedTask: Task | null = null;
   draggedTask: Task | null = null;
+  searchTerm: string = '';
+  originalTodoTasks: Task[] = []; // Store the original list of tasks
+  originalInProgressTasks: Task[] = [];
+  originalAwaitFeedbackTasks: Task[] = [];
+  originalDoneTasks: Task[] = [];
 
   constructor(
     private taskService: TaskService,
@@ -41,6 +46,10 @@ export class BoardComponent implements OnInit {
     this.taskService.getTasks().subscribe({
       next: (tasks) => {
         this.categorizeTasks(tasks);
+        this.originalTodoTasks = [...this.todoTasks];
+        this.originalInProgressTasks = [...this.inProgressTasks];
+        this.originalAwaitFeedbackTasks = [...this.awaitFeedbackTasks];
+        this.originalDoneTasks = [...this.doneTasks];
       },
       error: (error) => {
         console.error('Error loading tasks:', error);
@@ -162,26 +171,26 @@ export class BoardComponent implements OnInit {
     if (event) {
       event.stopPropagation();
     }
-    const updatedTask = { ...task, status: newStatus, subtasks: [...task.subtasks] }; // Ensure subtasks are copied correctly
+  
+    // Validate subtasks
+    const validSubtasks = task.subtasks.filter(subtask => subtask.id != null);
+    const updatedTask = { ...task, status: newStatus, subtasks: validSubtasks };
   
     this.taskService.updateTask(updatedTask.id!, updatedTask).subscribe({
       next: (updatedTask) => {
-        console.log('Task status updated successfully:', updatedTask);
-        task.status = newStatus; // Update the status locally
-        task.showStatusDropdown = false; // Close the dropdown after status change
-  
-        // Find the task in the appropriate list and update it
+        task.status = newStatus;
+        task.showStatusDropdown = false;
         this.updateTaskInList(updatedTask);
-  
-        // Trigger change detection manually
+        this.updateOriginalTasksArray(updatedTask); // Update the original task arrays
         this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Failed to update task status:', error);
+        alert('Failed to update task status: ' + (error.message || 'Something bad happened; please try again later.'));
       }
     });
   }
-
+  
   updateTaskInList(updatedTask: Task) {
     const listMap: { [key: string]: Task[] } = {
       'todo': this.todoTasks,
@@ -199,13 +208,39 @@ export class BoardComponent implements OnInit {
       }
     }
   
-    // If task is not found in any list, add it to the appropriate list based on status
     if (updatedTask.status && updatedTask.status in listMap) {
       listMap[updatedTask.status].push(updatedTask);
     } else {
       console.error('Unknown or undefined task status:', updatedTask.status);
     }
   }
+  
+  // New method to update original task arrays
+  updateOriginalTasksArray(updatedTask: Task) {
+    const listMap: { [key: string]: Task[] } = {
+      'todo': this.originalTodoTasks,
+      'inProgress': this.originalInProgressTasks,
+      'awaitFeedback': this.originalAwaitFeedbackTasks,
+      'done': this.originalDoneTasks,
+    };
+  
+    for (const key of Object.keys(listMap)) {
+      const list = listMap[key];
+      const taskIndex = list.findIndex((task) => task.id === updatedTask.id);
+      if (taskIndex !== -1) {
+        list[taskIndex] = updatedTask;
+        return;
+      }
+    }
+  
+    if (updatedTask.status && updatedTask.status in listMap) {
+      listMap[updatedTask.status].push(updatedTask);
+    } else {
+      console.error('Unknown or undefined task status:', updatedTask.status);
+    }
+  }
+
+
 
   dragStarted(task: Task) {
     this.draggedTask = task;
@@ -273,4 +308,26 @@ export class BoardComponent implements OnInit {
   unhighlight(event: CdkDragExit<any>) {
     event.container.element.nativeElement.classList.remove('highlight');
   }
+
+
+  searchTasks() {
+    const searchTermLower = this.searchTerm.toLowerCase();
+  
+    this.todoTasks = this.originalTodoTasks.filter(task =>
+      task.title.toLowerCase().includes(searchTermLower) || task.description!.toLowerCase().includes(searchTermLower)
+    );
+  
+    this.inProgressTasks = this.originalInProgressTasks.filter(task =>
+      task.title.toLowerCase().includes(searchTermLower) || task.description!.toLowerCase().includes(searchTermLower)
+    );
+  
+    this.awaitFeedbackTasks = this.originalAwaitFeedbackTasks.filter(task =>
+      task.title.toLowerCase().includes(searchTermLower) || task.description!.toLowerCase().includes(searchTermLower)
+    );
+  
+    this.doneTasks = this.originalDoneTasks.filter(task =>
+      task.title.toLowerCase().includes(searchTermLower) || task.description!.toLowerCase().includes(searchTermLower)
+    );
+  }
+  
 }
