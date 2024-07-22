@@ -57,4 +57,13 @@ export class SidebarComponent implements OnInit {
   goToBoard() {
     this.router.navigate(['/board']);
   }
+
+
+  goToPolicy() {
+    this.router.navigate(['/policy']);
+  }
+
+  goToLegal() {
+    this.router.navigate(['/legal']);
+  }
 }

@@ -45,7 +45,7 @@
 
 
 .allIconsContainer {
-    height: 60vh;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     width: 15vw;
@@ -54,4 +54,16 @@
 
 .imprintContainer {
     height: 10vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.imprintLink {
+    cursor: pointer;
+}
+
+.imprintLink:hover {
+    color:#29ABE2;
 }

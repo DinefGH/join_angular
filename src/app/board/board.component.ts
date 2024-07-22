@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TaskService, Task } from 'src/app/services/task.service';
 import { CategoryService, Category } from 'src/app/services/category.service';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragEnter, CdkDragExit  } from '@angular/cdk/drag-drop';
 import { ChangeDetectorRef } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-board',
@@ -20,6 +22,7 @@ export class BoardComponent implements OnInit {
   contacts: Contact[] = [];
   maxVisibleContacts = 5;
   isOverlayVisible = false;
+  
   isOverlayVisibleTask = false;
   selectedTask: Task | null = null;
   draggedTask: Task | null = null;
@@ -330,4 +333,9 @@ export class BoardComponent implements OnInit {
     );
   }
   
+
+  closeUpdateTaskOverlay(): void {
+    this.isOverlayVisibleTask= false;
+  }
+
 }

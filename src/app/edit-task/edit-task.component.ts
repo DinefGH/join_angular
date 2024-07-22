@@ -25,12 +25,14 @@ export class EditTaskComponent implements OnInit, OnChanges  {
   selectedOption?: Category;
   isOpen = false;
   @Input() isEditTaskVisible: boolean = false;
+  @Input() isOverlayVisibleTask: boolean = false;
   @Input() hideHeaderFooter: boolean = false;
   @Input() height: string = '100%';
   @Input() width: string = '100%';
   @Input() taskId!: number;  // Task ID to edit
   @Output() taskUpdated = new EventEmitter<void>();
   @Output() closeEditTaskOverlay = new EventEmitter<void>();
+  @Output() closeUpdateTaskOverlay = new EventEmitter<void>();
   @Input() task: Task | null = null;
 
   addTaskSuccess = false;
@@ -304,9 +306,10 @@ updateTask(): void {
   this.taskService.updateTask(this.taskId, formattedData).subscribe({
       next: (task) => {
           console.log('Task updated successfully:', task);  // Debug log
-          this.taskUpdated.emit();
+          
           this.taskForm.reset();
           this.subtasks = [];
+          this.addTaskSuccess = true;
           console.log('Task form reset and subtasks cleared');  // Debug log
       },
       error: (error) => {
@@ -316,12 +319,17 @@ updateTask(): void {
       }
   });
 
-  this.addTaskSuccess = true;
+ 
   console.log('addTaskSuccess set to true');  // Debug log
 
   setTimeout(() => {
-      console.log('Navigating to /board');  // Debug log
+      console.log('Navigating to /board'); 
+ // Debug log
+ this.taskUpdated.emit();
       this.router.navigate(['/board']);
+
+      this.closeUpdateTaskOverlay.emit(); 
+
   }, 3000);
 }
 
@@ -365,4 +373,6 @@ prepareSubmitData() {
   onCloseEditTaskOverlay(): void {
     this.closeEditTaskOverlay.emit();
   }
+
+
 }
