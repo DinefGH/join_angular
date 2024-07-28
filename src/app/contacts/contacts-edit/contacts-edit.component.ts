@@ -1,4 +1,4 @@
-import { Component,  EventEmitter, OnInit, Output } from '@angular/core';
+import { Component,  EventEmitter, OnInit, Output, Input  } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddContactService } from 'src/app/services/add-contact.service';
@@ -10,6 +10,8 @@ import { Contact } from 'src/assets/models/contact.model';
   styleUrls: ['./contacts-edit.component.scss']
 })
 export class ContactsEditComponent implements OnInit {
+
+  @Input() contactId: number | null = null;
 
   contact: Contact = { id: 0, name: '', email: '', phone: '', color: '', initials: '' }; // include `initials` if it's mandatory
 
@@ -29,12 +31,13 @@ export class ContactsEditComponent implements OnInit {
   ngOnInit(): void {
     // Assume the contact data is passed in via a service or direct assignment
     this.loadContact();
+    console.log('contacts-edit is working')
   }
 
   loadContact(): void {
     // Example of fetching the contact ID from route parameters
     // Adjust based on your app's logic - e.g., might use a service to get a contact to edit
-    const contactId = this.route.snapshot.params['id'];
+    const contactId = this.contactId !== null ? this.contactId : this.route.snapshot.params['id'];
     if (contactId) {
       this.addContactService.getContactById(contactId).subscribe({
         next: (contactData) => {

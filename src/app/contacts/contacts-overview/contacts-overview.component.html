@@ -44,8 +44,10 @@
     <img class="personAddIcon" src="/assets/img/person_add.png" alt="Person add icon">
 </div>
 </main>
-<app-contacts-view *ngIf="isOverlayVisibleContactsView" class="contactsViewDesktop"
+<app-contacts-view *ngIf="isOverlayVisibleContactsView" 
+class="contactsViewDesktop"
 [contact]="selectedContact"
+[contactId]="storedContactId"
 [isOverlayVisibleContactsView]="isOverlayVisibleContactsView"
 (closeContactsView)="(closeContactsView)"
 >

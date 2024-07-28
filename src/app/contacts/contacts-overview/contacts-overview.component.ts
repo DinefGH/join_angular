@@ -17,6 +17,7 @@ export class ContactsOverviewComponent implements OnInit  {
   isHandsetOrTablet: boolean = false;
   contactsViewNotVisible: boolean = true
   selectedContact: Contact | null = null;
+  storedContactId: number | null = null;
 
   showContactsAdd(): void {
     this.isVisible = true; // Show the <app-contacts-add> component
@@ -27,9 +28,16 @@ export class ContactsOverviewComponent implements OnInit  {
   ngOnInit(): void {
     this.loadContacts();
     this.screenSizeService.isHandsetOrTablet$.subscribe(isHandsetOrTablet => this.isHandsetOrTablet = isHandsetOrTablet);
+    if (this.storedContactId) {
+      this.loadStoredContactDetails();
+    }
   }
 
-
+  loadStoredContactDetails(): void {
+    if (this.storedContactId !== null) {
+      this.goToDesktopContactDetails(this.storedContactId);
+    }
+  }
 
   loadContacts(): void {
     this.groupedContacts = {};
@@ -101,6 +109,7 @@ closeContactsView(): void {
 openContact(contactId: number): void {
   if (this.isHandsetOrTablet) {
     this.goToContactDetails(contactId);
+    
   } else {
     this.goToDesktopContactDetails(contactId);
   }
@@ -108,25 +117,29 @@ openContact(contactId: number): void {
 
 
 goToContactDetails(contactId: number) {
-  if (typeof contactId === 'undefined') {
-    console.error('Contact ID is undefined');
+  if (typeof contactId === 'undefined' || isNaN(contactId)) {
+    console.error('Contact ID is undefined or NaN');
     return;
   }
+  console.log('Navigating to contact details with ID:', contactId);
   this.router.navigate(['/contacts-detail', contactId]);
 }
 
 
 
 goToDesktopContactDetails(contactId: number) {
-  if (typeof contactId === 'undefined') {
-    console.error('Contact ID is undefined');
+  this.storedContactId = contactId;
+  if (typeof contactId === 'undefined' || isNaN(contactId)) {
+    console.error('Contact ID is undefined or NaN');
     return;
   }
+  console.log('Finding contact with ID:', contactId);
   const contact = this.findContactById(contactId);
   if (!contact) {
     console.error('Contact not found');
     return;
   }
+  console.log('Contact found:', contact);
   this.selectedContact = contact;
   this.isOverlayVisibleContactsView = true;
   this.contactsViewNotVisible = false;

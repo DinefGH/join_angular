@@ -23,7 +23,7 @@
             <div class="contactsNameEditContainer">
             <div class="contactName">{{ contact?.name }}</div>
             <div class="contactsEditDeleteDesktop">
-                <span class="contactsEditLink"><i class="fa-solid fa-pencil"></i> Edit</span>
+                <span class="contactsEditLink" (click)="showContactsEdit()"><i class="fa-solid fa-pencil"></i> Edit</span>
                 <span class="contactsEditLink"><i class="fas fa-trash-alt"></i> Delete</span>
             </div>
             </div>
@@ -63,7 +63,7 @@
 
 
     </main>
-    <app-contacts-edit class="editContactsComponent" (contactEdited)="onContactEdited($event)"  *ngIf="showEditOverlay" (close)="showEditOverlay = false"></app-contacts-edit>
+    <app-contacts-edit class="editContactsComponent" (contactEdited)="onContactEdited($event)"  *ngIf="showEditOverlay" [contactId]="contactId"  (close)="showEditOverlay = false"></app-contacts-edit>
     <footer  class="footerComponent">
         <app-footer-bar></app-footer-bar>
     </footer>
