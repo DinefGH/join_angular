@@ -33,6 +33,7 @@ export class EditTaskComponent implements OnInit, OnChanges  {
   @Output() taskUpdated = new EventEmitter<void>();
   @Output() closeEditTaskOverlay = new EventEmitter<void>();
   @Output() closeUpdateTaskOverlay = new EventEmitter<void>();
+  @Output() taskUpdatedAndClosed = new EventEmitter<void>();
   @Input() task: Task | null = null;
 
   addTaskSuccess = false;
@@ -76,7 +77,6 @@ export class EditTaskComponent implements OnInit, OnChanges  {
     this.categoryService.getCategories().subscribe({
       next: (categories) => {
         this.categories = categories;
-        console.log('Categories loaded:', this.categories);
       },
       error: (error) => {
         console.error('Error fetching categories:', error);
@@ -101,7 +101,6 @@ export class EditTaskComponent implements OnInit, OnChanges  {
     this.categoryService.getCategories().subscribe({
       next: (categories) => {
         this.categories = categories;
-        console.log('Categories loaded:', this.categories); // Debug log
         if (this.task) {
           this.setTaskFormData(this.task); // Ensure the task is set after categories are loaded
         }
@@ -234,7 +233,6 @@ export class EditTaskComponent implements OnInit, OnChanges  {
 
         this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
           next: (updatedSubtask) => {
-            console.log('Subtask updated successfully:', updatedSubtask);
           },
           error: (error) => {
             console.error('Failed to update subtask:', error);
@@ -249,10 +247,8 @@ export class EditTaskComponent implements OnInit, OnChanges  {
   }
 
   loadTask(taskId: number): void {
-    console.log('Loading task with ID:', taskId); // Debug log
     this.taskService.getTask(taskId).subscribe({
         next: (task) => {
-            console.log('Task loaded:', task); // Debug log
             this.setTaskFormData(task);
         },
         error: (error) => {
@@ -283,7 +279,6 @@ setTaskFormData(task: Task): void {
 
   // Ensure the selected category is correctly set
   this.selectedOption = this.categories.find(category => category.id === task.category);
-  console.log('Selected category:', this.selectedOption); // Debug log
 
   this.subtasks = task.subtasks;
 }
@@ -292,7 +287,6 @@ setTaskFormData(task: Task): void {
 
 
 updateTask(): void {
-  console.log('updateTask() called');  // Debug log
 
   if (!this.taskForm.valid) {
       console.log('Form is not valid');  // Debug log
@@ -301,16 +295,13 @@ updateTask(): void {
   }
 
   const formattedData = this.prepareSubmitData();
-  console.log('Data prepared for backend:', formattedData);  // Debug log
 
   this.taskService.updateTask(this.taskId, formattedData).subscribe({
       next: (task) => {
-          console.log('Task updated successfully:', task);  // Debug log
           
           this.taskForm.reset();
           this.subtasks = [];
           this.addTaskSuccess = true;
-          console.log('Task form reset and subtasks cleared');  // Debug log
       },
       error: (error) => {
           console.error('Failed to update task:', error);
@@ -320,7 +311,6 @@ updateTask(): void {
   });
 
  
-  console.log('addTaskSuccess set to true');  // Debug log
 
   setTimeout(() => {
       console.log('Navigating to /board'); 
@@ -329,6 +319,7 @@ updateTask(): void {
       this.router.navigate(['/board']);
 
       this.closeUpdateTaskOverlay.emit(); 
+      this.taskUpdatedAndClosed.emit();
 
   }, 3000);
 }
@@ -362,16 +353,13 @@ prepareSubmitData() {
       completed: subtask.completed
   }));
 
-  console.log('Original form data:', formData);  // Debug log
-  console.log('Formatted due_date:', formData.due_date);  // Debug log
-  console.log('Assigned contacts:', formData.assigned_to);  // Debug log
-  console.log('Subtasks to be sent:', formData.subtasks);  // Debug log
-
+  
   return formData;
 }
 
   onCloseEditTaskOverlay(): void {
     this.closeEditTaskOverlay.emit();
+    console.log('is onCloseEditTaskOverlay working?')
   }
 
 

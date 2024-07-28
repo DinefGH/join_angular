@@ -43,6 +43,7 @@ export class BoardComponent implements OnInit {
     this.loadTasks();
     this.loadCategories();
     this.loadContacts();
+    console.log('Overlay visibility on init:', this.isOverlayVisibleTask);
   }
 
   loadTasks(): void {
@@ -75,7 +76,6 @@ export class BoardComponent implements OnInit {
     this.addContactService.getContacts().subscribe({
       next: (contacts) => {
         this.contacts = contacts;
-        console.log('Contacts loaded:', this.contacts); // Debug log
       },
       error: (error) => {
         console.error('Error loading contacts:', error);
@@ -335,7 +335,12 @@ export class BoardComponent implements OnInit {
   
 
   closeUpdateTaskOverlay(): void {
+    console.log('closeUpdateTaskOverlay method called');
     this.isOverlayVisibleTask= false;
+    this.selectedTask = null;
+    console.log('is closing working?',this.isOverlayVisibleTask)
+    this.loadTasks();
+
   }
 
 }

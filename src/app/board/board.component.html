@@ -446,7 +446,8 @@
         [isOverlayVisibleTask]="isOverlayVisibleTask"
         (closeTaskOverlay)="closeTaskOverlay()"
         (taskDeleted)="handleTaskDeleted()"
-        (closeUpdateTaskOverlay)="closeUpdateTaskOverlay()">
+         (closeUpdateTaskOverlay)="closeUpdateTaskOverlay()"
+    (taskUpdatedAndClosed)="closeUpdateTaskOverlay()">
     </app-board-task-overlay>
 </div>
 

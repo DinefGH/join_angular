@@ -74,7 +74,8 @@
           <app-edit-task 
             [task]="selectedTask" 
             (taskUpdated)="onTaskUpdated()" 
-            (closeEditTaskOverlay)="closeEditTaskOverlay()">
+            (closeEditTaskOverlay)="closeEditTaskOverlay()"
+            (taskUpdatedAndClosed)="handleTaskUpdatedAndClosed()">
           </app-edit-task>
         </div>
 

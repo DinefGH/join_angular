@@ -15,6 +15,7 @@ export class BoardTaskOverlayComponent implements OnInit {
   @Input() isOverlayVisibleTask: boolean = false;
   @Output() closeTaskOverlay = new EventEmitter<void>();
   @Output() taskDeleted = new EventEmitter<void>();
+  @Output() taskUpdatedAndClosed = new EventEmitter<void>();
 
   isEditTaskVisible = false;
   isTaskOverlayContainerVisible = true;
@@ -151,5 +152,14 @@ export class BoardTaskOverlayComponent implements OnInit {
   onTaskUpdated(): void {
     this.loadTasks(); // Reload tasks to reflect the updates
     this.isEditTaskVisible = false; // Hide the edit task overlay
+  }
+
+  handleTaskUpdatedAndClosed(): void {
+    this.isOverlayVisibleTask = false;
+    this.selectedTask = null;
+    console.log('Task overlay closed');
+    // Optionally, you can emit another event to the parent component if needed
+    this.closeTaskOverlay.emit();
+    this.taskUpdatedAndClosed.emit();
   }
 }
