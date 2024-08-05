@@ -28,6 +28,9 @@ import { BoardTaskOverlayComponent } from './board-task-overlay/board-task-overl
 import { BoardEditTaskComponent } from './board-edit-task/board-edit-task.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { PrivacyPolicyComponent } from './imprint/privacy-policy/privacy-policy.component';
+import { LegalNoticeComponent } from './imprint/legal-notice/legal-notice.component';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     BoardComponent,
     BoardTaskOverlayComponent,
     BoardEditTaskComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    PrivacyPolicyComponent,
+    LegalNoticeComponent,
   ],
   imports: [
     BrowserModule,

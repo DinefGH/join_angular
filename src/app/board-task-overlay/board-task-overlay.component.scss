@@ -1,13 +1,39 @@
-.boardTasksOverlay {
-    background-color: rgba(255, 255, 255, 0);
-    height: 100vh;
+.taskOverlayBackground {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100vw;
-    padding: 16px;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    z-index: 10; 
+}
+
+.boardTasksOverlay {
+    height: 80vh;
+    width: 90vw;
+    position: absolute;
+    top: 10vh;
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    background-color: #ffff;
+    padding: 32px;
 }
 
 .closeBoardTasks {
     cursor: pointer;
 }
+
+.closeBoardTasks .svg-path {
+    transition: fill 0.3s ease;
+  }
+  
+  .closeBoardTasks:hover .svg-path {
+    fill: #29ABE2; /* Change this color to the desired hover color */
+  }
 
 .boardTasksHeadlineCloseContainer {
     display: flex;
@@ -72,4 +98,12 @@
     border-right: 2px solid #D1D1D1;
     height: 24px;
     margin-left: 8px;
+}
+
+@media (min-width: 1025px) { 
+    .boardTasksOverlay {
+
+        width: 40vw;
+
+    }
 }

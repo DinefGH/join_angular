@@ -1,4 +1,5 @@
-<main class="addContactsContentConatiner">
+<div class="editContactsBackground" (click)="closeEditComponent()">
+<main class="addContactsContentConatiner" (click)="$event.stopPropagation()">
     <div class="topContainerAddContacts">
         <div class="closeIconContainer"  (click)="closeEditComponent()">
             <img class="closeIcon" src="./assets/img/close.png" alt="Close icon">
@@ -34,3 +35,4 @@
           </form>
     </div>
 </main>
+</div>
