@@ -250,11 +250,11 @@
 
 .closeOverlayButtonContainer .svg-path {
     transition: fill 0.3s ease;
-  }
-  
-  .closeOverlayButtonContainer:hover .svg-path {
+}
+
+.closeOverlayButtonContainer:hover .svg-path {
     fill: #29ABE2; /* Change this color to the desired hover color */
-  }
+}
 
 .tasksOverlayBoard {
     height: 100vh;
@@ -377,6 +377,8 @@
     :host ::ng-deep .allTasksContainer::-webkit-scrollbar-track {
         background: #f1f1f1; /* Color of the track */
         border-radius: 5px; /* Rounded corners for the track */
+        margin-top: 24px; /* Add top margin */
+        margin-bottom: 24px; /* Add bottom margin */
     }
     
     :host ::ng-deep .allTasksContainer::-webkit-scrollbar-thumb {
@@ -391,16 +393,16 @@
 
     .dragging {
         opacity: 0.5;
-      }
-      
-      .highlight {
+    }
+    
+    .highlight {
 
         background-color: #e3f2fd;
-      }
+    }
 
-      .cdk-drag-placeholder {
+    .cdk-drag-placeholder {
         display: none; /* Hide the original placeholder */
-      }
+    }
 }
 
 

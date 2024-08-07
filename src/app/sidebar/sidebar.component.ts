@@ -60,10 +60,10 @@ export class SidebarComponent implements OnInit {
 
 
   goToPolicy() {
-    this.router.navigate(['/policy']);
+    window.open('/privacy-policy', '_blank')
   }
 
   goToLegal() {
-    this.router.navigate(['/legal']);
+    window.open('/legal-notice', '_blank')
   }
 }

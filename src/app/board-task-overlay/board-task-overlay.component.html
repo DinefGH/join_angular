@@ -1,6 +1,6 @@
 <div class="taskOverlayBackground" (click)="onCloseTaskOverlay()">
 
-<div class="boardTasksOverlay">
+<div class="boardTasksOverlay" (click)="$event.stopPropagation()">
   <div class="taskOverlayContainer" *ngIf="isTaskOverlayContainerVisible">
     <div class="boardTasks">
         <div class="boardTasksHeadlineCloseContainer">
