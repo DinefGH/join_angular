@@ -66,4 +66,5 @@ export class SidebarComponent implements OnInit {
   goToLegal() {
     window.open('/legal-notice', '_blank')
   }
+
 }

@@ -12,10 +12,75 @@
 
 .legalNoticeContent {
     background-color: #f6f7f8;
-    width: 85vw;
+    width: 100vw;
     font-weight: bold;
     padding: 32px;
+    margin-top: 10vh;
 }
+
+
+
+.headerContainer {
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+    height:10vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.iconContainerHeader {
+    margin-left: 16px;
+    display: block;
+}
+
+.initialsContainer {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #2A3647;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    
+}
+
+.initials {
+    font-weight: bold;
+    color: #29ABE2;
+    text-decoration: none;
+}
+
+.linkContainer {
+    background-color: #2A3647;
+    inset: 56px 4px auto auto !important;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transform: none !important;
+}
+
+.link {
+    color: #FFFFFF;
+
+}
+
+.link:hover {
+    background-color: #091931;
+    border-radius: 10px;
+}
+
+.headerText {
+    display: none;
+}
+
+
 
 
 @media (min-width: 1025px) {
@@ -31,6 +96,14 @@
     align-items: center;
     flex-direction: column
 }
+
+
+.legalNoticeContent {
+    width: 85vw;
+}
+
+
+
 
 .iconContainerSidebar {
     display: flex;
@@ -94,5 +167,20 @@
 }
 
 
+
+.headerContainer {
+    width: 85vw;
+    right: 0;
+}
+
+.iconContainerHeader {
+    display: none;
+}
+
+.headerText {
+    display: block;
+    font-weight: 500;
+    margin-left: 48px;
+}
 
 }

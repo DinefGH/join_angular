@@ -36,11 +36,18 @@
     background-color: #091931 !important;
 }
 
+
+
 .logoContainer {
     height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.logo {
+    cursor: pointer;
 }
 
 

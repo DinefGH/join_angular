@@ -36,4 +36,9 @@ export class HeaderBarMobileComponent implements OnInit {
     localStorage.removeItem('user_details');
     this.router.navigateByUrl('/login');
   }
+
+
+  goToSummary() {
+    this.router.navigate(['/summary']);
+  }
 }

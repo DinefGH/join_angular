@@ -153,9 +153,14 @@
 }
 
 .descriptionTasksCard {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; 
+    display: -webkit-box;           
+    display: -moz-box;              
+    display: -ms-flexbox;           
+    display: -webkit-flex;          
+    display: flex;                  
+
+    -webkit-box-orient: vertical;   
+    -moz-box-orient: vertical;        
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 3em;
