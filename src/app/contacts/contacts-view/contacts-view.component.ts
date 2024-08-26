@@ -32,7 +32,6 @@ export class ContactsViewComponent implements OnInit, OnChanges {
         if (contactId) {
           this.fetchContactDetails(contactId);
         } else {
-          console.log('No contact ID provided, redirecting...');
           this.router.navigate(['/contacts']);
         }
       });
@@ -48,7 +47,6 @@ export class ContactsViewComponent implements OnInit, OnChanges {
   private fetchContactDetails(contactId: number): void {
     this.addContactService.getContactById(contactId).subscribe({
       next: (response: Contact) => {
-        console.log(`Contact data loaded for ID ${contactId}:`, response);
         this.contact = response;
       },
       error: (error) => {
@@ -60,7 +58,6 @@ export class ContactsViewComponent implements OnInit, OnChanges {
 
   showContactsEdit(): void {
     if (this.contact) {
-      console.log('Contact data:', this.contact);
       this.showEditOverlay = true;
     } else {
       console.error('Contact data is not available.');
@@ -81,7 +78,6 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     const contactId = this.contact.id;
     this.addContactService.deleteContact(contactId).subscribe({
       next: () => {
-        console.log(`Contact with ID ${contactId} deleted successfully.`);
         this.router.navigate(['/contacts']);
       },
       error: (error) => {
@@ -91,11 +87,9 @@ export class ContactsViewComponent implements OnInit, OnChanges {
   }
 
   onContactEdited(contactEdited: boolean): void {
-    console.log('onContactEdited called with:', contactEdited);
 
     if (contactEdited) {
       if (this.contact && this.contact.id) {
-        console.log('Fetching contact details for ID:', this.contact.id);
         this.fetchContactDetails(this.contact.id);
         this.showEditOverlay = false;
       } else {

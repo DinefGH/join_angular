@@ -34,6 +34,7 @@ export class AddTaskComponent implements OnInit {
   selectedContacts: number[] = [];
   maxVisibleContacts: number = 3;
   isInputFocused: boolean = false;
+  hideRequireDialog = false;
 
   subtasks: Subtask[] = [];
   newSubtask: string = '';
@@ -189,7 +190,6 @@ export class AddTaskComponent implements OnInit {
         if (subtask.id !== undefined) {
           this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
             next: (updatedSubtask) => {
-              console.log('Subtask updated successfully:', updatedSubtask);
             },
             error: (error) => {
               console.error('Failed to update subtask:', error);
@@ -209,17 +209,14 @@ export class AddTaskComponent implements OnInit {
 
   createTask(): void {
     if (!this.taskForm.valid) {
-      console.log('Form is not valid');
       this.logFormErrors();
       return;
     }
   
     const formattedData = this.prepareSubmitData();
-    console.log('Data sent to the backend:', formattedData);
   
     this.taskService.addTask(formattedData).subscribe({
       next: (task) => {
-        console.log('Task created successfully:', task);
         this.taskAdded.emit();
         this.taskForm.reset();
         this.subtasks = [];
@@ -238,6 +235,7 @@ export class AddTaskComponent implements OnInit {
 
   logFormErrors() {
     console.log('Form Errors:', this.taskForm.errors);
+    this.hideRequireDialog= true;
   }
 
   updateTask(taskId: number): void {
@@ -264,4 +262,7 @@ export class AddTaskComponent implements OnInit {
     return formData;
   }
   
+  closeRequireDialog() {
+    this.hideRequireDialog = false;
+  }
 }

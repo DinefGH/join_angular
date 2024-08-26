@@ -50,6 +50,27 @@
     margin-top: 16px;
 }
 
+.boardTasksDescription {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.boardTasksDueDate {
+    margin-bottom: 16px;
+}
+
+
+.boardTasksPriority {
+    margin-bottom: 16px;
+}
+
+
+.boardTasksAssignedToHeadline {
+    margin-bottom: 10px;
+}
+
+
 .colorCircleContactsBoard {
     border-radius: 50%;
     font-size: 0.7rem;
@@ -60,6 +81,27 @@
     align-items: center;
     color: #ffffff;
     flex-shrink: 0;
+}
+
+.contactInittilsNameContainer {
+    display: flex;
+    margin-left: 16px;
+    margin-bottom: 8px;
+}
+
+.boardTasksSubtasksHeadline {
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+
+.boardTasksSubtasks {
+    margin-left: 16px;
+}
+
+
+.contactInittilsName {
+    margin-left: 8px;
+    font-weight: 500;
 }
 
 .dateTasksOverlay {

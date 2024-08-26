@@ -575,6 +575,20 @@
 }
 
 
+.requireContainer {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 150px;
+}
+
+.btn-require {
+  background-color:#ffffff;
+  width: 60px;
+}
+
+
 
   // @media (max-width: 800px) {
   //   .addTaskContent::-webkit-scrollbar {
@@ -630,5 +644,8 @@
       margin-top: 0px;
     }
 
-    
+    .requireContainer {
+      height: 72px;
+      flex-direction: row;
+    }
 }

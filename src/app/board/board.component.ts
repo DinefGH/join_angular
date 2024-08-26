@@ -43,7 +43,6 @@ export class BoardComponent implements OnInit {
     this.loadTasks();
     this.loadCategories();
     this.loadContacts();
-    console.log('Overlay visibility on init:', this.isOverlayVisibleTask);
   }
 
   loadTasks(): void {
@@ -121,7 +120,6 @@ export class BoardComponent implements OnInit {
 
   getContactById(contactId: number): Contact | undefined {
     const contact = this.contacts.find(contact => contact.id === contactId);
-    // console.log(`Contact fetched for ID ${contactId}:`, contact); // Debug log
     return contact;
 }
 
@@ -247,21 +245,14 @@ export class BoardComponent implements OnInit {
 
   dragStarted(task: Task) {
     this.draggedTask = task;
-    console.log('Task being dragged:', task);
   }
 
 
   drop(event: CdkDragDrop<Task[]>) {
-    console.log('Previous container data:', event.previousContainer.data);
-    console.log('Current container data:', event.container.data);
-    console.log('Previous index:', event.previousIndex);
-    console.log('Current index:', event.currentIndex);
+
   
     if (this.draggedTask) {
-      console.log('Task being moved:', this.draggedTask);
-      const newStatus = this.getStatusFromContainerId(event.container.id);
-      console.log('New status:', newStatus);
-  
+      const newStatus = this.getStatusFromContainerId(event.container.id);  
       // Remove the task from the previous container
       const previousContainerIndex = event.previousContainer.data.findIndex(t => t.id === this.draggedTask!.id);
       if (previousContainerIndex > -1) {
@@ -271,7 +262,6 @@ export class BoardComponent implements OnInit {
       // Add the task to the new container and update its status
       this.changeStatus(this.draggedTask, newStatus);
       event.container.data.splice(event.currentIndex, 0, this.draggedTask);
-      console.log('Task moved to new container:', this.draggedTask);
   
       this.draggedTask = null; // Reset the dragged task
   
@@ -285,8 +275,6 @@ export class BoardComponent implements OnInit {
     event.container.element.nativeElement.classList.remove('highlight');
   
     // Log the updated state of containers
-    console.log('Updated previous container data:', event.previousContainer.data);
-    console.log('Updated current container data:', event.container.data);
   }
 
   getStatusFromContainerId(containerId: string): string {
@@ -335,10 +323,8 @@ export class BoardComponent implements OnInit {
   
 
   closeUpdateTaskOverlay(): void {
-    console.log('closeUpdateTaskOverlay method called');
     this.isOverlayVisibleTask= false;
     this.selectedTask = null;
-    console.log('is closing working?',this.isOverlayVisibleTask)
     this.loadTasks();
 
   }

@@ -289,7 +289,6 @@ setTaskFormData(task: Task): void {
 updateTask(): void {
 
   if (!this.taskForm.valid) {
-      console.log('Form is not valid');  // Debug log
       this.logFormErrors();
       return;
   }
@@ -305,7 +304,7 @@ updateTask(): void {
       },
       error: (error) => {
           console.error('Failed to update task:', error);
-          console.error('Error details:', error.error);  // Debug log
+          console.error('Error details:', error.error); 
           alert('Failed to update task: ' + (error.error.message || error.message));
       }
   });
@@ -313,8 +312,7 @@ updateTask(): void {
  
 
   setTimeout(() => {
-      console.log('Navigating to /board'); 
- // Debug log
+
  this.taskUpdated.emit();
       this.router.navigate(['/board']);
 
@@ -334,7 +332,6 @@ logFormErrors() {
           formErrors[key] = control.errors;
       }
   });
-  console.log('Form Errors:', formErrors);
 }
 
 prepareSubmitData() {
@@ -359,7 +356,6 @@ prepareSubmitData() {
 
   onCloseEditTaskOverlay(): void {
     this.closeEditTaskOverlay.emit();
-    console.log('is onCloseEditTaskOverlay working?')
   }
 
 

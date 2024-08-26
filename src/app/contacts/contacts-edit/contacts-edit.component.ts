@@ -31,7 +31,6 @@ export class ContactsEditComponent implements OnInit {
   ngOnInit(): void {
     // Assume the contact data is passed in via a service or direct assignment
     this.loadContact();
-    console.log('contacts-edit is working')
   }
 
   loadContact(): void {
@@ -54,11 +53,9 @@ export class ContactsEditComponent implements OnInit {
   }
 
   onSubmit(contactForm: NgForm): void {
-    console.log(contactForm.value);
     if (this.contact && this.contact.id) {
       this.addContactService.updateContact(this.contact.id, this.contact).subscribe({
         next: (updatedContact) => {
-          console.log('Contact updated successfully', updatedContact);
           this.contactEdited.emit(true); // Emit an event to notify that the contact has been edited
           this.closeEditComponent();
         },
@@ -77,7 +74,6 @@ export class ContactsEditComponent implements OnInit {
     if (this.contact.id) {
       this.addContactService.deleteContact(this.contact.id).subscribe({
         next: () => {
-          console.log(`Contact with ID ${this.contact.id} deleted successfully.`);
           this.router.navigate(['/contacts']); // Navigate to the contacts overview page
         },
         error: (error) => {

@@ -16,7 +16,7 @@
         <div class="cardContainer">
 
             <div class="cardsFirstRow">
-                <div class="card firstRow cardsStyle hoverTodo">
+                <div class="card firstRow cardsStyle hoverTodo" (click)="goToBoardSummary()">
                     <div>
                         <svg class="pencilIcon" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="35.3945" cy="34.8083" r="34.5" fill="#2A3647"/>
@@ -34,7 +34,7 @@
                 </div>
             
                 
-                <div class="card firstRow cardsStyle hoverDone">
+                <div class="card firstRow cardsStyle hoverDone " (click)="goToBoardSummary()">
                     <div>
                         <svg class="tickIcon" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="34.8945" cy="34.8083" r="34.5" fill="#2A3647"/>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="cardsSecondRow">
-                <div class="card secondRow cardsStyle hoverUrgent">
+                <div class="card secondRow cardsStyle hoverUrgent" (click)="goToBoardSummary()">
                     <div class="urgentIconTextContainer">
                         <div>
                             <svg width="64" height="64" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,15 +79,15 @@
             </div>
 
             <div class="cardsThirdRow">
-                <div class="card thirdRow cardsStyle hoverthirdRow">
+                <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">
                     <div class="numberStyle"> {{ tasks.length }}</div>
                     <div class="textCenter">Tasks in Board</div>
                 </div>
-                <div class="card thirdRow cardsStyle hoverthirdRow">
+                <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">
                     <div class="numberStyle"> {{ countTasksByStatus('inProgress') }}</div>
                     <div class="textCenter">Tasks in Progress</div>
                 </div>
-                <div class="card thirdRow cardsStyle hoverthirdRow">
+                <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">
                     <div class="numberStyle">{{ countTasksByStatus('awaitFeedback') }}</div>
                     <div class="textCenter">Awaiting Feedback</div>
                 </div>

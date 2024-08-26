@@ -44,14 +44,14 @@
           </ng-container></div>
         <div class="boardTasksAssignedToHeadline">Assigned To:</div>
         <div class="boardTasksAssignedTo">
-            <div *ngFor="let contactId of selectedTask?.assigned_to">
+            <div *ngFor="let contactId of selectedTask?.assigned_to" class="contactInittilsNameContainer">
               <span *ngIf="getContactById(contactId) as contact" class="colorCircleContactsBoard" [style.backgroundColor]="contact?.color">
                 {{ getInitials(contact.name) }}
               </span>
-              <span>{{(selectedTask?.contacts)}}</span>
+              <span *ngIf="getContactById(contactId) as contact" class="contactInittilsName">{{ contact.name }}</span>
             </div>
           </div> 
-          <div *ngIf="selectedTask && selectedTask.subtasks && selectedTask.subtasks.length > 0">  
+          <div *ngIf="selectedTask && selectedTask.subtasks && selectedTask.subtasks.length > 0" >  
           <div class="boardTasksSubtasksHeadline">Subtasks:</div>
           <div class="boardTasksSubtasks">
             <div *ngFor="let subtask of selectedTask?.subtasks">

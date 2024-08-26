@@ -31,14 +31,11 @@ export class ContactsAddComponent {
     }
     this.addContactService.addContact(this.contactData).subscribe({
       next: (response) => {
-        console.log('Submitting contact data:', this.contactData);
-        console.log('Contact added successfully:', response);
         this.addContactSuccess = true;
 
         this.contactAdded.emit(true);
         setTimeout(() => {
           this.close.emit(); // Navigate to the login page
-          console.log('hello')
         }, 3000);
       },
       error: (error) => {

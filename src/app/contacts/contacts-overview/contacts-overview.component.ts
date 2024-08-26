@@ -121,7 +121,6 @@ goToContactDetails(contactId: number) {
     console.error('Contact ID is undefined or NaN');
     return;
   }
-  console.log('Navigating to contact details with ID:', contactId);
   this.router.navigate(['/contacts-detail', contactId]);
 }
 
@@ -133,13 +132,11 @@ goToDesktopContactDetails(contactId: number) {
     console.error('Contact ID is undefined or NaN');
     return;
   }
-  console.log('Finding contact with ID:', contactId);
   const contact = this.findContactById(contactId);
   if (!contact) {
     console.error('Contact not found');
     return;
   }
-  console.log('Contact found:', contact);
   this.selectedContact = contact;
   this.isOverlayVisibleContactsView = true;
   this.contactsViewNotVisible = false;

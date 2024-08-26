@@ -35,7 +35,6 @@ export class SignUpComponent {
   
       this.userRegistrationService.registerUser(userDataToSend).subscribe({
         next: (response) => {
-          console.log('User registered successfully', response);
           this.signupSuccess = true;
           setTimeout(() => {
             this.router.navigate(['/login']); // Navigate to the login page

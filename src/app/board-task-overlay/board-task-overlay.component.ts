@@ -66,7 +66,6 @@ export class BoardTaskOverlayComponent implements OnInit {
     this.addContactService.getContacts().subscribe({
       next: (contacts) => {
         this.contacts = contacts;
-        // console.log('Contacts loaded:', this.contacts); // Debug log
       },
       error: (error) => {
         console.error('Error loading contacts:', error);
@@ -100,7 +99,6 @@ export class BoardTaskOverlayComponent implements OnInit {
 
   getContactById(contactId: number): Contact | undefined {
     const contact = this.contacts.find(contact => contact.id === contactId);
-    // console.log(`Contact fetched for ID ${contactId}:`, contact); // Debug log
     return contact;
   }
 
@@ -128,7 +126,6 @@ export class BoardTaskOverlayComponent implements OnInit {
     if (this.selectedTask) {
       this.taskService.deleteTask(this.selectedTask.id!).subscribe({
         next: () => {
-          console.log('Task deleted successfully');
           this.taskDeleted.emit(); // Emit the taskDeleted event
           this.onCloseTaskOverlay();
         },
@@ -141,7 +138,6 @@ export class BoardTaskOverlayComponent implements OnInit {
   openEditTaskOverlay() {
     this.isEditTaskVisible = true;
     this.isTaskOverlayContainerVisible = false;
-    console.log(this.isEditTaskVisible)
   }
 
   closeEditTaskOverlay(): void {
@@ -157,8 +153,6 @@ export class BoardTaskOverlayComponent implements OnInit {
   handleTaskUpdatedAndClosed(): void {
     this.isOverlayVisibleTask = false;
     this.selectedTask = null;
-    console.log('Task overlay closed');
-    // Optionally, you can emit another event to the parent component if needed
     this.closeTaskOverlay.emit();
     this.taskUpdatedAndClosed.emit();
   }

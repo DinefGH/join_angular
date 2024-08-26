@@ -4,7 +4,7 @@ import { User } from 'src/assets/models/user.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TaskService, Task } from 'src/app/services/task.service';
-
+import { Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-summary',
@@ -19,7 +19,7 @@ export class SummaryComponent implements OnInit {
   tasks: Task[] = [];
   nearestDueDate: Date | null = null;
 
-  constructor(private userService: UserService, private taskService: TaskService) { }
+  constructor(private userService: UserService, private taskService: TaskService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadTasks();
@@ -66,13 +66,11 @@ export class SummaryComponent implements OnInit {
 
   countTasksByStatus(status: string): number {
     const filteredTasks = this.tasks.filter(task => task.status === status);
-    console.log(`Tasks with status '${status}':`, filteredTasks);
     return filteredTasks.length;
   }
 
   countTasksByPriority(priority: string): number {
     const filteredTasks = this.tasks.filter(task => task.priority === priority);
-    console.log(`Tasks with priority '${priority}':`, filteredTasks);
     return filteredTasks.length;
   }
 
@@ -98,6 +96,10 @@ export class SummaryComponent implements OnInit {
     });
 
     this.nearestDueDate = new Date(nearestTask.due_date!);
+  }
+
+  goToBoardSummary() {
+    this.router.navigate(['/board']);
   }
 }
 
