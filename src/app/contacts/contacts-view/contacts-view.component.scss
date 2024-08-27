@@ -168,6 +168,10 @@ font-size: calc(1.175rem + 0.5vw);
     display: none;
 }
 
+.contactsInformationContainerSmall {
+    display: flex;
+    flex-direction: column;
+}
 
 @media (min-width: 1025px) {
 
@@ -252,5 +256,89 @@ margin-top: 15vh;
     display: none;
 }
 
+.contactsInformationContainerSmall {
+    display: flex;
+    flex-direction: column;
+}
+}
 
+
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px){
+
+    .contactsViewContent {
+        height: 70vh;
+        margin-top: 15vh;
+        margin-bottom: 15vh;
+    }
+
+    h1, .h1 {
+        font-size: calc(1.375rem + 1.5vw) !important;
+    }
+
+    .smallHeadlineContacts {
+        font-size: calc(1rem + 0.5vw) !important;
+    }
+
+    .intitialsContactNameContainer {
+
+        margin-top: 15px;
+        margin-bottom: 8px;
+}
+
+.initialsCircleContactView {
+    height: 40px;
+    width: 40px;
+    font-size: 1rem;
+}
+
+.contactsSmallHeadline {
+    display: flex;
+    align-items: center;
+    
+}
+
+    .contactsDividingLine{
+        display: block;
+        border-right: 3px solid;
+        border-color: #29ABE2;
+        height: 32px;
+        padding-bottom: 8px;
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+
+.contactsUnderline {
+    display: none;
+}
+
+.moreIconContainer {
+    bottom: calc(12vh + 16px);
+}
+
+.linkContainerContactView {
+    bottom: 17px !important;
+    position: absolute;
+}
+
+
+.contactsInformationContainerSmall {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contactsEmail {
+    margin-left: 8px;
+}
+
+.contactsPhoneHeadline {
+    margin-left: 16px;
+    margin-top: 0px;
+}
+
+.contactsPhone {
+    margin-left: 8px;
+}
 }

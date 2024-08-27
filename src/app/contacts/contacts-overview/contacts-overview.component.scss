@@ -177,4 +177,14 @@
         font-size: calc(1.175rem + 0.5vw) !important;
     }
 
+
+}
+
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px){
+
+    .contactsContent {
+        height: 70vh;
+        margin-top: 15vh;
+        margin-bottom: 15vh;
+    }
 }
