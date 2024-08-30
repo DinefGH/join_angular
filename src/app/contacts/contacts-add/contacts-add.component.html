@@ -24,19 +24,59 @@
     </div>
 
         <form class="formContainerAddContacts" (ngSubmit)="submitContactForm()" #contactForm="ngForm">
-            <div class="form-floating mb-3 inputContainer">
-              <input type="text" id="floatingInputContactsName" class="form-control formInputContacsName custom-input-height" [(ngModel)]="contactData.name" name="name" placeholder="Name" required>
-              <label class="colorFont" for="floatingInputContactsName">Name</label>
+          <div class="form-floating mb-3 inputContainer">
+            <input
+              type="text"
+              id="floatingInputContactsName"
+              class="form-control formInputContacsName custom-input-height"
+              [(ngModel)]="contactData.name"
+              name="name"
+              placeholder="Name"
+              required
+              #name="ngModel"
+            />
+            <label class="colorFont" for="floatingInputContactsName">Name</label>
+            <div *ngIf="name.invalid && name.touched" class="text-danger">
+              Name is required.
             </div>
+          </div>
           
             <div class="form-floating mb-3 inputContainer">
-              <input type="email" id="floatingInputContactsEmail" class="form-control formInputContactsMail" [(ngModel)]="contactData.email" name="email" placeholder="Email" required>
+              <input
+                type="email"
+                id="floatingInputContactsEmail"
+                class="form-control formInputContactsMail"
+                [(ngModel)]="contactData.email"
+                name="email"
+                placeholder="Email"
+                required
+                #email="ngModel"
+                email
+              />
               <label class="colorFont" for="floatingInputContactsEmail">Email</label>
+              <div *ngIf="email.invalid && email.touched" class="text-danger">
+                <div *ngIf="email.errors?.['required']">Email is required.</div>
+                <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+              </div>
             </div>
           
             <div class="form-floating mb-3 inputContainer">
-              <input type="number" id="floatingInputContactsPhone" class="form-control formInputContacsPhone" [(ngModel)]="contactData.phone" name="phone" placeholder="Phone" required>
+              <input
+                type="number"
+                id="floatingInputContactsPhone"
+                class="form-control formInputContacsPhone"
+                [(ngModel)]="contactData.phone"
+                name="phone"
+                placeholder="Phone"
+                required
+                #phone="ngModel"
+                pattern="^\+?[0-9]{10,15}$"
+              />
               <label class="colorFont" for="floatingInputContactsPhone">Phone</label>
+              <div *ngIf="phone.invalid && phone.touched" class="text-danger">
+                <div *ngIf="phone.errors?.['required']">Phone number is required.</div>
+                <div *ngIf="phone.errors?.['pattern']">Please enter a valid phone number (15 digits).</div>
+              </div>
             </div>
             <button type="submit" class="btn btn-primary btn-lg w180">Create contact</button>
           </form>
