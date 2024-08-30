@@ -24,7 +24,7 @@
             <div class="contactName">{{ contact?.name }}</div>
             <div class="contactsEditDeleteDesktop">
                 <span class="contactsEditLink" (click)="showContactsEdit()"><i class="fa-solid fa-pencil"></i> Edit</span>
-                <span class="contactsEditLink"><i class="fas fa-trash-alt"></i> Delete</span>
+                <span class="contactsEditLink" (click)="deleteContact()" ><i class="fas fa-trash-alt"></i> Delete</span>
             </div>
             </div>
         </div>

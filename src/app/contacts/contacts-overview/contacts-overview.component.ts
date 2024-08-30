@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
 import { ScreenSizeService } from 'src/app/services/screen-size.service';
-
+import { ContactsOverlayService } from 'src/app/services/contacts-overlay-service.service';
 
 @Component({
   selector: 'app-contacts-overview',
@@ -11,23 +11,34 @@ import { ScreenSizeService } from 'src/app/services/screen-size.service';
   styleUrls: ['./contacts-overview.component.scss']
 })
 export class ContactsOverviewComponent implements OnInit  {
-  isOverlayVisibleContactsView= false
   isVisible: boolean = false;
   groupedContacts: { [key: string]: Contact[] } = {};
   isHandsetOrTablet: boolean = false;
-  contactsViewNotVisible: boolean = true
-  selectedContact: Contact | null = null;
+  contactsViewNotVisible: boolean = true;
+  selectedContact: Contact | null = null; 
   storedContactId: number | null = null;
+
+  constructor(
+    private addContactService: AddContactService, 
+    private router: Router, 
+    private screenSizeService: ScreenSizeService, 
+    public contactsOverlayService: ContactsOverlayService   // Inject the service
+  ) { }
 
   showContactsAdd(): void {
     this.isVisible = true; // Show the <app-contacts-add> component
   }
 
-  constructor(private addContactService: AddContactService, private router: Router, private screenSizeService: ScreenSizeService) { }
-
   ngOnInit(): void {
     this.loadContacts();
     this.screenSizeService.isHandsetOrTablet$.subscribe(isHandsetOrTablet => this.isHandsetOrTablet = isHandsetOrTablet);
+
+    // Subscribe to the overlay visibility changes
+    this.contactsOverlayService.overlayVisibility$.subscribe(isVisible => {
+      console.log('Overlay visibility changed:', isVisible);
+      this.contactsViewNotVisible = !isVisible;
+    });
+
     if (this.storedContactId) {
       this.loadStoredContactDetails();
     }
@@ -48,11 +59,9 @@ export class ContactsOverviewComponent implements OnInit  {
       },
       error: (error) => {
         console.error('Error loading contacts:', error);
-        // Handle the error, e.g., by showing a user-friendly message
       }
     });
   }
-
 
   groupContactsByFirstLetter(contacts: any[]): void {
     contacts.forEach(contact => {
@@ -64,16 +73,13 @@ export class ContactsOverviewComponent implements OnInit  {
         this.groupedContacts[firstLetter] = [];
       }
       
-      // Add the contact to the relevant group
       this.groupedContacts[firstLetter].push({ ...contact, initials, color });
     });
   
-    // Now, sort each group of contacts alphabetically by name
     for (const letter in this.groupedContacts) {
       this.groupedContacts[letter].sort((a, b) => a.name.localeCompare(b.name));
     }
   }
-  
   
   getInitials(name: string): string {
     const names = name.split(' ');
@@ -86,7 +92,6 @@ export class ContactsOverviewComponent implements OnInit  {
     return initials;
   }
 
-
   getSortedLetters(): string[] {
     return Object.keys(this.groupedContacts).sort();
   }
@@ -95,61 +100,55 @@ export class ContactsOverviewComponent implements OnInit  {
     if (contactAdded) {
       this.loadContacts(); // Refresh the contacts list
     }
-}
-
-
-
-
-closeContactsView(): void {
-  this.isOverlayVisibleContactsView = false;
-
-}
-
-
-openContact(contactId: number): void {
-  if (this.isHandsetOrTablet) {
-    this.goToContactDetails(contactId);
-    
-  } else {
-    this.goToDesktopContactDetails(contactId);
   }
-}
 
-
-goToContactDetails(contactId: number) {
-  if (typeof contactId === 'undefined' || isNaN(contactId)) {
-    console.error('Contact ID is undefined or NaN');
-    return;
+  closeContactsView(): void {
+    console.log('Closing contacts view...');
+    this.contactsOverlayService.setOverlayVisibility(false);  // Update via service
   }
-  this.router.navigate(['/contacts-detail', contactId]);
-}
 
-
-
-goToDesktopContactDetails(contactId: number) {
-  this.storedContactId = contactId;
-  if (typeof contactId === 'undefined' || isNaN(contactId)) {
-    console.error('Contact ID is undefined or NaN');
-    return;
-  }
-  const contact = this.findContactById(contactId);
-  if (!contact) {
-    console.error('Contact not found');
-    return;
-  }
-  this.selectedContact = contact;
-  this.isOverlayVisibleContactsView = true;
-  this.contactsViewNotVisible = false;
-}
-
-findContactById(contactId: number): Contact | undefined {
-  for (const letter in this.groupedContacts) {
-    const contact = this.groupedContacts[letter].find(contact => contact.id === contactId);
-    if (contact) {
-      return contact;
+  openContact(contactId: number): void {
+    if (this.isHandsetOrTablet) {
+      this.goToContactDetails(contactId);
+    } else {
+      this.goToDesktopContactDetails(contactId);
     }
   }
-  return undefined;
-}
-}
 
+  goToContactDetails(contactId: number) {
+    if (typeof contactId === 'undefined' || isNaN(contactId)) {
+      console.error('Contact ID is undefined or NaN');
+      return;
+    }
+    this.router.navigate(['/contacts-detail', contactId]);
+  }
+
+  goToDesktopContactDetails(contactId: number) {
+    this.storedContactId = contactId;
+    if (typeof contactId === 'undefined' || isNaN(contactId)) {
+      console.error('Contact ID is undefined or NaN');
+      return;
+    }
+    const contact = this.findContactById(contactId);
+    if (!contact) {
+      console.error('Contact not found');
+      return;
+    }
+    this.selectedContact = contact;
+    this.contactsOverlayService.setOverlayVisibility(true);  // Use service to set visibility
+  }
+
+  findContactById(contactId: number): Contact | undefined {
+    for (const letter in this.groupedContacts) {
+      const contact = this.groupedContacts[letter].find(contact => contact.id === contactId);
+      if (contact) {
+        return contact;
+      }
+    }
+    return undefined;
+  }
+
+  refreshContacts(): void {
+    this.loadContacts();
+  }
+}

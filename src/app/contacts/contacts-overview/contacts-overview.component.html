@@ -44,14 +44,18 @@
     <img class="personAddIcon" src="/assets/img/person_add.png" alt="Person add icon">
 </div>
 </main>
-<app-contacts-view *ngIf="isOverlayVisibleContactsView" 
+
+<app-contacts-view
+*ngIf="(contactsOverlayService.overlayVisibility$ | async)"
 class="contactsViewDesktop"
 [contact]="selectedContact"
 [contactId]="storedContactId"
-[isOverlayVisibleContactsView]="isOverlayVisibleContactsView"
-(closeContactsView)="(closeContactsView)"
->
+(close)="closeContactsView()"
+(contactDeleted)="refreshContacts()"  
+(contactUpdated)="refreshContacts()"> 
 </app-contacts-view>
+
+
 <div *ngIf="contactsViewNotVisible" class="contactsDesktopScreen">
     <div class="contactsSmallHeadline">
         <h1>Contacts</h1>

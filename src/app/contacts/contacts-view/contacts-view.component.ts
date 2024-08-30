@@ -2,6 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
+import { ContactsOverlayService } from 'src/app/services/contacts-overlay-service.service';
+
+
 
 @Component({
   selector: 'app-contacts-view',
@@ -13,6 +16,8 @@ export class ContactsViewComponent implements OnInit, OnChanges {
   @Input() isOverlayVisibleContactsView: boolean = false;
   isVisible: boolean = false;
   @Input() contact: Contact | null = null;
+  @Output() contactDeleted = new EventEmitter<void>();
+  @Output() contactUpdated = new EventEmitter<void>(); 
   @Output() close = new EventEmitter<void>();
 
   public showEditOverlay: boolean = false;
@@ -20,7 +25,8 @@ export class ContactsViewComponent implements OnInit, OnChanges {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private addContactService: AddContactService
+    private addContactService: AddContactService,
+    private contactsOverlayService: ContactsOverlayService
   ) {}
 
   ngOnInit(): void {
@@ -78,7 +84,12 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     const contactId = this.contact.id;
     this.addContactService.deleteContact(contactId).subscribe({
       next: () => {
+        console.log('Contact deleted successfully:', contactId);
         this.router.navigate(['/contacts']);
+        this.contactDeleted.emit();
+        this.contactsOverlayService.setOverlayVisibility(false);
+
+        console.log(this.isOverlayVisibleContactsView)
       },
       error: (error) => {
         console.error('Failed to delete contact', error);
@@ -91,6 +102,7 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     if (contactEdited) {
       if (this.contact && this.contact.id) {
         this.fetchContactDetails(this.contact.id);
+        this.contactUpdated.emit();
         this.showEditOverlay = false;
       } else {
         console.error('No contact or contact ID available for editing.');
