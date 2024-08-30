@@ -50,7 +50,7 @@ export class AddContactService {
     const headers = this.createAuthorizationHeader();
     return this.http.get(`${this.baseUrl}/contact/${contactId}/`, { headers })
       .pipe(
-        tap(data => console.log(`Data loaded for contact ID ${contactId}:`, data)),
+        // tap(data => console.log(`Data loaded for contact ID ${contactId}:`, data)),
         catchError(error => {
           console.error(`Error occurred while fetching contact with ID ${contactId}:`, error);
           return throwError(error);

@@ -18,6 +18,7 @@ export class LoginComponent {
 
   passwordVisible: boolean = false;
   isPasswordWrong: boolean = false;
+  isUsernameWrong: boolean = false;
   rememberMe: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router, private userService: UserService, private http: HttpClient) {}
@@ -33,27 +34,35 @@ export class LoginComponent {
   login(): void {
     this.loginService.login(this.email, this.password).subscribe({
       next: (response) => {
-        console.log("Full login response:", response);
-        console.log("Login successful, token:", response.token);
-        this.storeToken(response.token);
-
-        if (response.user) {
-          console.log("User details received:", response.user); // Log the user details
-          this.userService.setCurrentUser(response.user); // Update UserService with the user details
+        if (response && response.token) {
+          this.storeToken(response.token);
+  
+          if (response.user) {
+            this.userService.setCurrentUser(response.user); // Update UserService with the user details
+          } else {
+            console.log("No user details in response"); // Log if user details are missing
+          }
+  
+          this.router.navigate(['/summary']);
+          this.isPasswordWrong = false;
+          this.isUsernameWrong = false;
         } else {
-          console.log("No user details in response"); // Log if user details are missing
+          console.error("Invalid response structure", response);
+          this.displayErrorMessage(); // Display error message if token or response is missing
         }
-
-        // Fetch CSRF token after successful login
-        this.router.navigate(['/summary']);
-        this.isPasswordWrong = false;
       },
       error: (error) => {
         console.error("Login failed:", error);
-        this.isPasswordWrong = true;
+        this.displayErrorMessage(); // Display error message on login failure
       }
     });
   }
+
+displayErrorMessage(): void {
+  this.isPasswordWrong = true;
+  this.isUsernameWrong = true;
+  this.resetFields();  // Reset the fields if the login fails
+}
 
   guestLogin(): void {
     this.email = 'guest@guest.com';
@@ -71,6 +80,11 @@ export class LoginComponent {
     } else {
       sessionStorage.setItem('auth_token', token);
     }
+  }
+
+  private resetFields(): void {
+    this.email = '';
+    this.password = '';
   }
 }
 
