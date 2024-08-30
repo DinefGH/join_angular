@@ -43,7 +43,6 @@ export class SubtaskService {
 
   updateSubtask(id: number, subtask: Subtask): Observable<Subtask> {
     const url = `${this.apiUrl.replace(/\/+$/, '')}/${id}/`; // Ensure trailing slash
-    console.log(`Making request to URL: ${url}`);  // Log the URL to be used for the request
 
     return this.http.put<Subtask>(url, subtask).pipe(
         catchError(this.handleError)

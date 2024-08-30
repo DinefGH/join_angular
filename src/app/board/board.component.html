@@ -46,7 +46,7 @@
                 <div id="todoContainer"  class="todoContainer categoryContainerDisplay" cdkDropList  [cdkDropListData]="todoTasks" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="highlight($event)" (cdkDropListExited)="unhighlight($event)">
                     <header class="categoryHeadlineContainer">
                     <div class="headlineCategorys">Todo</div>
-                    <div class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div (click)="openOverlay()" class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2"/>
                         <path d="M15 7.5V22.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         <path d="M22.5 15.1416L7.5 15.1416" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
@@ -145,7 +145,7 @@
                 <div id="inProgressContainer"  class="inProgressContainer categoryContainerDisplay" cdkDropList [cdkDropListData]="inProgressTasks" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="highlight($event)" (cdkDropListExited)="unhighlight($event)">
                     <header class="categoryHeadlineContainer">
                     <div class="headlineCategorys">In Progress</div>
-                    <div class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div (click)="openOverlay()" class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2"/>
                         <path d="M15 7.5V22.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         <path d="M22.5 15.1416L7.5 15.1416" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
@@ -239,7 +239,7 @@
                 <div id="awaitFeedbackContainer" class="awaitFeedbackContainer categoryContainerDisplay" cdkDropList [cdkDropListData]="awaitFeedbackTasks" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="highlight($event)" (cdkDropListExited)="unhighlight($event)">
                     <header class="categoryHeadlineContainer">
                     <div class="headlineCategorys">Await Feedback</div>
-                    <div class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div (click)="openOverlay()" class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2"/>
                         <path d="M15 7.5V22.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         <path d="M22.5 15.1416L7.5 15.1416" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
@@ -333,7 +333,7 @@
                     <header class="categoryHeadlineContainer">
                     <div class="headlineCategorys">Done</div>
                 
-                    <div class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div (click)="openOverlay()" class="plusIconCategory"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2"/>
                         <path d="M15 7.5V22.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         <path d="M22.5 15.1416L7.5 15.1416" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>

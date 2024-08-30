@@ -35,7 +35,6 @@ export class ContactsOverviewComponent implements OnInit  {
 
     // Subscribe to the overlay visibility changes
     this.contactsOverlayService.overlayVisibility$.subscribe(isVisible => {
-      console.log('Overlay visibility changed:', isVisible);
       this.contactsViewNotVisible = !isVisible;
     });
 

@@ -202,17 +202,9 @@ export class EditTaskComponent implements OnInit, OnChanges  {
     event.preventDefault();
     const trimmedValue = subtaskValue.trim();
     if (trimmedValue) {
-      const newSubtask = { text: trimmedValue, completed: false };
-      this.subtaskService.createSubtask(newSubtask).subscribe({
-        next: (subtask) => {
-          // Avoid pushing duplicate subtasks
-          if (!this.subtasks.some(existingSubtask => existingSubtask.id === subtask.id)) {
-            this.subtasks.push(subtask);
-          }
-          this.clearInput();
-        },
-        error: (error) => console.error('Failed to save subtask:', error)
-      });
+      const newSubtask = { text: trimmedValue, completed: false }; // Do not create in backend here
+      this.subtasks.push(newSubtask);
+      this.clearInput();
     }
   }
 
@@ -228,20 +220,26 @@ export class EditTaskComponent implements OnInit, OnChanges  {
     const editedSubtaskText = prompt('Edit Subtask:', subtaskText);
     if (editedSubtaskText !== null && editedSubtaskText.trim() !== '') {
       const subtask = this.subtasks[index];
-      if (subtask && subtask.id !== undefined) {
+      if (subtask) {
         subtask.text = editedSubtaskText.trim();
-
-        this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
-          next: (updatedSubtask) => {
-          },
-          error: (error) => {
-            console.error('Failed to update subtask:', error);
-            alert('Failed to update subtask. Please try again.');
-          }
-        });
+  
+        // Check if subtask has an ID, meaning it exists in the backend
+        if (subtask.id !== undefined) {
+          this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
+            next: (updatedSubtask) => {
+            },
+            error: (error) => {
+              console.error('Failed to update subtask:', error);
+              alert('Failed to update subtask. Please try again.');
+            }
+          });
+        } else {
+          // If no ID, it is a new subtask and just update the local array
+          this.subtasks[index] = subtask;
+        }
       } else {
-        console.error('Subtask ID is undefined, cannot update subtask.');
-        alert('Subtask cannot be updated as it lacks a valid ID.');
+        console.error('Subtask not found, cannot update.');
+        alert('Subtask cannot be updated as it was not found.');
       }
     }
   }
@@ -279,7 +277,7 @@ setTaskFormData(task: Task): void {
 
   // Ensure the selected category is correctly set
   this.selectedOption = this.categories.find(category => category.id === task.category);
-
+  this.selectedContacts = task.assigned_to ? [...task.assigned_to] : [];
   this.subtasks = task.subtasks;
 }
 
@@ -309,11 +307,10 @@ updateTask(): void {
       }
   });
 
- 
 
   setTimeout(() => {
 
- this.taskUpdated.emit();
+this.taskUpdated.emit();
       this.router.navigate(['/board']);
 
       this.closeUpdateTaskOverlay.emit(); 

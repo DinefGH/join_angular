@@ -114,7 +114,6 @@ export class BoardTaskOverlayComponent implements OnInit {
     subtask.completed = !subtask.completed;
     this.subtaskService.updateSubtask(subtask.id!, subtask).subscribe({
       next: (updatedSubtask) => {
-        console.log('Subtask updated successfully:', updatedSubtask);
       },
       error: (error) => {
         console.error('Error updating subtask:', error);
