@@ -173,16 +173,29 @@ export class BoardComponent implements OnInit {
       event.stopPropagation();
     }
   
+    // Store the old status before changing, with a fallback to an empty string if undefined
+    const oldStatus = task.status || '';
+  
     // Validate subtasks
     const validSubtasks = task.subtasks.filter(subtask => subtask.id != null);
     const updatedTask = { ...task, status: newStatus, subtasks: validSubtasks };
   
     this.taskService.updateTask(updatedTask.id!, updatedTask).subscribe({
       next: (updatedTask) => {
+        // Remove the task from its current (old) list
+        this.removeTaskFromCurrentList(task, oldStatus);
+  
+        // Update the status in the current task object
         task.status = newStatus;
         task.showStatusDropdown = false;
-        this.updateTaskInList(updatedTask);
-        this.updateOriginalTasksArray(updatedTask); // Update the original task arrays
+  
+        // Add the task to the appropriate list based on the new status
+        this.addTaskToNewList(task);
+  
+        // Update the original tasks array if necessary
+        this.updateOriginalTasksArray(updatedTask);
+  
+        // Manually trigger change detection if necessary
         this.cdr.detectChanges();
       },
       error: (error) => {
@@ -190,6 +203,42 @@ export class BoardComponent implements OnInit {
         alert('Failed to update task status: ' + (error.message || 'Something bad happened; please try again later.'));
       }
     });
+  }
+  
+  // Method to remove task from the list based on old status
+  removeTaskFromCurrentList(task: Task, oldStatus: string): void {
+    switch (oldStatus) {
+      case 'todo':
+        this.todoTasks = this.todoTasks.filter(t => t.id !== task.id);
+        break;
+      case 'inProgress':
+        this.inProgressTasks = this.inProgressTasks.filter(t => t.id !== task.id);
+        break;
+      case 'awaitFeedback':
+        this.awaitFeedbackTasks = this.awaitFeedbackTasks.filter(t => t.id !== task.id);
+        break;
+      case 'done':
+        this.doneTasks = this.doneTasks.filter(t => t.id !== task.id);
+        break;
+    }
+  }
+  
+  // Method to add task to the new list
+  addTaskToNewList(task: Task): void {
+    switch (task.status) {
+      case 'todo':
+        this.todoTasks.push(task);
+        break;
+      case 'inProgress':
+        this.inProgressTasks.push(task);
+        break;
+      case 'awaitFeedback':
+        this.awaitFeedbackTasks.push(task);
+        break;
+      case 'done':
+        this.doneTasks.push(task);
+        break;
+    }
   }
   
   updateTaskInList(updatedTask: Task) {
