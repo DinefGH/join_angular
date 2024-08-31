@@ -70,7 +70,7 @@
                 placeholder="Phone"
                 required
                 #phone="ngModel"
-                pattern="^\+?[0-9]{10,15}$"
+                pattern="^\+?[0-9]{1,15}$"
               />
               <label class="colorFont" for="floatingInputContactsPhone">Phone</label>
               <div *ngIf="phone.invalid && phone.touched" class="text-danger">

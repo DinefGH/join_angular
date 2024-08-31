@@ -84,12 +84,9 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     const contactId = this.contact.id;
     this.addContactService.deleteContact(contactId).subscribe({
       next: () => {
-        console.log('Contact deleted successfully:', contactId);
         this.router.navigate(['/contacts']);
         this.contactDeleted.emit();
         this.contactsOverlayService.setOverlayVisibility(false);
-
-        console.log(this.isOverlayVisibleContactsView)
       },
       error: (error) => {
         console.error('Failed to delete contact', error);
