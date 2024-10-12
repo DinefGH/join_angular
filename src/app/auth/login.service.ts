@@ -8,8 +8,8 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class LoginService {
 
-  private loginUrl = 'http://127.0.0.1:8000/login/'; 
-  private protectedUrl = 'http://127.0.0.1:8000/protected/'; 
+  private loginUrl = 'join.server.fabianduerr.com/login/'; 
+  private protectedUrl = 'join.server.fabianduerr.com/protected/'; 
 
   constructor(private http: HttpClient) {}
 
