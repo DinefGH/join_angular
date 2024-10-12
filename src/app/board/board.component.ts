@@ -101,6 +101,7 @@ export class BoardComponent implements OnInit {
     }));
   }
 
+  
   getCategoryNameAndColor(categoryId: number): { name: string, color: string } {
     const category = this.categories.find(cat => cat.id === categoryId);
     return category ? { name: category.name, color: category.color } : { name: 'Unknown', color: '#000000' };
@@ -295,6 +296,7 @@ export class BoardComponent implements OnInit {
   dragStarted(task: Task) {
     this.draggedTask = task;
   }
+
 
 
   drop(event: CdkDragDrop<Task[]>) {
