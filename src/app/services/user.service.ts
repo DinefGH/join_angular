@@ -8,7 +8,7 @@ import { User } from 'src/assets/models/user.model';
 })
 export class UserService {
 
-  private userDetailsUrl = 'join.server.fabianduerr.com/user/details'; // Adjust as necessary
+  private userDetailsUrl = 'https://join.server.fabianduerr.com/user/details'; // Adjust as necessary
   private currentUserSubject = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) {

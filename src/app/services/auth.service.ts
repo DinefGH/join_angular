@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class UserRegistrationService {
-  private registrationUrl = 'join.server.fabianduerr.com/signup/'; // Adjust this URL to your actual endpoint
+  private registrationUrl = 'https://join.server.fabianduerr.com/signup/'; // Adjust this URL to your actual endpoint
 
   constructor(private http: HttpClient) {}
 

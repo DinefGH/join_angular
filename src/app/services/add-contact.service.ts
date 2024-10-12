@@ -10,7 +10,7 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class AddContactService {
-  private baseUrl = 'join.server.fabianduerr.com'; // Adjust with your Django backend URL
+  private baseUrl = 'https://join.server.fabianduerr.com'; // Adjust with your Django backend URL
 
   constructor(private http: HttpClient) { }
 
