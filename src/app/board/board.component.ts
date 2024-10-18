@@ -312,7 +312,7 @@ export class BoardComponent implements OnInit {
   
       // Add the task to the new container and update its status
       this.changeStatus(this.draggedTask, newStatus);
-      event.container.data.splice(event.currentIndex, 0, this.draggedTask);
+
   
       this.draggedTask = null; // Reset the dragged task
   

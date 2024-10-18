@@ -1,3 +1,10 @@
+<div *ngIf="showOverlaySummary" class="overlaySummary">
+    <div class="greetingNameContainerOverlay">
+        <span class="greetingContainerGreetingOverlay">{{ greeting$ | async }}</span>        
+        <span class="greetingContainerNameOverlay">{{ currentUser?.name }}</span>
+</div>
+</div>
+
 <div class="summaryContainer">
     <header>
         <app-header-bar-mobile></app-header-bar-mobile>
@@ -18,7 +25,7 @@
             <div class="cardsFirstRow">
                 <div class="card firstRow cardsStyle hoverTodo" (click)="goToBoardSummary()">
                     <div>
-                        <svg class="pencilIcon" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="pencilIcon iconLandscape" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="35.3945" cy="34.8083" r="34.5" fill="#2A3647"/>
                         <mask id="mask0_62_577" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="19" y="18" width="33" height="33">
                         <rect x="19.3945" y="18.8083" width="32" height="32" fill="#D9D9D9"/>
@@ -36,7 +43,7 @@
                 
                 <div class="card firstRow cardsStyle hoverDone " (click)="goToBoardSummary()">
                     <div>
-                        <svg class="tickIcon" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="tickIcon  iconLandscape" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="34.8945" cy="34.8083" r="34.5" fill="#2A3647"/>
                             <path d="M19.9229 34.8085L31.1516 45.8745L49.8662 23.7424" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -52,7 +59,7 @@
                 <div class="card secondRow cardsStyle hoverUrgent" (click)="goToBoardSummary()">
                     <div class="urgentIconTextContainer">
                         <div>
-                            <svg width="64" height="64" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="iconLandscape" width="64" height="64" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="20.5" cy="20" r="20" fill="#FF3D00"/>
                                 <g clip-path="url(#clip0_151696_3346)">
                                 <path d="M30.4143 27.4424C30.1469 27.4428 29.8864 27.3565 29.6712 27.1959L20.2677 20.176L10.8642 27.1959C10.7322 27.2947 10.5823 27.3661 10.4229 27.4062C10.2636 27.4463 10.0981 27.4543 9.93574 27.4297C9.77339 27.405 9.61743 27.3483 9.47676 27.2626C9.33609 27.177 9.21347 27.0642 9.11589 26.9306C9.01831 26.797 8.94769 26.6452 8.90806 26.484C8.86844 26.3228 8.86057 26.1553 8.88492 25.991C8.93411 25.6592 9.11152 25.3608 9.37814 25.1614L19.5247 17.5791C19.7397 17.418 20.0002 17.3311 20.2677 17.3311C20.5353 17.3311 20.7957 17.418 21.0108 17.5791L31.1573 25.1614C31.3692 25.3194 31.5263 25.5411 31.6062 25.7948C31.6862 26.0485 31.6848 26.3213 31.6024 26.5743C31.5201 26.8272 31.3608 27.0473 31.1474 27.2032C30.934 27.3591 30.6774 27.4428 30.4143 27.4424Z" fill="white"/>

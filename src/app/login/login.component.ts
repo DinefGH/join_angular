@@ -86,7 +86,13 @@ displayErrorMessage(): void {
     this.email = '';
     this.password = '';
   }
+
+
+  goToLogIn(): void {
+    this.router.navigate(['/summary']);
+  }
 }
+
 
 
 

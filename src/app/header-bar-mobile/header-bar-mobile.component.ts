@@ -35,6 +35,7 @@ export class HeaderBarMobileComponent implements OnInit {
     sessionStorage.removeItem('auth_token');
     localStorage.removeItem('user_details');
     this.router.navigateByUrl('/login');
+    sessionStorage.removeItem('showOverlay');  
   }
 
 

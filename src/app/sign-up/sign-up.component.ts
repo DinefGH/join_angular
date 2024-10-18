@@ -62,5 +62,10 @@ export class SignUpComponent {
   passwordsMatch(): boolean {
     return this.user.password === this.user.confirmPassword;
   }
+
+  goToLogIn(): void {
+    this.router.navigate(['/summary']);
+  }
 }
+
 

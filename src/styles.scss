@@ -74,7 +74,9 @@ $primary-hover: #29ABE2;
   display: none;
 }
 
-
+.cursor  {
+  cursor: pointer;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

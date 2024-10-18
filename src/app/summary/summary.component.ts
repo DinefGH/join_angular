@@ -18,10 +18,13 @@ export class SummaryComponent implements OnInit {
   currentUser: User | null = null;
   tasks: Task[] = [];
   nearestDueDate: Date | null = null;
+  showOverlaySummary: boolean = true;
 
   constructor(private userService: UserService, private taskService: TaskService, private router: Router) { }
 
   ngOnInit(): void {
+    const showOverlayStored = sessionStorage.getItem('showOverlaySummary');
+    console.log(this.showOverlaySummary)
     this.loadTasks();
     this.greeting$ = this.userService.getCurrentUser().pipe(
       map(user => this.generateGreeting(user))
@@ -30,7 +33,21 @@ export class SummaryComponent implements OnInit {
     this.userService.getCurrentUser().subscribe(user => {
       this.currentUser = user;
     });
+
+
+
+    if (showOverlayStored === 'true') {
+      this.showOverlaySummary = true;
+  
+      setTimeout(() => {
+        sessionStorage.setItem('showOverlaySummary', 'false'); 
+        this.showOverlaySummary = false; 
+      }, 5000);
+    } else {
+      this.showOverlaySummary = false;
+    }
   }
+
 
   private generateGreeting(user: User | null): string {
     const now = new Date();
@@ -102,6 +119,7 @@ export class SummaryComponent implements OnInit {
     this.router.navigate(['/board']);
   }
 }
+
 
 
 

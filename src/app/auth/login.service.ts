@@ -18,6 +18,7 @@ export class LoginService {
       tap(response => {
         // Store the received token in localStorage
         localStorage.setItem('auth_token', response.token);
+        sessionStorage.setItem('showOverlaySummary', 'true'); 
       }),
       catchError(error => {
         console.error('Login error:', error);
@@ -31,6 +32,7 @@ export class LoginService {
     localStorage.removeItem('auth_token');
     // Redirect to login page or home page as needed
     // this.router.navigate(['/login']);
+    sessionStorage.removeItem('showOverlay');  
   }
 
   getProtectedData(): Observable<any> {
