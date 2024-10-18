@@ -10,7 +10,7 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class AddContactService {
-  private baseUrl = 'https://join.server.fabianduerr.com'; // Adjust with your Django backend URL
+  private baseUrl = 'https://join.server.fabianduerr.com'; 
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +28,7 @@ export class AddContactService {
 
   getContacts(): Observable<any> {
     const headers = this.createAuthorizationHeader();
-    return this.http.get(`${this.baseUrl}/addcontact/`, { headers }) // Adjust URL path as needed
+    return this.http.get(`${this.baseUrl}/addcontact/`, { headers }) 
       .pipe(
         catchError(error => {
           console.error('Error occurred while fetching contacts:', error);
@@ -39,10 +39,10 @@ export class AddContactService {
 
 
   private createAuthorizationHeader(): HttpHeaders {
-    const token = localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token'); // Retrieve token from storage
+    const token = localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Token ${token}` // Adjust if you use a different token prefix
+      'Authorization': `Token ${token}`
     });
   }
 
@@ -50,7 +50,6 @@ export class AddContactService {
     const headers = this.createAuthorizationHeader();
     return this.http.get(`${this.baseUrl}/contact/${contactId}/`, { headers })
       .pipe(
-        // tap(data => console.log(`Data loaded for contact ID ${contactId}:`, data)),
         catchError(error => {
           console.error(`Error occurred while fetching contact with ID ${contactId}:`, error);
           return throwError(error);
