@@ -63,6 +63,8 @@ export class ContactsOverviewComponent implements OnInit  {
   }
 
   groupContactsByFirstLetter(contacts: any[]): void {
+    this.groupedContacts = {};
+
     contacts.forEach(contact => {
       const firstLetter = contact.name[0].toUpperCase();
       const initials = this.getInitials(contact.name);

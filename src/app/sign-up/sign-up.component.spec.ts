@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { SignUpComponent } from './sign-up.component';
 import { UserRegistrationService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -36,29 +36,7 @@ describe('SignUpComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should submit the form and call the registerUser method when privacy policy is accepted', () => {
-    component.user = {
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      password: 'password123',
-      confirmPassword: 'password123',
-      acceptsPrivacyPolicy: true
-    };
 
-    const mockResponse = { success: true };
-    userRegistrationService.registerUser.and.returnValue(of(mockResponse));
-
-    component.onSubmit();
-
-    expect(userRegistrationService.registerUser).toHaveBeenCalledWith({
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      password: 'password123',
-      confirmPassword: 'password123'
-    });
-    expect(component.signupSuccess).toBeTrue();
-    expect(router.navigate).toHaveBeenCalledWith(['/login']);
-  });
 
   it('should log an error and not call registerUser when privacy policy is not accepted', () => {
     spyOn(console, 'error');
@@ -120,4 +98,37 @@ describe('SignUpComponent', () => {
     expect(console.error).toHaveBeenCalledWith('Error response body:', mockError.error);
     expect(console.error).toHaveBeenCalledWith(`Error status: ${mockError.status}, Message: ${mockError.message}`);
   });
+
+
+
+  it('should submit the form and call the registerUser method when privacy policy is accepted', fakeAsync(() => {
+    component.user = {
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      password: 'password123',
+      confirmPassword: 'password123',
+      acceptsPrivacyPolicy: true
+    };
+  
+    const mockResponse = { success: true };
+    userRegistrationService.registerUser.and.returnValue(of(mockResponse)); // Simulating successful response
+  
+    component.onSubmit();  // Call the method that triggers the registration
+  
+    // Flush any asynchronous operations (e.g., HTTP call)
+    tick();
+  
+    // If there is a delay before navigation, tick() needs to account for that
+    tick(2000); // Adjust this based on the delay in your code
+  
+    expect(userRegistrationService.registerUser).toHaveBeenCalledWith({
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      password: 'password123',
+      confirmPassword: 'password123'
+    });
+  
+    expect(component.signupSuccess).toBeTrue();
+    expect(router.navigate).toHaveBeenCalledWith(['/login']); // Ensure navigation is called
+  }));
 });

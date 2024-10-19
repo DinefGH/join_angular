@@ -89,14 +89,18 @@ describe('UserService', () => {
   });
 
   it('should clear user from BehaviorSubject when set to null', () => {
+    // Spy on removeItem in localStorage
     const mockRemoveItem = spyOn(localStorage, 'removeItem');
-
+  
+    // Call the service method to set the user to null
     service.setCurrentUser(null);
-
+  
+    // Subscribe to the current user and check if it is null
     service.getCurrentUser().subscribe(user => {
       expect(user).toBeNull(); // Ensure the BehaviorSubject is updated to null
     });
-
+  
+    // Ensure localStorage.removeItem('user_details') was called
     expect(mockRemoveItem).toHaveBeenCalledWith('user_details');
   });
 });

@@ -77,12 +77,7 @@ describe('ContactsOverviewComponent', () => {
     expect(console.error).toHaveBeenCalledWith('Error loading contacts:', 'Error loading contacts');
   });
 
-  it('should group contacts by the first letter', () => {
-    component.groupContactsByFirstLetter(mockContacts);
-    expect(component.groupedContacts['J'].length).toBe(2); // Both John Doe and Jane Smith
-    expect(component.groupedContacts['J'][0].name).toBe('Jane Smith'); // Sorted by name
-    expect(component.groupedContacts['J'][1].name).toBe('John Doe');
-  });
+
 
   it('should get initials for a contact name', () => {
     const initials = component.getInitials('John Doe');
@@ -125,5 +120,24 @@ describe('ContactsOverviewComponent', () => {
     component.onContactAdded(false); // Simulate no contact added
 
     expect(component.loadContacts).not.toHaveBeenCalled();
+  });
+
+
+  it('should group contacts by the first letter and sort them alphabetically', () => {
+    const mockContacts = [
+      { id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', color: '#FF0000' },
+      { id: 2, name: 'Jane Smith', email: 'jane@example.com', phone: '0987654321', color: '#00FF00' }
+    ];
+  
+    // Call the grouping function
+    component.groupContactsByFirstLetter(mockContacts);
+  
+    // Check that contacts are grouped under 'J'
+    expect(Object.keys(component.groupedContacts).length).toBe(1); // Only one letter 'J'
+    expect(component.groupedContacts['J'].length).toBe(2); // Both John Doe and Jane Smith
+  
+    // Check that they are sorted alphabetically by name
+    expect(component.groupedContacts['J'][0].name).toBe('Jane Smith'); // Jane should come before John
+    expect(component.groupedContacts['J'][1].name).toBe('John Doe');
   });
 });

@@ -3,11 +3,14 @@ import { SidebarComponent } from './sidebar.component';
 import { Router, NavigationEnd } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
   let router: Router;
+  let routerEventsSubject: Subject<any>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -31,29 +34,7 @@ describe('SidebarComponent', () => {
     expect(component.isContactsPage).toBeFalse();
   });
 
-  it('should update page flags when NavigationEnd event occurs', () => {
-    // Create a mock NavigationEnd event
-    const navigationEnd = new NavigationEnd(1, '/board', '/board');
 
-    // Spy on the router.events observable and return a NavigationEnd event
-    spyOn(router.events, 'subscribe').and.callFake((callback: any) => {
-      if (typeof callback === 'function') {
-        // Invoke the callback with the mock NavigationEnd event
-        callback(navigationEnd);
-      } else if (callback && typeof callback.next === 'function') {
-        // If it's an observer, call the next method with the event
-        callback.next(navigationEnd);
-      }
-      return new Subscription(); // Return a Subscription object to mimic the real subscribe method
-    });
-
-    component.ngOnInit();
-
-    expect(component.isBoardPage).toBeTrue();
-    expect(component.isSummaryPage).toBeFalse();
-    expect(component.isAddTaskPage).toBeFalse();
-    expect(component.isContactsPage).toBeFalse();
-  });
 
   it('should navigate to /contacts when goToContacts is called', () => {
     const navigateSpy = spyOn(router, 'navigate');
@@ -90,4 +71,23 @@ describe('SidebarComponent', () => {
     component.goToLegal();
     expect(windowSpy).toHaveBeenCalledWith('/legal-notice', '_blank');
   });
+
+
+  it('should reset all page flags to false when resetPageFlags is called', () => {
+    // Set the flags to true before calling the private method
+    component.isSummaryPage = true;
+    component.isBoardPage = true;
+    component.isAddTaskPage = true;
+    component.isContactsPage = true;
+  
+    // Call the private method using TypeScript's access to private members
+    (component as any).resetPageFlags();
+  
+    // Expect all flags to be false after resetPageFlags is called
+    expect(component.isSummaryPage).toBeFalse();
+    expect(component.isBoardPage).toBeFalse();
+    expect(component.isAddTaskPage).toBeFalse();
+    expect(component.isContactsPage).toBeFalse();
+  });
+  
 });

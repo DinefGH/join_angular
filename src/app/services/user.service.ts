@@ -45,5 +45,6 @@ export class UserService {
       // Persist the user's details to localStorage or sessionStorage as needed
       localStorage.setItem('user_details', JSON.stringify(user));
     }
+    
   }
 }
