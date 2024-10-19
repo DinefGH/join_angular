@@ -324,12 +324,19 @@ this.taskUpdated.emit();
 logFormErrors() {
   const formErrors: { [key: string]: any } = {};
   Object.keys(this.taskForm.controls).forEach(key => {
-      const control = this.taskForm.get(key);
-      if (control && control.invalid) {
-          formErrors[key] = control.errors;
-      }
+    const control = this.taskForm.get(key);
+    if (control && control.invalid) {
+      formErrors[key] = control.errors; // Collect invalid control errors
+    }
   });
+
+  if (Object.keys(formErrors).length > 0) {
+    console.error('Form Errors:', formErrors); // Log errors to the console
+  }
+
+  return formErrors; // Optionally return errors for testing purposes
 }
+
 
 prepareSubmitData() {
   const formData = this.taskForm.value;
