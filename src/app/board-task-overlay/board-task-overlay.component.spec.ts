@@ -128,4 +128,144 @@ describe('BoardTaskOverlayComponent', () => {
     expect(component.isOverlayVisibleTask).toBeFalse();
     expect(component.selectedTask).toBeNull();
   });
+
+
+
+  it('should return correct subtask completion string', () => {
+    const task: Task = {
+      id: 1,
+      title: 'Test Task',
+      subtasks: [{ text: 'Subtask 1', completed: true }, { text: 'Subtask 2', completed: false }]
+    } as Task;
+
+    const result = component.getSubtaskCompletion(task);
+    expect(result).toBe('1/2');
+  });
+
+
+  
+  it('should return the correct contact by ID', () => {
+    component.contacts = [
+      { id: 1, name: 'John Doe', email: 'john@example.com' } as Contact,
+      { id: 2, name: 'Jane Smith', email: 'jane@example.com' } as Contact
+    ];
+
+    const contact = component.getContactById(1);
+    expect(contact).toEqual(jasmine.objectContaining({ id: 1, name: 'John Doe' }));
+  });
+
+
+  it('should return undefined if contact not found', () => {
+    component.contacts = [
+      { id: 1, name: 'John Doe', email: 'john@example.com' } as Contact,
+      { id: 2, name: 'Jane Smith', email: 'jane@example.com' } as Contact
+    ];
+
+    const contact = component.getContactById(3);
+    expect(contact).toBeUndefined();
+  });
+
+
+  it('should return correct initials for a name', () => {
+    const result = component.getInitials('John Doe');
+    expect(result).toBe('JD');
+  });
+
+  it('should return single initial for single name', () => {
+    const result = component.getInitials('John');
+    expect(result).toBe('J');
+  });
+
+
+  it('should return correct subtask completion string', () => {
+    const task: Task = {
+      id: 1,
+      title: 'Test Task',
+      subtasks: [{ text: 'Subtask 1', completed: true }, { text: 'Subtask 2', completed: false }]
+    } as Task;
+
+    const result = component.getSubtaskCompletion(task);
+    expect(result).toBe('1/2');
+  });
+
+
+  it('should return empty string if no subtasks', () => {
+    const task = {
+      id: 1,
+      title: 'Test Task',
+      subtasks: []
+    } as Partial<Task>;
+  
+    const result = component.getSubtaskCompletion(task as Task);
+    expect(result).toBe('');
+  });
+
+
+  it('should return 0% completion for tasks with no subtasks', () => {
+    const task = {
+      id: 1,
+      title: 'Test Task',
+      subtasks: []
+    } as Partial<Task>;
+
+    const result = component.getSubtaskCompletionPercentage(task as Task);
+    expect(result).toBe(0);
+  });
+
+
+  it('should return correct completion percentage', () => {
+    const task: Task = {
+      id: 1,
+      title: 'Test Task',
+      subtasks: [{ text: 'Subtask 1', completed: true }, { text: 'Subtask 2', completed: false }]
+    } as Task;
+
+    const result = component.getSubtaskCompletionPercentage(task);
+    expect(result).toBe(50);
+  });
+
+
+  it('should open the edit task overlay and hide the task overlay container', () => {
+    component.isEditTaskVisible = false;
+    component.isTaskOverlayContainerVisible = true;
+
+    component.openEditTaskOverlay();
+
+    expect(component.isEditTaskVisible).toBeTrue(); // The edit task overlay should be visible
+    expect(component.isTaskOverlayContainerVisible).toBeFalse(); // The task overlay container should be hidden
+  });
+
+
+  it('should handle task update and hide the edit task overlay', () => {
+    spyOn(component, 'loadTasks'); // Spy on the loadTasks method to ensure it's called
+
+    component.isEditTaskVisible = true; // Simulate the overlay being open
+
+    component.onTaskUpdated();
+
+    expect(component.loadTasks).toHaveBeenCalled(); // Ensure the tasks are reloaded
+    expect(component.isEditTaskVisible).toBeFalse(); // The edit task overlay should be hidden after update
+  });
+
+
+  it('should close the edit task overlay and reset selected task', () => {
+    component.isEditTaskVisible = true;
+    
+    // Provide all required properties for the Task object
+    component.selectedTask = {
+      id: 1,
+      title: 'Sample Task',
+      priority: 'high',
+      assigned_to: [],
+      subtasks: [],
+      contacts: [],
+      due_date: '2024-01-01',
+      status: 'todo'
+    };
+
+    component.closeEditTaskOverlay();
+
+    expect(component.isEditTaskVisible).toBeFalse(); // The edit task overlay should be hidden
+    expect(component.selectedTask).toBeNull(); // The selected task should be reset to null
+  });
 });

@@ -42,6 +42,9 @@ describe('ContactsEditComponent', () => {
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
     route = TestBed.inject(ActivatedRoute);
 
+    // Ensure getContactById returns an observable with mockContact
+    addContactService.getContactById.and.returnValue(of(mockContact));
+
     fixture = TestBed.createComponent(ContactsEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges(); // Trigger ngOnInit
@@ -50,6 +53,12 @@ describe('ContactsEditComponent', () => {
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should load contact on initialization', () => {
+    expect(addContactService.getContactById).toHaveBeenCalledWith(1);
+    expect(component.contact).toEqual(mockContact); // Check if the contact is loaded properly
+  });
+
 
   it('should load contact data on init', () => {
     addContactService.getContactById.and.returnValue(of(mockContact));
@@ -62,56 +71,59 @@ describe('ContactsEditComponent', () => {
 
   it('should update the contact and emit the contactEdited event', () => {
     addContactService.updateContact.and.returnValue(of(mockContact));
-
+  
     spyOn(component.contactEdited, 'emit');
     spyOn(component, 'closeEditComponent');
-
+  
     component.contact = mockContact; // Assign mock contact
     component.onSubmit({} as any); // Simulate form submission
-
+  
     expect(addContactService.updateContact).toHaveBeenCalledWith(mockContact.id, mockContact);
     expect(component.contactEdited.emit).toHaveBeenCalledWith(true);
     expect(component.closeEditComponent).toHaveBeenCalled();
   });
 
+
   it('should handle update contact error and emit false for contactEdited event', () => {
     addContactService.updateContact.and.returnValue(throwError('Failed to update contact'));
-
+  
     spyOn(component.contactEdited, 'emit');
-
+  
     component.contact = mockContact; // Assign mock contact
     component.onSubmit({} as any); // Simulate form submission
-
+  
     expect(addContactService.updateContact).toHaveBeenCalledWith(mockContact.id, mockContact);
     expect(component.contactEdited.emit).toHaveBeenCalledWith(false);
   });
 
+
   it('should delete the contact and navigate to contacts overview page', () => {
     addContactService.deleteContact.and.returnValue(of({}));
-
+  
     component.contact = mockContact;
     component.deleteContact();
-
+  
     expect(addContactService.deleteContact).toHaveBeenCalledWith(mockContact.id);
     expect(router.navigate).toHaveBeenCalledWith(['/contacts']);
   });
 
   it('should handle delete contact error', () => {
     addContactService.deleteContact.and.returnValue(throwError('Failed to delete contact'));
-
+  
     spyOn(console, 'error');
     component.contact = mockContact;
     component.deleteContact();
-
+  
     expect(addContactService.deleteContact).toHaveBeenCalledWith(mockContact.id);
     expect(console.error).toHaveBeenCalledWith(`Failed to delete contact with ID ${mockContact.id}`, 'Failed to delete contact');
   });
 
+
   it('should emit close event when closeEditComponent is called', () => {
     spyOn(component.close, 'emit');
-
+  
     component.closeEditComponent();
-
+  
     expect(component.close.emit).toHaveBeenCalled();
   });
 });
