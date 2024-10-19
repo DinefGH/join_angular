@@ -58,3 +58,5 @@ export class FooterBarComponent implements OnInit {
     this.router.navigate(['/board']);
   }
 }
+
+
