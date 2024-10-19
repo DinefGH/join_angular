@@ -16,6 +16,17 @@ describe('ContactService', () => {
     expect(service).toBeTruthy();
   });
 
+
+
+  it('should return null when no contact is set initially', () => {
+    // Subscribe to the getContactToEdit() observable
+    service.getContactToEdit().subscribe((contact) => {
+      expect(contact).toBeNull(); // Expect null since no contact has been set yet
+    });
+  });
+
+
+
   it('should set and get contact correctly', () => {
     const mockContact: Contact = {
       id: 1,
@@ -25,20 +36,13 @@ describe('ContactService', () => {
       initials: '',
       color: ''
     };
-
+  
+    // Set the contact before subscribing
+    service.setContactToEdit(mockContact);
+  
     // Subscribe to the getContactToEdit() observable
     service.getContactToEdit().subscribe((contact) => {
       expect(contact).toEqual(mockContact); // Ensure the contact matches what was set
-    });
-
-    // Set the contact
-    service.setContactToEdit(mockContact);
-  });
-
-  it('should return null when no contact is set initially', () => {
-    // Subscribe to the getContactToEdit() observable
-    service.getContactToEdit().subscribe((contact) => {
-      expect(contact).toBeNull(); // Expect null since no contact has been set yet
     });
   });
 });

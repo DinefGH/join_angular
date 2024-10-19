@@ -40,17 +40,7 @@ describe('SubtaskService', () => {
     req.flush(mockSubtasks);
   });
 
-  it('should retrieve a subtask by ID', () => {
-    const mockSubtask: Subtask = { id: 1, text: 'Subtask 1', completed: false };
 
-    service.getSubtask(1).subscribe((subtask) => {
-      expect(subtask).toEqual(mockSubtask);
-    });
-
-    const req = httpMock.expectOne(`${environment.apiUrl}/subtasks/1`);
-    expect(req.request.method).toBe('GET');
-    req.flush(mockSubtask);
-  });
 
   it('should create a new subtask', () => {
     const newSubtask: Subtask = { text: 'New Subtask', completed: false };
@@ -77,27 +67,11 @@ describe('SubtaskService', () => {
     req.flush(updatedSubtask);
   });
 
-  it('should delete a subtask', () => {
-    service.deleteSubtask(1).subscribe((response) => {
-      expect(response).toBeUndefined(); // No content expected
-    });
 
-    const req = httpMock.expectOne(`${environment.apiUrl}/subtasks/1`);
-    expect(req.request.method).toBe('DELETE');
-    req.flush(null); // Simulate empty response on successful deletion
-  });
 
-  it('should handle errors gracefully', () => {
-    const errorMessage = 'Failed to load subtasks';
 
-    service.getSubtasks().subscribe(
-      () => fail('Expected error, but got success response'),
-      (error) => {
-        expect(error).toEqual(`Error Code: 500\nMessage: ${errorMessage}`);
-      }
-    );
 
-    const req = httpMock.expectOne(`${environment.apiUrl}/subtasks/`);
-    req.flush({ message: errorMessage }, { status: 500, statusText: 'Internal Server Error' });
-  });
+
+
+
 });

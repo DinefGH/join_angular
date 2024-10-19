@@ -1,4 +1,4 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { SignUpComponent } from './sign-up.component';
 import { UserRegistrationService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -102,6 +102,7 @@ describe('SignUpComponent', () => {
 
 
   it('should submit the form and call the registerUser method when privacy policy is accepted', fakeAsync(() => {
+    // Arrange
     component.user = {
       name: 'John Doe',
       email: 'john.doe@example.com',
@@ -113,14 +114,16 @@ describe('SignUpComponent', () => {
     const mockResponse = { success: true };
     userRegistrationService.registerUser.and.returnValue(of(mockResponse)); // Simulating successful response
   
+    // Act
     component.onSubmit();  // Call the method that triggers the registration
   
     // Flush any asynchronous operations (e.g., HTTP call)
     tick();
   
-    // If there is a delay before navigation, tick() needs to account for that
-    tick(2000); // Adjust this based on the delay in your code
+    // Use flush() to clear all pending timers
+    flush();
   
+    // Assert
     expect(userRegistrationService.registerUser).toHaveBeenCalledWith({
       name: 'John Doe',
       email: 'john.doe@example.com',
@@ -131,4 +134,5 @@ describe('SignUpComponent', () => {
     expect(component.signupSuccess).toBeTrue();
     expect(router.navigate).toHaveBeenCalledWith(['/login']); // Ensure navigation is called
   }));
+  
 });
