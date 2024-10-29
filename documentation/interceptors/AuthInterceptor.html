@@ -120,6 +120,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>AuthInterceptor adds an Authorization header with a token to each HTTP request,
+except for requests to excluded URLs (e.g., signup and login endpoints).</p>
+
+            </p>
 
 
             <section data-compodoc="block-index">
@@ -161,7 +169,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/auth.interceptor.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth.interceptor.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -194,14 +202,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="9"
-                                    class="link-to-prism">src/app/auth.interceptor.ts:9</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/auth.interceptor.ts:22</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Intercepts HTTP requests to include an Authorization token, if available.
+Excludes specific URLs such as signup and login.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -212,6 +223,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -226,6 +238,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The original HTTP request.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>next</td>
@@ -238,6 +256,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The next handler in the HTTP chain.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -247,7 +271,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable of the HTTP event, with the Authorization header added if needed.</p>
+
                             </div>
                 </td>
             </tr>
@@ -263,31 +288,55 @@
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
+
+/**
+ * AuthInterceptor adds an Authorization header with a token to each HTTP request,
+ * except for requests to excluded URLs (e.g., signup and login endpoints).
+ */
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
 
+
+    /**
+   * Intercepts HTTP requests to include an Authorization token, if available.
+   * Excludes specific URLs such as signup and login.
+   * @param req - The original HTTP request.
+   * @param next - The next handler in the HTTP chain.
+   * @returns An Observable of the HTTP event, with the Authorization header added if needed.
+   */
   intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
-    // List of URLs to exclude from adding the Authorization header
     const excludedUrls &#x3D; [&#x27;/signup/&#x27;, &#x27;/login/&#x27;];
 
-    // Check if the request URL matches any of the excluded URLs
+
+
+    /**
+ * Checks if the request URL is in the list of excluded URLs, bypassing authentication for those routes.
+ * @param req - The original HTTP request.
+ * @param next - The next handler in the HTTP request chain.
+ * @returns Observable of the HTTP event, with or without the Authorization header.
+ */
     if (excludedUrls.some(url &#x3D;&gt; req.url.includes(url))) {
-      // Proceed without adding the Authorization header
       return next.handle(req);
     }
 
-    // Attempt to retrieve the token from sessionStorage first, then localStorage
+
+    /**
+ * Retrieves the authentication token from sessionStorage or localStorage, if available.
+ */
     const authToken &#x3D; sessionStorage.getItem(&#x27;auth_token&#x27;) || localStorage.getItem(&#x27;auth_token&#x27;);
 
-    // If the token exists, clone the request to include the authorization header.
+
+    /**
+ * If an auth token is present, clones the request with an Authorization header and passes it to the next handler.
+ * If no token is found, passes the original request without modification.
+ */
     if (authToken) {
       const authReq &#x3D; req.clone({
         setHeaders: { Authorization: &#x60;Token ${authToken}&#x60; },
       });
       return next.handle(authReq);
     }
-    // For requests without a token, proceed without modifying the request.
     return next.handle(req);
   }
 }

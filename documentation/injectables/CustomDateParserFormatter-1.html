@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>CustomDateParserFormatter provides custom parsing and formatting for dates in &quot;dd/MM/yyyy&quot; format
+to be used with NgbDatePicker.</p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -189,14 +197,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:38</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Formats an NgbDateStruct into a string in &quot;dd/MM/yyyy&quot; format.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -207,6 +217,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -221,6 +232,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The NgbDateStruct to format.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -230,7 +247,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A formatted date string, or an empty string if the date is null.</p>
+
                             </div>
                 </td>
             </tr>
@@ -258,14 +276,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:24</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:48</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Adds a leading zero to numbers less than 10 for consistent two-digit formatting.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -276,6 +296,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -290,6 +311,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The number to pad.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -299,7 +326,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A string with the number padded to two digits if needed.</p>
+
                             </div>
                 </td>
             </tr>
@@ -325,14 +353,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="6"
-                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:6</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:18</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Parses a date string in &quot;dd/MM/yyyy&quot; format and converts it to an NgbDateStruct.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -343,6 +373,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -357,6 +388,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The date string to parse.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -366,7 +403,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An NgbDateStruct if parsing is successful, otherwise null.</p>
+
                             </div>
                 </td>
             </tr>
@@ -381,8 +419,20 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { NgbDateParserFormatter, NgbDateStruct } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
 
+
+/**
+ * CustomDateParserFormatter provides custom parsing and formatting for dates in &quot;dd/MM/yyyy&quot; format
+ * to be used with NgbDatePicker.
+ */
 @Injectable()
 export class CustomDateParserFormatter extends NgbDateParserFormatter {
+
+
+    /**
+   * Parses a date string in &quot;dd/MM/yyyy&quot; format and converts it to an NgbDateStruct.
+   * @param value - The date string to parse.
+   * @returns An NgbDateStruct if parsing is successful, otherwise null.
+   */
   parse(value: string): NgbDateStruct | null {
     if (value) {
       const dateParts &#x3D; value.trim().split(&#x27;/&#x27;);
@@ -397,10 +447,22 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
     return null;
   }
 
+
+    /**
+   * Formats an NgbDateStruct into a string in &quot;dd/MM/yyyy&quot; format.
+   * @param date - The NgbDateStruct to format.
+   * @returns A formatted date string, or an empty string if the date is null.
+   */
   format(date: NgbDateStruct | null): string {
     return date ? &#x60;${this.pad(date.day)}/${this.pad(date.month)}/${date.year}&#x60; : &#x27;&#x27;;
   }
 
+
+    /**
+   * Adds a leading zero to numbers less than 10 for consistent two-digit formatting.
+   * @param number - The number to pad.
+   * @returns A string with the number padded to two digits if needed.
+   */
   private pad(number: number) {
     return number &lt; 10 ? &#x60;0${number}&#x60; : number;
   }

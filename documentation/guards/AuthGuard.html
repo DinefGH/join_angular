@@ -121,6 +121,14 @@
             </p>
 
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>AuthGuard is used to protect routes from unauthorized access.
+It checks for an authentication token and redirects to the login page if none is found.</p>
+
+                </p>
 
 
 
@@ -164,12 +172,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/auth.guard.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/auth.guard.ts:19</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor that injects the Angular Router for navigation.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -178,6 +188,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -192,6 +203,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Router to redirect unauthenticated users to the login page.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -227,14 +244,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/app/auth.guard.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/auth.guard.ts:37</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Determines if a route can be activated based on the presence of an auth token.
+Redirects to the login page if the user is not authenticated.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -245,6 +265,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -259,6 +280,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The route that is being accessed.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>state</td>
@@ -271,6 +298,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The current router state.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -280,7 +313,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A boolean or UrlTree indicating whether navigation is allowed.</p>
+
                             </div>
                 </td>
             </tr>
@@ -301,12 +335,32 @@ import {
 } from &#x27;@angular/router&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
+
+/**
+ * AuthGuard is used to protect routes from unauthorized access.
+ * It checks for an authentication token and redirects to the login page if none is found.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class AuthGuard implements CanActivate {
+
+
+    /**
+   * Constructor that injects the Angular Router for navigation.
+   * @param router - Router to redirect unauthenticated users to the login page.
+   */
   constructor(private router: Router) {}
 
+
+
+    /**
+   * Determines if a route can be activated based on the presence of an auth token.
+   * Redirects to the login page if the user is not authenticated.
+   * @param route - The route that is being accessed.
+   * @param state - The current router state.
+   * @returns A boolean or UrlTree indicating whether navigation is allowed.
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
