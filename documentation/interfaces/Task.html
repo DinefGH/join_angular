@@ -692,16 +692,15 @@ export interface Task {
   creator?: number; // Add this line
 
   showStatusDropdown?: boolean;
-
 }
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class TaskService {
   private baseUrl &#x3D; environment.apiUrl; // Use environment to manage API URL
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private handleError(error: HttpErrorResponse) {
     if (error.status &#x3D;&#x3D;&#x3D; 0) {
@@ -713,51 +712,40 @@ export class TaskService {
   }
 
   getTasks(): Observable&lt;Task[]&gt; {
-    return this.http.get&lt;Task[]&gt;(&#x60;${this.baseUrl}/tasks/&#x60;)
-      .pipe(
-        retry(3), // Retry this request up to three times.
-        catchError(this.handleError) // Handle errors
-      );
+    return this.http.get&lt;Task[]&gt;(&#x60;${this.baseUrl}/tasks/&#x60;).pipe(
+      retry(3), // Retry this request up to three times.
+      catchError(this.handleError), // Handle errors
+    );
   }
 
   getTask(id: number): Observable&lt;Task&gt; {
-    return this.http.get&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/${id}/&#x60;)
-      .pipe(catchError(this.handleError));
+    return this.http.get&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/${id}/&#x60;).pipe(catchError(this.handleError));
   }
 
   addTask(task: Task): Observable&lt;Task&gt; {
     task.status &#x3D; &#x27;todo&#x27;; // Ensure the status is set to &#x27;todo&#x27;
-    return this.http.post&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/&#x60;, task)
-      .pipe(catchError(this.handleError));
+    return this.http.post&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/&#x60;, task).pipe(catchError(this.handleError));
   }
-
-
 
   updateTask(id: number, task: Task): Observable&lt;Task&gt; {
-  
     // Ensure no duplicate subtasks are sent to the backend
-    const uniqueSubtasks &#x3D; task.subtasks.filter((subtask, index, self) &#x3D;&gt;
-      index &#x3D;&#x3D;&#x3D; self.findIndex((t) &#x3D;&gt; (
-        t.id &#x3D;&#x3D;&#x3D; subtask.id &amp;&amp; t.text &#x3D;&#x3D;&#x3D; subtask.text
-      ))
+    const uniqueSubtasks &#x3D; task.subtasks.filter(
+      (subtask, index, self) &#x3D;&gt;
+        index &#x3D;&#x3D;&#x3D; self.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; subtask.id &amp;&amp; t.text &#x3D;&#x3D;&#x3D; subtask.text),
     );
-  
+
     const updatedTask &#x3D; { ...task, subtasks: uniqueSubtasks };
-    
-  
-    return this.http.put&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/${id}/&#x60;, updatedTask)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
 
-  
-
-  deleteTask(id: number): Observable&lt;{}&gt; {
-    return this.http.delete(&#x60;${this.baseUrl}/tasks/${id}/&#x60;)
+    return this.http
+      .put&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/${id}/&#x60;, updatedTask)
       .pipe(catchError(this.handleError));
   }
-}</code></pre>
+
+  deleteTask(id: number): Observable&lt;{}&gt; {
+    return this.http.delete(&#x60;${this.baseUrl}/tasks/${id}/&#x60;).pipe(catchError(this.handleError));
+  }
+}
+</code></pre>
     </div>
 </div>
 

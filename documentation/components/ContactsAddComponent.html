@@ -253,7 +253,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -322,7 +322,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:22</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -343,7 +343,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:20</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -376,8 +376,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="58"
-                                    class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:58</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -413,8 +413,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -450,8 +450,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -491,7 +491,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -521,13 +521,13 @@
     name: &#x27;&#x27;,
     email: &#x27;&#x27;,
     phone: &#x27;&#x27;,
-    color: &#x27;&#x27; 
+    color: &#x27;&#x27;,
   }</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/contacts/contacts-add/contacts-add.component.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -540,39 +540,40 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Output  } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Output } from &#x27;@angular/core&#x27;;
 import { AddContactService } from &#x27;src/app/services/add-contact.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
 @Component({
   selector: &#x27;app-contacts-add&#x27;,
   templateUrl: &#x27;./contacts-add.component.html&#x27;,
-  styleUrls: [&#x27;./contacts-add.component.scss&#x27;]
+  styleUrls: [&#x27;./contacts-add.component.scss&#x27;],
 })
 export class ContactsAddComponent {
-
-  addContactSuccess &#x3D; false
+  addContactSuccess &#x3D; false;
 
   contactData &#x3D; {
     name: &#x27;&#x27;,
     email: &#x27;&#x27;,
     phone: &#x27;&#x27;,
-    color: &#x27;&#x27; 
+    color: &#x27;&#x27;,
   };
 
   @Output() contactAdded &#x3D; new EventEmitter&lt;boolean&gt;();
 
   @Output() close &#x3D; new EventEmitter&lt;void&gt;();
 
-
-  constructor(private addContactService: AddContactService, private router: Router) { }
+  constructor(
+    private addContactService: AddContactService,
+    private router: Router,
+  ) {}
 
   submitContactForm() {
     if (!this.contactData.color) {
       this.contactData.color &#x3D; this.generateRandomDarkColor();
     }
     this.addContactService.addContact(this.contactData).subscribe({
-      next: (response) &#x3D;&gt; {
+      next: response &#x3D;&gt; {
         this.addContactSuccess &#x3D; true;
 
         this.contactAdded.emit(true);
@@ -580,10 +581,10 @@ export class ContactsAddComponent {
           this.close.emit(); // Navigate to the login page
         }, 3000);
       },
-      error: (error) &#x3D;&gt; {
+      error: error &#x3D;&gt; {
         console.error(&#x27;There was an error adding the contact:&#x27;, error);
         // Optionally, provide user feedback
-      }
+      },
     });
   }
   generateRandomDarkColor(): string {
@@ -591,10 +592,15 @@ export class ContactsAddComponent {
     const r &#x3D; Math.floor(Math.random() * 100);
     const g &#x3D; Math.floor(Math.random() * 100);
     const b &#x3D; Math.floor(Math.random() * 100);
-    return &#x27;#&#x27; + [r, g, b].map(x &#x3D;&gt; {
-      const hex &#x3D; x.toString(16);
-      return hex.length &#x3D;&#x3D;&#x3D; 1 ? &#x27;0&#x27; + hex : hex;
-    }).join(&#x27;&#x27;);
+    return (
+      &#x27;#&#x27; +
+      [r, g, b]
+        .map(x &#x3D;&gt; {
+          const hex &#x3D; x.toString(16);
+          return hex.length &#x3D;&#x3D;&#x3D; 1 ? &#x27;0&#x27; + hex : hex;
+        })
+        .join(&#x27;&#x27;)
+    );
   }
 
   closeComponent() {
@@ -606,92 +612,96 @@ export class ContactsAddComponent {
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;addContactsBackground&quot; (click)&#x3D;&quot;closeComponent()&quot;&gt;
-&lt;main class&#x3D;&quot;addContactsContentConatiner&quot; (click)&#x3D;&quot;$event.stopPropagation()&quot;&gt;
+  &lt;main class&#x3D;&quot;addContactsContentConatiner&quot; (click)&#x3D;&quot;$event.stopPropagation()&quot;&gt;
     &lt;div class&#x3D;&quot;topContainerAddContacts&quot;&gt;
-        &lt;div class&#x3D;&quot;closeIconContainer&quot; (click)&#x3D;&quot;closeComponent()&quot;&gt;
-            &lt;img class&#x3D;&quot;closeIcon&quot; src&#x3D;&quot;./assets/img/close.png&quot; alt&#x3D;&quot;Close icon&quot;&gt;
+      &lt;div class&#x3D;&quot;closeIconContainer&quot; (click)&#x3D;&quot;closeComponent()&quot;&gt;
+        &lt;img class&#x3D;&quot;closeIcon&quot; src&#x3D;&quot;./assets/img/close.png&quot; alt&#x3D;&quot;Close icon&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;h1&gt;Add Contact&lt;/h1&gt;
+        &lt;div class&#x3D;&quot;smallHeadlineAddContacts&quot;&gt;Tasks are better with a team!&lt;/div&gt;
+        &lt;div class&#x3D;&quot;addContactsUnderline&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;personIconContainer&quot;&gt;
+        &lt;div class&#x3D;&quot;personIcon&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/img/personContactBig.png&quot; alt&#x3D;&quot;Person icon&quot; /&gt;
         &lt;/div&gt;
-        &lt;div&gt;
-            &lt;h1&gt;Add Contact&lt;/h1&gt;
-            &lt;div class&#x3D;&quot;smallHeadlineAddContacts&quot;&gt;Tasks are better with a team!&lt;/div&gt;
-            &lt;div class&#x3D;&quot;addContactsUnderline&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;personIconContainer&quot;&gt;
-            &lt;div class&#x3D;&quot;personIcon&quot;&gt;&lt;img src&#x3D;&quot;/assets/img/personContactBig.png&quot; alt&#x3D;&quot;Person icon&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;personIconFormContainer&quot;&gt;
       &lt;div class&#x3D;&quot;personIconContainerDesktop&quot;&gt;
-        &lt;div class&#x3D;&quot;personIcon&quot;&gt;&lt;img src&#x3D;&quot;/assets/img/personContactBig.png&quot; alt&#x3D;&quot;Person icon&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
+        &lt;div class&#x3D;&quot;personIcon&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/img/personContactBig.png&quot; alt&#x3D;&quot;Person icon&quot; /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;bottomContainerContacts&quot;&gt;
       &lt;div class&#x3D;&quot;closeIconContainerDesktop&quot; (click)&#x3D;&quot;closeComponent()&quot;&gt;
-        &lt;img class&#x3D;&quot;closeIcon&quot; src&#x3D;&quot;./assets/img/closeDark.svg&quot; alt&#x3D;&quot;Close icon&quot;&gt;
-    &lt;/div&gt;
+        &lt;img class&#x3D;&quot;closeIcon&quot; src&#x3D;&quot;./assets/img/closeDark.svg&quot; alt&#x3D;&quot;Close icon&quot; /&gt;
+      &lt;/div&gt;
 
-        &lt;form class&#x3D;&quot;formContainerAddContacts&quot; (ngSubmit)&#x3D;&quot;submitContactForm()&quot; #contactForm&#x3D;&quot;ngForm&quot;&gt;
-          &lt;div class&#x3D;&quot;form-floating mb-3 inputContainer&quot;&gt;
-            &lt;input
-              type&#x3D;&quot;text&quot;
-              id&#x3D;&quot;floatingInputContactsName&quot;
-              class&#x3D;&quot;form-control formInputContacsName custom-input-height&quot;
-              [(ngModel)]&#x3D;&quot;contactData.name&quot;
-              name&#x3D;&quot;name&quot;
-              placeholder&#x3D;&quot;Name&quot;
-              required
-              #name&#x3D;&quot;ngModel&quot;
-            /&gt;
-            &lt;label class&#x3D;&quot;colorFont&quot; for&#x3D;&quot;floatingInputContactsName&quot;&gt;Name&lt;/label&gt;
-            &lt;div *ngIf&#x3D;&quot;name.invalid &amp;&amp; name.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
-              Name is required.
+      &lt;form class&#x3D;&quot;formContainerAddContacts&quot; (ngSubmit)&#x3D;&quot;submitContactForm()&quot; #contactForm&#x3D;&quot;ngForm&quot;&gt;
+        &lt;div class&#x3D;&quot;form-floating mb-3 inputContainer&quot;&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            id&#x3D;&quot;floatingInputContactsName&quot;
+            class&#x3D;&quot;form-control formInputContacsName custom-input-height&quot;
+            [(ngModel)]&#x3D;&quot;contactData.name&quot;
+            name&#x3D;&quot;name&quot;
+            placeholder&#x3D;&quot;Name&quot;
+            required
+            #name&#x3D;&quot;ngModel&quot;
+          /&gt;
+          &lt;label class&#x3D;&quot;colorFont&quot; for&#x3D;&quot;floatingInputContactsName&quot;&gt;Name&lt;/label&gt;
+          &lt;div *ngIf&#x3D;&quot;name.invalid &amp;&amp; name.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;Name is required.&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;form-floating mb-3 inputContainer&quot;&gt;
+          &lt;input
+            type&#x3D;&quot;email&quot;
+            id&#x3D;&quot;floatingInputContactsEmail&quot;
+            class&#x3D;&quot;form-control formInputContactsMail&quot;
+            [(ngModel)]&#x3D;&quot;contactData.email&quot;
+            name&#x3D;&quot;email&quot;
+            placeholder&#x3D;&quot;Email&quot;
+            required
+            #email&#x3D;&quot;ngModel&quot;
+            email
+          /&gt;
+          &lt;label class&#x3D;&quot;colorFont&quot; for&#x3D;&quot;floatingInputContactsEmail&quot;&gt;Email&lt;/label&gt;
+          &lt;div *ngIf&#x3D;&quot;email.invalid &amp;&amp; email.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;email.errors?.[&#x27;required&#x27;]&quot;&gt;Email is required.&lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;email.errors?.[&#x27;email&#x27;]&quot;&gt;Please enter a valid email address.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;form-floating mb-3 inputContainer&quot;&gt;
+          &lt;input
+            type&#x3D;&quot;number&quot;
+            id&#x3D;&quot;floatingInputContactsPhone&quot;
+            class&#x3D;&quot;form-control formInputContacsPhone&quot;
+            [(ngModel)]&#x3D;&quot;contactData.phone&quot;
+            name&#x3D;&quot;phone&quot;
+            placeholder&#x3D;&quot;Phone&quot;
+            required
+            #phone&#x3D;&quot;ngModel&quot;
+            pattern&#x3D;&quot;^\+?[0-9]{1,15}$&quot;
+          /&gt;
+          &lt;label class&#x3D;&quot;colorFont&quot; for&#x3D;&quot;floatingInputContactsPhone&quot;&gt;Phone&lt;/label&gt;
+          &lt;div *ngIf&#x3D;&quot;phone.invalid &amp;&amp; phone.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;phone.errors?.[&#x27;required&#x27;]&quot;&gt;Phone number is required.&lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;phone.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+              Please enter a valid phone number (15 digits).
             &lt;/div&gt;
           &lt;/div&gt;
-          
-            &lt;div class&#x3D;&quot;form-floating mb-3 inputContainer&quot;&gt;
-              &lt;input
-                type&#x3D;&quot;email&quot;
-                id&#x3D;&quot;floatingInputContactsEmail&quot;
-                class&#x3D;&quot;form-control formInputContactsMail&quot;
-                [(ngModel)]&#x3D;&quot;contactData.email&quot;
-                name&#x3D;&quot;email&quot;
-                placeholder&#x3D;&quot;Email&quot;
-                required
-                #email&#x3D;&quot;ngModel&quot;
-                email
-              /&gt;
-              &lt;label class&#x3D;&quot;colorFont&quot; for&#x3D;&quot;floatingInputContactsEmail&quot;&gt;Email&lt;/label&gt;
-              &lt;div *ngIf&#x3D;&quot;email.invalid &amp;&amp; email.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
-                &lt;div *ngIf&#x3D;&quot;email.errors?.[&#x27;required&#x27;]&quot;&gt;Email is required.&lt;/div&gt;
-                &lt;div *ngIf&#x3D;&quot;email.errors?.[&#x27;email&#x27;]&quot;&gt;Please enter a valid email address.&lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          
-            &lt;div class&#x3D;&quot;form-floating mb-3 inputContainer&quot;&gt;
-              &lt;input
-                type&#x3D;&quot;number&quot;
-                id&#x3D;&quot;floatingInputContactsPhone&quot;
-                class&#x3D;&quot;form-control formInputContacsPhone&quot;
-                [(ngModel)]&#x3D;&quot;contactData.phone&quot;
-                name&#x3D;&quot;phone&quot;
-                placeholder&#x3D;&quot;Phone&quot;
-                required
-                #phone&#x3D;&quot;ngModel&quot;
-                pattern&#x3D;&quot;^\+?[0-9]{1,15}$&quot;
-              /&gt;
-              &lt;label class&#x3D;&quot;colorFont&quot; for&#x3D;&quot;floatingInputContactsPhone&quot;&gt;Phone&lt;/label&gt;
-              &lt;div *ngIf&#x3D;&quot;phone.invalid &amp;&amp; phone.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
-                &lt;div *ngIf&#x3D;&quot;phone.errors?.[&#x27;required&#x27;]&quot;&gt;Phone number is required.&lt;/div&gt;
-                &lt;div *ngIf&#x3D;&quot;phone.errors?.[&#x27;pattern&#x27;]&quot;&gt;Please enter a valid phone number (15 digits).&lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary btn-lg w180&quot;&gt;Create contact&lt;/button&gt;
-          &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary btn-lg w180&quot;&gt;Create contact&lt;/button&gt;
+      &lt;/form&gt;
     &lt;/div&gt;
-    &lt;div *ngIf&#x3D;&quot;addContactSuccess&quot;  class&#x3D;&quot;addedContactSuccessContainer&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;addContactSuccess&quot; class&#x3D;&quot;addedContactSuccessContainer&quot;&gt;
       Contact successfully created!
     &lt;/div&gt;
-&lt;/main&gt;
+  &lt;/main&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -701,66 +711,194 @@ export class ContactsAddComponent {
                     <code>./contacts-add.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.addContactsBackground {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba($color: #000000, $alpha: 0.1);
-    z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  z-index: 10;
 }
-
 
 .addContactsContentConatiner {
-    height: 80vh;
-    width: 90vw;
-    position: absolute;
-    top: 10vh;
-    border-radius: 30px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 11;
+  height: 80vh;
+  width: 90vw;
+  position: absolute;
+  top: 10vh;
+  border-radius: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
 }
-
 
 .topContainerAddContacts {
-    height: 30vh;
-    width: 100%;
-    background-color: #2A3647;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    position: relative;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    padding-left: 16px;
+  height: 30vh;
+  width: 100%;
+  background-color: #2a3647;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  padding-left: 16px;
 }
 
-
 .closeIconContainer {
-    display: block;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
 }
 
 .addContactsUnderline {
-    border-bottom: 3px solid;
-    border-color: #29ABE2;
-    width: min(120px, 50%);
-    padding-bottom: 8px;
+  border-bottom: 3px solid;
+  border-color: #29abe2;
+  width: min(120px, 50%);
+  padding-bottom: 8px;
 }
 
-
 .smallHeadlineAddContacts {
-    font-size: calc(1.175rem + 0.5vw) !important;
+  font-size: calc(1.175rem + 0.5vw) !important;
 }
 
 .personIconContainer {
-    background-color: #D1D1D1;
+  background-color: #d1d1d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: solid 3px #ffffff;
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.bottomContainerContacts {
+  height: 50vh;
+  width: 90vw;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.colorFont {
+  color: #d1d1d1;
+}
+
+.formInputContacsName {
+  background-image: url(&#x27;/assets/img/person.png&#x27;);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 18px);
+}
+
+.formInputContactsMail {
+  background-image: url(&#x27;/assets/img/mail.png&#x27;);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 18px);
+}
+
+.formInputContacsPhone {
+  background-image: url(&#x27;/assets/img/phone.png&#x27;);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 18px);
+}
+.inputContainer {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+
+.formContainerAddContacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.addedContactSuccessContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2a3647;
+  border-radius: 20px;
+  height: 72px;
+  width: min(652px, 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.25rem;
+  z-index: 3;
+  animation: slideInFromBottom 0.5s ease forwards;
+}
+
+.closeIconContainerDesktop {
+  display: none;
+}
+
+.personIconFormContainer {
+  display: none;
+}
+
+@media screen and (max-height: 740px) {
+  .personIconContainer {
+    height: 100px;
+    width: 100px;
+    bottom: -50px;
+  }
+
+  .formContainerAddContacts {
+    position: absolute;
+    bottom: 8px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .addContactsContentConatiner {
+    display: flex !important;
+    width: 90%;
+    height: 50vh;
+  }
+
+  .topContainerAddContacts {
+    width: 35vw;
+    height: 50vh;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 30px;
+  }
+
+  .closeIconContainerDesktop {
+    display: block;
+    position: absolute;
+    top: 32px;
+    right: 3vw;
+    cursor: pointer;
+  }
+
+  .personIconFormContainer {
+    background-color: #ffffff;
+    width: 17vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .personIconContainerDesktop {
+    background-color: #d1d1d1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -768,213 +906,56 @@ export class ContactsAddComponent {
     width: 120px;
     border-radius: 50%;
     border: solid 3px #ffffff;
-    position: absolute;
-    bottom: -60px;
-    left: 50%;
-    transform: translate(-50%, 0%);
+  }
 
+  .bottomContainerContacts {
+    width: 38vw;
+    padding-right: 3vw;
+    justify-content: flex-end;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 30px;
+  }
+
+  .inputContainer {
+    width: 35vw;
+  }
+
+  .closeIconContainer {
+    display: none;
+  }
+
+  .personIconContainer {
+    display: none;
+  }
 }
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px) {
+  .addContactsContentConatiner {
+    height: 100vh;
+  }
 
-.bottomContainerContacts {
-    height: 50vh;
-    width: 90vw;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-}
-
-
-.colorFont {
-    color: #D1D1D1;
-}
-
-
-.formInputContacsName {
-    background-image: url(&#x27;/assets/img/person.png&#x27;);
-    background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
-}
-
-
-.formInputContactsMail {
-    background-image: url(&#x27;/assets/img/mail.png&#x27;);
-    background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
-}
-
-.formInputContacsPhone {
-    background-image: url(&#x27;/assets/img/phone.png&#x27;);
-    background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
-}
-.inputContainer {
-    width: 80vw;
-    display: flex;
-    align-items: center;
-    position: relative;
-    flex-direction: column;
-}
-
-.formContainerAddContacts {
+  .topContainerAddContacts {
+    height: 80vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
+    align-items: flex-start;
+  }
 
+  .bottomContainerContacts {
+    height: 20vh;
+  }
 
-.addedContactSuccessContainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #2A3647;
-    border-radius: 20px;
-    height: 72px;
-    width: min(652px, 90%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 1.25rem;
-    z-index: 3;
-    animation: slideInFromBottom 0.5s ease forwards;
-}
-
-.closeIconContainerDesktop {
+  .smallHeadlineAddContacts {
     display: none;
-}
+  }
 
-.personIconFormContainer {
+  .addContactsUnderline {
     display: none;
-}
+  }
 
-@media screen and (max-height: 740px) {
-    
-    .personIconContainer {
-        height: 100px;
-        width: 100px;
-        bottom: -50px;
-    }
-    
-    
-    .formContainerAddContacts {
-        position: absolute;
-        bottom: 8px;
-    }
-
-}
-
-
-@media (min-width: 1025px) {
-
-
-
-    .addContactsContentConatiner {
-        display: flex !important;
-        width: 90%;
-        height: 50vh;
-    }
-
-    .topContainerAddContacts {
-        width: 35vw;
-        height: 50vh;
-        border-top-right-radius: 0px;
-        border-bottom-left-radius: 30px;
-    }
-
-
-    .closeIconContainerDesktop {
-        display: block;
-        position: absolute;
-        top: 32px;
-        right: 3vw;
-        cursor: pointer;
-    }
-
-
-    .personIconFormContainer {
-        background-color: #ffffff;
-        width: 17vw;
-        height: 50vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-
-    .personIconContainerDesktop {
-        background-color: #D1D1D1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120px;
-        width: 120px;
-        border-radius: 50%;
-        border: solid 3px #ffffff;
-    }
-
-    .bottomContainerContacts {
-        width: 38vw;
-        padding-right: 3vw;
-        justify-content: flex-end;
-        border-bottom-left-radius: 0px;
-        border-top-right-radius: 30px;
-    }
-
-    
-
-    .inputContainer {
-        width: 35vw;
-    }
-
-
-
-
-
-    .closeIconContainer {
-        display: none;
-    }
-
-    .personIconContainer {
-        display: none;
-    }
-
-}
-    @media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px){
-        .addContactsContentConatiner{
-            height: 100vh;
-        }
-
-        .topContainerAddContacts {
-            height:80vh;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .bottomContainerContacts{
-            height: 20vh;
-}
-
-.smallHeadlineAddContacts {
+  .personIconContainer {
     display: none;
+  }
 }
-
-.addContactsUnderline {
-    display: none;
-}
-
-.personIconContainer {
-    display: none;
-}
-
-
-
-    }
 </code></pre>
     </div>
 
@@ -1003,7 +984,7 @@ export class ContactsAddComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="addContactsBackground" (click)="closeComponent()"><main class="addContactsContentConatiner" (click)="$event.stopPropagation()">    <div class="topContainerAddContacts">        <div class="closeIconContainer" (click)="closeComponent()">            <img class="closeIcon" src="./assets/img/close.png" alt="Close icon">        </div>        <div>            <h1>Add Contact</h1>            <div class="smallHeadlineAddContacts">Tasks are better with a team!</div>            <div class="addContactsUnderline"></div>        </div>        <div class="personIconContainer">            <div class="personIcon"><img src="/assets/img/personContactBig.png" alt="Person icon"></div>        </div>    </div>    <div class="personIconFormContainer">      <div class="personIconContainerDesktop">        <div class="personIcon"><img src="/assets/img/personContactBig.png" alt="Person icon"></div>    </div>    </div>    <div class="bottomContainerContacts">      <div class="closeIconContainerDesktop" (click)="closeComponent()">        <img class="closeIcon" src="./assets/img/closeDark.svg" alt="Close icon">    </div>        <form class="formContainerAddContacts" (ngSubmit)="submitContactForm()" #contactForm="ngForm">          <div class="form-floating mb-3 inputContainer">            <input              type="text"              id="floatingInputContactsName"              class="form-control formInputContacsName custom-input-height"              [(ngModel)]="contactData.name"              name="name"              placeholder="Name"              required              #name="ngModel"            />            <label class="colorFont" for="floatingInputContactsName">Name</label>            <div *ngIf="name.invalid && name.touched" class="text-danger">              Name is required.            </div>          </div>                      <div class="form-floating mb-3 inputContainer">              <input                type="email"                id="floatingInputContactsEmail"                class="form-control formInputContactsMail"                [(ngModel)]="contactData.email"                name="email"                placeholder="Email"                required                #email="ngModel"                email              />              <label class="colorFont" for="floatingInputContactsEmail">Email</label>              <div *ngIf="email.invalid && email.touched" class="text-danger">                <div *ngIf="email.errors?.[\'required\']">Email is required.</div>                <div *ngIf="email.errors?.[\'email\']">Please enter a valid email address.</div>              </div>            </div>                      <div class="form-floating mb-3 inputContainer">              <input                type="number"                id="floatingInputContactsPhone"                class="form-control formInputContacsPhone"                [(ngModel)]="contactData.phone"                name="phone"                placeholder="Phone"                required                #phone="ngModel"                pattern="^\+?[0-9]{1,15}$"              />              <label class="colorFont" for="floatingInputContactsPhone">Phone</label>              <div *ngIf="phone.invalid && phone.touched" class="text-danger">                <div *ngIf="phone.errors?.[\'required\']">Phone number is required.</div>                <div *ngIf="phone.errors?.[\'pattern\']">Please enter a valid phone number (15 digits).</div>              </div>            </div>            <button type="submit" class="btn btn-primary btn-lg w180">Create contact</button>          </form>    </div>    <div *ngIf="addContactSuccess"  class="addedContactSuccessContainer">      Contact successfully created!    </div></main></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="addContactsBackground" (click)="closeComponent()">  <main class="addContactsContentConatiner" (click)="$event.stopPropagation()">    <div class="topContainerAddContacts">      <div class="closeIconContainer" (click)="closeComponent()">        <img class="closeIcon" src="./assets/img/close.png" alt="Close icon" />      </div>      <div>        <h1>Add Contact</h1>        <div class="smallHeadlineAddContacts">Tasks are better with a team!</div>        <div class="addContactsUnderline"></div>      </div>      <div class="personIconContainer">        <div class="personIcon">          <img src="/assets/img/personContactBig.png" alt="Person icon" />        </div>      </div>    </div>    <div class="personIconFormContainer">      <div class="personIconContainerDesktop">        <div class="personIcon">          <img src="/assets/img/personContactBig.png" alt="Person icon" />        </div>      </div>    </div>    <div class="bottomContainerContacts">      <div class="closeIconContainerDesktop" (click)="closeComponent()">        <img class="closeIcon" src="./assets/img/closeDark.svg" alt="Close icon" />      </div>      <form class="formContainerAddContacts" (ngSubmit)="submitContactForm()" #contactForm="ngForm">        <div class="form-floating mb-3 inputContainer">          <input            type="text"            id="floatingInputContactsName"            class="form-control formInputContacsName custom-input-height"            [(ngModel)]="contactData.name"            name="name"            placeholder="Name"            required            #name="ngModel"          />          <label class="colorFont" for="floatingInputContactsName">Name</label>          <div *ngIf="name.invalid && name.touched" class="text-danger">Name is required.</div>        </div>        <div class="form-floating mb-3 inputContainer">          <input            type="email"            id="floatingInputContactsEmail"            class="form-control formInputContactsMail"            [(ngModel)]="contactData.email"            name="email"            placeholder="Email"            required            #email="ngModel"            email          />          <label class="colorFont" for="floatingInputContactsEmail">Email</label>          <div *ngIf="email.invalid && email.touched" class="text-danger">            <div *ngIf="email.errors?.[\'required\']">Email is required.</div>            <div *ngIf="email.errors?.[\'email\']">Please enter a valid email address.</div>          </div>        </div>        <div class="form-floating mb-3 inputContainer">          <input            type="number"            id="floatingInputContactsPhone"            class="form-control formInputContacsPhone"            [(ngModel)]="contactData.phone"            name="phone"            placeholder="Phone"            required            #phone="ngModel"            pattern="^\+?[0-9]{1,15}$"          />          <label class="colorFont" for="floatingInputContactsPhone">Phone</label>          <div *ngIf="phone.invalid && phone.touched" class="text-danger">            <div *ngIf="phone.errors?.[\'required\']">Phone number is required.</div>            <div *ngIf="phone.errors?.[\'pattern\']">              Please enter a valid phone number (15 digits).            </div>          </div>        </div>        <button type="submit" class="btn btn-primary btn-lg w180">Create contact</button>      </form>    </div>    <div *ngIf="addContactSuccess" class="addedContactSuccessContainer">      Contact successfully created!    </div>  </main></div></div>'
     var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ContactsAddComponent'};

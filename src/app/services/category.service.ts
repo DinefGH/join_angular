@@ -11,12 +11,12 @@ export interface Category {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoryService {
   private apiUrl = `${environment.apiUrl}/categories`; // Adjust if your API URL is different
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Fetch categories from the backend
   getCategories(): Observable<Category[]> {

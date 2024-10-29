@@ -50,8 +50,6 @@ describe('FooterBarComponent', () => {
     expect(component.isContactsPage).toBeFalse();
   });
 
-
-
   it('should set the correct page flag based on the URL (board page)', () => {
     // Simulate navigation to '/board'
     routerEventsSubject.next(new NavigationEnd(0, '/board', '/board'));
@@ -62,8 +60,6 @@ describe('FooterBarComponent', () => {
     expect(component.isAddTaskPage).toBeFalse();
     expect(component.isContactsPage).toBeFalse();
   });
-
-
 
   it('should set the correct page flag based on the URL (add task page)', () => {
     // Simulate navigation to '/addtask'
@@ -76,8 +72,6 @@ describe('FooterBarComponent', () => {
     expect(component.isContactsPage).toBeFalse();
   });
 
-
-
   it('should set the correct page flag based on the URL (contacts page)', () => {
     // Simulate navigation to '/contacts'
     routerEventsSubject.next(new NavigationEnd(0, '/contacts', '/contacts'));
@@ -89,13 +83,11 @@ describe('FooterBarComponent', () => {
     expect(component.isContactsPage).toBeTrue();
   });
 
-
   it('should navigate to contacts page when goToContacts is called', () => {
     const navigateSpy = spyOn(router, 'navigate');
     component.goToContacts();
     expect(navigateSpy).toHaveBeenCalledWith(['/contacts']);
   });
-
 
   it('should navigate to summary page when goToSummary is called', () => {
     const navigateSpy = spyOn(router, 'navigate');
@@ -103,21 +95,17 @@ describe('FooterBarComponent', () => {
     expect(navigateSpy).toHaveBeenCalledWith(['/summary']);
   });
 
-
   it('should navigate to add task page when goToAddtask is called', () => {
     const navigateSpy = spyOn(router, 'navigate');
     component.goToAddtask();
     expect(navigateSpy).toHaveBeenCalledWith(['/addtask']);
   });
 
-
-
   it('should navigate to board page when goToBoard is called', () => {
     const navigateSpy = spyOn(router, 'navigate');
     component.goToBoard();
     expect(navigateSpy).toHaveBeenCalledWith(['/board']);
   });
-
 
   it('should reset all page flags to false when resetPageFlags is called', () => {
     component.isSummaryPage = true;

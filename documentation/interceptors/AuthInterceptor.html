@@ -161,7 +161,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth.interceptor.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/auth.interceptor.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -194,8 +194,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/app/auth.interceptor.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="9"
+                                    class="link-to-prism">src/app/auth.interceptor.ts:9</a></div>
                         </td>
                     </tr>
 
@@ -260,17 +260,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from &#x27;@angular/common/http&#x27;;
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-
   constructor() {}
 
   intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
@@ -285,18 +279,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
     // Attempt to retrieve the token from sessionStorage first, then localStorage
     const authToken &#x3D; sessionStorage.getItem(&#x27;auth_token&#x27;) || localStorage.getItem(&#x27;auth_token&#x27;);
-    
+
     // If the token exists, clone the request to include the authorization header.
     if (authToken) {
       const authReq &#x3D; req.clone({
-        setHeaders: { Authorization: &#x60;Token ${authToken}&#x60; }
+        setHeaders: { Authorization: &#x60;Token ${authToken}&#x60; },
       });
       return next.handle(authReq);
     }
     // For requests without a token, proceed without modifying the request.
     return next.handle(req);
   }
-}</code></pre>
+}
+</code></pre>
     </div>
 </div>
 

@@ -13,7 +13,9 @@ describe('SignUpComponent', () => {
   let router: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
-    const userRegistrationServiceSpy = jasmine.createSpyObj('UserRegistrationService', ['registerUser']);
+    const userRegistrationServiceSpy = jasmine.createSpyObj('UserRegistrationService', [
+      'registerUser',
+    ]);
     const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
     await TestBed.configureTestingModule({
@@ -21,13 +23,15 @@ describe('SignUpComponent', () => {
       imports: [FormsModule], // Use FormsModule for ngModel
       providers: [
         { provide: UserRegistrationService, useValue: userRegistrationServiceSpy },
-        { provide: Router, useValue: routerSpy }
-      ]
+        { provide: Router, useValue: routerSpy },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignUpComponent);
     component = fixture.componentInstance;
-    userRegistrationService = TestBed.inject(UserRegistrationService) as jasmine.SpyObj<UserRegistrationService>;
+    userRegistrationService = TestBed.inject(
+      UserRegistrationService,
+    ) as jasmine.SpyObj<UserRegistrationService>;
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
     fixture.detectChanges(); // Trigger initial data binding
   });
@@ -35,8 +39,6 @@ describe('SignUpComponent', () => {
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
-
-
 
   it('should log an error and not call registerUser when privacy policy is not accepted', () => {
     spyOn(console, 'error');
@@ -46,7 +48,7 @@ describe('SignUpComponent', () => {
       email: 'john.doe@example.com',
       password: 'password123',
       confirmPassword: 'password123',
-      acceptsPrivacyPolicy: false
+      acceptsPrivacyPolicy: false,
     };
 
     component.onSubmit();
@@ -78,7 +80,7 @@ describe('SignUpComponent', () => {
     const mockError = {
       status: 400,
       message: 'Registration failed',
-      error: { detail: 'Invalid data' }
+      error: { detail: 'Invalid data' },
     };
     userRegistrationService.registerUser.and.returnValue(throwError(mockError));
 
@@ -87,7 +89,7 @@ describe('SignUpComponent', () => {
       email: 'john.doe@example.com',
       password: 'password123',
       confirmPassword: 'password123',
-      acceptsPrivacyPolicy: true
+      acceptsPrivacyPolicy: true,
     };
 
     component.onSubmit();
@@ -96,10 +98,10 @@ describe('SignUpComponent', () => {
     expect(component.signupSuccess).toBeFalse();
     expect(console.error).toHaveBeenCalledWith('There was an error!', mockError);
     expect(console.error).toHaveBeenCalledWith('Error response body:', mockError.error);
-    expect(console.error).toHaveBeenCalledWith(`Error status: ${mockError.status}, Message: ${mockError.message}`);
+    expect(console.error).toHaveBeenCalledWith(
+      `Error status: ${mockError.status}, Message: ${mockError.message}`,
+    );
   });
-
-
 
   it('should submit the form and call the registerUser method when privacy policy is accepted', fakeAsync(() => {
     // Arrange
@@ -108,31 +110,30 @@ describe('SignUpComponent', () => {
       email: 'john.doe@example.com',
       password: 'password123',
       confirmPassword: 'password123',
-      acceptsPrivacyPolicy: true
+      acceptsPrivacyPolicy: true,
     };
-  
+
     const mockResponse = { success: true };
     userRegistrationService.registerUser.and.returnValue(of(mockResponse)); // Simulating successful response
-  
+
     // Act
-    component.onSubmit();  // Call the method that triggers the registration
-  
+    component.onSubmit(); // Call the method that triggers the registration
+
     // Flush any asynchronous operations (e.g., HTTP call)
     tick();
-  
+
     // Use flush() to clear all pending timers
     flush();
-  
+
     // Assert
     expect(userRegistrationService.registerUser).toHaveBeenCalledWith({
       name: 'John Doe',
       email: 'john.doe@example.com',
       password: 'password123',
-      confirmPassword: 'password123'
+      confirmPassword: 'password123',
     });
-  
+
     expect(component.signupSuccess).toBeTrue();
     expect(router.navigate).toHaveBeenCalledWith(['/login']); // Ensure navigation is called
   }));
-  
 });

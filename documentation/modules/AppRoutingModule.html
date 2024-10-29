@@ -141,32 +141,26 @@ import { BoardComponent } from &#x27;./board/board.component&#x27;;
 import { LegalNoticeComponent } from &#x27;./imprint/legal-notice/legal-notice.component&#x27;;
 import { PrivacyPolicyComponent } from &#x27;./imprint/privacy-policy/privacy-policy.component&#x27;;
 
-
-
-
-
 import { AuthGuard } from &#x27;./auth.guard&#x27;;
 
-
 const routes: Routes &#x3D; [
-  {path: &#x27;&#x27;, redirectTo: &#x27;login&#x27;, pathMatch: &#x27;full&#x27;},
-  {path: &#x27;login&#x27;, component: LoginComponent},
-  {path: &#x27;signup&#x27;, component: SignUpComponent},
-  {path: &#x27;summary&#x27;, component: SummaryComponent, canActivate: [AuthGuard]},
-  {path: &#x27;addtask&#x27;, component: AddTaskComponent, canActivate: [AuthGuard]},
-  {path: &#x27;contacts&#x27;, component: ContactsOverviewComponent, canActivate: [AuthGuard]},
-  {path: &#x27;contacts-detail/:id&#x27;, component: ContactsViewComponent, canActivate: [AuthGuard]},
-  {path: &#x27;board&#x27;, component: BoardComponent, canActivate: [AuthGuard]},
-  {path: &#x27;legal-notice&#x27;, component: LegalNoticeComponent},
-  {path: &#x27;privacy-policy&#x27;, component: PrivacyPolicyComponent},
-  
+  { path: &#x27;&#x27;, redirectTo: &#x27;login&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;login&#x27;, component: LoginComponent },
+  { path: &#x27;signup&#x27;, component: SignUpComponent },
+  { path: &#x27;summary&#x27;, component: SummaryComponent, canActivate: [AuthGuard] },
+  { path: &#x27;addtask&#x27;, component: AddTaskComponent, canActivate: [AuthGuard] },
+  { path: &#x27;contacts&#x27;, component: ContactsOverviewComponent, canActivate: [AuthGuard] },
+  { path: &#x27;contacts-detail/:id&#x27;, component: ContactsViewComponent, canActivate: [AuthGuard] },
+  { path: &#x27;board&#x27;, component: BoardComponent, canActivate: [AuthGuard] },
+  { path: &#x27;legal-notice&#x27;, component: LegalNoticeComponent },
+  { path: &#x27;privacy-policy&#x27;, component: PrivacyPolicyComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 </code></pre>
     </div>
 </div>

@@ -1,76 +1,71 @@
 .sidebarContnentContainer {
-    background-color: #2a3647;
-    height: 100vh;
-    width: 15vw;
-    display: flex;;
-    align-items: center;
-    flex-direction: column
+  background-color: #2a3647;
+  height: 100vh;
+  width: 15vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .iconContainerSidebar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin-top: 40px;
-    width: 15vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 40px;
+  width: 15vw;
 }
 
 .boardIcon {
-    padding-right: 16px;
+  padding-right: 16px;
 }
 
 .iconText {
-    color: white;
-    font-weight: 500;
-    margin-left: 10px;
+  color: white;
+  font-weight: 500;
+  margin-left: 10px;
 }
 
 .hoverSidebarIcons:hover {
-    background-color: #091931;
-    cursor: pointer;
+  background-color: #091931;
+  cursor: pointer;
 }
 
 .activeRouteIconSidebar {
-    background-color: #091931 !important;
+  background-color: #091931 !important;
 }
-
-
 
 .logoContainer {
-    height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .logo {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 .allIconsContainer {
-    height: 55vh;
-    display: flex;
-    flex-direction: column;
-    width: 15vw;
-
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
 }
 
 .imprintContainer {
-    height: 10vh;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  height: 10vh;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .imprintLink {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .imprintLink:hover {
-    color:#29ABE2;
+  color: #29abe2;
 }

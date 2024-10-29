@@ -3,7 +3,6 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { UserRegistrationService } from './auth.service'; // Adjust the path as necessary
 
-
 describe('UserRegistrationService', () => {
   let service: UserRegistrationService;
   let httpMock: HttpTestingController;
@@ -33,7 +32,7 @@ describe('UserRegistrationService', () => {
       name: 'John Doe',
       email: 'john.doe@example.com',
       password: 'password123',
-      confirmPassword: 'password123'
+      confirmPassword: 'password123',
     };
 
     // Call the registerUser method
@@ -56,7 +55,7 @@ describe('UserRegistrationService', () => {
       name: 'John Doe',
       email: 'john.doe@example.com',
       password: 'password123',
-      confirmPassword: 'password123'
+      confirmPassword: 'password123',
     };
 
     // Call the registerUser method
@@ -66,7 +65,7 @@ describe('UserRegistrationService', () => {
         // Handle the error case
         expect(error.status).toBe(500);
         expect(error.error).toBe('Server error'); // Mock server error message
-      }
+      },
     );
 
     // Expect a POST request to the correct URL

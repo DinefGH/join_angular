@@ -6,53 +6,45 @@ import { environment } from 'src/environments/environment';
 
 // Define the Subtask model
 export interface Subtask {
-  id?: number;  // Optional if not yet created
+  id?: number; // Optional if not yet created
   text: string;
   completed: boolean;
 }
 
 // Define the service that handles API operations for Subtasks
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SubtaskService {
   private apiUrl = `${environment.apiUrl}/subtasks/`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getSubtasks(): Observable<Subtask[]> {
-    return this.http.get<Subtask[]>(this.apiUrl).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get<Subtask[]>(this.apiUrl).pipe(catchError(this.handleError));
   }
 
   getSubtask(id: number): Observable<Subtask> {
-    return this.http.get<Subtask>(`${this.apiUrl}/${id}`).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get<Subtask>(`${this.apiUrl}/${id}`).pipe(catchError(this.handleError));
   }
 
   createSubtask(subtask: Subtask): Observable<Subtask> {
     return this.http.post<Subtask>(this.apiUrl, subtask).pipe(
-      catchError((error) => {
+      catchError(error => {
         console.error('Error creating subtask:', error);
         return throwError(() => new Error('Error creating subtask'));
-      })
+      }),
     );
   }
 
   updateSubtask(id: number, subtask: Subtask): Observable<Subtask> {
     const url = `${this.apiUrl.replace(/\/+$/, '')}/${id}/`; // Ensure trailing slash
 
-    return this.http.put<Subtask>(url, subtask).pipe(
-        catchError(this.handleError)
-    );
-}
+    return this.http.put<Subtask>(url, subtask).pipe(catchError(this.handleError));
+  }
 
   deleteSubtask(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(catchError(this.handleError));
   }
 
   private handleError(error: any) {

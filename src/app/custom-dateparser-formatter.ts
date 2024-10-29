@@ -7,7 +7,11 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
     if (value) {
       const dateParts = value.trim().split('/');
       if (dateParts.length === 3) {
-        return { day: parseInt(dateParts[0], 10), month: parseInt(dateParts[1], 10), year: parseInt(dateParts[2], 10) };
+        return {
+          day: parseInt(dateParts[0], 10),
+          month: parseInt(dateParts[1], 10),
+          year: parseInt(dateParts[2], 10),
+        };
       }
     }
     return null;
@@ -21,6 +25,3 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
     return number < 10 ? `0${number}` : number;
   }
 }
-
-
-

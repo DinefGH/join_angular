@@ -321,7 +321,7 @@ import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
 import { Contact } from &#x27;src/assets/models/contact.model&#x27;; // Adjust path as necessary
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class ContactService {
   private contactSubject &#x3D; new BehaviorSubject&lt;Contact | null&gt;(null);
@@ -333,7 +333,8 @@ export class ContactService {
   getContactToEdit(): Observable&lt;Contact | null&gt; {
     return this.contactSubject.asObservable();
   }
-}</code></pre>
+}
+</code></pre>
     </div>
 
 </div>

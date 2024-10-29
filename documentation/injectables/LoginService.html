@@ -189,7 +189,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/auth/login.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth/login.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -252,8 +252,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/app/auth/login.service.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/auth/login.service.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -289,8 +289,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="52"
-                                    class="link-to-prism">src/app/auth/login.service.ts:52</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/auth/login.service.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -326,8 +326,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/app/auth/login.service.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="15"
+                                    class="link-to-prism">src/app/auth/login.service.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -405,8 +405,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">src/app/auth/login.service.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/auth/login.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -453,7 +453,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth/login.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/auth/login.service.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -485,7 +485,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/auth/login.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth/login.service.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -504,26 +504,25 @@ import { Observable, of } from &#x27;rxjs&#x27;;
 import { catchError, tap } from &#x27;rxjs/operators&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class LoginService {
-
-  private loginUrl &#x3D; &#x27;https://join.server.fabianduerr.com/login/&#x27;; 
-  private protectedUrl &#x3D; &#x27;https://join.server.fabianduerr.com/protected/&#x27;; 
+  private loginUrl &#x3D; &#x27;https://join.server.fabianduerr.com/login/&#x27;;
+  private protectedUrl &#x3D; &#x27;https://join.server.fabianduerr.com/protected/&#x27;;
 
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable&lt;any&gt; {
-    return this.http.post&lt;{token: string}&gt;(this.loginUrl, { email, password }).pipe(
+    return this.http.post&lt;{ token: string }&gt;(this.loginUrl, { email, password }).pipe(
       tap(response &#x3D;&gt; {
         // Store the received token in localStorage
         localStorage.setItem(&#x27;auth_token&#x27;, response.token);
-        sessionStorage.setItem(&#x27;showOverlaySummary&#x27;, &#x27;true&#x27;); 
+        sessionStorage.setItem(&#x27;showOverlaySummary&#x27;, &#x27;true&#x27;);
       }),
       catchError(error &#x3D;&gt; {
         console.error(&#x27;Login error:&#x27;, error);
         return of(null); // or throw an error
-      })
+      }),
     );
   }
 
@@ -532,19 +531,19 @@ export class LoginService {
     localStorage.removeItem(&#x27;auth_token&#x27;);
     // Redirect to login page or home page as needed
     // this.router.navigate([&#x27;/login&#x27;]);
-    sessionStorage.removeItem(&#x27;showOverlay&#x27;);  
+    sessionStorage.removeItem(&#x27;showOverlay&#x27;);
   }
 
   getProtectedData(): Observable&lt;any&gt; {
     // Include the token in the Authorization header
     const headers &#x3D; new HttpHeaders({
-      &#x27;Authorization&#x27;: &#x60;Token ${localStorage.getItem(&#x27;auth_token&#x27;)}&#x60;
+      Authorization: &#x60;Token ${localStorage.getItem(&#x27;auth_token&#x27;)}&#x60;,
     });
     return this.http.get(this.protectedUrl, { headers }).pipe(
       catchError(error &#x3D;&gt; {
         console.error(&#x27;Error fetching protected data:&#x27;, error);
         return of(null); // Handle the error appropriately
-      })
+      }),
     );
   }
 

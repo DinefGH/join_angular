@@ -3,52 +3,79 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
+/**
+ * Service responsible for handling user login, logout, and access to protected data.
+ */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
 
-  private loginUrl = 'https://join.server.fabianduerr.com/login/'; 
-  private protectedUrl = 'https://join.server.fabianduerr.com/protected/'; 
+    /** URL for the login endpoint */
+  private loginUrl = 'https://join.server.fabianduerr.com/login/';
 
+  /** URL for accessing protected resources */
+  private protectedUrl = 'https://join.server.fabianduerr.com/protected/';
+
+
+    /**
+   * Constructor that injects HttpClient for making HTTP requests.
+   * @param http - Angular's HttpClient for HTTP communication.
+   */
   constructor(private http: HttpClient) {}
 
+
+    /**
+   * Logs in a user with the provided email and password.
+   * Stores the authentication token in local storage upon successful login.
+   * @param email - User's email address.
+   * @param password - User's password.
+   * @returns Observable<any> - Observable with the server response or null in case of error.
+   */
   login(email: string, password: string): Observable<any> {
-    return this.http.post<{token: string}>(this.loginUrl, { email, password }).pipe(
+    return this.http.post<{ token: string }>(this.loginUrl, { email, password }).pipe(
       tap(response => {
-        // Store the received token in localStorage
         localStorage.setItem('auth_token', response.token);
-        sessionStorage.setItem('showOverlaySummary', 'true'); 
+        sessionStorage.setItem('showOverlaySummary', 'true');
       }),
       catchError(error => {
         console.error('Login error:', error);
-        return of(null); // or throw an error
-      })
+        return of(null); 
+      }),
     );
   }
 
+
+    /**
+   * Logs out the user by removing the authentication token from local storage.
+   */
   logout(): void {
-    // Remove the token from localStorage
     localStorage.removeItem('auth_token');
-    // Redirect to login page or home page as needed
-    // this.router.navigate(['/login']);
-    sessionStorage.removeItem('showOverlay');  
+    sessionStorage.removeItem('showOverlay');
   }
 
+
+    /**
+   * Retrieves protected data from the server, including an authorization token in the request headers.
+   * @returns Observable<any> - Observable with the server's protected data or null in case of error.
+   */
   getProtectedData(): Observable<any> {
-    // Include the token in the Authorization header
     const headers = new HttpHeaders({
-      'Authorization': `Token ${localStorage.getItem('auth_token')}`
+      Authorization: `Token ${localStorage.getItem('auth_token')}`,
     });
     return this.http.get(this.protectedUrl, { headers }).pipe(
       catchError(error => {
         console.error('Error fetching protected data:', error);
-        return of(null); // Handle the error appropriately
-      })
+        return of(null); 
+      }),
     );
   }
 
-  // Helper function to check if the user is logged in
+
+    /**
+   * Checks if the user is currently logged in by verifying the presence of an auth token.
+   * @returns boolean - True if the user is logged in, false otherwise.
+   */
   isLoggedIn(): boolean {
     return !!localStorage.getItem('auth_token');
   }

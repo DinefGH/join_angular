@@ -24,4 +24,3 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
     return `${date.year}-${month}-${day}`;
   }
 }
-

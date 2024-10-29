@@ -1,94 +1,84 @@
 .headerContainer {
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
-    height:10vh;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 3;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  height: 10vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
 }
 
 .iconContainerHeader {
-    margin-left: 16px;
-    display: block;
+  margin-left: 16px;
+  display: block;
 }
-
 
 .logo {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 .initialsContainer {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #2A3647;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-    
+  width: 40px;
+  height: 40px;
+  border: 2px solid #2a3647;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
 }
 
 .initials {
-    font-weight: bold;
-    color: #29ABE2;
-    text-decoration: none;
+  font-weight: bold;
+  color: #29abe2;
+  text-decoration: none;
 }
 
 .linkContainer {
-    background-color: #2A3647;
-    inset: 56px 4px auto auto !important;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    transform: none !important;
+  background-color: #2a3647;
+  inset: 56px 4px auto auto !important;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transform: none !important;
 }
 
 .link {
-    color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 .link:hover {
-    background-color: #091931;
-    border-radius: 10px;
+  background-color: #091931;
+  border-radius: 10px;
 }
 
 .headerText {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .headerContainer {
+    width: 85vw;
+    right: 0;
+  }
+
+  .iconContainerHeader {
     display: none;
+  }
+
+  .headerText {
+    display: block;
+    font-weight: 500;
+    margin-left: 48px;
+  }
 }
 
-@media (min-width: 1025px) { 
-    .headerContainer {
-        width: 85vw;
-        right: 0;
-    }
-    
-    .iconContainerHeader {
-        display: none;
-    }
-
-    .headerText {
-        display: block;
-        font-weight: 500;
-        margin-left: 48px;
-    }
-
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px) {
+  .headerContainer {
+    height: 15vh;
+  }
 }
-
-
-@media screen and (orientation: landscape) and (max-width: 1024px)  and (max-height: 512px) {
-    .headerContainer {
-        height:15vh;
-        
-    }
-    
-}
-
-

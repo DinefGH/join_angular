@@ -17,14 +17,31 @@ describe('ContactsOverviewComponent', () => {
   let router: jasmine.SpyObj<Router>;
 
   const mockContacts: Contact[] = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', color: '#123456', initials: 'JD' },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com', phone: '9876543210', color: '#654321', initials: 'JS' }
+    {
+      id: 1,
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '1234567890',
+      color: '#123456',
+      initials: 'JD',
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      email: 'jane@example.com',
+      phone: '9876543210',
+      color: '#654321',
+      initials: 'JS',
+    },
   ];
 
   beforeEach(async () => {
     const addContactServiceSpy = jasmine.createSpyObj('AddContactService', ['getContacts']);
     const screenSizeServiceSpy = jasmine.createSpyObj('ScreenSizeService', ['isHandsetOrTablet$']);
-    const contactsOverlayServiceSpy = jasmine.createSpyObj('ContactsOverlayService', ['setOverlayVisibility', 'overlayVisibility$']);
+    const contactsOverlayServiceSpy = jasmine.createSpyObj('ContactsOverlayService', [
+      'setOverlayVisibility',
+      'overlayVisibility$',
+    ]);
     const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
     await TestBed.configureTestingModule({
@@ -40,7 +57,9 @@ describe('ContactsOverviewComponent', () => {
 
     addContactService = TestBed.inject(AddContactService) as jasmine.SpyObj<AddContactService>;
     screenSizeService = TestBed.inject(ScreenSizeService) as jasmine.SpyObj<ScreenSizeService>;
-    contactsOverlayService = TestBed.inject(ContactsOverlayService) as jasmine.SpyObj<ContactsOverlayService>;
+    contactsOverlayService = TestBed.inject(
+      ContactsOverlayService,
+    ) as jasmine.SpyObj<ContactsOverlayService>;
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
 
     fixture = TestBed.createComponent(ContactsOverviewComponent);
@@ -76,8 +95,6 @@ describe('ContactsOverviewComponent', () => {
 
     expect(console.error).toHaveBeenCalledWith('Error loading contacts:', 'Error loading contacts');
   });
-
-
 
   it('should get initials for a contact name', () => {
     const initials = component.getInitials('John Doe');
@@ -122,20 +139,25 @@ describe('ContactsOverviewComponent', () => {
     expect(component.loadContacts).not.toHaveBeenCalled();
   });
 
-
   it('should group contacts by the first letter and sort them alphabetically', () => {
     const mockContacts = [
       { id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', color: '#FF0000' },
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com', phone: '0987654321', color: '#00FF00' }
+      {
+        id: 2,
+        name: 'Jane Smith',
+        email: 'jane@example.com',
+        phone: '0987654321',
+        color: '#00FF00',
+      },
     ];
-  
+
     // Call the grouping function
     component.groupContactsByFirstLetter(mockContacts);
-  
+
     // Check that contacts are grouped under 'J'
     expect(Object.keys(component.groupedContacts).length).toBe(1); // Only one letter 'J'
     expect(component.groupedContacts['J'].length).toBe(2); // Both John Doe and Jane Smith
-  
+
     // Check that they are sorted alphabetically by name
     expect(component.groupedContacts['J'][0].name).toBe('Jane Smith'); // Jane should come before John
     expect(component.groupedContacts['J'][1].name).toBe('John Doe');

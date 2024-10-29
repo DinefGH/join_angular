@@ -165,7 +165,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/screen-size.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/screen-size.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -231,7 +231,7 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
     Breakpoints.Handset,
-    &#x27;(max-width: 1024px)&#x27; // Adjust this to match tablet size (1024px for iPad Air)
+    &#x27;(max-width: 1024px)&#x27;, // Adjust this to match tablet size (1024px for iPad Air)
   ]</code>
                     </td>
                 </tr>
@@ -263,10 +263,9 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>this.breakpointObserver.observe(this.handsetOrTabletBreakpoints)
-    .pipe(
-      map((state: BreakpointState) &#x3D;&gt; state.matches)
-    )</code>
+                        <i>Default value : </i><code>this.breakpointObserver
+    .observe(this.handsetOrTabletBreakpoints)
+    .pipe(map((state: BreakpointState) &#x3D;&gt; state.matches))</code>
                     </td>
                 </tr>
                     <tr>
@@ -290,22 +289,22 @@ import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class ScreenSizeService {
   // Define custom breakpoints
   private handsetOrTabletBreakpoints &#x3D; [
     Breakpoints.Handset,
-    &#x27;(max-width: 1024px)&#x27; // Adjust this to match tablet size (1024px for iPad Air)
+    &#x27;(max-width: 1024px)&#x27;, // Adjust this to match tablet size (1024px for iPad Air)
   ];
 
-  isHandsetOrTablet$: Observable&lt;boolean&gt; &#x3D; this.breakpointObserver.observe(this.handsetOrTabletBreakpoints)
-    .pipe(
-      map((state: BreakpointState) &#x3D;&gt; state.matches)
-    );
+  isHandsetOrTablet$: Observable&lt;boolean&gt; &#x3D; this.breakpointObserver
+    .observe(this.handsetOrTabletBreakpoints)
+    .pipe(map((state: BreakpointState) &#x3D;&gt; state.matches));
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
-}</code></pre>
+  constructor(private breakpointObserver: BreakpointObserver) {}
+}
+</code></pre>
     </div>
 
 </div>

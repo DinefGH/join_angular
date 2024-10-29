@@ -10,29 +10,23 @@ import { BoardComponent } from './board/board.component';
 import { LegalNoticeComponent } from './imprint/legal-notice/legal-notice.component';
 import { PrivacyPolicyComponent } from './imprint/privacy-policy/privacy-policy.component';
 
-
-
-
-
 import { AuthGuard } from './auth.guard';
 
-
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignUpComponent},
-  {path: 'summary', component: SummaryComponent, canActivate: [AuthGuard]},
-  {path: 'addtask', component: AddTaskComponent, canActivate: [AuthGuard]},
-  {path: 'contacts', component: ContactsOverviewComponent, canActivate: [AuthGuard]},
-  {path: 'contacts-detail/:id', component: ContactsViewComponent, canActivate: [AuthGuard]},
-  {path: 'board', component: BoardComponent, canActivate: [AuthGuard]},
-  {path: 'legal-notice', component: LegalNoticeComponent},
-  {path: 'privacy-policy', component: PrivacyPolicyComponent},
-  
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard] },
+  { path: 'addtask', component: AddTaskComponent, canActivate: [AuthGuard] },
+  { path: 'contacts', component: ContactsOverviewComponent, canActivate: [AuthGuard] },
+  { path: 'contacts-detail/:id', component: ContactsViewComponent, canActivate: [AuthGuard] },
+  { path: 'board', component: BoardComponent, canActivate: [AuthGuard] },
+  { path: 'legal-notice', component: LegalNoticeComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

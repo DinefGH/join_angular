@@ -192,7 +192,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/add-contact.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/add-contact.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -255,8 +255,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="15"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -324,8 +324,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -361,8 +361,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="60"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:60</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -428,8 +428,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="49"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:49</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -495,8 +495,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -532,8 +532,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="71"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:71</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -622,7 +622,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/add-contact.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/add-contact.service.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -638,84 +638,76 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Observable, pipe } from &#x27;rxjs&#x27;;
-import { catchError, tap  } from &#x27;rxjs/operators&#x27;;
+import { catchError, tap } from &#x27;rxjs/operators&#x27;;
 import { throwError } from &#x27;rxjs&#x27;;
 
-
-
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class AddContactService {
-  private baseUrl &#x3D; &#x27;https://join.server.fabianduerr.com&#x27;; 
+  private baseUrl &#x3D; &#x27;https://join.server.fabianduerr.com&#x27;;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   addContact(contactData: any): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
-    return this.http.post(&#x60;${this.baseUrl}/addcontact/&#x60;, contactData, { headers })
-      .pipe(
-        catchError(error &#x3D;&gt; {
-          console.error(&#x27;Error occurred while adding contact:&#x27;, error);
-          return throwError(error);
-        })
-      );
+    return this.http.post(&#x60;${this.baseUrl}/addcontact/&#x60;, contactData, { headers }).pipe(
+      catchError(error &#x3D;&gt; {
+        console.error(&#x27;Error occurred while adding contact:&#x27;, error);
+        return throwError(error);
+      }),
+    );
   }
-
 
   getContacts(): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
-    return this.http.get(&#x60;${this.baseUrl}/addcontact/&#x60;, { headers }) 
-      .pipe(
-        catchError(error &#x3D;&gt; {
-          console.error(&#x27;Error occurred while fetching contacts:&#x27;, error);
-          return throwError(error);
-        })
-      );
+    return this.http.get(&#x60;${this.baseUrl}/addcontact/&#x60;, { headers }).pipe(
+      catchError(error &#x3D;&gt; {
+        console.error(&#x27;Error occurred while fetching contacts:&#x27;, error);
+        return throwError(error);
+      }),
+    );
   }
-
 
   private createAuthorizationHeader(): HttpHeaders {
     const token &#x3D; localStorage.getItem(&#x27;auth_token&#x27;) || sessionStorage.getItem(&#x27;auth_token&#x27;);
     return new HttpHeaders({
       &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
-      &#x27;Authorization&#x27;: &#x60;Token ${token}&#x60;
+      Authorization: &#x60;Token ${token}&#x60;,
     });
   }
 
   getContactById(contactId: number): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
-    return this.http.get(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, { headers })
-      .pipe(
-        catchError(error &#x3D;&gt; {
-          console.error(&#x60;Error occurred while fetching contact with ID ${contactId}:&#x60;, error);
-          return throwError(error);
-        })
-      );
+    return this.http.get(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, { headers }).pipe(
+      catchError(error &#x3D;&gt; {
+        console.error(&#x60;Error occurred while fetching contact with ID ${contactId}:&#x60;, error);
+        return throwError(error);
+      }),
+    );
   }
 
   deleteContact(contactId: number): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
-    return this.http.delete(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, { headers })
-      .pipe(
-        catchError(error &#x3D;&gt; {
-          console.error(&#x60;Error occurred while deleting contact with ID ${contactId}:&#x60;, error);
-          return throwError(error);
-        })
-      );
+    return this.http.delete(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, { headers }).pipe(
+      catchError(error &#x3D;&gt; {
+        console.error(&#x60;Error occurred while deleting contact with ID ${contactId}:&#x60;, error);
+        return throwError(error);
+      }),
+    );
   }
 
   updateContact(contactId: number, contactData: any): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
-    return this.http.put(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, contactData, { headers })
-      .pipe(
-        catchError(error &#x3D;&gt; {
-          console.error(&#x60;Error occurred while updating contact with ID ${contactId}:&#x60;, error);
-          return throwError(error);
-        })
-      );
+    return this.http.put(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, contactData, { headers }).pipe(
+      catchError(error &#x3D;&gt; {
+        console.error(&#x60;Error occurred while updating contact with ID ${contactId}:&#x60;, error);
+        return throwError(error);
+      }),
+    );
   }
-}</code></pre>
+}
+</code></pre>
     </div>
 
 </div>

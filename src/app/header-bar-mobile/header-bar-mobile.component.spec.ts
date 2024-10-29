@@ -16,7 +16,7 @@ describe('HeaderBarMobileComponent', () => {
   const mockUser: User = {
     id: 1,
     name: 'John Doe',
-    email: 'john.doe@example.com'
+    email: 'john.doe@example.com',
   };
 
   beforeEach(async () => {
@@ -25,9 +25,7 @@ describe('HeaderBarMobileComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderBarMobileComponent],
       imports: [RouterTestingModule],
-      providers: [
-        { provide: UserService, useValue: userServiceSpy },
-      ]
+      providers: [{ provide: UserService, useValue: userServiceSpy }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderBarMobileComponent);

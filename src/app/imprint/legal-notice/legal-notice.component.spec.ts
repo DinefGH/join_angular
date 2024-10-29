@@ -8,7 +8,7 @@ describe('LegalNoticeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LegalNoticeComponent]
+      declarations: [LegalNoticeComponent],
     });
     fixture = TestBed.createComponent(LegalNoticeComponent);
     component = fixture.componentInstance;

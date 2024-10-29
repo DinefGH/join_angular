@@ -6,15 +6,16 @@ import { User } from 'src/assets/models/user.model';
 @Component({
   selector: 'app-header-bar-mobile',
   templateUrl: './header-bar-mobile.component.html',
-  styleUrls: ['./header-bar-mobile.component.scss']
+  styleUrls: ['./header-bar-mobile.component.scss'],
 })
 export class HeaderBarMobileComponent implements OnInit {
-
   isDropdownOpen: boolean = false;
   userInitial: string = '';
 
-  constructor(private router: Router, private userService: UserService) {}
-
+  constructor(
+    private router: Router,
+    private userService: UserService,
+  ) {}
 
   ngOnInit() {
     this.userService.getCurrentUser().subscribe(user => {
@@ -25,7 +26,6 @@ export class HeaderBarMobileComponent implements OnInit {
     });
   }
 
-
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
@@ -35,9 +35,8 @@ export class HeaderBarMobileComponent implements OnInit {
     sessionStorage.removeItem('auth_token');
     localStorage.removeItem('user_details');
     this.router.navigateByUrl('/login');
-    sessionStorage.removeItem('showOverlay');  
+    sessionStorage.removeItem('showOverlay');
   }
-
 
   goToSummary() {
     this.router.navigate(['/summary']);

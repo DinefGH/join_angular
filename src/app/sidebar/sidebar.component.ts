@@ -4,10 +4,9 @@ import { Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-
   isSummaryPage: boolean = false;
   isBoardPage: boolean = false;
   isAddTaskPage: boolean = false;
@@ -58,13 +57,11 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['/board']);
   }
 
-
   goToPolicy() {
-    window.open('/privacy-policy', '_blank')
+    window.open('/privacy-policy', '_blank');
   }
 
   goToLegal() {
-    window.open('/legal-notice', '_blank')
+    window.open('/legal-notice', '_blank');
   }
-
 }

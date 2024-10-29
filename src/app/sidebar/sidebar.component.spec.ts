@@ -5,7 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { of, Subscription } from 'rxjs';
 import { Subject } from 'rxjs';
 
-
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
@@ -15,7 +14,7 @@ describe('SidebarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SidebarComponent],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SidebarComponent);
@@ -33,8 +32,6 @@ describe('SidebarComponent', () => {
     expect(component.isAddTaskPage).toBeFalse();
     expect(component.isContactsPage).toBeFalse();
   });
-
-
 
   it('should navigate to /contacts when goToContacts is called', () => {
     const navigateSpy = spyOn(router, 'navigate');
@@ -72,22 +69,20 @@ describe('SidebarComponent', () => {
     expect(windowSpy).toHaveBeenCalledWith('/legal-notice', '_blank');
   });
 
-
   it('should reset all page flags to false when resetPageFlags is called', () => {
     // Set the flags to true before calling the private method
     component.isSummaryPage = true;
     component.isBoardPage = true;
     component.isAddTaskPage = true;
     component.isContactsPage = true;
-  
+
     // Call the private method using TypeScript's access to private members
     (component as any).resetPageFlags();
-  
+
     // Expect all flags to be false after resetPageFlags is called
     expect(component.isSummaryPage).toBeFalse();
     expect(component.isBoardPage).toBeFalse();
     expect(component.isAddTaskPage).toBeFalse();
     expect(component.isContactsPage).toBeFalse();
   });
-  
 });

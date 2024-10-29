@@ -1,76 +1,93 @@
 <div class="contactsViewPage">
-<div class="contactsViewContainer">
-
+  <div class="contactsViewContainer">
     <header class="headerDesktopContactsView">
-        <app-header-bar-mobile></app-header-bar-mobile>
+      <app-header-bar-mobile></app-header-bar-mobile>
     </header>
 
     <main class="contactsViewContent">
+      <div class="contactsSmallHeadline">
+        <h1>Contacts</h1>
+        <div class="contactsDividingLine"></div>
+        <div class="smallHeadlineContacts">Better with a team</div>
+        <div class="contactsUnderline"></div>
+        <div class="contactsBackArrow" (click)="goBackToContacts()">
+          <svg
+            width="25"
+            height="23"
+            viewBox="0 0 25 23"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.00972 9.88554H23.1871C24.0362 9.88554 24.7246 10.5739 24.7246 11.4231C24.7246 12.2722 24.0362 12.9606 23.1871 12.9606H6.00972L13.17 20.1209C13.7704 20.7213 13.7704 21.6946 13.17 22.295C12.5697 22.8954 11.5963 22.8954 10.996 22.295L1.53824 12.8373C0.757188 12.0562 0.757188 10.7899 1.53824 10.0089L10.996 0.55115C11.5963 -0.0492049 12.5697 -0.0492048 13.17 0.55115C13.7704 1.1515 13.7704 2.12487 13.17 2.72523L6.00972 9.88554Z"
+              fill="#29ABE2"
+            />
+          </svg>
+        </div>
+      </div>
 
-        <div class="contactsSmallHeadline">
-            <h1>Contacts</h1>
-            <div class="contactsDividingLine"></div>
-            <div class="smallHeadlineContacts">Better with a team</div>
-            <div class="contactsUnderline"></div>
-            <div class="contactsBackArrow" (click)="goBackToContacts()"><svg width="25" height="23" viewBox="0 0 25 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.00972 9.88554H23.1871C24.0362 9.88554 24.7246 10.5739 24.7246 11.4231C24.7246 12.2722 24.0362 12.9606 23.1871 12.9606H6.00972L13.17 20.1209C13.7704 20.7213 13.7704 21.6946 13.17 22.295C12.5697 22.8954 11.5963 22.8954 10.996 22.295L1.53824 12.8373C0.757188 12.0562 0.757188 10.7899 1.53824 10.0089L10.996 0.55115C11.5963 -0.0492049 12.5697 -0.0492048 13.17 0.55115C13.7704 1.1515 13.7704 2.12487 13.17 2.72523L6.00972 9.88554Z" fill="#29ABE2"/>
-                </svg>
-                </div>
+      <div class="intitialsContactNameContainer">
+        <span class="initialsCircleContactView" [style.backgroundColor]="contact?.color">{{
+          getInitials(contact?.name)
+        }}</span>
+        <div class="contactsNameEditContainer">
+          <div class="contactName">{{ contact?.name }}</div>
+          <div class="contactsEditDeleteDesktop">
+            <span class="contactsEditLink" (click)="showContactsEdit()"
+              ><i class="fa-solid fa-pencil"></i> Edit</span
+            >
+            <span class="contactsEditLink" (click)="deleteContact()"
+              ><i class="fas fa-trash-alt"></i> Delete</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <article class="contactsInformationContainer">
+        <p class="contactsInformation">Contact information</p>
+
+        <div class="contactsInformationContainerSmall">
+          <strong class="contactsEmailHeadline">Email</strong>
+          <a class="contactsEmail">{{ contact?.email }}</a>
+          <strong class="contactsPhoneHeadline">Phone</strong>
+          <p class="contactsPhone">{{ contact?.phone }}</p>
+        </div>
+      </article>
+
+      <div class="dropup">
+        <div
+          type="button"
+          class="moreIconContainer"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img class="moreIcon" src="/assets/img/more.png" alt="More options icon" />
         </div>
 
-        <div class="intitialsContactNameContainer">
-            <span class="initialsCircleContactView" [style.backgroundColor]="contact?.color">{{ getInitials(contact?.name) }}</span>
-            <div class="contactsNameEditContainer">
-            <div class="contactName">{{ contact?.name }}</div>
-            <div class="contactsEditDeleteDesktop">
-                <span class="contactsEditLink" (click)="showContactsEdit()"><i class="fa-solid fa-pencil"></i> Edit</span>
-                <span class="contactsEditLink" (click)="deleteContact()" ><i class="fas fa-trash-alt"></i> Delete</span>
-            </div>
-            </div>
-        </div>
-
-        <article class="contactsInformationContainer">
-            <p class="contactsInformation">Contact information</p>
-            
-            <div class="contactsInformationContainerSmall">
-            <strong class="contactsEmailHeadline">Email</strong>
-            <a class="contactsEmail">{{ contact?.email }}</a>
-            <strong class="contactsPhoneHeadline">Phone</strong>
-            <p class="contactsPhone">{{ contact?.phone }}</p>
-            </div>
-        </article>
-
-
-            <div  class="dropup">
-
-                <div type="button" class="moreIconContainer" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img class="moreIcon" src="/assets/img/more.png" alt="More options icon">
-                </div> 
-
-
-                <ul class="dropdown-menu linkContainerContactView">
-                    <li>
-                        <span class="dropdown-item linkContactView" (click)="showContactsEdit()">
-                            <i class="fa-solid fa-pencil"></i> Edit
-                          </span>
-
-                    </li>
-                    <li>
-                        <span class="dropdown-item linkContactView" href="#" (click)="deleteContact()">
-                            <i class="fas fa-trash-alt"></i>
-                        Delete
-                        </span>
-                  </ul>
-            </div>
-
-
-
+        <ul class="dropdown-menu linkContainerContactView">
+          <li>
+            <span class="dropdown-item linkContactView" (click)="showContactsEdit()">
+              <i class="fa-solid fa-pencil"></i> Edit
+            </span>
+          </li>
+          <li>
+            <span class="dropdown-item linkContactView" href="#" (click)="deleteContact()">
+              <i class="fas fa-trash-alt"></i>
+              Delete
+            </span>
+          </li>
+        </ul>
+      </div>
     </main>
-    <app-contacts-edit class="editContactsComponent" (contactEdited)="onContactEdited($event)"  *ngIf="showEditOverlay" [contactId]="contactId"  (close)="showEditOverlay = false"></app-contacts-edit>
-    <footer  class="footerComponent">
-        <app-footer-bar></app-footer-bar>
+    <app-contacts-edit
+      class="editContactsComponent"
+      (contactEdited)="onContactEdited($event)"
+      *ngIf="showEditOverlay"
+      [contactId]="contactId"
+      (close)="showEditOverlay = false"
+    ></app-contacts-edit>
+    <footer class="footerComponent">
+      <app-footer-bar></app-footer-bar>
     </footer>
-
+  </div>
 </div>
-</div>
-

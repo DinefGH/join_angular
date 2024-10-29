@@ -1,51 +1,45 @@
 .addTaskContainer {
-    width: 100vw;
-    height: 100vh;
-    background-color: #F6F7F8;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f7f8;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
 }
-
 
 .addTaskContent {
-    height: 80vh;
-    padding-left: 16px;
-    padding-right: 16px;
-    box-sizing: border-box;
-    overflow-y: scroll;
+  height: 80vh;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  overflow-y: scroll;
 }
-
 
 .footerAddTaskComponent {
-    bottom: 0;
-    left: 0;
+  bottom: 0;
+  left: 0;
 }
-
 
 .headlinesAddTaskContainer {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 
-
-.dropdownOptionsContacts{
-    border: 1px solid #D1D1D1;
-    padding-top: 5px;
-    overflow-y: auto;
-    max-height: 200px;
-    background-color: #ffffff;
+.dropdownOptionsContacts {
+  border: 1px solid #d1d1d1;
+  padding-top: 5px;
+  overflow-y: auto;
+  max-height: 200px;
+  background-color: #ffffff;
 }
-
 
 .dropdownDisplayContacts {
   display: flex;
-    align-items: center;
-    position: relative;
-    cursor: pointer; /* Indicates it's clickable */
-    padding: 6px 0;
-    padding-left: 8px;
+  align-items: center;
+  position: relative;
+  cursor: pointer; /* Indicates it's clickable */
+  padding: 6px 0;
+  padding-left: 8px;
 }
-
 
 .dropdownDisplayContacts::after {
   content: '';
@@ -57,12 +51,10 @@
   border-top-color: #333; /* Arrow color */
 }
 
-
 /* Rotate the arrow when the dropdown is open */
 .dropdown-container.open .dropdownDisplayContacts::after {
   transform: translateY(-50%) rotate(180deg);
 }
-
 
 .colorCircleContacts {
   border-radius: 50%;
@@ -77,237 +69,209 @@
   flex-shrink: 0;
 }
 
-
 .requiredStar {
-    color: red;
-  }
-
+  color: red;
+}
 
 .valueContainer {
   width: 100%;
-
 }
-
 
 .dueDateHeadline {
   margin-top: 16px;
   margin-bottom: 0.5rem;
 }
 
-
 .prioHeadline {
   margin-top: 16px;
 }
 
-  input[type="radio"] {
-    display: none;
+input[type='radio'] {
+  display: none;
+}
+
+.checkedUrgent + label {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  width: 112px;
+  padding: 18px 10px 18px 10px;
+  border-radius: 10px !important;
+}
+
+.checkedMedium + label {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  width: 112px;
+  padding: 18px 10px 18px 10px;
+  border-radius: 10px !important;
+}
+
+.checkedLow + label {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  width: 112px;
+  padding: 18px 10px 18px 10px;
+  border-radius: 10px !important;
+}
+
+.checkedUrgent:checked + label {
+  background-color: #ff3d00;
+  color: white;
+  border-color: #ff3d00;
+
+  svg path {
+    fill: #ffffff;
   }
+}
 
+.checkedMedium:checked + label {
+  background-color: #ffa800;
+  color: white;
+  border-color: #ffa800;
 
-  .checkedUrgent + label {
-    background-color: #ffffff;
-    border: 1px solid #dcdcdc;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 40px;
-    width: 112px;
-    padding: 18px 10px 18px 10px;
-    border-radius: 10px !important;
+  svg path {
+    fill: #ffffff;
   }
+}
 
+.checkedLow:checked + label {
+  background-color: #7ae229;
+  color: white;
+  border-color: #7ae229;
 
-  .checkedMedium + label {
-    background-color: #ffffff;
-    border: 1px solid #dcdcdc;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 40px;
-    width: 112px;
-    padding: 18px 10px 18px 10px;
-    border-radius: 10px !important;
+  svg path {
+    fill: #ffffff;
   }
+}
 
+.calendarButton {
+  border: none;
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+}
 
-  .checkedLow + label {
-    background-color: #ffffff;
-    border: 1px solid #dcdcdc;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 40px;
-    width: 112px;
-    padding: 18px 10px 18px 10px;
-    border-radius: 10px !important;
-  }
+.calendarButtonBackground {
+  background-color: white;
+}
 
-
-  .checkedUrgent:checked + label {
-    background-color: #FF3D00;
-    color: white;
-    border-color: #FF3D00;
-
-    svg path{
-      fill: #ffffff;
-    }
-  }
-
-  
-  .checkedMedium:checked + label {
-    background-color: #FFA800;
-    color: white;
-    border-color: #FFA800;
-
-    svg path{
-      fill: #ffffff;
-    }
-  }
-  
-
-  .checkedLow:checked + label {
-    background-color: #7AE229;
-    color: white;
-    border-color: #7AE229;
-
-    svg path{
-      fill: #ffffff;
-    }
-  }
-
-
-  .calendarButton {
-    border: none;
-    border-top:1px solid #dee2e6;
-    border-bottom: 1px solid #dee2e6;
-    border-right:1px solid #dee2e6;
-  }
-
-
-  .calendarButtonBackground {
-    background-color: white;
-  }
-
-
-  .borderNone {
+.borderNone {
   border-right: none;
 }
 
-
-  .colorCircle {
-    background-color: #FF3D00;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-  }
-
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-
-  .dropdown-input {
-    width: 200px;
-    padding: 8px;
-    border: 1px solid #D1D1D1;
-    border-radius: 4px;
-  }
-
-  
-  .options-list {
-    position: absolute;
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid #D1D1D1;
-    background-color: white;
-    border-radius: 4px;
-    padding-left: 0;
-  }
-  
-  .categoryHeadline {
-    margin-top: 16px;
-    margin-bottom: 0.5rem;
-  }
-
-  .options-list li {
-    list-style: none;
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-
-  .options-list li:hover {
-    background-color: #f0f0f0;
-  }
-  
-
-  .dropdown-container {
-    width: 200px;
-    border: 1px solid #D1D1D1;
-    cursor: pointer;
-    background-color: #ffffff;
-    width: 100%;
-    border-radius: 10px;
-    height: 40px;
-  }
-  
-
-  .dropdown-display {
-    padding: 6px 0;
-    padding-left: 8px;
-  }
-  
-
-  .dropdown-options {
-    border: 1px solid #D1D1D1;
-    padding-top: 5px;
-    overflow-y: auto;
-    max-height: 200px;
-    background-color: #ffffff;
-    padding-left: 16px;
-
-  }
-
-
-  .dropdown-option {
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
-    padding-left: 16px;
-    position: relative;
-    &:hover {
-      background-color: #eeeeee;
-      
-    }
-  }
-  
-
-  .dropdown-option:active {
-    background-color: #091931;
-    color: #ffffff;
-  
-    .colorCircleContacts {
-      border: 2px solid #ffffff;
-    }
-  }
-
-  
-.dropdownContactsCheck {
-  position: absolute;
-    right: 32px;
+.colorCircle {
+  background-color: #ff3d00;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-input {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+}
+
+.options-list {
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #d1d1d1;
+  background-color: white;
+  border-radius: 4px;
+  padding-left: 0;
+}
+
+.categoryHeadline {
+  margin-top: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.options-list li {
+  list-style: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.options-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-container {
+  width: 200px;
+  border: 1px solid #d1d1d1;
+  cursor: pointer;
+  background-color: #ffffff;
+  width: 100%;
+  border-radius: 10px;
+  height: 40px;
+}
+
+.dropdown-display {
+  padding: 6px 0;
+  padding-left: 8px;
+}
+
+.dropdown-options {
+  border: 1px solid #d1d1d1;
+  padding-top: 5px;
+  overflow-y: auto;
+  max-height: 200px;
+  background-color: #ffffff;
+  padding-left: 16px;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  padding-left: 16px;
+  position: relative;
+  &:hover {
+    background-color: #eeeeee;
+  }
+}
+
+.dropdown-option:active {
+  background-color: #091931;
+  color: #ffffff;
+
+  .colorCircleContacts {
+    border: 2px solid #ffffff;
+  }
+}
+
+.dropdownContactsCheck {
+  position: absolute;
+  right: 32px;
+}
 
 .dropdownContactsCheckInput {
   display: none; /* Hide the original checkbox */
@@ -327,9 +291,8 @@
 .dropdownContactsCheckInput:checked + .checkbox-label {
   background-color: #091931; /* Checked background color */
   color: #ffffff;
- /* You might want to use this for an icon or text inside the label */
+  /* You might want to use this for an icon or text inside the label */
 }
-
 
 .dropdown-option.selected {
   background-color: #091931; /* Checked background color */
@@ -346,52 +309,45 @@
   color: #ffffff; /* Color of the checkmark */
   display: block;
   text-align: center;
-  line-height: 16px; 
+  line-height: 16px;
 }
-
 
 .color-circle {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    margin-right: 5px;
-    vertical-align: middle;
-    
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
 }
-
 
 .dropdown-container {
-    position: relative;
-    user-select: none; /* Prevent text selection */
-    z-index: 10;
+  position: relative;
+  user-select: none; /* Prevent text selection */
+  z-index: 10;
 }
-  
 
 .dropdown-display {
-    position: relative;
-    cursor: pointer; /* Indicates it's clickable */
-    padding: 6px 0;
-    padding-left: 8px;
+  position: relative;
+  cursor: pointer; /* Indicates it's clickable */
+  padding: 6px 0;
+  padding-left: 8px;
 }
-  
 
 .dropdown-display::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 10px; /* Adjust as needed */
-    transform: translateY(-50%);
-    border: 5px solid transparent; /* Creates the arrow shape */
-    border-top-color: #333; /* Arrow color */
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust as needed */
+  transform: translateY(-50%);
+  border: 5px solid transparent; /* Creates the arrow shape */
+  border-top-color: #333; /* Arrow color */
 }
-  
 
-  /* Rotate the arrow when the dropdown is open */
+/* Rotate the arrow when the dropdown is open */
 .dropdown-container.open .dropdown-display::after {
   transform: translateY(-50%) rotate(180deg);
 }
-
 
 .selectedContactsDisplay {
   width: 200px;
@@ -403,38 +359,32 @@
   margin-top: 8px;
 }
 
-
 .subtasksContainer {
   display: flex;
   flex-direction: column;
 }
 
-
 .subtasksHeadline {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
-
-  .input-icon-container {
-    position: relative;
-    display: inline-block;
+.input-icon-container {
+  position: relative;
+  display: inline-block;
 }
-
 
 .input-icon-container .icon {
-    position: absolute;
-    right: 8px;
-    top: 37%;
-    transform: translateY(-50%);
-    cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 37%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
-
 
 .subtasks-list {
-  padding-left:0;
+  padding-left: 0;
   height: 30px;
 }
-
 
 .subtasks-list li {
   display: flex;
@@ -442,46 +392,40 @@
   margin-top: 4px;
 }
 
-
 .subtasksInput {
-    padding-right: 30px; 
-    margin-bottom: 8px;
+  padding-right: 30px;
+  margin-bottom: 8px;
 }
-
 
 .check-icon {
   display: flex;
   align-items: center;
 }
 
-
 .checkContainer {
   display: flex;
-  height:38px;
+  height: 38px;
   width: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 5;
 }
-
 
 .xmarkContainer {
   display: flex;
-  height:38px;
+  height: 38px;
   width: 24px;
   justify-content: center;
   align-items: center;
   z-index: 5;
 }
 
-
 .checkIconLine {
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
   height: 34px;
   width: 2px;
 }
-
 
 .subtasksListContainer {
   position: relative;
@@ -491,19 +435,16 @@
   cursor: pointer;
 }
 
-
 .deleteSubtask {
   cursor: pointer;
   margin-left: 10px;
 }
-
 
 .editDeleteContainerList {
   position: absolute;
   right: 16px;
   top: 0;
 }
-
 
 .subtask-item {
   display: flex;
@@ -512,18 +453,15 @@
   margin-bottom: 10px; /* Adds space between items */
 }
 
-
-
 .subtask-text {
   flex-grow: 1; /* Allows text to take up any extra space */
 }
 
-
-.editSubtask, .deleteSubtask {
+.editSubtask,
+.deleteSubtask {
   margin-left: 8px; /* Space between icons */
   cursor: pointer; /* Changes cursor to indicate clickable items */
 }
-
 
 .discList {
   background-color: #000000;
@@ -532,7 +470,6 @@
   border-radius: 50%;
   margin-right: 8px;
 }
-
 
 .requiredButtonContainer {
   display: flex;
@@ -548,13 +485,12 @@
   width: 90%;
 }
 
-
 .addedTaskSuccessContainer {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #2A3647;
+  background-color: #2a3647;
   border-radius: 20px;
   height: 72px;
   width: min(652px, 90%);
@@ -567,22 +503,19 @@
   animation: slideInFromBottom 0.5s ease forwards;
 }
 
-
 @media (min-width: 1025px) {
-
-.addTaskContainerBackground {
-  width: 40vw;
-  height: 80vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-}
-
+  .addTaskContainerBackground {
+    width: 40vw;
+    height: 80vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
 
   .addTaskContainer {
     width: 40vw;
     height: 80vh;
-    background-color: #F6F7F8;
+    background-color: #f6f7f8;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -591,52 +524,43 @@
     padding: 16px;
     border-radius: 30px;
     overflow-y: auto;
-}
-
-
-
-:host ::ng-deep .addTaskContainer::-webkit-scrollbar {
-  width: 5px;
-  margin-right: 10px;
-}
-
-
-:host ::ng-deep .addTaskContainer::-webkit-scrollbar-track {
-  background: #F6F7F8; /* Color of the track */
-  border-radius: 5px; /* Rounded corners for the track */
-  margin-top: 24px; /* Add top margin */
-  margin-bottom: 24px; /* Add bottom margin */
-}
-
-
-:host ::ng-deep .addTaskContainer::-webkit-scrollbar-thumb {
-  background: #29ABE2 !important; /* Color of the thumbscrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-}
-
-
-:host ::ng-deep .addTaskContainer::-webkit-scrollbar-thumb:hover {
-  background: #29ABE2; /* Color of the scrollbar thumb when hovered */
-}
-
-
-.requiredButtonContainer {
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  width: 96%;
-}
-
-
-
-}
-
-  @media (max-width: 800px) {
-    .addTaskContent::-webkit-scrollbar {
-      display: none;
-    }
-  
-    .addTaskContent {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
   }
+
+  :host ::ng-deep .addTaskContainer::-webkit-scrollbar {
+    width: 5px;
+    margin-right: 10px;
+  }
+
+  :host ::ng-deep .addTaskContainer::-webkit-scrollbar-track {
+    background: #f6f7f8; /* Color of the track */
+    border-radius: 5px; /* Rounded corners for the track */
+    margin-top: 24px; /* Add top margin */
+    margin-bottom: 24px; /* Add bottom margin */
+  }
+
+  :host ::ng-deep .addTaskContainer::-webkit-scrollbar-thumb {
+    background: #29abe2 !important; /* Color of the thumbscrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+
+  :host ::ng-deep .addTaskContainer::-webkit-scrollbar-thumb:hover {
+    background: #29abe2; /* Color of the scrollbar thumb when hovered */
+  }
+
+  .requiredButtonContainer {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 96%;
+  }
+}
+
+@media (max-width: 800px) {
+  .addTaskContent::-webkit-scrollbar {
+    display: none;
+  }
+
+  .addTaskContent {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

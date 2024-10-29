@@ -13,8 +13,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { throwError } from 'rxjs';
 import { ElementRef } from '@angular/core';
 
-
-
 describe('AddTaskComponent - ngOnInit', () => {
   let component: AddTaskComponent;
   let fixture: ComponentFixture<AddTaskComponent>;
@@ -38,7 +36,10 @@ describe('AddTaskComponent - ngOnInit', () => {
     mockAddContactService = jasmine.createSpyObj('AddContactService', ['getContacts']); // Mock getContacts
     mockSubtaskService = jasmine.createSpyObj('SubtaskService', ['addSubtask']);
     mockRouter = jasmine.createSpyObj('Router', ['navigate']);
-    mockNgbDateParserFormatter = jasmine.createSpyObj('NgbDateParserFormatter', ['parse', 'format']);
+    mockNgbDateParserFormatter = jasmine.createSpyObj('NgbDateParserFormatter', [
+      'parse',
+      'format',
+    ]);
 
     // Mock data
     const categories: Category[] = [
@@ -47,8 +48,22 @@ describe('AddTaskComponent - ngOnInit', () => {
     ];
 
     const contacts: Contact[] = [
-      { id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', color: '#FF0000', initials: 'JD' },
-      { id: 2, name: 'Jane Doe', email: 'jane@example.com', phone: '0987654321', color: '#00FF00', initials: 'JD' }
+      {
+        id: 1,
+        name: 'John Doe',
+        email: 'john@example.com',
+        phone: '1234567890',
+        color: '#FF0000',
+        initials: 'JD',
+      },
+      {
+        id: 2,
+        name: 'Jane Doe',
+        email: 'jane@example.com',
+        phone: '0987654321',
+        color: '#00FF00',
+        initials: 'JD',
+      },
     ];
 
     // Set up spies
@@ -66,8 +81,7 @@ describe('AddTaskComponent - ngOnInit', () => {
         { provide: SubtaskService, useValue: mockSubtaskService },
         { provide: Router, useValue: mockRouter },
         { provide: NgbDateParserFormatter, useValue: mockNgbDateParserFormatter },
-        { provide: SubtaskService, useValue: subtaskServiceSpy }
-
+        { provide: SubtaskService, useValue: subtaskServiceSpy },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ignore unknown custom components
     }).compileComponents();
@@ -77,7 +91,6 @@ describe('AddTaskComponent - ngOnInit', () => {
     fixture = TestBed.createComponent(AddTaskComponent);
     component = fixture.componentInstance;
     mockSubtaskService = jasmine.createSpyObj('SubtaskService', ['updateSubTask']);
-
 
     // Spy on loadContacts method
     spyOn(component, 'loadContacts').and.callThrough();
@@ -104,8 +117,6 @@ describe('AddTaskComponent - ngOnInit', () => {
     expect(component.contacts[1].name).toBe('Jane Doe');
   });
 
-  
-
   it('should correctly format the due date and prepare the submit data', () => {
     // Set form values
     component.taskForm.patchValue({
@@ -118,7 +129,7 @@ describe('AddTaskComponent - ngOnInit', () => {
     component.selectedContacts = [1, 2];
     component.subtasks = [
       { id: 1, text: 'Subtask 1', completed: false },
-      { id: 2, text: 'Subtask 2', completed: true }
+      { id: 2, text: 'Subtask 2', completed: true },
     ];
 
     // Call the prepareSubmitData method
@@ -133,36 +144,29 @@ describe('AddTaskComponent - ngOnInit', () => {
     // Expect the subtasks to be correctly prepared
     expect(preparedData.subtasks).toEqual([
       { id: 1, text: 'Subtask 1', completed: false },
-      { id: 2, text: 'Subtask 2', completed: true }
+      { id: 2, text: 'Subtask 2', completed: true },
     ]);
   });
-
-
 
   it('should not modify due_date if not provided', () => {
     // Set form values without due_date
     component.taskForm.patchValue({
       title: 'Test Task',
-      assigned_to: []
+      assigned_to: [],
     });
-  
+
     component.selectedContacts = [1, 2];
-    component.subtasks = [
-      { id: 1, text: 'Subtask 1', completed: false }
-    ];
-  
+    component.subtasks = [{ id: 1, text: 'Subtask 1', completed: false }];
+
     const preparedData = component.prepareSubmitData();
-  
+
     // Expect the due_date to be null (as the form will return null if not provided)
     expect(preparedData.due_date).toBeNull();
-  
+
     // Expect assigned_to and subtasks to be correctly prepared
     expect(preparedData.assigned_to).toEqual([1, 2]);
-    expect(preparedData.subtasks).toEqual([
-      { id: 1, text: 'Subtask 1', completed: false }
-    ]);
+    expect(preparedData.subtasks).toEqual([{ id: 1, text: 'Subtask 1', completed: false }]);
   });
-  
 
   it('should correctly close the require dialog', () => {
     // Set hideRequireDialog to true
@@ -175,20 +179,15 @@ describe('AddTaskComponent - ngOnInit', () => {
     expect(component.hideRequireDialog).toBeFalse();
   });
 
-
   it('should log form errors and show the required dialog', () => {
     spyOn(console, 'log');
     component.taskForm.setErrors({ required: true });
-  
+
     component.logFormErrors();
-  
+
     expect(console.log).toHaveBeenCalledWith('Form Errors:', { required: true });
     expect(component.hideRequireDialog).toBeTrue();
   });
-
-
-
-
 
   it('should call updateTask on the service', () => {
     // Create a valid Task object with all necessary properties
@@ -205,12 +204,12 @@ describe('AddTaskComponent - ngOnInit', () => {
       contacts: [],
       creator: 1,
     };
-  
+
     // Spy on the taskService's updateTask method
     const updateTaskSpy = mockTaskService.updateTask.and.returnValue(of(mockUpdatedTask));
-  
+
     const taskId = 1;
-  
+
     // Set valid form values for the task
     component.taskForm.setValue({
       title: 'Updated Task',
@@ -219,38 +218,34 @@ describe('AddTaskComponent - ngOnInit', () => {
       priority: 'medium',
       due_date: null,
       assigned_to: [],
-      status: 'todo'
+      status: 'todo',
     });
-  
+
     // Call updateTask
     component.updateTask(taskId);
-  
+
     // Expect updateTask to have been called with the taskId and form value
     expect(updateTaskSpy).toHaveBeenCalledWith(taskId, component.taskForm.value);
   });
-  
+
   it('should log error if updateTask fails', () => {
     // Spy on the taskService's updateTask method to simulate an error
-    const updateTaskSpy = mockTaskService.updateTask.and.returnValue(throwError(() => new Error('Failed to update task')));
-    
+    const updateTaskSpy = mockTaskService.updateTask.and.returnValue(
+      throwError(() => new Error('Failed to update task')),
+    );
+
     // Spy on console.error to verify error logging
     spyOn(console, 'error');
-    
+
     const taskId = 1;
-  
+
     // Call updateTask
     component.updateTask(taskId);
-  
+
     // Expect updateTask to have been called and the error to be logged
     expect(updateTaskSpy).toHaveBeenCalled();
     expect(console.error).toHaveBeenCalledWith('Failed to update task:', jasmine.any(Error));
   });
-  
-
-
-
-  
-
 
   it('should call logFormErrors if form is invalid', () => {
     spyOn(component, 'logFormErrors');
@@ -266,7 +261,6 @@ describe('AddTaskComponent - ngOnInit', () => {
     expect(mockTaskService.addTask).not.toHaveBeenCalled(); // Ensure addTask is not called when form is invalid
   });
 
-
   it('should call addTask on the service if form is valid', () => {
     const mockFormattedData = {
       id: 1,
@@ -281,18 +275,18 @@ describe('AddTaskComponent - ngOnInit', () => {
       contacts: [],
       creator: 1,
     }; // Complete mock task data
-  
+
     const mockTaskResponse = { ...mockFormattedData }; // Simulating the returned task object
-  
+
     // Spy on prepareSubmitData to return mock formatted data
     spyOn(component, 'prepareSubmitData').and.returnValue(mockFormattedData);
-  
+
     // Spy on the taskAdded event emitter
     spyOn(component.taskAdded, 'emit');
-  
+
     // Spy on taskForm's reset method
     spyOn(component.taskForm, 'reset');
-  
+
     // Mock valid form state
     component.taskForm.setValue({
       title: 'Valid Task',
@@ -301,60 +295,56 @@ describe('AddTaskComponent - ngOnInit', () => {
       priority: 'medium',
       due_date: null,
       assigned_to: [],
-      status: 'todo'
+      status: 'todo',
     });
-  
+
     // Simulate a successful addTask service call
     mockTaskService.addTask.and.returnValue(of(mockTaskResponse));
-  
+
     // Call the createTask method
     component.createTask();
-  
+
     // Ensure that addTask is called with the correctly formatted data
     expect(mockTaskService.addTask).toHaveBeenCalledWith(mockFormattedData);
-  
+
     // Ensure that the taskAdded event was emitted
     expect(component.taskAdded.emit).toHaveBeenCalled();
-  
+
     // Ensure that the form was reset
     expect(component.taskForm.reset).toHaveBeenCalled();
-  
+
     // Ensure that the subtasks array was cleared
     expect(component.subtasks.length).toBe(0);
   });
-  
 
+  it('should handle error when addTask fails', () => {
+    const errorResponse = { error: { message: 'Task creation failed' } };
 
-it('should handle error when addTask fails', () => {
-  const errorResponse = { error: { message: 'Task creation failed' } };
-  
-  // Spy on console.error and window.alert
-  spyOn(console, 'error');
-  spyOn(window, 'alert');
-  
-  mockTaskService.addTask.and.returnValue(throwError(() => errorResponse)); // Simulate failure
+    // Spy on console.error and window.alert
+    spyOn(console, 'error');
+    spyOn(window, 'alert');
 
-  // Mock valid form state
-  component.taskForm.setValue({
-    title: 'Valid Task',
-    description: 'Valid description',
-    category: 1,
-    priority: 'medium',
-    due_date: null,
-    assigned_to: [],
-    status: 'todo'
+    mockTaskService.addTask.and.returnValue(throwError(() => errorResponse)); // Simulate failure
+
+    // Mock valid form state
+    component.taskForm.setValue({
+      title: 'Valid Task',
+      description: 'Valid description',
+      category: 1,
+      priority: 'medium',
+      due_date: null,
+      assigned_to: [],
+      status: 'todo',
+    });
+
+    // Call createTask
+    component.createTask();
+
+    // Expect error handling logic
+    expect(mockTaskService.addTask).toHaveBeenCalled();
+    expect(console.error).toHaveBeenCalledWith('Failed to create task:', errorResponse);
+    expect(window.alert).toHaveBeenCalledWith('Failed to create task: Task creation failed');
   });
-
-  // Call createTask
-  component.createTask();
-
-  // Expect error handling logic
-  expect(mockTaskService.addTask).toHaveBeenCalled();
-  expect(console.error).toHaveBeenCalledWith('Failed to create task:', errorResponse);
-  expect(window.alert).toHaveBeenCalledWith('Failed to create task: Task creation failed');
-});
-
-
 
   it('should navigate to /board after task creation with a delay', fakeAsync(() => {
     const mockTaskData = { title: 'Test Task' } as Task;
@@ -367,14 +357,14 @@ it('should handle error when addTask fails', () => {
       priority: 'medium',
       due_date: null,
       assigned_to: [],
-      status: 'todo'
+      status: 'todo',
     });
 
     mockTaskService.addTask.and.returnValue(of(mockTaskData)); // Simulate success
 
     // Call createTask
     component.createTask();
-    
+
     // Use tick() to simulate the passage of time for the setTimeout
     tick(3000); // Simulate 3 seconds
 
@@ -382,70 +372,59 @@ it('should handle error when addTask fails', () => {
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/board']);
   }));
 
-
-
   it('should delete a subtask by index', () => {
     // Add some mock subtasks to the array
     component.subtasks = [
       { id: 1, text: 'Subtask 1', completed: false },
-      { id: 2, text: 'Subtask 2', completed: true }
+      { id: 2, text: 'Subtask 2', completed: true },
     ];
-  
+
     // Call deleteSubtask with index 0
     component.deleteSubtask(0);
-  
+
     // Assert that the subtask at index 0 was deleted
     expect(component.subtasks.length).toBe(1);
     expect(component.subtasks[0].id).toBe(2);
   });
 
-
   it('should edit a subtask locally when no ID is present', () => {
     // Mock subtasks without an ID
-    component.subtasks = [
-      { text: 'Subtask 1', completed: false }
-    ];
-  
+    component.subtasks = [{ text: 'Subtask 1', completed: false }];
+
     // Spy on the prompt to simulate user input
     spyOn(window, 'prompt').and.returnValue('Updated Subtask');
-  
+
     // Call editSubtask with index 0
     component.editSubtask(0, 'Subtask 1');
-  
+
     // Assert that the subtask text was updated
     expect(component.subtasks[0].text).toBe('Updated Subtask');
   });
 
-
-
   it('should handle subtask not found scenario during edit', () => {
     spyOn(window, 'prompt').and.returnValue('Updated Subtask');
     spyOn(console, 'error');
-  
+
     component.subtasks = []; // Simulate no subtask
-  
+
     component.editSubtask(0, 'Non-existent Subtask');
-  
+
     expect(console.error).toHaveBeenCalledWith('Subtask not found, cannot update.');
   });
 
-
   it('should not edit subtask if prompt is canceled', () => {
     // Mock a subtask
-    component.subtasks = [
-      { id: 1, text: 'Subtask 1', completed: false }
-    ];
-  
+    component.subtasks = [{ id: 1, text: 'Subtask 1', completed: false }];
+
     // Spy on the prompt to simulate user canceling the prompt (returning null)
     spyOn(window, 'prompt').and.returnValue(null);
-  
+
     // Call editSubtask with index 0
     component.editSubtask(0, 'Subtask 1');
-  
+
     // Assert that the subtask text was not updated
     expect(component.subtasks[0].text).toBe('Subtask 1');
   });
-
 
   it('should handle subtask not found at index', () => {
     component.subtasks = []; // Empty subtasks
@@ -460,42 +439,40 @@ it('should handle error when addTask fails', () => {
     expect(window.alert).toHaveBeenCalledWith('Subtask cannot be updated as it was not found.');
   });
 
-
   it('should clear the subtask input field', () => {
     // Mock the subtaskInput element and its nativeElement with proper HTMLInputElement properties
     const inputElement = new ElementRef({ value: 'Some value' } as HTMLInputElement);
-    
+
     // Assign the mock inputElement to component.subtaskInput
     component.subtaskInput = inputElement;
-    
+
     // Call the clearInput method
     component.clearInput();
-    
+
     // Assert that the input field value is now an empty string
     expect(component.subtaskInput.nativeElement.value).toBe('');
   });
-
 
   it('should add a new subtask and clear the input when subtask value is valid', () => {
     // Arrange: Create a mock event and mock the clearInput method
     const mockEvent = new MouseEvent('click');
     spyOn(mockEvent, 'preventDefault');
     spyOn(component, 'clearInput');
-    
+
     // Initial state
     component.subtasks = [];
-    
+
     // Act: Call the addSubtask method with a valid subtask value
     component.addSubtask(mockEvent, '  New Subtask  ');
-    
+
     // Assert: Check that preventDefault is called
     expect(mockEvent.preventDefault).toHaveBeenCalled();
-    
+
     // Assert: Check that the new subtask is added (trimmed)
     expect(component.subtasks.length).toBe(1);
     expect(component.subtasks[0].text).toBe('New Subtask');
     expect(component.subtasks[0].completed).toBeFalse();
-    
+
     // Assert: Check that clearInput is called
     expect(component.clearInput).toHaveBeenCalled();
   });
@@ -505,135 +482,160 @@ it('should handle error when addTask fails', () => {
     const mockEvent = new MouseEvent('click');
     spyOn(mockEvent, 'preventDefault');
     spyOn(component, 'clearInput');
-    
+
     // Act: Call addSubtask with an empty string
     component.addSubtask(mockEvent, '    '); // Only whitespace
-    
+
     // Assert: Check that preventDefault is called
     expect(mockEvent.preventDefault).toHaveBeenCalled();
-    
+
     // Assert: Ensure no subtask is added
     expect(component.subtasks.length).toBe(0);
-    
+
     // Assert: Ensure clearInput is not called when no subtask is added
     expect(component.clearInput).not.toHaveBeenCalled();
   });
 
-
-
   it('should set isInputFocused to true immediately when focused is true', () => {
     // Arrange: Set the initial value of isInputFocused to false
     component.isInputFocused = false;
-  
+
     // Act: Call toggleIcons with focused as true
     component.toggleIcons(true);
-  
+
     // Assert: isInputFocused should be immediately set to true
     expect(component.isInputFocused).toBeTrue();
   });
 
-
   it('should set isInputFocused to false after a 100ms delay when focused is false', fakeAsync(() => {
     // Arrange: Set the initial value of isInputFocused to true
     component.isInputFocused = true;
-  
+
     // Act: Call toggleIcons with focused as false
     component.toggleIcons(false);
-  
+
     // Fast forward time by 100ms
     tick(100);
-  
+
     // Assert: isInputFocused should be set to false after 100ms
     expect(component.isInputFocused).toBeFalse();
   }));
 
-
-
   it('should not set isInputFocused to false immediately when focused is false', fakeAsync(() => {
     // Arrange: Set the initial value of isInputFocused to true
     component.isInputFocused = true;
-  
+
     // Act: Call toggleIcons with focused as false
     component.toggleIcons(false);
-  
+
     // Assert: isInputFocused should still be true before the timeout
     expect(component.isInputFocused).toBeTrue();
-  
+
     // Fast forward time by 100ms
     tick(100);
-  
+
     // Assert: After 100ms, it should be set to false
     expect(component.isInputFocused).toBeFalse();
   }));
 
-
   it('should return the contact with the given ID', () => {
     // Arrange: Set up the mock contacts array with all required properties
     const mockContacts: Contact[] = [
-      { id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', initials: 'JD', color: '#FF0000' },
-      { id: 2, name: 'Jane Doe', email: 'jane@example.com', phone: '0987654321', initials: 'JD', color: '#00FF00' },
+      {
+        id: 1,
+        name: 'John Doe',
+        email: 'john@example.com',
+        phone: '1234567890',
+        initials: 'JD',
+        color: '#FF0000',
+      },
+      {
+        id: 2,
+        name: 'Jane Doe',
+        email: 'jane@example.com',
+        phone: '0987654321',
+        initials: 'JD',
+        color: '#00FF00',
+      },
     ];
-  
+
     component.contacts = mockContacts;
-  
+
     // Act: Call getContactById with a valid contact ID
     const result = component.getContactById(1);
-  
+
     // Assert: The returned contact should match the contact with ID 1
-    expect(result).toEqual({ id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', initials: 'JD', color: '#FF0000' });
+    expect(result).toEqual({
+      id: 1,
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '1234567890',
+      initials: 'JD',
+      color: '#FF0000',
+    });
   });
 
   it('should return undefined if no contact with the given ID exists', () => {
     // Arrange: Set up the mock contacts array with all required properties
     const mockContacts: Contact[] = [
-      { id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', initials: 'JD', color: '#FF0000' },
-      { id: 2, name: 'Jane Doe', email: 'jane@example.com', phone: '0987654321', initials: 'JD', color: '#00FF00' },
+      {
+        id: 1,
+        name: 'John Doe',
+        email: 'john@example.com',
+        phone: '1234567890',
+        initials: 'JD',
+        color: '#FF0000',
+      },
+      {
+        id: 2,
+        name: 'Jane Doe',
+        email: 'jane@example.com',
+        phone: '0987654321',
+        initials: 'JD',
+        color: '#00FF00',
+      },
     ];
-  
+
     component.contacts = mockContacts;
-  
+
     // Act: Call getContactById with an invalid contact ID
     const result = component.getContactById(3);
-  
+
     // Assert: The result should be undefined as no contact with ID 3 exists
     expect(result).toBeUndefined();
   });
-
-
 
   it('should add contactId to selectedContacts if not already present', () => {
     // Arrange: Set initial state
     const contactId = 1;
     component.selectedContacts = [];
-  
+
     const mockEvent = new MouseEvent('click');
     spyOn(mockEvent, 'stopPropagation'); // Spy on stopPropagation to ensure it's called
-  
+
     // Act: Call handleContactClick
     component.handleContactClick(contactId, mockEvent);
-  
+
     // Assert: contactId should be added to selectedContacts
     expect(component.selectedContacts).toContain(contactId);
     expect(mockEvent.stopPropagation).toHaveBeenCalled(); // Ensure stopPropagation is called
   });
 
-
   it('should remove contactId from selectedContacts if already present', () => {
     // Arrange: Set initial state with contactId already in selectedContacts
     const contactId = 1;
     component.selectedContacts = [1];
-  
+
     const mockEvent = new MouseEvent('click');
     spyOn(mockEvent, 'stopPropagation'); // Spy on stopPropagation to ensure it's called
-  
+
     // Act: Call handleContactClick
     component.handleContactClick(contactId, mockEvent);
-  
+
     // Assert: contactId should be removed from selectedContacts
     expect(component.selectedContacts).not.toContain(contactId);
     expect(mockEvent.stopPropagation).toHaveBeenCalled(); // Ensure stopPropagation is called
   });
-
 
   it('should add contactId to assigned_to when isChecked is true', () => {
     // Arrange
@@ -647,7 +649,6 @@ it('should handle error when addTask fails', () => {
     const assignedTo = component.taskForm.get('assigned_to')?.value;
     expect(assignedTo).toContain(contactId);
   });
-
 
   it('should not add contactId to assigned_to if it already exists and isChecked is true', () => {
     // Arrange
@@ -663,8 +664,6 @@ it('should handle error when addTask fails', () => {
     expect(assignedTo).toEqual([contactId]); // Should still only have one occurrence
   });
 
-
-
   it('should remove contactId from assigned_to when isChecked is false', () => {
     // Arrange
     const contactId = 1;
@@ -678,7 +677,6 @@ it('should handle error when addTask fails', () => {
     const assignedTo = component.taskForm.get('assigned_to')?.value;
     expect(assignedTo).not.toContain(contactId);
   });
-
 
   it('should not remove contactId from assigned_to if it is not in the array and isChecked is false', () => {
     // Arrange
@@ -694,7 +692,6 @@ it('should handle error when addTask fails', () => {
     expect(assignedTo).toEqual([]); // Still an empty array
   });
 
-
   it('should return empty string if name is undefined', () => {
     // Act: Call getInitials with undefined
     const result = component.getInitials(undefined);
@@ -702,7 +699,6 @@ it('should handle error when addTask fails', () => {
     // Assert: Should return empty string
     expect(result).toBe('');
   });
-
 
   it('should return empty string if name is an empty string', () => {
     // Act: Call getInitials with an empty string
@@ -712,7 +708,6 @@ it('should handle error when addTask fails', () => {
     expect(result).toBe('');
   });
 
-
   it('should return initials for a single name', () => {
     // Act: Call getInitials with a single name
     const result = component.getInitials('John');
@@ -720,7 +715,6 @@ it('should handle error when addTask fails', () => {
     // Assert: Should return first letter of the name
     expect(result).toBe('J');
   });
-
 
   it('should return initials for a full name', () => {
     // Act: Call getInitials with a full name
@@ -730,8 +724,6 @@ it('should handle error when addTask fails', () => {
     expect(result).toBe('JD');
   });
 
-
-
   it('should return initials for a name with multiple spaces', () => {
     // Act: Call getInitials with extra spaces in the name
     const result = component.getInitials('  John   Doe  ');
@@ -739,8 +731,6 @@ it('should handle error when addTask fails', () => {
     // Assert: Should return initials and ignore extra spaces
     expect(result).toBe('JD');
   });
-
-
 
   it('should handle names with more than two words and return initials of the first two', () => {
     // Act: Call getInitials with more than two names
@@ -750,7 +740,6 @@ it('should handle error when addTask fails', () => {
     expect(result).toBe('JM');
   });
 
-
   it('should handle names with lowercase letters and return uppercase initials', () => {
     // Act: Call getInitials with lowercase names
     const result = component.getInitials('john doe');
@@ -758,7 +747,6 @@ it('should handle error when addTask fails', () => {
     // Assert: Should return uppercase initials
     expect(result).toBe('JD');
   });
-
 
   it('should handle names with only one letter', () => {
     // Act: Call getInitials with a single letter name
@@ -768,7 +756,6 @@ it('should handle error when addTask fails', () => {
     expect(result).toBe('A');
   });
 
-
   it('should return an empty string when name consists only of spaces', () => {
     // Act: Call getInitials with a name containing only spaces
     const result = component.getInitials('     ');
@@ -776,7 +763,6 @@ it('should handle error when addTask fails', () => {
     // Assert: Should return empty string
     expect(result).toBe('');
   });
-
 
   it('should set selectedContact and close the contacts dropdown', () => {
     // Arrange: Create a mock contact and a mock event
@@ -786,9 +772,9 @@ it('should handle error when addTask fails', () => {
       email: 'john@example.com',
       phone: '1234567890',
       color: '#FF0000',
-      initials: 'JD'
+      initials: 'JD',
     };
-    
+
     const mockEvent = new MouseEvent('click');
     spyOn(mockEvent, 'stopPropagation'); // Spy on stopPropagation to verify it gets called
 
@@ -805,16 +791,14 @@ it('should handle error when addTask fails', () => {
     expect(mockEvent.stopPropagation).toHaveBeenCalled();
   });
 
-
-
   it('should set selectedOption, update form control, and close the dropdown', () => {
     // Arrange: Create a mock category and a mock event
     const mockCategory: Category = {
       id: 1,
       name: 'Work',
-      color: '#FF0000'
+      color: '#FF0000',
     };
-    
+
     const mockEvent = new MouseEvent('click');
     spyOn(mockEvent, 'stopPropagation'); // Spy on stopPropagation to verify it gets called
 
@@ -837,7 +821,6 @@ it('should handle error when addTask fails', () => {
     expect(mockEvent.stopPropagation).toHaveBeenCalled();
   });
 
-
   it('should toggle the isOpen value in toggleDropdown()', () => {
     // Arrange: Set initial value for isOpen
     component.isOpen = false;
@@ -854,7 +837,6 @@ it('should handle error when addTask fails', () => {
     // Assert: Ensure that isOpen has been toggled back to false
     expect(component.isOpen).toBeFalse();
   });
-
 
   it('should toggle the isOpenContacts value in toggleDropdownContacts()', () => {
     // Arrange: Set initial value for isOpenContacts
@@ -873,54 +855,49 @@ it('should handle error when addTask fails', () => {
     expect(component.isOpenContacts).toBeFalse();
   });
 
-
-
-  
   it('should correctly format the date and set it in dpInput and taskForm', () => {
     // Define the NgbDateStruct date
     const date: NgbDateStruct = { year: 2024, month: 12, day: 25 };
-  
+
     // Mock the dpInput.nativeElement.value
     component.dpInput = new ElementRef({
-      value: ''
+      value: '',
     } as HTMLInputElement); // Cast as HTMLInputElement to avoid TypeScript error
-  
+
     // Mock taskForm's 'due_date' control
     component.taskForm = new FormBuilder().group({
-      due_date: ['']
+      due_date: [''],
     });
-  
+
     // Act: Call the onDateSelect function
     component.onDateSelect(date);
-  
+
     // Assert: Ensure the date is correctly formatted and set in dpInput
     expect(component.dpInput.nativeElement.value).toBe('2024-12-25');
-  
+
     // Assert: Ensure the date is correctly set in the form control
     expect(component.taskForm.get('due_date')?.value).toBe('2024-12-25');
   });
-  
 
   it('should handle single digit months and days by padding them correctly', () => {
     // Define the date with single-digit month and day
     const singleDigitDate: NgbDateStruct = { year: 2024, month: 5, day: 7 };
-  
+
     // Mock dpInput's nativeElement and value
     component.dpInput = new ElementRef({
-      value: ''
+      value: '',
     } as HTMLInputElement);
-  
+
     // Initialize the task form
     component.taskForm = new FormBuilder().group({
-      due_date: ['']
+      due_date: [''],
     });
-  
+
     // Act: Call the onDateSelect function with single digit date
     component.onDateSelect(singleDigitDate);
-  
+
     // Assert: Ensure the formatted date is padded with zeroes
     expect(component.dpInput.nativeElement.value).toBe('2024-05-07');
     expect(component.taskForm.get('due_date')?.value).toBe('2024-05-07');
   });
 });
-

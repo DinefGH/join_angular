@@ -21,9 +21,9 @@ describe('ContactsAddComponent', () => {
       declarations: [ContactsAddComponent],
       providers: [
         { provide: AddContactService, useValue: addContactServiceSpy },
-        { provide: Router, useValue: routerSpy }
+        { provide: Router, useValue: routerSpy },
       ],
-      schemas: [NO_ERRORS_SCHEMA] // Ignore child component errors in the template
+      schemas: [NO_ERRORS_SCHEMA], // Ignore child component errors in the template
     }).compileComponents();
 
     addContactService = TestBed.inject(AddContactService) as jasmine.SpyObj<AddContactService>;
@@ -43,45 +43,48 @@ describe('ContactsAddComponent', () => {
     expect(color).toMatch(/^#[0-9a-f]{6}$/); // Validates hex color format
   });
 
-
   it('should submit the contact form and emit contactAdded on success', () => {
-    const mockContactResponse = { id: 1, name: 'John Doe', email: 'john@example.com', phone: '1234567890', color: '#123456' };
+    const mockContactResponse = {
+      id: 1,
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '1234567890',
+      color: '#123456',
+    };
     addContactService.addContact.and.returnValue(of(mockContactResponse));
-  
+
     spyOn(component.contactAdded, 'emit');
     spyOn(component.close, 'emit');
-  
+
     component.contactData = {
       name: 'John Doe',
       email: 'john@example.com',
       phone: '1234567890',
-      color: '#123456'
+      color: '#123456',
     };
-  
+
     component.submitContactForm();
-  
+
     expect(addContactService.addContact).toHaveBeenCalledWith(component.contactData);
     expect(component.addContactSuccess).toBeTrue();
     expect(component.contactAdded.emit).toHaveBeenCalledWith(true);
-  
+
     // Ensure the close event is emitted after a delay
     setTimeout(() => {
       expect(component.close.emit).toHaveBeenCalled();
     }, 3000);
   });
 
-
   it('should handle errors during contact submission', () => {
     const mockError = { message: 'Error adding contact' };
     addContactService.addContact.and.returnValue(throwError(mockError));
-  
+
     spyOn(console, 'error');
     component.submitContactForm();
-  
+
     expect(addContactService.addContact).toHaveBeenCalledWith(component.contactData);
     expect(console.error).toHaveBeenCalledWith('There was an error adding the contact:', mockError);
   });
-
 
   it('should emit the close event when closeComponent is called', () => {
     spyOn(component.close, 'emit');

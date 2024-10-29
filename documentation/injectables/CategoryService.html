@@ -307,18 +307,19 @@ export interface Category {
 }
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class CategoryService {
   private apiUrl &#x3D; &#x60;${environment.apiUrl}/categories&#x60;; // Adjust if your API URL is different
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Fetch categories from the backend
   getCategories(): Observable&lt;Category[]&gt; {
     return this.http.get&lt;Category[]&gt;(this.apiUrl);
   }
-}</code></pre>
+}
+</code></pre>
     </div>
 
 </div>

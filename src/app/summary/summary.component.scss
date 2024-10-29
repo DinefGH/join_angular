@@ -1,391 +1,355 @@
 .summaryContainer {
-    width: 100vw;
-    height: 100vh;
-    background-color: #F6F7F8;
-    display: flex;
-    flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f7f8;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .summaryContent {
-    height: 80vh;
-    position: absolute;
-    top: 10vh;
+  height: 80vh;
+  position: absolute;
+  top: 10vh;
 }
-
 
 .headlinesContainer {
-    height: 15vh;
-    margin-left: 16px;
+  height: 15vh;
+  margin-left: 16px;
 }
-
 
 .smallHeadline {
-    font-size: calc(1.175rem + 0.5vw) !important;
+  font-size: calc(1.175rem + 0.5vw) !important;
 }
-
 
 .summaryUnderline {
-    display: block;
-    border-bottom: 3px solid;
-    border-color: #29ABE2;
-    width: min(120px, 50%);
+  display: block;
+  border-bottom: 3px solid;
+  border-color: #29abe2;
+  width: min(120px, 50%);
 }
-
 
 .footerComponent {
-    bottom: 0;
-    left: 0;
+  bottom: 0;
+  left: 0;
 }
-
 
 .cardContainer {
-    height:65vh;
-    width: min(1024px, 100vw);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
+  height: 65vh;
+  width: min(1024px, 100vw);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
-
 
 .cardsStyle {
-    background-color: #FFFFFF;
-    border-radius: 20px;
-    height: 110px;
-    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 110px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
 }
-
 
 .firstRow {
-    width: min(264px, 47vw);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
+  width: min(264px, 47vw);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
 }
-
 
 .secondRow {
-    width: min(560px, 96vw);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
+  width: min(560px, 96vw);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
 }
-
 
 .cardsFirstRow {
-    display: flex;
-    justify-content: space-between;
-    width: min(560px, 96vw);
+  display: flex;
+  justify-content: space-between;
+  width: min(560px, 96vw);
 }
-
 
 .thirdRow {
-    width: min(168px, 31vw);
-    display: flex;
-    align-items: center;
+  width: min(168px, 31vw);
+  display: flex;
+  align-items: center;
 }
-
 
 .cardsThirdRow {
-    display: flex;
-    justify-content: space-between;
-    width: min(560px, 96vw);
+  display: flex;
+  justify-content: space-between;
+  width: min(560px, 96vw);
 }
-
 
 .numberTextContainer {
-    height:110px;
+  height: 110px;
 }
-
 
 .numberStyle {
-    font-weight: bold;
-    font-size: 2.5rem;
+  font-weight: bold;
+  font-size: 2.5rem;
 }
-
 
 .hoverDone {
-    transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
-
 
 .textCenter {
-    text-align: center;
+  text-align: center;
 }
-
 
 .hoverDone:hover {
-    color: white;
-    background-color:#2A3647;
-    cursor: pointer;
-    transform: scale(1.05);
+  color: white;
+  background-color: #2a3647;
+  cursor: pointer;
+  transform: scale(1.05);
 
-    .tickIcon circle {
-        fill: white;
-    }
+  .tickIcon circle {
+    fill: white;
+  }
 
-    .tickIcon path {
-        stroke: #2A3647;
-    }
+  .tickIcon path {
+    stroke: #2a3647;
+  }
 }
 
-
 .hoverTodo {
-    transition: transform 0.2s ease-in-out;}
-
+  transition: transform 0.2s ease-in-out;
+}
 
 .hoverTodo:hover {
-    color: white;
-    background-color:#2A3647;
-    cursor: pointer;
-    transform: scale(1.05);
+  color: white;
+  background-color: #2a3647;
+  cursor: pointer;
+  transform: scale(1.05);
 
-    .pencilIcon circle {
-        fill: white;
-    }
+  .pencilIcon circle {
+    fill: white;
+  }
 
-    .pencilIcon path {
-        fill: #2A3647;
-    }
+  .pencilIcon path {
+    fill: #2a3647;
+  }
 }
 
 .hoverUrgent {
-    transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
-
 .hoverUrgent:hover {
-    color: white;
-    background-color:#2A3647;
-    cursor: pointer;
-    transform: scale(1.02);
+  color: white;
+  background-color: #2a3647;
+  cursor: pointer;
+  transform: scale(1.02);
 
-    .urgentShadow {
-        border-color: white;
-    }
-
+  .urgentShadow {
+    border-color: white;
+  }
 }
 
 .hoverthirdRow {
-    transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
-
 .hoverthirdRow:hover {
-    color: white;
-    background-color:#2A3647;
-    cursor: pointer;
-    transform: scale(1.05);
+  color: white;
+  background-color: #2a3647;
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .urgentIconTextContainer {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    width: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  width: 150px;
 }
 
 .urgentShadow {
-    border: 2px solid;
-    width: 2px;
-    height: 80px;
-    border-color: #D1D1D1;
+  border: 2px solid;
+  width: 2px;
+  height: 80px;
+  border-color: #d1d1d1;
 }
 
 .urgentDate {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 @media screen and (orientation: landscape) and (max-width: 1024px) {
-
-
-    .cardsStyle {
+  .cardsStyle {
     height: 15vh;
-    }
+  }
 
+  .headlinesContainer {
+    display: flex;
+    align-items: center;
+  }
 
-    .headlinesContainer {
-        display: flex;
-        align-items: center;
+  .summaryUnderline {
+    display: none;
+  }
 
-    }
+  .summaryDividingLine {
+    display: block;
+    border-right: 3px solid;
+    border-color: #29abe2;
+    height: 32px;
+    padding-bottom: 8px;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
 
-    .summaryUnderline  {
-        display: none;
-    }
+  .summaryContent {
+    top: 15vh;
+  }
 
-    .summaryDividingLine {
-        display: block  ;
-        border-right: 3px solid;
-        border-color: #29ABE2;
-        height: 32px;
-        padding-bottom: 8px;
-        margin-right: 16px;
-        margin-left: 16px;
-    }
+  .numberTextContainer {
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .summaryContent {
-        top: 15vh;
-    }
+  .numberStyle {
+    font-size: 1rem;
+  }
 
-    .numberTextContainer {
-        height: 15vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .numberStyle {
-        font-size: 1rem;
-    }
-
-    .cardContainer {
-        height: 50vh;
-        width: 100vw;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .urgentShadow {
-        height: 12vh;
-    }
-
-    .iconLandscape {
-        width: 48px;
-        height: 48px;
-    }
-}
-
-@media (min-width: 1025px) { 
-
-    .summaryDesktopContainer {
-        display: flex;
-    }
-
-    .summaryContent {
-        width: 55vw;
-        position: relative;
-        margin-left: 48px;
-    }
-
-
-    .headlinesContainer {
-        display: flex;
-        align-items: center;
-    }
-
-    .smallHeadline {
-        display: flex;
-        align-items: center;
-    }
-
-
-    .summaryUnderline {
-        display: none;
-    }
-
-
-    .summaryDividingLine {
-        display: block  ;
-        border-right: 3px solid;
-        border-color: #29ABE2;
-        height: 48px;
-        padding-bottom: 8px;
-        margin-right: 16px;
-        margin-left: 16px;
-    }
-
-
-    .cardContainer {
-        width: 560px;
-    }
-
-    .greetingContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: calc(1.475rem + 0.5vw);
-        height: 90vh;
-        margin-top: 10vh;
-    }
-
-    .greetingNameContainer {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .greetingContainerGreeting {
-        font-weight: 500;
-    }
-
-    .greetingContainerName {
-        color: #29ABE2;
-        font-weight: 700;
-    }
-}
-
-
-.overlaySummary {
-    position: fixed;
-    top: 0;
-    left: 0;
+  .cardContainer {
+    height: 50vh;
     width: 100vw;
-    height: 100vh;
-    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .urgentShadow {
+    height: 12vh;
+  }
+
+  .iconLandscape {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .summaryDesktopContainer {
+    display: flex;
+  }
+
+  .summaryContent {
+    width: 55vw;
+    position: relative;
+    margin-left: 48px;
+  }
+
+  .headlinesContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .smallHeadline {
+    display: flex;
+    align-items: center;
+  }
+
+  .summaryUnderline {
+    display: none;
+  }
+
+  .summaryDividingLine {
+    display: block;
+    border-right: 3px solid;
+    border-color: #29abe2;
+    height: 48px;
+    padding-bottom: 8px;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+
+  .cardContainer {
+    width: 560px;
+  }
+
+  .greetingContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensure it's on top of everything */
-    animation: overlayFadeOut 3s ease-in-out forwards;
-    animation-delay: 2s;
-}
+    font-size: calc(1.475rem + 0.5vw);
+    height: 90vh;
+    margin-top: 10vh;
+  }
 
-
-.greetingContainerGreetingOverlay {
-    font-size: 2rem;
-    font-weight: 500;
-}
-
-
-.greetingContainerNameOverlay {
-    color: #29ABE2;
-    font-weight: 700;
-    font-size: 2rem;
-}
-
-
-.greetingNameContainerOverlay {
-    animation: overlayFadeOutGreeting 1.5s ease-in-out forwards;
-    animation-delay: 1s;
+  .greetingNameContainer {
     display: flex;
     flex-direction: column;
+  }
+
+  .greetingContainerGreeting {
+    font-weight: 500;
+  }
+
+  .greetingContainerName {
+    color: #29abe2;
+    font-weight: 700;
+  }
 }
 
+.overlaySummary {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's on top of everything */
+  animation: overlayFadeOut 3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+.greetingContainerGreetingOverlay {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.greetingContainerNameOverlay {
+  color: #29abe2;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.greetingNameContainerOverlay {
+  animation: overlayFadeOutGreeting 1.5s ease-in-out forwards;
+  animation-delay: 1s;
+  display: flex;
+  flex-direction: column;
+}
 
 @keyframes overlayFadeOutGreeting {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      visibility: hidden; /* Ensure the overlay is completely hidden at the end */
-    }
+  0% {
+    opacity: 1;
   }
-
+  100% {
+    opacity: 0;
+    visibility: hidden; /* Ensure the overlay is completely hidden at the end */
+  }
+}
 
 @keyframes overlayFadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      visibility: hidden; /* Ensure the overlay is completely hidden at the end */
-    }
+  0% {
+    opacity: 1;
   }
+  100% {
+    opacity: 0;
+    visibility: hidden; /* Ensure the overlay is completely hidden at the end */
+  }
+}

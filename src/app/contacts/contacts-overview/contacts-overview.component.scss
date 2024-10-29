@@ -1,190 +1,182 @@
 .contactsContainer {
-    width: 100vw;
-    height: 100vh;
-    background-color: #F6F7F8;
-    display: flex;
-    flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f7f8;
+  display: flex;
+  flex-direction: column;
 }
 
 .contactsContent {
-    height: 80vh;
-    position: relative;
-    width: 100vw;
-    padding-right: 32px;
-    padding-left: 32px;
-    overflow: auto;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+  height: 80vh;
+  position: relative;
+  width: 100vw;
+  padding-right: 32px;
+  padding-left: 32px;
+  overflow: auto;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .addIconContainer {
-    height: 56px;
-    width: 56px;
-    background-color: #2A3647;
-    border-radius: 50%;
-    position: fixed;
-    bottom: calc(10vh + 16px);
-    right: 16px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 56px;
+  width: 56px;
+  background-color: #2a3647;
+  border-radius: 50%;
+  position: fixed;
+  bottom: calc(10vh + 16px);
+  right: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .personAddIcon {
-    padding-left: 4px;
-    padding-bottom: 4px;
+  padding-left: 4px;
+  padding-bottom: 4px;
 }
 
 .headlineContactOverview {
-    font-size: 1.3rem;
-    padding-left: 24px;
+  font-size: 1.3rem;
+  padding-left: 24px;
 }
 
 .headlineUnderline {
-    border-bottom: 1px solid;
-    border-color: #D1D1D1;
-    width: 100%;
+  border-bottom: 1px solid;
+  border-color: #d1d1d1;
+  width: 100%;
 }
 
 .initialsCircle {
-    color: #ffffff;
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    font-size: 0.75rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: #ffffff;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contactItem {
-    display: flex;
-    align-items: center;
-    padding-left: 16px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
 }
 
 .contactNameEmailContainer {
-    margin-left: 32px;
+  margin-left: 32px;
 }
 
 .contactName {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .contactEmail {
-    color: #007CEE;
-    font-size: 0.75rem;
-
+  color: #007cee;
+  font-size: 0.75rem;
 }
 
 .sidebarComponent {
-    display: none;
+  display: none;
 }
 
 .contactsDesktopScreen {
-    display: none;
+  display: none;
 }
 
 .contactsAddDesktop {
-    display: none;
+  display: none;
 }
 
 @media (min-width: 1025px) {
+  .sidebarComponent {
+    display: block;
+  }
 
-    .sidebarComponent {
-        display: block;
-    }
-    
+  .addIconContainer {
+    display: none;
+  }
 
-    .addIconContainer {
-        display: none;
-    }
+  .contactsDesktopContainer {
+    display: flex;
+  }
 
-    .contactsDesktopContainer {
-        display: flex;
-    }
+  .footerComponent {
+    display: none;
+  }
 
-    .footerComponent {
-        display: none;
-    }
+  .contactsContent {
+    height: 90vh;
+    margin-bottom: 0vh;
+    margin-top: 10vh;
+    padding-top: 5vh;
+    width: 30vw;
+    background-color: white;
+  }
 
-    .contactsContent {
-        height: 90vh;
-        margin-bottom: 0vh;
-        margin-top: 10vh;
-        padding-top: 5vh;
-        width: 30vw;
-        background-color: white;
-    }
+  .contactsAddDesktop {
+    background-color: #2a3647;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
 
-    .contactsAddDesktop {
-        background-color: #2A3647;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-        font-weight: bold;
-        color: white;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        margin-bottom: 16px;
+  .contactsAddDesktop:hover {
+    background-color: #29abe2;
+  }
 
-    }
+  .addIconDesktop {
+    padding-left: 8px;
+  }
 
-    .contactsAddDesktop:hover {
-        background-color: #29ABE2;
-    }
+  .contactItem:hover {
+    background-color: #f6f7f8;
+    border-radius: 10px;
+  }
 
+  .contactsDesktopScreen {
+    width: 55vw;
+    background-color: #f6f7f8;
+    margin-top: 15vh;
+    height: 80vh;
+    padding-left: 32px;
+    display: block;
+  }
 
-    .addIconDesktop {
-        padding-left: 8px;
-    }
+  .contactsSmallHeadline {
+    display: flex;
+    align-items: center;
+  }
 
-    .contactItem:hover {
-        background-color: #F6F7F8;
-        border-radius: 10px;
-    }
+  .contactsDividingLine {
+    display: block;
+    border-right: 3px solid;
+    border-color: #29abe2;
+    height: 48px;
+    padding-bottom: 8px;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
 
-    .contactsDesktopScreen {
-        width: 55vw;
-        background-color: #F6F7F8;
-        margin-top: 15vh;
-        height: 80vh;
-        padding-left: 32px;
-        display: block;
-    }
-
-    .contactsSmallHeadline {
-        display: flex;
-        align-items: center;
-    }
-
-    .contactsDividingLine {
-        display: block  ;
-        border-right: 3px solid;
-        border-color: #29ABE2;
-        height: 48px;
-        padding-bottom: 8px;
-        margin-right: 16px;
-        margin-left: 16px;
-    }
-
-    .smallHeadlineContacts {
-        font-size: calc(1.175rem + 0.5vw) !important;
-    }
-
-
+  .smallHeadlineContacts {
+    font-size: calc(1.175rem + 0.5vw) !important;
+  }
 }
 
-@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px){
-
-    .contactsContent {
-        height: 70vh;
-        margin-top: 15vh;
-        margin-bottom: 15vh;
-    }
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px) {
+  .contactsContent {
+    height: 70vh;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+  }
 }

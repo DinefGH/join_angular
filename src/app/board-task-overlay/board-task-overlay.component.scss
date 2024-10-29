@@ -1,159 +1,151 @@
 .taskOverlayBackground {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba($color: #000000, $alpha: 0.1);
-    z-index: 10; 
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  z-index: 10;
 }
 
 .boardTasksOverlay {
-    height: 80vh;
-    width: 90vw;
-    position: absolute;
-    top: 10vh;
-    border-radius: 30px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 11;
-    background-color: #ffff;
-    padding: 32px;
+  height: 80vh;
+  width: 90vw;
+  position: absolute;
+  top: 10vh;
+  border-radius: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  background-color: #ffff;
+  padding: 32px;
 }
 
 .closeBoardTasks {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .closeBoardTasks .svg-path {
-    transition: fill 0.3s ease;
-  }
-  
-  .closeBoardTasks:hover .svg-path {
-    fill: #29ABE2; /* Change this color to the desired hover color */
-  }
+  transition: fill 0.3s ease;
+}
+
+.closeBoardTasks:hover .svg-path {
+  fill: #29abe2; /* Change this color to the desired hover color */
+}
 
 .boardTasksHeadlineCloseContainer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .boardTasksCategory {
-    color: #ffffff;
-    padding: 4px 16px 4px 16px;
-    border-radius:8px;
+  color: #ffffff;
+  padding: 4px 16px 4px 16px;
+  border-radius: 8px;
 }
 
 .boardTasksTitle {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 .boardTasksDescription {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-weight: 500;
 }
 
 .boardTasksDueDate {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
-
 
 .boardTasksPriority {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
-
 
 .boardTasksAssignedToHeadline {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-
 .colorCircleContactsBoard {
-    border-radius: 50%;
-    font-size: 0.7rem;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    flex-shrink: 0;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  flex-shrink: 0;
 }
 
 .contactInittilsNameContainer {
-    display: flex;
-    margin-left: 16px;
-    margin-bottom: 8px;
+  display: flex;
+  margin-left: 16px;
+  margin-bottom: 8px;
 }
 
 .boardTasksSubtasksHeadline {
-    margin-top: 16px;
-    margin-bottom: 10px;
+  margin-top: 16px;
+  margin-bottom: 10px;
 }
 
 .boardTasksSubtasks {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 
-
 .contactInittilsName {
-    margin-left: 8px;
-    font-weight: 500;
+  margin-left: 8px;
+  font-weight: 500;
 }
 
 .dateTasksOverlay {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .priorityTaskOverlay {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .subtasksTaskOverlay {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .boardTasksDeleteEditContainer {
-    display: flex;
-    position: absolute;
-    bottom: 24px;
-    right:16px;
-    width: 40vw;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+  width: 40vw;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .boardTasksDelete {
-    cursor: pointer;
-    margin-left: 8px;
+  cursor: pointer;
+  margin-left: 8px;
 }
 
 .boardTasksEdit {
-    cursor: pointer;
-    margin-left: 8px;
+  cursor: pointer;
+  margin-left: 8px;
 }
 
 .editDeleteLine {
-    border-right: 2px solid #D1D1D1;
-    height: 24px;
-    margin-left: 8px;
+  border-right: 2px solid #d1d1d1;
+  height: 24px;
+  margin-left: 8px;
 }
 
-@media (min-width: 1025px) { 
-    .boardTasksOverlay {
-
-        width: 40vw;
-
-    }
+@media (min-width: 1025px) {
+  .boardTasksOverlay {
+    width: 40vw;
+  }
 }
 
-
-@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px){
-
-    .boardTasksOverlay  {
-        overflow-y: auto;
-    }
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px) {
+  .boardTasksOverlay {
+    overflow-y: auto;
+  }
 }

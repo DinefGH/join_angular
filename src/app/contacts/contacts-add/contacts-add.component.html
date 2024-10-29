@@ -1,88 +1,92 @@
 <div class="addContactsBackground" (click)="closeComponent()">
-<main class="addContactsContentConatiner" (click)="$event.stopPropagation()">
+  <main class="addContactsContentConatiner" (click)="$event.stopPropagation()">
     <div class="topContainerAddContacts">
-        <div class="closeIconContainer" (click)="closeComponent()">
-            <img class="closeIcon" src="./assets/img/close.png" alt="Close icon">
+      <div class="closeIconContainer" (click)="closeComponent()">
+        <img class="closeIcon" src="./assets/img/close.png" alt="Close icon" />
+      </div>
+      <div>
+        <h1>Add Contact</h1>
+        <div class="smallHeadlineAddContacts">Tasks are better with a team!</div>
+        <div class="addContactsUnderline"></div>
+      </div>
+      <div class="personIconContainer">
+        <div class="personIcon">
+          <img src="/assets/img/personContactBig.png" alt="Person icon" />
         </div>
-        <div>
-            <h1>Add Contact</h1>
-            <div class="smallHeadlineAddContacts">Tasks are better with a team!</div>
-            <div class="addContactsUnderline"></div>
-        </div>
-        <div class="personIconContainer">
-            <div class="personIcon"><img src="/assets/img/personContactBig.png" alt="Person icon"></div>
-        </div>
+      </div>
     </div>
     <div class="personIconFormContainer">
       <div class="personIconContainerDesktop">
-        <div class="personIcon"><img src="/assets/img/personContactBig.png" alt="Person icon"></div>
-    </div>
+        <div class="personIcon">
+          <img src="/assets/img/personContactBig.png" alt="Person icon" />
+        </div>
+      </div>
     </div>
     <div class="bottomContainerContacts">
       <div class="closeIconContainerDesktop" (click)="closeComponent()">
-        <img class="closeIcon" src="./assets/img/closeDark.svg" alt="Close icon">
-    </div>
+        <img class="closeIcon" src="./assets/img/closeDark.svg" alt="Close icon" />
+      </div>
 
-        <form class="formContainerAddContacts" (ngSubmit)="submitContactForm()" #contactForm="ngForm">
-          <div class="form-floating mb-3 inputContainer">
-            <input
-              type="text"
-              id="floatingInputContactsName"
-              class="form-control formInputContacsName custom-input-height"
-              [(ngModel)]="contactData.name"
-              name="name"
-              placeholder="Name"
-              required
-              #name="ngModel"
-            />
-            <label class="colorFont" for="floatingInputContactsName">Name</label>
-            <div *ngIf="name.invalid && name.touched" class="text-danger">
-              Name is required.
+      <form class="formContainerAddContacts" (ngSubmit)="submitContactForm()" #contactForm="ngForm">
+        <div class="form-floating mb-3 inputContainer">
+          <input
+            type="text"
+            id="floatingInputContactsName"
+            class="form-control formInputContacsName custom-input-height"
+            [(ngModel)]="contactData.name"
+            name="name"
+            placeholder="Name"
+            required
+            #name="ngModel"
+          />
+          <label class="colorFont" for="floatingInputContactsName">Name</label>
+          <div *ngIf="name.invalid && name.touched" class="text-danger">Name is required.</div>
+        </div>
+
+        <div class="form-floating mb-3 inputContainer">
+          <input
+            type="email"
+            id="floatingInputContactsEmail"
+            class="form-control formInputContactsMail"
+            [(ngModel)]="contactData.email"
+            name="email"
+            placeholder="Email"
+            required
+            #email="ngModel"
+            email
+          />
+          <label class="colorFont" for="floatingInputContactsEmail">Email</label>
+          <div *ngIf="email.invalid && email.touched" class="text-danger">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+          </div>
+        </div>
+
+        <div class="form-floating mb-3 inputContainer">
+          <input
+            type="number"
+            id="floatingInputContactsPhone"
+            class="form-control formInputContacsPhone"
+            [(ngModel)]="contactData.phone"
+            name="phone"
+            placeholder="Phone"
+            required
+            #phone="ngModel"
+            pattern="^\+?[0-9]{1,15}$"
+          />
+          <label class="colorFont" for="floatingInputContactsPhone">Phone</label>
+          <div *ngIf="phone.invalid && phone.touched" class="text-danger">
+            <div *ngIf="phone.errors?.['required']">Phone number is required.</div>
+            <div *ngIf="phone.errors?.['pattern']">
+              Please enter a valid phone number (15 digits).
             </div>
           </div>
-          
-            <div class="form-floating mb-3 inputContainer">
-              <input
-                type="email"
-                id="floatingInputContactsEmail"
-                class="form-control formInputContactsMail"
-                [(ngModel)]="contactData.email"
-                name="email"
-                placeholder="Email"
-                required
-                #email="ngModel"
-                email
-              />
-              <label class="colorFont" for="floatingInputContactsEmail">Email</label>
-              <div *ngIf="email.invalid && email.touched" class="text-danger">
-                <div *ngIf="email.errors?.['required']">Email is required.</div>
-                <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
-              </div>
-            </div>
-          
-            <div class="form-floating mb-3 inputContainer">
-              <input
-                type="number"
-                id="floatingInputContactsPhone"
-                class="form-control formInputContacsPhone"
-                [(ngModel)]="contactData.phone"
-                name="phone"
-                placeholder="Phone"
-                required
-                #phone="ngModel"
-                pattern="^\+?[0-9]{1,15}$"
-              />
-              <label class="colorFont" for="floatingInputContactsPhone">Phone</label>
-              <div *ngIf="phone.invalid && phone.touched" class="text-danger">
-                <div *ngIf="phone.errors?.['required']">Phone number is required.</div>
-                <div *ngIf="phone.errors?.['pattern']">Please enter a valid phone number (15 digits).</div>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg w180">Create contact</button>
-          </form>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg w180">Create contact</button>
+      </form>
     </div>
-    <div *ngIf="addContactSuccess"  class="addedContactSuccessContainer">
+    <div *ngIf="addContactSuccess" class="addedContactSuccessContainer">
       Contact successfully created!
     </div>
-</main>
+  </main>
 </div>

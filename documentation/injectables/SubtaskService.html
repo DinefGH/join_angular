@@ -255,8 +255,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">src/app/services/subtask.service.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/services/subtask.service.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -322,8 +322,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="52"
-                                    class="link-to-prism">src/app/services/subtask.service.ts:52</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/services/subtask.service.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -389,8 +389,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/app/services/subtask.service.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/services/subtask.service.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -495,8 +495,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="58"
-                                    class="link-to-prism">src/app/services/subtask.service.ts:58</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/services/subtask.service.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -562,8 +562,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="44"
-                                    class="link-to-prism">src/app/services/subtask.service.ts:44</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/services/subtask.service.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -667,53 +667,45 @@ import { environment } from &#x27;src/environments/environment&#x27;;
 
 // Define the Subtask model
 export interface Subtask {
-  id?: number;  // Optional if not yet created
+  id?: number; // Optional if not yet created
   text: string;
   completed: boolean;
 }
 
 // Define the service that handles API operations for Subtasks
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class SubtaskService {
   private apiUrl &#x3D; &#x60;${environment.apiUrl}/subtasks/&#x60;;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getSubtasks(): Observable&lt;Subtask[]&gt; {
-    return this.http.get&lt;Subtask[]&gt;(this.apiUrl).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get&lt;Subtask[]&gt;(this.apiUrl).pipe(catchError(this.handleError));
   }
 
   getSubtask(id: number): Observable&lt;Subtask&gt; {
-    return this.http.get&lt;Subtask&gt;(&#x60;${this.apiUrl}/${id}&#x60;).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get&lt;Subtask&gt;(&#x60;${this.apiUrl}/${id}&#x60;).pipe(catchError(this.handleError));
   }
 
   createSubtask(subtask: Subtask): Observable&lt;Subtask&gt; {
     return this.http.post&lt;Subtask&gt;(this.apiUrl, subtask).pipe(
-      catchError((error) &#x3D;&gt; {
+      catchError(error &#x3D;&gt; {
         console.error(&#x27;Error creating subtask:&#x27;, error);
         return throwError(() &#x3D;&gt; new Error(&#x27;Error creating subtask&#x27;));
-      })
+      }),
     );
   }
 
   updateSubtask(id: number, subtask: Subtask): Observable&lt;Subtask&gt; {
     const url &#x3D; &#x60;${this.apiUrl.replace(/\/+$/, &#x27;&#x27;)}/${id}/&#x60;; // Ensure trailing slash
 
-    return this.http.put&lt;Subtask&gt;(url, subtask).pipe(
-        catchError(this.handleError)
-    );
-}
+    return this.http.put&lt;Subtask&gt;(url, subtask).pipe(catchError(this.handleError));
+  }
 
   deleteSubtask(id: number): Observable&lt;void&gt; {
-    return this.http.delete&lt;void&gt;(&#x60;${this.apiUrl}/${id}&#x60;).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.delete&lt;void&gt;(&#x60;${this.apiUrl}/${id}&#x60;).pipe(catchError(this.handleError));
   }
 
   private handleError(error: any) {
@@ -729,7 +721,8 @@ export class SubtaskService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
-}</code></pre>
+}
+</code></pre>
     </div>
 
 </div>

@@ -12,55 +12,44 @@
   font-style: normal;
 }
 
-
 body {
- background-color: #F6F7F8 !important;
- font-family: 'Inter', sans-serif !important;
+  background-color: #f6f7f8 !important;
+  font-family: 'Inter', sans-serif !important;
 }
 
 h1 {
   font-family: 'InterBold';
-  font-size: calc(2.375rem + 1.5vw)!important;
-  font-weight: 700!important;
+  font-size: calc(2.375rem + 1.5vw) !important;
+  font-weight: 700 !important;
 }
 
-
-
-$primary: #2A3647; 
-$primary-hover: #29ABE2; 
-
-
-
-
+$primary: #2a3647;
+$primary-hover: #29abe2;
 
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 .form-control:focus {
-  border-color: #29ABE2!important;
+  border-color: #29abe2 !important;
 }
 
 .form-control {
-  box-shadow: none!important;
+  box-shadow: none !important;
 }
 
 .btn-primary:hover {
-    background-color: $primary-hover !important;
-    border-color: $primary-hover !important;
-  }
-
-
-  .btn-default {
-    border-color: #2A3647 !important; /* Change 'blue' to your desired border color */
-    color: #2A3647 !important; /* Change 'blue' to your desired font color */
-  }
-
-
-.btn-default:hover {
-  border-color: #29ABE2 !important; /* Change 'blue' to your desired border color */
-  color: #29ABE2 !important; /* Change 'blue' to your desired font color */
+  background-color: $primary-hover !important;
+  border-color: $primary-hover !important;
 }
 
+.btn-default {
+  border-color: #2a3647 !important; /* Change 'blue' to your desired border color */
+  color: #2a3647 !important; /* Change 'blue' to your desired font color */
+}
 
+.btn-default:hover {
+  border-color: #29abe2 !important; /* Change 'blue' to your desired border color */
+  color: #29abe2 !important; /* Change 'blue' to your desired font color */
+}
 
 .w180 {
   width: 180px;
@@ -74,7 +63,7 @@ $primary-hover: #29ABE2;
   display: none;
 }
 
-.cursor  {
+.cursor {
   cursor: pointer;
 }
 
@@ -88,5 +77,5 @@ $primary-hover: #29ABE2;
 
   .sidebarComponent {
     display: block;
-}
+  }
 }

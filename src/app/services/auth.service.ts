@@ -11,12 +11,16 @@ export class UserRegistrationService {
 
   constructor(private http: HttpClient) {}
 
-  registerUser(userData: { name: string; email: string; password: string; confirmPassword: string }): Observable<any> {
+  registerUser(userData: {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  }): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(this.registrationUrl, userData, { headers: headers })
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http
+      .post(this.registrationUrl, userData, { headers: headers })
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(error: any) {

@@ -29,7 +29,7 @@ describe('ScreenSizeService', () => {
     expect(service).toBeTruthy(); // Check if the service is instantiated correctly
   });
 
-  it('should emit true when the screen is handset or tablet', (done) => {
+  it('should emit true when the screen is handset or tablet', done => {
     // Mock the observe method to return a state with matches: true
     const mockBreakpointState: BreakpointState = { matches: true, breakpoints: {} };
     mockBreakpointObserver.observe.and.returnValue(of(mockBreakpointState));
@@ -37,13 +37,13 @@ describe('ScreenSizeService', () => {
     // Inject the service after setting up the mock
     service = TestBed.inject(ScreenSizeService);
 
-    service.isHandsetOrTablet$.subscribe((isHandsetOrTablet) => {
+    service.isHandsetOrTablet$.subscribe(isHandsetOrTablet => {
       expect(isHandsetOrTablet).toBeTrue(); // Expect true when matches is true
       done(); // Call done to finish the async test
     });
   });
 
-  it('should emit false when the screen is not handset or tablet', (done) => {
+  it('should emit false when the screen is not handset or tablet', done => {
     // Mock the observe method to return a state with matches: false
     const mockBreakpointState: BreakpointState = { matches: false, breakpoints: {} };
     mockBreakpointObserver.observe.and.returnValue(of(mockBreakpointState));
@@ -51,7 +51,7 @@ describe('ScreenSizeService', () => {
     // Inject the service after setting up the mock
     service = TestBed.inject(ScreenSizeService);
 
-    service.isHandsetOrTablet$.subscribe((isHandsetOrTablet) => {
+    service.isHandsetOrTablet$.subscribe(isHandsetOrTablet => {
       expect(isHandsetOrTablet).toBeFalse(); // Expect false when matches is false
       done(); // Call done to finish the async test
     });

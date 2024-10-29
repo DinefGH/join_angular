@@ -1,228 +1,199 @@
 h1 {
-    display: flex;
-    justify-content: center;
-    margin: 16px;
+  display: flex;
+  justify-content: center;
+  margin: 16px;
 }
-
 
 .headlineContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
 }
-
 
 .underline {
-    border-bottom: 3px solid;
-    border-color: #29ABE2;
-    width: 60%;
+  border-bottom: 3px solid;
+  border-color: #29abe2;
+  width: 60%;
 }
-
 
 .inputField {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
-
 
 .inputContainer {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    position: relative;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
-
 
 .h58 {
-    height: 56px;
+  height: 56px;
 }
-
 
 .borderNone {
-    border: none !important;
+  border: none !important;
 }
-
 
 .formContainer {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
-
 
 .formInput {
-    background-image: url('/assets/img/mail.png');
-    background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
+  background-image: url('/assets/img/mail.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 18px);
 }
-
 
 .formInputName {
-    background-image: url('/assets/img/person.png');
-    background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
+  background-image: url('/assets/img/person.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 18px);
 }
-
-
 
 .formInputPassword {
-    background-repeat: no-repeat;
-    background-position: right 10px center; // Adjust this value based on your design needs
-    padding-right: 40px; 
+  background-repeat: no-repeat;
+  background-position: right 10px center; // Adjust this value based on your design needs
+  padding-right: 40px;
 }
-
 
 .loginContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
-
 .logoContainer {
-    height:20vh;
-    position: relative;
-    top: 16px;
-    width: calc(100% - 32px);
+  height: 20vh;
+  position: relative;
+  top: 16px;
+  width: calc(100% - 32px);
 }
 
 .logoContainerMobile {
-    display:none;
+  display: none;
 }
-
 
 .mainContainer {
-    height:80vh;
-    background-color: #FFFFFF;
-    width: min(652px, 90%);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 30px;
+  height: 80vh;
+  background-color: #ffffff;
+  width: min(652px, 90%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 30px;
 }
-
 
 .footerContainer {
-    height:20vh;
-    width: 90vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+  height: 20vh;
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
-
 
 .SignupFootercontainer {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 90vw;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90vw;
 }
-
 
 .btn-toggle-visibility {
-    position: absolute;
-    height: 100%;
-    right: 0px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
+  position: absolute;
+  height: 100%;
+  right: 0px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
-
 
 .checkboxContainer {
-    width: 80%;
+  width: 80%;
 }
-
 
 .checkboxInput {
-    border-color: #2A3647;
-    border-width: 2px;
-    box-shadow: none;
+  border-color: #2a3647;
+  border-width: 2px;
+  box-shadow: none;
 }
 
-
 .signedSuccessContainer {
-    position: fixed;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #2A3647;
-    border-radius: 20px;
-    height: 72px;
-    width: min(652px, 80%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 1.25rem;
-    z-index: 3;
-    animation: slideInFromBottom 0.5s ease forwards;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2a3647;
+  border-radius: 20px;
+  height: 72px;
+  width: min(652px, 80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.25rem;
+  z-index: 3;
+  animation: slideInFromBottom 0.5s ease forwards;
 }
 
 .notJoin {
-    font-weight: 400;
-    font-size: 1.5rem;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
-
-
-
 
 .privacyLink {
-   color: #29ABE2;
-   cursor: pointer;
+  color: #29abe2;
+  cursor: pointer;
 }
-
 
 .linkContainer {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 90vw;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90vw;
 }
-
 
 .link {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 @media screen and (orientation: landscape) and (max-width: 1024px) {
-    .logoContainer {
-      display: none;
-    }
-
-    .logoContainerMobile {
-        display: block;
-        position: absolute;
-        top: 16px;
-        left: 16px;
-    }
-
-    .mainContainer {
-        height: 100vh;
-        width: 100vw;
-    }
-
-
+  .logoContainer {
+    display: none;
   }
 
-  @keyframes slideInFromBottom {
-    0% {
-      transform: translateY(100vh); // Start from below the view
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0); // End at the center
-      opacity: 1;
-    }
+  .logoContainerMobile {
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 16px;
   }
-  
+
+  .mainContainer {
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100vh); // Start from below the view
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); // End at the center
+    opacity: 1;
+  }
+}

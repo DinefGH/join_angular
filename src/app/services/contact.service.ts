@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Contact } from 'src/assets/models/contact.model'; // Adjust path as necessary
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ContactService {
   private contactSubject = new BehaviorSubject<Contact | null>(null);

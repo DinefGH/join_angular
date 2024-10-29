@@ -189,8 +189,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -258,8 +258,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/custom-dateparser-formatter.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -387,7 +387,11 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
     if (value) {
       const dateParts &#x3D; value.trim().split(&#x27;/&#x27;);
       if (dateParts.length &#x3D;&#x3D;&#x3D; 3) {
-        return { day: parseInt(dateParts[0], 10), month: parseInt(dateParts[1], 10), year: parseInt(dateParts[2], 10) };
+        return {
+          day: parseInt(dateParts[0], 10),
+          month: parseInt(dateParts[1], 10),
+          year: parseInt(dateParts[2], 10),
+        };
       }
     }
     return null;
@@ -401,9 +405,6 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
     return number &lt; 10 ? &#x60;0${number}&#x60; : number;
   }
 }
-
-
-
 </code></pre>
     </div>
 

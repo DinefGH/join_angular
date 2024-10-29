@@ -32,7 +32,7 @@ describe('CategoryService', () => {
     ];
 
     // Call the getCategories method
-    service.getCategories().subscribe((categories) => {
+    service.getCategories().subscribe(categories => {
       expect(categories.length).toBe(2); // Verify that two categories are returned
       expect(categories).toEqual(mockCategories); // Verify that the returned categories match the mock data
     });
@@ -51,9 +51,9 @@ describe('CategoryService', () => {
     // Call the getCategories method and handle the error
     service.getCategories().subscribe(
       () => fail('Expected an error, but got a response'),
-      (error) => {
+      error => {
         expect(error).toBeTruthy(); // Verify that an error is returned
-      }
+      },
     );
 
     // Expect a single GET request to the correct API URL

@@ -245,8 +245,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/app/services/auth.service.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/services/auth.service.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -416,12 +416,16 @@ export class UserRegistrationService {
 
   constructor(private http: HttpClient) {}
 
-  registerUser(userData: { name: string; email: string; password: string; confirmPassword: string }): Observable&lt;any&gt; {
+  registerUser(userData: {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  }): Observable&lt;any&gt; {
     const headers &#x3D; new HttpHeaders({ &#x27;Content-Type&#x27;: &#x27;application/json&#x27; });
-    return this.http.post(this.registrationUrl, userData, { headers: headers })
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http
+      .post(this.registrationUrl, userData, { headers: headers })
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(error: any) {
@@ -429,7 +433,8 @@ export class UserRegistrationService {
     console.error(&#x27;There was an error in Service!&#x27;, error);
     return throwError(error);
   }
-}</code></pre>
+}
+</code></pre>
     </div>
 
 </div>

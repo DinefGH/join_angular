@@ -10,7 +10,9 @@ describe('AuthGuard', () => {
   let mockRouterStateSnapshot: jasmine.SpyObj<RouterStateSnapshot>;
 
   beforeEach(() => {
-    mockRouterStateSnapshot = jasmine.createSpyObj<RouterStateSnapshot>('RouterStateSnapshot', ['url']);
+    mockRouterStateSnapshot = jasmine.createSpyObj<RouterStateSnapshot>('RouterStateSnapshot', [
+      'url',
+    ]);
 
     TestBed.configureTestingModule({
       providers: [
@@ -18,10 +20,10 @@ describe('AuthGuard', () => {
         {
           provide: Router,
           useValue: {
-            navigate: jasmine.createSpy('navigate')
-          }
-        }
-      ]
+            navigate: jasmine.createSpy('navigate'),
+          },
+        },
+      ],
     });
 
     authGuard = TestBed.inject(AuthGuard);

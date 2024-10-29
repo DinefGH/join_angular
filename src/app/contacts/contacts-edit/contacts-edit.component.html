@@ -1,38 +1,74 @@
 <div class="editContactsBackground" (click)="closeEditComponent()">
-<main class="addContactsContentConatiner" (click)="$event.stopPropagation()">
+  <main class="addContactsContentConatiner" (click)="$event.stopPropagation()">
     <div class="topContainerAddContacts">
-        <div class="closeIconContainer"  (click)="closeEditComponent()">
-            <img class="closeIcon" src="./assets/img/close.png" alt="Close icon">
-        </div>
-        <div>
-            <h1>Edit Contact</h1>
-            <div class="addContactsUnderline"></div>
-        </div>
-        <div class="intitialsEditContactContainer" [style.backgroundColor]="contact.color">
-          <span class="initialsCircleContactEdit">{{ getInitials(contact.name) }}</span>
+      <div class="closeIconContainer" (click)="closeEditComponent()">
+        <img class="closeIcon" src="./assets/img/close.png" alt="Close icon" />
       </div>
-      
+      <div>
+        <h1>Edit Contact</h1>
+        <div class="addContactsUnderline"></div>
+      </div>
+      <div class="intitialsEditContactContainer" [style.backgroundColor]="contact.color">
+        <span class="initialsCircleContactEdit">{{ getInitials(contact.name) }}</span>
+      </div>
     </div>
     <div class="bottomContainerContacts" *ngIf="contact">
-      <form class="formContainerAddContacts" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">            <div class="form-floating mb-3 inputContainer">
-              <input type="text" id="floatingInputContactsName" class="form-control formInputContacsName custom-input-height" [(ngModel)]="contact.name" name="name" placeholder="Name" required>
-              <label class="colorFont" for="floatingInputContactsName">Name</label>
-            </div>
-          
-            <div class="form-floating mb-3 inputContainer">
-              <input type="email" id="floatingInputContactsEmail" class="form-control formInputContactsMail" [(ngModel)]="contact.email" name="email" placeholder="Email" required>
-              <label class="colorFont" for="floatingInputContactsEmail">Email</label>
-            </div>
-          
-            <div class="form-floating mb-3 inputContainer">
-              <input type="number" id="floatingInputContactsPhone" class="form-control formInputContacsPhone" [(ngModel)]="contact.phone" name="phone" placeholder="Phone" required>
-              <label class="colorFont" for="floatingInputContactsPhone">Phone</label>
-            </div>
-            <div class="deleteSaveContainer">
-              <button type="button" class="btn btn-default btn-lg deleteButton" (click)="deleteContact()">Delete</button>
-              <button type="submit" class="btn btn-primary btn-lg saveButton">Save<i class="fa-solid fa-check"></i></button>
-            </div>
-          </form>
+      <form
+        class="formContainerAddContacts"
+        #contactForm="ngForm"
+        (ngSubmit)="onSubmit(contactForm)"
+      >
+        <div class="form-floating mb-3 inputContainer">
+          <input
+            type="text"
+            id="floatingInputContactsName"
+            class="form-control formInputContacsName custom-input-height"
+            [(ngModel)]="contact.name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+          <label class="colorFont" for="floatingInputContactsName">Name</label>
+        </div>
+
+        <div class="form-floating mb-3 inputContainer">
+          <input
+            type="email"
+            id="floatingInputContactsEmail"
+            class="form-control formInputContactsMail"
+            [(ngModel)]="contact.email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <label class="colorFont" for="floatingInputContactsEmail">Email</label>
+        </div>
+
+        <div class="form-floating mb-3 inputContainer">
+          <input
+            type="number"
+            id="floatingInputContactsPhone"
+            class="form-control formInputContacsPhone"
+            [(ngModel)]="contact.phone"
+            name="phone"
+            placeholder="Phone"
+            required
+          />
+          <label class="colorFont" for="floatingInputContactsPhone">Phone</label>
+        </div>
+        <div class="deleteSaveContainer">
+          <button
+            type="button"
+            class="btn btn-default btn-lg deleteButton"
+            (click)="deleteContact()"
+          >
+            Delete
+          </button>
+          <button type="submit" class="btn btn-primary btn-lg saveButton">
+            Save<i class="fa-solid fa-check"></i>
+          </button>
+        </div>
+      </form>
     </div>
-</main>
+  </main>
 </div>

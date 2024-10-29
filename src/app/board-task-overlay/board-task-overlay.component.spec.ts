@@ -26,19 +26,24 @@ describe('BoardTaskOverlayComponent', () => {
       status: 'todo',
       subtasks: [
         { id: 1, text: 'Subtask 1', completed: false },
-        { id: 2, text: 'Subtask 2', completed: true }
+        { id: 2, text: 'Subtask 2', completed: true },
       ],
       assigned_to: [],
-      contacts: []
-    }
+      contacts: [],
+    },
   ];
 
-  const mockCategories: Category[] = [
-    { id: 1, name: 'Work', color: '#FF0000' }
-  ];
+  const mockCategories: Category[] = [{ id: 1, name: 'Work', color: '#FF0000' }];
 
   const mockContacts: Contact[] = [
-    { id: 1, name: 'John Doe', initials: 'JD', email: 'john@example.com', phone: '123-456-7890', color: '#FF0000' }
+    {
+      id: 1,
+      name: 'John Doe',
+      initials: 'JD',
+      email: 'john@example.com',
+      phone: '123-456-7890',
+      color: '#FF0000',
+    },
   ];
 
   beforeEach(async () => {
@@ -53,8 +58,8 @@ describe('BoardTaskOverlayComponent', () => {
         { provide: TaskService, useValue: taskServiceSpy },
         { provide: CategoryService, useValue: categoryServiceSpy },
         { provide: AddContactService, useValue: addContactServiceSpy },
-        { provide: SubtaskService, useValue: subtaskServiceSpy }
-      ]
+        { provide: SubtaskService, useValue: subtaskServiceSpy },
+      ],
     }).compileComponents();
 
     taskService = TestBed.inject(TaskService) as jasmine.SpyObj<TaskService>;
@@ -129,42 +134,39 @@ describe('BoardTaskOverlayComponent', () => {
     expect(component.selectedTask).toBeNull();
   });
 
-
-
   it('should return correct subtask completion string', () => {
     const task: Task = {
       id: 1,
       title: 'Test Task',
-      subtasks: [{ text: 'Subtask 1', completed: true }, { text: 'Subtask 2', completed: false }]
+      subtasks: [
+        { text: 'Subtask 1', completed: true },
+        { text: 'Subtask 2', completed: false },
+      ],
     } as Task;
 
     const result = component.getSubtaskCompletion(task);
     expect(result).toBe('1/2');
   });
 
-
-  
   it('should return the correct contact by ID', () => {
     component.contacts = [
       { id: 1, name: 'John Doe', email: 'john@example.com' } as Contact,
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com' } as Contact
+      { id: 2, name: 'Jane Smith', email: 'jane@example.com' } as Contact,
     ];
 
     const contact = component.getContactById(1);
     expect(contact).toEqual(jasmine.objectContaining({ id: 1, name: 'John Doe' }));
   });
 
-
   it('should return undefined if contact not found', () => {
     component.contacts = [
       { id: 1, name: 'John Doe', email: 'john@example.com' } as Contact,
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com' } as Contact
+      { id: 2, name: 'Jane Smith', email: 'jane@example.com' } as Contact,
     ];
 
     const contact = component.getContactById(3);
     expect(contact).toBeUndefined();
   });
-
 
   it('should return correct initials for a name', () => {
     const result = component.getInitials('John Doe');
@@ -176,54 +178,55 @@ describe('BoardTaskOverlayComponent', () => {
     expect(result).toBe('J');
   });
 
-
   it('should return correct subtask completion string', () => {
     const task: Task = {
       id: 1,
       title: 'Test Task',
-      subtasks: [{ text: 'Subtask 1', completed: true }, { text: 'Subtask 2', completed: false }]
+      subtasks: [
+        { text: 'Subtask 1', completed: true },
+        { text: 'Subtask 2', completed: false },
+      ],
     } as Task;
 
     const result = component.getSubtaskCompletion(task);
     expect(result).toBe('1/2');
   });
 
-
   it('should return empty string if no subtasks', () => {
     const task = {
       id: 1,
       title: 'Test Task',
-      subtasks: []
+      subtasks: [],
     } as Partial<Task>;
-  
+
     const result = component.getSubtaskCompletion(task as Task);
     expect(result).toBe('');
   });
-
 
   it('should return 0% completion for tasks with no subtasks', () => {
     const task = {
       id: 1,
       title: 'Test Task',
-      subtasks: []
+      subtasks: [],
     } as Partial<Task>;
 
     const result = component.getSubtaskCompletionPercentage(task as Task);
     expect(result).toBe(0);
   });
 
-
   it('should return correct completion percentage', () => {
     const task: Task = {
       id: 1,
       title: 'Test Task',
-      subtasks: [{ text: 'Subtask 1', completed: true }, { text: 'Subtask 2', completed: false }]
+      subtasks: [
+        { text: 'Subtask 1', completed: true },
+        { text: 'Subtask 2', completed: false },
+      ],
     } as Task;
 
     const result = component.getSubtaskCompletionPercentage(task);
     expect(result).toBe(50);
   });
-
 
   it('should open the edit task overlay and hide the task overlay container', () => {
     component.isEditTaskVisible = false;
@@ -234,7 +237,6 @@ describe('BoardTaskOverlayComponent', () => {
     expect(component.isEditTaskVisible).toBeTrue(); // The edit task overlay should be visible
     expect(component.isTaskOverlayContainerVisible).toBeFalse(); // The task overlay container should be hidden
   });
-
 
   it('should handle task update and hide the edit task overlay', () => {
     spyOn(component, 'loadTasks'); // Spy on the loadTasks method to ensure it's called
@@ -247,10 +249,9 @@ describe('BoardTaskOverlayComponent', () => {
     expect(component.isEditTaskVisible).toBeFalse(); // The edit task overlay should be hidden after update
   });
 
-
   it('should close the edit task overlay and reset selected task', () => {
     component.isEditTaskVisible = true;
-    
+
     // Provide all required properties for the Task object
     component.selectedTask = {
       id: 1,
@@ -260,7 +261,7 @@ describe('BoardTaskOverlayComponent', () => {
       subtasks: [],
       contacts: [],
       due_date: '2024-01-01',
-      status: 'todo'
+      status: 'todo',
     };
 
     component.closeEditTaskOverlay();

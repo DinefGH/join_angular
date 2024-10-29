@@ -12,10 +12,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SummaryComponent } from './summary/summary.component';
 import { HeaderBarMobileComponent } from './header-bar-mobile/header-bar-mobile.component';
 import { AddTaskComponent } from './add-task/add-task.component';
-import { NgbModule,  NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomDateParserFormatter } from './custom-dateparser-formatter';
-import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
 import { UserRegistrationService } from 'src/app/services/auth.service';
 import { ContactsViewComponent } from './contacts/contacts-view/contacts-view.component';
@@ -25,12 +25,10 @@ import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.co
 import { AuthInterceptor } from 'src/app/auth.interceptor';
 import { BoardComponent } from './board/board.component';
 import { BoardTaskOverlayComponent } from './board-task-overlay/board-task-overlay.component';
-import { BoardEditTaskComponent } from './board-edit-task/board-edit-task.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PrivacyPolicyComponent } from './imprint/privacy-policy/privacy-policy.component';
 import { LegalNoticeComponent } from './imprint/legal-notice/legal-notice.component';
-
 
 @NgModule({
   declarations: [
@@ -49,7 +47,6 @@ import { LegalNoticeComponent } from './imprint/legal-notice/legal-notice.compon
     ContactsEditComponent,
     BoardComponent,
     BoardTaskOverlayComponent,
-    BoardEditTaskComponent,
     EditTaskComponent,
     PrivacyPolicyComponent,
     LegalNoticeComponent,
@@ -69,8 +66,7 @@ import { LegalNoticeComponent } from './imprint/legal-notice/legal-notice.compon
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     UserService,
     UserRegistrationService,
-
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -52,7 +52,7 @@ describe('UserService', () => {
       return null;
     });
 
-    service.fetchCurrentUser().subscribe((user) => {
+    service.fetchCurrentUser().subscribe(user => {
       expect(user).toEqual(mockUser);
     });
 
@@ -68,7 +68,7 @@ describe('UserService', () => {
   it('should handle error while fetching user details', () => {
     spyOn(localStorage, 'getItem').and.returnValue('mock-token');
 
-    service.fetchCurrentUser().subscribe((user) => {
+    service.fetchCurrentUser().subscribe(user => {
       expect(user).toBeNull(); // Expect null when there's an error
     });
 
@@ -91,15 +91,15 @@ describe('UserService', () => {
   it('should clear user from BehaviorSubject when set to null', () => {
     // Spy on removeItem in localStorage
     const mockRemoveItem = spyOn(localStorage, 'removeItem');
-  
+
     // Call the service method to set the user to null
     service.setCurrentUser(null);
-  
+
     // Subscribe to the current user and check if it is null
     service.getCurrentUser().subscribe(user => {
       expect(user).toBeNull(); // Ensure the BehaviorSubject is updated to null
     });
-  
+
     // Ensure localStorage.removeItem('user_details') was called
     expect(mockRemoveItem).toHaveBeenCalledWith('user_details');
   });

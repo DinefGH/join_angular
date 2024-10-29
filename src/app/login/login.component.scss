@@ -1,235 +1,210 @@
 h1 {
-    display: flex;
-    justify-content: center;
-    margin: 16px;
+  display: flex;
+  justify-content: center;
+  margin: 16px;
 }
-
 
 .headlineContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
 }
-
 
 .underline {
-    border-bottom: 3px solid;
-    border-color: #29ABE2;
-    width: 60%;
+  border-bottom: 3px solid;
+  border-color: #29abe2;
+  width: 60%;
 }
-
 
 .inputField {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
-
 
 .inputContainer {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    position: relative;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
-
 
 .h58 {
-    height: 56px;
+  height: 56px;
 }
-
 
 .borderNone {
-    border: none !important;
+  border: none !important;
 }
-
 
 .formContainer {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
-
 
 .formInput {
-    background-image: url('/assets/img/mail.png');
-    background-repeat: no-repeat;
-    background-position: calc(100% - 18px);
+  background-image: url('/assets/img/mail.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 18px);
 }
-
 
 .formInputPassword {
-    background-repeat: no-repeat;
-    background-position: right 10px center; 
-    padding-right: 40px; 
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 40px;
 }
-
 
 .loginContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
-
 .logoContainer {
-    height:20vh;
-    position: relative;
-    top: 16px;
-    width: calc(100% - 32px);
+  height: 20vh;
+  position: relative;
+  top: 16px;
+  width: calc(100% - 32px);
 }
 
 .logoContainerMobile {
-    display:none;
+  display: none;
 }
-
 
 .mainContainer {
-    height:80vh;
-    background-color: #FFFFFF;
-    width: min(652px, 90%);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 30px;
+  height: 80vh;
+  background-color: #ffffff;
+  width: min(652px, 90%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 30px;
 }
-
 
 .footerContainer {
-    height:20vh;
-    width: 90vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+  height: 20vh;
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
-
 
 .SignupFootercontainer {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 90vw;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90vw;
 }
-
 
 .btn-toggle-visibility {
-    position: absolute;
-    height: 100%;
-    right: 0px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
+  position: absolute;
+  height: 100%;
+  right: 0px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
-
 
 .checkboxContainer {
-    width: 80%;
+  width: 80%;
 }
-
 
 .checkboxInput {
-    border-color: #2A3647;
-    border-width: 2px;
-    box-shadow: none;
+  border-color: #2a3647;
+  border-width: 2px;
+  box-shadow: none;
 }
-
 
 .notJoin {
-    font-weight: 400;
-    font-size: 1.5rem;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
-
 
 .linkContainer {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 90vw;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90vw;
 }
-
 
 .link {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 @media screen and (orientation: landscape) and (max-width: 1024px) {
-    .logoContainer {
-      display: none;
-    }
-
-    .logoContainerMobile {
-        display: block;
-        position: absolute;
-        top: 16px;
-        left: 16px;
-    }
-
-    .mainContainer {
-        height: 100vh;
-        width: 100vw;
-    }
-
-
+  .logoContainer {
+    display: none;
   }
 
-
-  /* Overlay styles */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Ensure it's on top of everything */
-    animation: overlayFadeOut 2s ease-in-out forwards; /* Fade out the overlay */
-  }
-  
-  /* SVG logo animation */
-  .logo {
+  .logoContainerMobile {
+    display: block;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(2); /* Centered and large */
-    animation: logoMove 2s ease-in-out forwards;
-    transform-origin: center center; /* Ensure scaling happens from the center */
+    top: 16px;
+    left: 16px;
   }
-  
-  /* Keyframes for moving the logo and reducing opacity */
-  @keyframes logoMove {
-    0% {
-      transform: scale(2) translate(-50%, -50%); /* Start large in the center */
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1) translate(0, 0); /* End small in the top-left corner */
-      opacity: 0; /* Fade out */
-      top: 16px;
-      left: 16px;
-    }
+
+  .mainContainer {
+    height: 100vh;
+    width: 100vw;
   }
-  
-  /* Keyframes for overlay fade out */
-  @keyframes overlayFadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      visibility: hidden; /* Ensure the overlay is completely hidden at the end */
-    }
+}
+
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's on top of everything */
+  animation: overlayFadeOut 2s ease-in-out forwards; /* Fade out the overlay */
+}
+
+/* SVG logo animation */
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2); /* Centered and large */
+  animation: logoMove 2s ease-in-out forwards;
+  transform-origin: center center; /* Ensure scaling happens from the center */
+}
+
+/* Keyframes for moving the logo and reducing opacity */
+@keyframes logoMove {
+  0% {
+    transform: scale(2) translate(-50%, -50%); /* Start large in the center */
+    opacity: 1;
   }
-  
+  100% {
+    transform: scale(1) translate(0, 0); /* End small in the top-left corner */
+    opacity: 0; /* Fade out */
+    top: 16px;
+    left: 16px;
+  }
+}
+
+/* Keyframes for overlay fade out */
+@keyframes overlayFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden; /* Ensure the overlay is completely hidden at the end */
+  }
+}

@@ -1,104 +1,91 @@
-
 .privacyPolicyContainer {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
 }
 
 .sidebarContnentContainer {
-    display: none;
+  display: none;
 }
-
 
 .privacyPolicyContent {
-    background-color: #f6f7f8;
-    width: 100vw;
-    font-weight: bold;
-    padding: 32px;
-    overflow-y: auto;
-    margin-top: 10vh;
+  background-color: #f6f7f8;
+  width: 100vw;
+  font-weight: bold;
+  padding: 32px;
+  overflow-y: auto;
+  margin-top: 10vh;
 }
 
-
 .headerContainer {
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
-    height:10vh;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 3;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  height: 10vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
 }
 
 .iconContainerHeader {
-    margin-left: 16px;
-    display: block;
+  margin-left: 16px;
+  display: block;
 }
 
 .initialsContainer {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #2A3647;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-    
+  width: 40px;
+  height: 40px;
+  border: 2px solid #2a3647;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
 }
 
 .initials {
-    font-weight: bold;
-    color: #29ABE2;
-    text-decoration: none;
+  font-weight: bold;
+  color: #29abe2;
+  text-decoration: none;
 }
 
 .linkContainer {
-    background-color: #2A3647;
-    inset: 56px 4px auto auto !important;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    transform: none !important;
+  background-color: #2a3647;
+  inset: 56px 4px auto auto !important;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transform: none !important;
 }
 
 .link {
-    color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 .link:hover {
-    background-color: #091931;
-    border-radius: 10px;
+  background-color: #091931;
+  border-radius: 10px;
 }
 
 .headerText {
-    display: none;
+  display: none;
 }
 
-
-
-
-
 @media (min-width: 1025px) {
-
-
-
-.sidebarContnentContainer {
-
+  .sidebarContnentContainer {
     background-color: #2a3647;
     height: 100%;
     width: 15vw;
     display: flex;
     align-items: center;
-    flex-direction: column
-}
+    flex-direction: column;
+  }
 
-.iconContainerSidebar {
+  .iconContainerSidebar {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,81 +93,73 @@
     padding-bottom: 8px;
     margin-top: 40px;
     width: 15vw;
-}
+  }
 
-
-.privacyPolicyContent {
+  .privacyPolicyContent {
     width: 85vw;
-}
+  }
 
-
-
-
-.boardIcon {
+  .boardIcon {
     padding-right: 16px;
-}
+  }
 
-.iconText {
+  .iconText {
     color: white;
     font-weight: 500;
     margin-left: 10px;
-}
+  }
 
-.hoverSidebarIcons:hover {
+  .hoverSidebarIcons:hover {
     background-color: #091931;
     cursor: pointer;
-}
+  }
 
-.activeRouteIconSidebar {
+  .activeRouteIconSidebar {
     background-color: #091931 !important;
-}
+  }
 
-.logoContainer {
+  .logoContainer {
     height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
-
-.allIconsContainer {
+  .allIconsContainer {
     height: 55vh;
     display: flex;
     flex-direction: column;
     width: 15vw;
+  }
 
-}
-
-.imprintContainer {
+  .imprintContainer {
     height: 10vh;
     color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-}
+  }
 
-.imprintLink {
+  .imprintLink {
     cursor: pointer;
-}
+  }
 
-.imprintLink:hover {
-    color:#29ABE2;
-}
+  .imprintLink:hover {
+    color: #29abe2;
+  }
 
-.headerContainer {
+  .headerContainer {
     width: 85vw;
     right: 0;
-}
+  }
 
-.iconContainerHeader {
+  .iconContainerHeader {
     display: none;
-}
+  }
 
-.headerText {
+  .headerText {
     display: block;
     font-weight: 500;
     margin-left: 48px;
-}
-
-
+  }
 }

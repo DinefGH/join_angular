@@ -591,10 +591,10 @@ import { SidebarComponent } from &#x27;./sidebar/sidebar.component&#x27;;
 import { SummaryComponent } from &#x27;./summary/summary.component&#x27;;
 import { HeaderBarMobileComponent } from &#x27;./header-bar-mobile/header-bar-mobile.component&#x27;;
 import { AddTaskComponent } from &#x27;./add-task/add-task.component&#x27;;
-import { NgbModule,  NgbDateParserFormatter} from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+import { NgbModule, NgbDateParserFormatter } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
 import { NgbDatepickerModule } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
 import { CustomDateParserFormatter } from &#x27;./custom-dateparser-formatter&#x27;;
-import { HttpClientModule, HTTP_INTERCEPTORS  } from &#x27;@angular/common/http&#x27;;
+import { HttpClientModule, HTTP_INTERCEPTORS } from &#x27;@angular/common/http&#x27;;
 import { UserService } from &#x27;src/app/services/user.service&#x27;;
 import { UserRegistrationService } from &#x27;src/app/services/auth.service&#x27;;
 import { ContactsViewComponent } from &#x27;./contacts/contacts-view/contacts-view.component&#x27;;
@@ -609,7 +609,6 @@ import { EditTaskComponent } from &#x27;./edit-task/edit-task.component&#x27;;
 import { DragDropModule } from &#x27;@angular/cdk/drag-drop&#x27;;
 import { PrivacyPolicyComponent } from &#x27;./imprint/privacy-policy/privacy-policy.component&#x27;;
 import { LegalNoticeComponent } from &#x27;./imprint/legal-notice/legal-notice.component&#x27;;
-
 
 @NgModule({
   declarations: [
@@ -648,11 +647,10 @@ import { LegalNoticeComponent } from &#x27;./imprint/legal-notice/legal-notice.c
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     UserService,
     UserRegistrationService,
-
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 </code></pre>
     </div>
 </div>

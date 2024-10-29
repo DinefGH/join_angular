@@ -27,10 +27,10 @@ describe('SubtaskService', () => {
   it('should retrieve all subtasks', () => {
     const mockSubtasks: Subtask[] = [
       { id: 1, text: 'Subtask 1', completed: false },
-      { id: 2, text: 'Subtask 2', completed: true }
+      { id: 2, text: 'Subtask 2', completed: true },
     ];
 
-    service.getSubtasks().subscribe((subtasks) => {
+    service.getSubtasks().subscribe(subtasks => {
       expect(subtasks.length).toBe(2);
       expect(subtasks).toEqual(mockSubtasks);
     });
@@ -40,13 +40,11 @@ describe('SubtaskService', () => {
     req.flush(mockSubtasks);
   });
 
-
-
   it('should create a new subtask', () => {
     const newSubtask: Subtask = { text: 'New Subtask', completed: false };
     const createdSubtask: Subtask = { id: 3, ...newSubtask };
 
-    service.createSubtask(newSubtask).subscribe((subtask) => {
+    service.createSubtask(newSubtask).subscribe(subtask => {
       expect(subtask).toEqual(createdSubtask);
     });
 
@@ -58,7 +56,7 @@ describe('SubtaskService', () => {
   it('should update an existing subtask', () => {
     const updatedSubtask: Subtask = { id: 1, text: 'Updated Subtask', completed: true };
 
-    service.updateSubtask(1, updatedSubtask).subscribe((subtask) => {
+    service.updateSubtask(1, updatedSubtask).subscribe(subtask => {
       expect(subtask).toEqual(updatedSubtask);
     });
 
@@ -66,12 +64,4 @@ describe('SubtaskService', () => {
     expect(req.request.method).toBe('PUT');
     req.flush(updatedSubtask);
   });
-
-
-
-
-
-
-
-
 });

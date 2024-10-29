@@ -1,15 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
 import { ContactsOverlayService } from 'src/app/services/contacts-overlay-service.service';
 
-
-
 @Component({
   selector: 'app-contacts-view',
   templateUrl: './contacts-view.component.html',
-  styleUrls: ['./contacts-view.component.scss']
+  styleUrls: ['./contacts-view.component.scss'],
 })
 export class ContactsViewComponent implements OnInit, OnChanges {
   @Input() contactId: number | null = null;
@@ -17,7 +23,7 @@ export class ContactsViewComponent implements OnInit, OnChanges {
   isVisible: boolean = false;
   @Input() contact: Contact | null = null;
   @Output() contactDeleted = new EventEmitter<void>();
-  @Output() contactUpdated = new EventEmitter<void>(); 
+  @Output() contactUpdated = new EventEmitter<void>();
   @Output() close = new EventEmitter<void>();
 
   public showEditOverlay: boolean = false;
@@ -26,7 +32,7 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     private route: ActivatedRoute,
     private router: Router,
     private addContactService: AddContactService,
-    private contactsOverlayService: ContactsOverlayService
+    private contactsOverlayService: ContactsOverlayService,
   ) {}
 
   ngOnInit(): void {
@@ -55,10 +61,10 @@ export class ContactsViewComponent implements OnInit, OnChanges {
       next: (response: Contact) => {
         this.contact = response;
       },
-      error: (error) => {
+      error: error => {
         console.error('Failed to load contact details', error);
         this.router.navigate(['/contacts']);
-      }
+      },
     });
   }
 
@@ -72,7 +78,11 @@ export class ContactsViewComponent implements OnInit, OnChanges {
 
   getInitials(name: string | undefined): string {
     if (!name) return '';
-    return name.split(' ').map(n => n[0]).join('').toUpperCase();
+    return name
+      .split(' ')
+      .map(n => n[0])
+      .join('')
+      .toUpperCase();
   }
 
   deleteContact(): void {
@@ -88,14 +98,13 @@ export class ContactsViewComponent implements OnInit, OnChanges {
         this.contactDeleted.emit();
         this.contactsOverlayService.setOverlayVisibility(false);
       },
-      error: (error) => {
+      error: error => {
         console.error('Failed to delete contact', error);
-      }
+      },
     });
   }
 
   onContactEdited(contactEdited: boolean): void {
-
     if (contactEdited) {
       if (this.contact && this.contact.id) {
         this.fetchContactDetails(this.contact.id);

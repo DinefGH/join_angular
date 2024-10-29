@@ -245,7 +245,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -324,8 +324,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:42</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -398,8 +398,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="19"
-                                    class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:19</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -482,7 +482,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -513,7 +513,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -534,15 +534,16 @@ import { User } from &#x27;src/assets/models/user.model&#x27;;
 @Component({
   selector: &#x27;app-header-bar-mobile&#x27;,
   templateUrl: &#x27;./header-bar-mobile.component.html&#x27;,
-  styleUrls: [&#x27;./header-bar-mobile.component.scss&#x27;]
+  styleUrls: [&#x27;./header-bar-mobile.component.scss&#x27;],
 })
 export class HeaderBarMobileComponent implements OnInit {
-
   isDropdownOpen: boolean &#x3D; false;
   userInitial: string &#x3D; &#x27;&#x27;;
 
-  constructor(private router: Router, private userService: UserService) {}
-
+  constructor(
+    private router: Router,
+    private userService: UserService,
+  ) {}
 
   ngOnInit() {
     this.userService.getCurrentUser().subscribe(user &#x3D;&gt; {
@@ -553,7 +554,6 @@ export class HeaderBarMobileComponent implements OnInit {
     });
   }
 
-
   toggleDropdown() {
     this.isDropdownOpen &#x3D; !this.isDropdownOpen;
   }
@@ -563,41 +563,61 @@ export class HeaderBarMobileComponent implements OnInit {
     sessionStorage.removeItem(&#x27;auth_token&#x27;);
     localStorage.removeItem(&#x27;user_details&#x27;);
     this.router.navigateByUrl(&#x27;/login&#x27;);
-    sessionStorage.removeItem(&#x27;showOverlay&#x27;);  
+    sessionStorage.removeItem(&#x27;showOverlay&#x27;);
   }
-
 
   goToSummary() {
     this.router.navigate([&#x27;/summary&#x27;]);
   }
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;headerContainer&quot;&gt;
-        &lt;div class&#x3D;&quot;iconContainerHeader&quot;&gt;
-            &lt;svg class&#x3D;&quot;logo&quot; (click)&#x3D;&quot;goToSummary()&quot; width&#x3D;&quot;40&quot; height&#x3D;&quot;48&quot; viewBox&#x3D;&quot;0 0 32 40&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
-                &lt;path d&#x3D;&quot;M22.927 0.492188H15.8389V8.64696H22.927V0.492188Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
-                &lt;path d&#x3D;&quot;M15.8392 15.2793H22.9273V26.7803C22.9597 29.5478 22.1721 32.2624 20.6646 34.5791C19.1761 36.83 16.3027 39.5081 10.9866 39.5081C5.19613 39.5081 1.8211 36.7698 0 35.2692L4.47096 29.7542C6.24844 31.2055 7.96049 32.3994 11.0138 32.3994C13.3256 32.3994 14.2471 31.4574 14.7869 30.6359C15.5207 29.4949 15.9003 28.1604 15.8774 26.8022L15.8392 15.2793Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
-                &lt;path d&#x3D;&quot;M12.2239 10.1309H5.13574V17.2505H12.2239V10.1309Z&quot; fill&#x3D;&quot;#29ABE2&quot;/&gt;
-                &lt;path d&#x3D;&quot;M26.6409 36.167C26.6409 37.684 25.8721 38.5001 24.798 38.5001C23.7239 38.5001 23.0205 37.5307 23.0205 36.2437C23.0205 34.9567 23.7457 33.938 24.858 33.938C25.9703 33.938 26.6409 34.9402 26.6409 36.167ZM23.8438 36.2272C23.8438 37.1418 24.2091 37.8155 24.8362 37.8155C25.4632 37.8155 25.8176 37.1035 25.8176 36.1725C25.8176 35.3564 25.4904 34.5897 24.8362 34.5897C24.1819 34.5897 23.8438 35.3291 23.8438 36.2272Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
-                &lt;path d&#x3D;&quot;M28.0478 34.0039V38.4291H27.2627V34.0039H28.0478Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
-                &lt;path d&#x3D;&quot;M28.8975 38.4291V34.0039H29.7698L30.7077 35.8276C30.9491 36.3045 31.1639 36.7945 31.351 37.2954C31.302 36.7477 31.2802 36.1179 31.2802 35.4169V34.0039H31.9999V38.4291H31.1875L30.2387 36.567C29.9876 36.0778 29.7637 35.575 29.5681 35.0609C29.5681 35.6086 29.6063 36.2274 29.6063 36.9887V38.4236L28.8975 38.4291Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
-            &lt;/svg&gt;
-            
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;headerText&quot;&gt;Kanban Project Management Tool&lt;/div&gt;
-        &lt;div class&#x3D;&quot;initialsContainer&quot;&gt;
-            &lt;a class&#x3D;&quot;initials&quot; href&#x3D;&quot;#&quot; role&#x3D;&quot;button&quot; data-bs-toggle&#x3D;&quot;dropdown&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
-              {{ userInitial}}
-            &lt;/a&gt;
-          
-            &lt;ul class&#x3D;&quot;dropdown-menu linkContainer&quot;&gt;
-              &lt;li&gt;&lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot;&gt;Legal Notice&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot; (click)&#x3D;&quot;logout(); $event.preventDefault()&quot;&gt;Log out&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/div&gt;
+  &lt;div class&#x3D;&quot;iconContainerHeader&quot;&gt;
+    &lt;svg
+      class&#x3D;&quot;logo&quot;
+      (click)&#x3D;&quot;goToSummary()&quot;
+      width&#x3D;&quot;40&quot;
+      height&#x3D;&quot;48&quot;
+      viewBox&#x3D;&quot;0 0 32 40&quot;
+      fill&#x3D;&quot;none&quot;
+      xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+    &gt;
+      &lt;path d&#x3D;&quot;M22.927 0.492188H15.8389V8.64696H22.927V0.492188Z&quot; fill&#x3D;&quot;#2A3647&quot; /&gt;
+      &lt;path
+        d&#x3D;&quot;M15.8392 15.2793H22.9273V26.7803C22.9597 29.5478 22.1721 32.2624 20.6646 34.5791C19.1761 36.83 16.3027 39.5081 10.9866 39.5081C5.19613 39.5081 1.8211 36.7698 0 35.2692L4.47096 29.7542C6.24844 31.2055 7.96049 32.3994 11.0138 32.3994C13.3256 32.3994 14.2471 31.4574 14.7869 30.6359C15.5207 29.4949 15.9003 28.1604 15.8774 26.8022L15.8392 15.2793Z&quot;
+        fill&#x3D;&quot;#2A3647&quot;
+      /&gt;
+      &lt;path d&#x3D;&quot;M12.2239 10.1309H5.13574V17.2505H12.2239V10.1309Z&quot; fill&#x3D;&quot;#29ABE2&quot; /&gt;
+      &lt;path
+        d&#x3D;&quot;M26.6409 36.167C26.6409 37.684 25.8721 38.5001 24.798 38.5001C23.7239 38.5001 23.0205 37.5307 23.0205 36.2437C23.0205 34.9567 23.7457 33.938 24.858 33.938C25.9703 33.938 26.6409 34.9402 26.6409 36.167ZM23.8438 36.2272C23.8438 37.1418 24.2091 37.8155 24.8362 37.8155C25.4632 37.8155 25.8176 37.1035 25.8176 36.1725C25.8176 35.3564 25.4904 34.5897 24.8362 34.5897C24.1819 34.5897 23.8438 35.3291 23.8438 36.2272Z&quot;
+        fill&#x3D;&quot;#2A3647&quot;
+      /&gt;
+      &lt;path d&#x3D;&quot;M28.0478 34.0039V38.4291H27.2627V34.0039H28.0478Z&quot; fill&#x3D;&quot;#2A3647&quot; /&gt;
+      &lt;path
+        d&#x3D;&quot;M28.8975 38.4291V34.0039H29.7698L30.7077 35.8276C30.9491 36.3045 31.1639 36.7945 31.351 37.2954C31.302 36.7477 31.2802 36.1179 31.2802 35.4169V34.0039H31.9999V38.4291H31.1875L30.2387 36.567C29.9876 36.0778 29.7637 35.575 29.5681 35.0609C29.5681 35.6086 29.6063 36.2274 29.6063 36.9887V38.4236L28.8975 38.4291Z&quot;
+        fill&#x3D;&quot;#2A3647&quot;
+      /&gt;
+    &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;headerText&quot;&gt;Kanban Project Management Tool&lt;/div&gt;
+  &lt;div class&#x3D;&quot;initialsContainer&quot;&gt;
+    &lt;a class&#x3D;&quot;initials&quot; href&#x3D;&quot;#&quot; role&#x3D;&quot;button&quot; data-bs-toggle&#x3D;&quot;dropdown&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+      {{ userInitial }}
+    &lt;/a&gt;
+
+    &lt;ul class&#x3D;&quot;dropdown-menu linkContainer&quot;&gt;
+      &lt;li&gt;&lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot;&gt;Legal Notice&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot; (click)&#x3D;&quot;logout(); $event.preventDefault()&quot;
+          &gt;Log out&lt;/a
+        &gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -607,99 +627,89 @@ export class HeaderBarMobileComponent implements OnInit {
                     <code>./header-bar-mobile.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.headerContainer {
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
-    height:10vh;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 3;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  height: 10vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
 }
 
 .iconContainerHeader {
-    margin-left: 16px;
-    display: block;
+  margin-left: 16px;
+  display: block;
 }
-
 
 .logo {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 .initialsContainer {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #2A3647;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-    
+  width: 40px;
+  height: 40px;
+  border: 2px solid #2a3647;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
 }
 
 .initials {
-    font-weight: bold;
-    color: #29ABE2;
-    text-decoration: none;
+  font-weight: bold;
+  color: #29abe2;
+  text-decoration: none;
 }
 
 .linkContainer {
-    background-color: #2A3647;
-    inset: 56px 4px auto auto !important;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    transform: none !important;
+  background-color: #2a3647;
+  inset: 56px 4px auto auto !important;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transform: none !important;
 }
 
 .link {
-    color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 .link:hover {
-    background-color: #091931;
-    border-radius: 10px;
+  background-color: #091931;
+  border-radius: 10px;
 }
 
 .headerText {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .headerContainer {
+    width: 85vw;
+    right: 0;
+  }
+
+  .iconContainerHeader {
     display: none;
+  }
+
+  .headerText {
+    display: block;
+    font-weight: 500;
+    margin-left: 48px;
+  }
 }
 
-@media (min-width: 1025px) { 
-    .headerContainer {
-        width: 85vw;
-        right: 0;
-    }
-    
-    .iconContainerHeader {
-        display: none;
-    }
-
-    .headerText {
-        display: block;
-        font-weight: 500;
-        margin-left: 48px;
-    }
-
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px) {
+  .headerContainer {
+    height: 15vh;
+  }
 }
-
-
-@media screen and (orientation: landscape) and (max-width: 1024px)  and (max-height: 512px) {
-    .headerContainer {
-        height:15vh;
-        
-    }
-    
-}
-
-
 </code></pre>
     </div>
 
@@ -728,7 +738,7 @@ export class HeaderBarMobileComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="headerContainer">        <div class="iconContainerHeader">            <svg class="logo" (click)="goToSummary()" width="40" height="48" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">                <path d="M22.927 0.492188H15.8389V8.64696H22.927V0.492188Z" fill="#2A3647"/>                <path d="M15.8392 15.2793H22.9273V26.7803C22.9597 29.5478 22.1721 32.2624 20.6646 34.5791C19.1761 36.83 16.3027 39.5081 10.9866 39.5081C5.19613 39.5081 1.8211 36.7698 0 35.2692L4.47096 29.7542C6.24844 31.2055 7.96049 32.3994 11.0138 32.3994C13.3256 32.3994 14.2471 31.4574 14.7869 30.6359C15.5207 29.4949 15.9003 28.1604 15.8774 26.8022L15.8392 15.2793Z" fill="#2A3647"/>                <path d="M12.2239 10.1309H5.13574V17.2505H12.2239V10.1309Z" fill="#29ABE2"/>                <path d="M26.6409 36.167C26.6409 37.684 25.8721 38.5001 24.798 38.5001C23.7239 38.5001 23.0205 37.5307 23.0205 36.2437C23.0205 34.9567 23.7457 33.938 24.858 33.938C25.9703 33.938 26.6409 34.9402 26.6409 36.167ZM23.8438 36.2272C23.8438 37.1418 24.2091 37.8155 24.8362 37.8155C25.4632 37.8155 25.8176 37.1035 25.8176 36.1725C25.8176 35.3564 25.4904 34.5897 24.8362 34.5897C24.1819 34.5897 23.8438 35.3291 23.8438 36.2272Z" fill="#2A3647"/>                <path d="M28.0478 34.0039V38.4291H27.2627V34.0039H28.0478Z" fill="#2A3647"/>                <path d="M28.8975 38.4291V34.0039H29.7698L30.7077 35.8276C30.9491 36.3045 31.1639 36.7945 31.351 37.2954C31.302 36.7477 31.2802 36.1179 31.2802 35.4169V34.0039H31.9999V38.4291H31.1875L30.2387 36.567C29.9876 36.0778 29.7637 35.575 29.5681 35.0609C29.5681 35.6086 29.6063 36.2274 29.6063 36.9887V38.4236L28.8975 38.4291Z" fill="#2A3647"/>            </svg>                    </div>        <div class="headerText">Kanban Project Management Tool</div>        <div class="initialsContainer">            <a class="initials" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">              {{ userInitial}}            </a>                      <ul class="dropdown-menu linkContainer">              <li><a class="dropdown-item link" href="#">Legal Notice</a></li>              <li><a class="dropdown-item link" href="#">Privacy Policy</a></li>              <li><a class="dropdown-item link" href="#" (click)="logout(); $event.preventDefault()">Log out</a></li>            </ul>          </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="headerContainer">  <div class="iconContainerHeader">    <svg      class="logo"      (click)="goToSummary()"      width="40"      height="48"      viewBox="0 0 32 40"      fill="none"      xmlns="http://www.w3.org/2000/svg"    >      <path d="M22.927 0.492188H15.8389V8.64696H22.927V0.492188Z" fill="#2A3647" />      <path        d="M15.8392 15.2793H22.9273V26.7803C22.9597 29.5478 22.1721 32.2624 20.6646 34.5791C19.1761 36.83 16.3027 39.5081 10.9866 39.5081C5.19613 39.5081 1.8211 36.7698 0 35.2692L4.47096 29.7542C6.24844 31.2055 7.96049 32.3994 11.0138 32.3994C13.3256 32.3994 14.2471 31.4574 14.7869 30.6359C15.5207 29.4949 15.9003 28.1604 15.8774 26.8022L15.8392 15.2793Z"        fill="#2A3647"      />      <path d="M12.2239 10.1309H5.13574V17.2505H12.2239V10.1309Z" fill="#29ABE2" />      <path        d="M26.6409 36.167C26.6409 37.684 25.8721 38.5001 24.798 38.5001C23.7239 38.5001 23.0205 37.5307 23.0205 36.2437C23.0205 34.9567 23.7457 33.938 24.858 33.938C25.9703 33.938 26.6409 34.9402 26.6409 36.167ZM23.8438 36.2272C23.8438 37.1418 24.2091 37.8155 24.8362 37.8155C25.4632 37.8155 25.8176 37.1035 25.8176 36.1725C25.8176 35.3564 25.4904 34.5897 24.8362 34.5897C24.1819 34.5897 23.8438 35.3291 23.8438 36.2272Z"        fill="#2A3647"      />      <path d="M28.0478 34.0039V38.4291H27.2627V34.0039H28.0478Z" fill="#2A3647" />      <path        d="M28.8975 38.4291V34.0039H29.7698L30.7077 35.8276C30.9491 36.3045 31.1639 36.7945 31.351 37.2954C31.302 36.7477 31.2802 36.1179 31.2802 35.4169V34.0039H31.9999V38.4291H31.1875L30.2387 36.567C29.9876 36.0778 29.7637 35.575 29.5681 35.0609C29.5681 35.6086 29.6063 36.2274 29.6063 36.9887V38.4236L28.8975 38.4291Z"        fill="#2A3647"      />    </svg>  </div>  <div class="headerText">Kanban Project Management Tool</div>  <div class="initialsContainer">    <a class="initials" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">      {{ userInitial }}    </a>    <ul class="dropdown-menu linkContainer">      <li><a class="dropdown-item link" href="#">Legal Notice</a></li>      <li><a class="dropdown-item link" href="#">Privacy Policy</a></li>      <li>        <a class="dropdown-item link" href="#" (click)="logout(); $event.preventDefault()"          >Log out</a        >      </li>    </ul>  </div></div></div>'
     var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderBarMobileComponent'};

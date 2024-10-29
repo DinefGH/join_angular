@@ -1,4 +1,12 @@
-import { Component, ViewChild, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { OnChanges, SimpleChanges } from '@angular/core';
 import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,14 +17,12 @@ import { Contact } from 'src/assets/models/contact.model';
 import { SubtaskService, Subtask } from 'src/app/services/subtask.service';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-edit-task',
   templateUrl: './edit-task.component.html',
-  styleUrls: ['./edit-task.component.scss']
+  styleUrls: ['./edit-task.component.scss'],
 })
-export class EditTaskComponent implements OnInit, OnChanges  {
+export class EditTaskComponent implements OnInit, OnChanges {
   @ViewChild('dpInput') dpInput!: ElementRef<HTMLInputElement>;
   minDate!: NgbDateStruct;
   taskForm: FormGroup;
@@ -29,7 +35,7 @@ export class EditTaskComponent implements OnInit, OnChanges  {
   @Input() hideHeaderFooter: boolean = false;
   @Input() height: string = '100%';
   @Input() width: string = '100%';
-  @Input() taskId!: number;  // Task ID to edit
+  @Input() taskId!: number; // Task ID to edit
   @Output() taskUpdated = new EventEmitter<void>();
   @Output() closeEditTaskOverlay = new EventEmitter<void>();
   @Output() closeUpdateTaskOverlay = new EventEmitter<void>();
@@ -54,7 +60,7 @@ export class EditTaskComponent implements OnInit, OnChanges  {
     private categoryService: CategoryService,
     private taskService: TaskService,
     private subtaskService: SubtaskService,
-    private router: Router
+    private router: Router,
   ) {
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
@@ -63,8 +69,8 @@ export class EditTaskComponent implements OnInit, OnChanges  {
       priority: ['', Validators.required],
       due_date: [null, Validators.required],
       assigned_to: [[]],
-      status: ['todo', Validators.required]
-  });
+      status: ['todo', Validators.required],
+    });
   }
 
   ngOnInit(): void {
@@ -73,14 +79,13 @@ export class EditTaskComponent implements OnInit, OnChanges  {
     this.loadContacts();
     this.loadCategories();
 
-
     this.categoryService.getCategories().subscribe({
-      next: (categories) => {
+      next: categories => {
         this.categories = categories;
       },
-      error: (error) => {
+      error: error => {
         console.error('Error fetching categories:', error);
-      }
+      },
     });
 
     if (this.taskId) {
@@ -99,15 +104,15 @@ export class EditTaskComponent implements OnInit, OnChanges  {
 
   loadCategories(): void {
     this.categoryService.getCategories().subscribe({
-      next: (categories) => {
+      next: categories => {
         this.categories = categories;
         if (this.task) {
           this.setTaskFormData(this.task); // Ensure the task is set after categories are loaded
         }
       },
-      error: (error) => {
+      error: error => {
         console.error('Error fetching categories:', error);
-      }
+      },
     });
   }
 
@@ -140,21 +145,22 @@ export class EditTaskComponent implements OnInit, OnChanges  {
 
   loadContacts(): void {
     this.addContactService.getContacts().subscribe({
-      next: (contacts) => {
+      next: contacts => {
         this.contacts = contacts;
       },
-      error: (error) => {
+      error: error => {
         console.error('Failed to load contacts:', error);
-      }
+      },
     });
   }
 
   getInitials(name: string | undefined): string {
     if (!name) return '';
 
-    let initials = name.split(' ')
-      .filter((n) => n !== '')
-      .map((n) => n[0]?.toUpperCase() ?? '')
+    let initials = name
+      .split(' ')
+      .filter(n => n !== '')
+      .map(n => n[0]?.toUpperCase() ?? '')
       .slice(0, 2);
 
     return initials.join('');
@@ -192,7 +198,7 @@ export class EditTaskComponent implements OnInit, OnChanges  {
 
   toggleIcons(focused: boolean): void {
     if (!focused) {
-      setTimeout(() => this.isInputFocused = focused, 100);
+      setTimeout(() => (this.isInputFocused = focused), 100);
     } else {
       this.isInputFocused = focused;
     }
@@ -222,16 +228,15 @@ export class EditTaskComponent implements OnInit, OnChanges  {
       const subtask = this.subtasks[index];
       if (subtask) {
         subtask.text = editedSubtaskText.trim();
-  
+
         // Check if subtask has an ID, meaning it exists in the backend
         if (subtask.id !== undefined) {
           this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
-            next: (updatedSubtask) => {
-            },
-            error: (error) => {
+            next: updatedSubtask => {},
+            error: error => {
               console.error('Failed to update subtask:', error);
               alert('Failed to update subtask. Please try again.');
-            }
+            },
           });
         } else {
           // If no ID, it is a new subtask and just update the local array
@@ -246,121 +251,107 @@ export class EditTaskComponent implements OnInit, OnChanges  {
 
   loadTask(taskId: number): void {
     this.taskService.getTask(taskId).subscribe({
-        next: (task) => {
-            this.setTaskFormData(task);
-        },
-        error: (error) => {
-            console.error('Failed to load task:', error);
-        }
+      next: task => {
+        this.setTaskFormData(task);
+      },
+      error: error => {
+        console.error('Failed to load task:', error);
+      },
     });
-}
-
-setTaskFormData(task: Task): void {
-  if (task.due_date) {
-    const date = new Date(task.due_date);
-    const formattedDate: NgbDateStruct = { 
-        year: date.getFullYear(), 
-        month: date.getMonth() + 1, 
-        day: date.getDate() 
-    };
-    this.taskForm.get('due_date')?.setValue(formattedDate);
   }
-  
-  this.taskForm.patchValue({
-    title: task.title,
-    description: task.description,
-    category: task.category,
-    priority: task.priority,
-    assigned_to: task.assigned_to,
-    status: task.status
-  });
 
-  // Ensure the selected category is correctly set
-  this.selectedOption = this.categories.find(category => category.id === task.category);
-  this.selectedContacts = task.assigned_to ? [...task.assigned_to] : [];
-  this.subtasks = task.subtasks;
-}
+  setTaskFormData(task: Task): void {
+    if (task.due_date) {
+      const date = new Date(task.due_date);
+      const formattedDate: NgbDateStruct = {
+        year: date.getFullYear(),
+        month: date.getMonth() + 1,
+        day: date.getDate(),
+      };
+      this.taskForm.get('due_date')?.setValue(formattedDate);
+    }
 
+    this.taskForm.patchValue({
+      title: task.title,
+      description: task.description,
+      category: task.category,
+      priority: task.priority,
+      assigned_to: task.assigned_to,
+      status: task.status,
+    });
 
+    // Ensure the selected category is correctly set
+    this.selectedOption = this.categories.find(category => category.id === task.category);
+    this.selectedContacts = task.assigned_to ? [...task.assigned_to] : [];
+    this.subtasks = task.subtasks;
+  }
 
-
-updateTask(): void {
-
-  if (!this.taskForm.valid) {
+  updateTask(): void {
+    if (!this.taskForm.valid) {
       this.logFormErrors();
       return;
-  }
+    }
 
-  const formattedData = this.prepareSubmitData();
+    const formattedData = this.prepareSubmitData();
 
-  this.taskService.updateTask(this.taskId, formattedData).subscribe({
-      next: (task) => {
-          
-          this.taskForm.reset();
-          this.subtasks = [];
-          this.addTaskSuccess = true;
+    this.taskService.updateTask(this.taskId, formattedData).subscribe({
+      next: task => {
+        this.taskForm.reset();
+        this.subtasks = [];
+        this.addTaskSuccess = true;
       },
-      error: (error) => {
-          console.error('Failed to update task:', error);
-          console.error('Error details:', error.error); 
-          alert('Failed to update task: ' + (error.error.message || error.message));
-      }
-  });
+      error: error => {
+        console.error('Failed to update task:', error);
+        console.error('Error details:', error.error);
+        alert('Failed to update task: ' + (error.error.message || error.message));
+      },
+    });
 
-
-  setTimeout(() => {
-
-this.taskUpdated.emit();
+    setTimeout(() => {
+      this.taskUpdated.emit();
       this.router.navigate(['/board']);
 
-      this.closeUpdateTaskOverlay.emit(); 
+      this.closeUpdateTaskOverlay.emit();
       this.taskUpdatedAndClosed.emit();
-
-  }, 3000);
-}
-
-
-
-logFormErrors() {
-  const formErrors: { [key: string]: any } = {};
-  Object.keys(this.taskForm.controls).forEach(key => {
-    const control = this.taskForm.get(key);
-    if (control && control.invalid) {
-      formErrors[key] = control.errors; // Collect invalid control errors
-    }
-  });
-
-  if (Object.keys(formErrors).length > 0) {
-    console.error('Form Errors:', formErrors); // Log errors to the console
+    }, 3000);
   }
 
-  return formErrors; // Optionally return errors for testing purposes
-}
+  logFormErrors() {
+    const formErrors: { [key: string]: any } = {};
+    Object.keys(this.taskForm.controls).forEach(key => {
+      const control = this.taskForm.get(key);
+      if (control && control.invalid) {
+        formErrors[key] = control.errors; // Collect invalid control errors
+      }
+    });
 
+    if (Object.keys(formErrors).length > 0) {
+      console.error('Form Errors:', formErrors); // Log errors to the console
+    }
 
-prepareSubmitData() {
-  const formData = this.taskForm.value;
+    return formErrors; // Optionally return errors for testing purposes
+  }
 
-  if (formData.due_date) {
+  prepareSubmitData() {
+    const formData = this.taskForm.value;
+
+    if (formData.due_date) {
       const { year, month, day } = formData.due_date;
       formData.due_date = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-  }
-  formData.assigned_to = this.selectedContacts;
-  
-  // Include both new subtasks (without IDs) and existing subtasks (with IDs)
-  formData.subtasks = this.subtasks.map(subtask => ({
-      id: subtask.id || null,  // Use null for new subtasks
-      text: subtask.text,
-      completed: subtask.completed
-  }));
+    }
+    formData.assigned_to = this.selectedContacts;
 
-  
-  return formData;
-}
+    // Include both new subtasks (without IDs) and existing subtasks (with IDs)
+    formData.subtasks = this.subtasks.map(subtask => ({
+      id: subtask.id || null, // Use null for new subtasks
+      text: subtask.text,
+      completed: subtask.completed,
+    }));
+
+    return formData;
+  }
 
   onCloseEditTaskOverlay(): void {
     this.closeEditTaskOverlay.emit();
   }
-
-
 }

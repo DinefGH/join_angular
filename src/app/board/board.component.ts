@@ -3,210 +3,353 @@ import { TaskService, Task } from 'src/app/services/task.service';
 import { CategoryService, Category } from 'src/app/services/category.service';
 import { AddContactService } from 'src/app/services/add-contact.service';
 import { Contact } from 'src/assets/models/contact.model';
-import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragEnter, CdkDragExit  } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+  CdkDragEnter,
+  CdkDragExit,
+} from '@angular/cdk/drag-drop';
 import { ChangeDetectorRef } from '@angular/core';
 
-
-
+/**
+ * Component representing the task board, displaying tasks in different statuses and allowing drag-and-drop functionality.
+ */
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  todoTasks: Task[] = [];
-  inProgressTasks: Task[] = [];
-  awaitFeedbackTasks: Task[] = [];
-  doneTasks: Task[] = [];
-  categories: Category[] = [];
-  contacts: Contact[] = [];
-  maxVisibleContacts = 5;
-  isOverlayVisible = false;
   
+
+    /** Array of tasks in the 'To Do' column */
+  todoTasks: Task[] = [];
+
+/** Array of tasks in the 'In Progress' column */
+  inProgressTasks: Task[] = [];
+
+/** Array of tasks in the 'Await Feedback' column */
+  awaitFeedbackTasks: Task[] = [];
+
+  /** Array of tasks in the 'Done' column */
+  doneTasks: Task[] = [];
+
+  /** List of available categories for tasks */
+  categories: Category[] = [];
+
+  /** List of available contacts for assignment to tasks */
+  contacts: Contact[] = [];
+
+  /** Maximum number of visible contacts in a task card, additional contacts are hidden */
+  maxVisibleContacts = 5;
+
+  /** Controls visibility of the overlay for additional task details */
+  isOverlayVisible = false;
+
+  /** Controls visibility of a detailed task overlay */
+
   isOverlayVisibleTask = false;
+
+  /** Currently selected task for displaying additional details */
   selectedTask: Task | null = null;
+
+  /** Task currently being dragged during a drag-and-drop operation */
   draggedTask: Task | null = null;
+
+  /** Search term for filtering tasks based on title or description */
   searchTerm: string = '';
-  originalTodoTasks: Task[] = []; // Store the original list of tasks
+
+  /** Original list of 'To Do' tasks, stored for reset and filtering */
+  originalTodoTasks: Task[] = [];
+
+  /** Original list of 'In Progress' tasks, stored for reset and filtering */
   originalInProgressTasks: Task[] = [];
+
+  /** Original list of 'Await Feedback' tasks, stored for reset and filtering */
   originalAwaitFeedbackTasks: Task[] = [];
+
+  /** Original list of 'Done' tasks, stored for reset and filtering */
   originalDoneTasks: Task[] = [];
 
+
+    /**
+   * Constructor that injects necessary services for managing tasks, categories, contacts, and change detection.
+   * @param taskService - Service to manage tasks, including retrieval and updates.
+   * @param categoryService - Service for retrieving available task categories.
+   * @param addContactService - Service for managing contacts associated with tasks.
+   * @param cdr - ChangeDetectorRef for manually triggering change detection.
+   */
   constructor(
     private taskService: TaskService,
     private categoryService: CategoryService,
     private addContactService: AddContactService,
-    private cdr: ChangeDetectorRef
-  ) { }
+    private cdr: ChangeDetectorRef,
+  ) {}
 
+
+  /**
+ * Initializes the component by loading tasks, categories, and contacts.
+ */
   ngOnInit(): void {
     this.loadTasks();
     this.loadCategories();
     this.loadContacts();
   }
 
+
+  /**
+ * Loads tasks from the TaskService and categorizes them based on their status.
+ */
   loadTasks(): void {
     this.taskService.getTasks().subscribe({
-      next: (tasks) => {
+      next: tasks => {
         this.categorizeTasks(tasks);
         this.originalTodoTasks = [...this.todoTasks];
         this.originalInProgressTasks = [...this.inProgressTasks];
         this.originalAwaitFeedbackTasks = [...this.awaitFeedbackTasks];
         this.originalDoneTasks = [...this.doneTasks];
       },
-      error: (error) => {
+      error: error => {
         console.error('Error loading tasks:', error);
-      }
+      },
     });
   }
 
+
+  /**
+ * Loads categories from the CategoryService.
+ */
   loadCategories(): void {
     this.categoryService.getCategories().subscribe({
-      next: (categories) => {
+      next: categories => {
         this.categories = categories;
       },
-      error: (error) => {
+      error: error => {
         console.error('Error loading categories:', error);
-      }
+      },
     });
   }
 
+
+  /**
+ * Loads contacts from the AddContactService.
+ */
   loadContacts(): void {
     this.addContactService.getContacts().subscribe({
-      next: (contacts) => {
+      next: contacts => {
         this.contacts = contacts;
       },
-      error: (error) => {
+      error: error => {
         console.error('Error loading contacts:', error);
-      }
+      },
     });
   }
 
+
+  /**
+ * Categorizes tasks into arrays based on their status for displaying in columns.
+ * @param tasks - Array of tasks to categorize.
+ */
   categorizeTasks(tasks: Task[]): void {
-    this.todoTasks = tasks.filter(task => task.status === 'todo').map(task => ({
-      ...task,
-      showStatusDropdown: false
-    }));
-    this.inProgressTasks = tasks.filter(task => task.status === 'inProgress').map(task => ({
-      ...task,
-      showStatusDropdown: false
-    }));
-    this.awaitFeedbackTasks = tasks.filter(task => task.status === 'awaitFeedback').map(task => ({
-      ...task,
-      showStatusDropdown: false
-    }));
-    this.doneTasks = tasks.filter(task => task.status === 'done').map(task => ({
-      ...task,
-      showStatusDropdown: false
-    }));
+    this.todoTasks = tasks
+      .filter(task => task.status === 'todo')
+      .map(task => ({
+        ...task,
+        showStatusDropdown: false,
+      }));
+    this.inProgressTasks = tasks
+      .filter(task => task.status === 'inProgress')
+      .map(task => ({
+        ...task,
+        showStatusDropdown: false,
+      }));
+    this.awaitFeedbackTasks = tasks
+      .filter(task => task.status === 'awaitFeedback')
+      .map(task => ({
+        ...task,
+        showStatusDropdown: false,
+      }));
+    this.doneTasks = tasks
+      .filter(task => task.status === 'done')
+      .map(task => ({
+        ...task,
+        showStatusDropdown: false,
+      }));
   }
 
-  
-  getCategoryNameAndColor(categoryId: number): { name: string, color: string } {
+
+  /**
+ * Retrieves the name and color of a category by its ID.
+ * @param categoryId - The ID of the category.
+ * @returns An object containing the category name and color.
+ */
+  getCategoryNameAndColor(categoryId: number): { name: string; color: string } {
     const category = this.categories.find(cat => cat.id === categoryId);
-    return category ? { name: category.name, color: category.color } : { name: 'Unknown', color: '#000000' };
+    return category
+      ? { name: category.name, color: category.color }
+      : { name: 'Unknown', color: '#000000' };
   }
 
+
+  /**
+ * Retrieves the completion status of subtasks for a task.
+ * @param task - The task for which to calculate subtask completion.
+ * @returns A string indicating the number of completed subtasks out of the total.
+ */
   getSubtaskCompletion(task: Task): string {
     if (!task.subtasks || task.subtasks.length === 0) return '';
     const completed = task.subtasks.filter(subtask => subtask.completed).length;
     return `${completed}/${task.subtasks.length}`;
   }
 
+
+  /**
+ * Calculates the completion percentage of subtasks for a task.
+ * @param task - The task for which to calculate the subtask completion percentage.
+ * @returns The percentage of completed subtasks.
+ */
   getSubtaskCompletionPercentage(task: Task): number {
     if (!task.subtasks || task.subtasks.length === 0) return 0;
     const completed = task.subtasks.filter(subtask => subtask.completed).length;
     return (completed / task.subtasks.length) * 100;
   }
 
+
+  /**
+ * Finds a contact by their ID.
+ * @param contactId - The ID of the contact to retrieve.
+ * @returns The Contact object if found, otherwise undefined.
+ */
   getContactById(contactId: number): Contact | undefined {
     const contact = this.contacts.find(contact => contact.id === contactId);
     return contact;
-}
-
-  getInitials(name: string): string {
-    return name.split(' ').map(part => part[0]).join('');
   }
 
+
+  /**
+ * Generates initials for a contact name.
+ * @param name - The name from which to generate initials.
+ * @returns The initials as a string.
+ */
+  getInitials(name: string): string {
+    return name
+      .split(' ')
+      .map(part => part[0])
+      .join('');
+  }
+
+
+  /**
+ * Handles task addition by reloading tasks and closing the overlay.
+ */
   handleTaskAdded(): void {
     this.loadTasks(); // Reload tasks when a task is added
-    setTimeout(() => this.isOverlayVisible = false, 1000);
+    setTimeout(() => (this.isOverlayVisible = false), 1000);
   }
 
+
+  /**
+ * Opens the task details overlay for a specific task.
+ * @param task - The task to display in the overlay.
+ */
   openTaskOverlay(task: Task): void {
-    
     this.selectedTask = task;
     this.isOverlayVisibleTask = true;
   }
 
- 
 
+  /**
+ * Closes the overlay for task addition or editing.
+ */
   closeOverlay() {
     this.isOverlayVisible = false;
   }
 
+
+  /**
+ * Opens the overlay for task addition or editing.
+ */
   openOverlay() {
     this.isOverlayVisible = true;
   }
 
 
+  /**
+ * Closes the task details overlay.
+ */
   closeTaskOverlay(): void {
     this.isOverlayVisibleTask = false;
     this.selectedTask = null;
   }
 
+
+  /**
+ * Handles task deletion by reloading tasks.
+ */
   handleTaskDeleted(): void {
-    this.loadTasks(); // Reload tasks when a task is deleted
+    this.loadTasks(); 
   }
 
-  
 
+  /**
+ * Toggles the visibility of the status dropdown for a specific task.
+ * @param task - The task for which to toggle the status dropdown.
+ * @param event - The MouseEvent to prevent propagation.
+ */
   toggleStatusDropdown(task: Task, event: MouseEvent): void {
-    event.stopPropagation(); // Prevent the task card from opening
+    event.stopPropagation(); 
     task.showStatusDropdown = !task.showStatusDropdown;
   }
 
 
 
-
+  /**
+ * Changes the status of a task and updates its position in the board.
+ * @param task - The task to change status for.
+ * @param newStatus - The new status for the task.
+ * @param event - Optional MouseEvent to stop propagation if provided.
+ */
   changeStatus(task: Task, newStatus: string, event?: MouseEvent): void {
     if (event) {
       event.stopPropagation();
     }
-  
-    // Store the old status before changing, with a fallback to an empty string if undefined
+
     const oldStatus = task.status || '';
-  
-    // Validate subtasks
+
     const validSubtasks = task.subtasks.filter(subtask => subtask.id != null);
     const updatedTask = { ...task, status: newStatus, subtasks: validSubtasks };
-  
+
     this.taskService.updateTask(updatedTask.id!, updatedTask).subscribe({
-      next: (updatedTask) => {
-        // Remove the task from its current (old) list
+      next: updatedTask => {
         this.removeTaskFromCurrentList(task, oldStatus);
-  
-        // Update the status in the current task object
+
         task.status = newStatus;
         task.showStatusDropdown = false;
-  
-        // Add the task to the appropriate list based on the new status
+
         this.addTaskToNewList(task);
-  
-        // Update the original tasks array if necessary
+
         this.updateOriginalTasksArray(updatedTask);
-  
-        // Manually trigger change detection if necessary
+
         this.cdr.detectChanges();
       },
-      error: (error) => {
+      error: error => {
         console.error('Failed to update task status:', error);
-        alert('Failed to update task status: ' + (error.message || 'Something bad happened; please try again later.'));
-      }
+        alert(
+          'Failed to update task status: ' +
+            (error.message || 'Something bad happened; please try again later.'),
+        );
+      },
     });
   }
-  
-  // Method to remove task from the list based on old status
+
+
+
+  /**
+ * Removes a task from its current status list based on the previous status.
+ * @param task - The task to remove.
+ * @param oldStatus - The previous status of the task.
+ */
   removeTaskFromCurrentList(task: Task, oldStatus: string): void {
     switch (oldStatus) {
       case 'todo':
@@ -223,8 +366,12 @@ export class BoardComponent implements OnInit {
         break;
     }
   }
-  
-  // Method to add task to the new list
+
+
+  /**
+ * Adds a task to the new status list based on its updated status.
+ * @param task - The task to add to the list.
+ */
   addTaskToNewList(task: Task): void {
     switch (task.status) {
       case 'todo':
@@ -241,49 +388,58 @@ export class BoardComponent implements OnInit {
         break;
     }
   }
-  
+
+
+  /**
+ * Updates a task in the appropriate list based on its current status.
+ * @param updatedTask - The updated task object to replace in the list.
+ */
   updateTaskInList(updatedTask: Task) {
     const listMap: { [key: string]: Task[] } = {
-      'todo': this.todoTasks,
-      'inProgress': this.inProgressTasks,
-      'awaitFeedback': this.awaitFeedbackTasks,
-      'done': this.doneTasks,
+      todo: this.todoTasks,
+      inProgress: this.inProgressTasks,
+      awaitFeedback: this.awaitFeedbackTasks,
+      done: this.doneTasks,
     };
-  
+
     for (const key of Object.keys(listMap)) {
       const list = listMap[key];
-      const taskIndex = list.findIndex((task) => task.id === updatedTask.id);
+      const taskIndex = list.findIndex(task => task.id === updatedTask.id);
       if (taskIndex !== -1) {
         list[taskIndex] = updatedTask;
         return;
       }
     }
-  
+
     if (updatedTask.status && updatedTask.status in listMap) {
       listMap[updatedTask.status].push(updatedTask);
     } else {
       console.error('Unknown or undefined task status:', updatedTask.status);
     }
   }
-  
-  // New method to update original task arrays
+
+
+  /**
+ * Updates the task in the original task lists for search functionality.
+ * @param updatedTask - The updated task object to replace in the original list.
+ */
   updateOriginalTasksArray(updatedTask: Task) {
     const listMap: { [key: string]: Task[] } = {
-      'todo': this.originalTodoTasks,
-      'inProgress': this.originalInProgressTasks,
-      'awaitFeedback': this.originalAwaitFeedbackTasks,
-      'done': this.originalDoneTasks,
+      todo: this.originalTodoTasks,
+      inProgress: this.originalInProgressTasks,
+      awaitFeedback: this.originalAwaitFeedbackTasks,
+      done: this.originalDoneTasks,
     };
-  
+
     for (const key of Object.keys(listMap)) {
       const list = listMap[key];
-      const taskIndex = list.findIndex((task) => task.id === updatedTask.id);
+      const taskIndex = list.findIndex(task => task.id === updatedTask.id);
       if (taskIndex !== -1) {
         list[taskIndex] = updatedTask;
         return;
       }
     }
-  
+
     if (updatedTask.status && updatedTask.status in listMap) {
       listMap[updatedTask.status].push(updatedTask);
     } else {
@@ -292,42 +448,49 @@ export class BoardComponent implements OnInit {
   }
 
 
-
+  /**
+ * Initiates dragging of a task by setting it as the currently dragged task.
+ * @param task - The task being dragged.
+ */
   dragStarted(task: Task) {
     this.draggedTask = task;
   }
 
 
-
+  /**
+ * Handles the drop event to update the task's status and position based on drag-and-drop.
+ * @param event - The CdkDragDrop event containing drag-and-drop details.
+ */
   drop(event: CdkDragDrop<Task[]>) {
-
-  
     if (this.draggedTask) {
-      const newStatus = this.getStatusFromContainerId(event.container.id);  
-      // Remove the task from the previous container
-      const previousContainerIndex = event.previousContainer.data.findIndex(t => t.id === this.draggedTask!.id);
+      const newStatus = this.getStatusFromContainerId(event.container.id);
+      const previousContainerIndex = event.previousContainer.data.findIndex(
+        t => t.id === this.draggedTask!.id,
+      );
       if (previousContainerIndex > -1) {
         event.previousContainer.data.splice(previousContainerIndex, 1);
       }
-  
-      // Add the task to the new container and update its status
+
       this.changeStatus(this.draggedTask, newStatus);
 
-  
-      this.draggedTask = null; // Reset the dragged task
-  
-      // Trigger change detection manually
+      this.draggedTask = null; 
+
+      
       this.cdr.detectChanges();
     } else {
       console.error('Dragged task is null');
     }
-  
-    // Remove the highlight class from the container after drop
+
     event.container.element.nativeElement.classList.remove('highlight');
-  
-    // Log the updated state of containers
+
   }
 
+
+  /**
+ * Determines the status of a task based on the container ID.
+ * @param containerId - The ID of the container to map to a status.
+ * @returns The status string based on the container ID.
+ */
   getStatusFromContainerId(containerId: string): string {
     switch (containerId) {
       case 'todoContainer':
@@ -343,41 +506,63 @@ export class BoardComponent implements OnInit {
     }
   }
 
+
+  /**
+ * Highlights a container when a task is dragged over it.
+ * @param event - The CdkDragEnter event to trigger highlight.
+ */
   highlight(event: CdkDragEnter<any>) {
     event.container.element.nativeElement.classList.add('highlight');
   }
-  
+
+
+  /**
+ * Removes highlight from a container when a task is dragged out.
+ * @param event - The CdkDragExit event to remove highlight.
+ */
   unhighlight(event: CdkDragExit<any>) {
     event.container.element.nativeElement.classList.remove('highlight');
   }
 
 
+  /**
+ * Searches tasks across all lists based on the current search term, filtering by title and description.
+ */
   searchTasks() {
     const searchTermLower = this.searchTerm.toLowerCase();
-  
-    this.todoTasks = this.originalTodoTasks.filter(task =>
-      task.title.toLowerCase().includes(searchTermLower) || task.description!.toLowerCase().includes(searchTermLower)
+
+    this.todoTasks = this.originalTodoTasks.filter(
+      task =>
+        task.title.toLowerCase().includes(searchTermLower) ||
+        task.description!.toLowerCase().includes(searchTermLower),
     );
-  
-    this.inProgressTasks = this.originalInProgressTasks.filter(task =>
-      task.title.toLowerCase().includes(searchTermLower) || task.description!.toLowerCase().includes(searchTermLower)
+
+    this.inProgressTasks = this.originalInProgressTasks.filter(
+      task =>
+        task.title.toLowerCase().includes(searchTermLower) ||
+        task.description!.toLowerCase().includes(searchTermLower),
     );
-  
-    this.awaitFeedbackTasks = this.originalAwaitFeedbackTasks.filter(task =>
-      task.title.toLowerCase().includes(searchTermLower) || task.description!.toLowerCase().includes(searchTermLower)
+
+    this.awaitFeedbackTasks = this.originalAwaitFeedbackTasks.filter(
+      task =>
+        task.title.toLowerCase().includes(searchTermLower) ||
+        task.description!.toLowerCase().includes(searchTermLower),
     );
-  
-    this.doneTasks = this.originalDoneTasks.filter(task =>
-      task.title.toLowerCase().includes(searchTermLower) || task.description!.toLowerCase().includes(searchTermLower)
+
+    this.doneTasks = this.originalDoneTasks.filter(
+      task =>
+        task.title.toLowerCase().includes(searchTermLower) ||
+        task.description!.toLowerCase().includes(searchTermLower),
     );
   }
-  
 
+
+  /**
+ * Closes the update task overlay, resets the selected task, and reloads tasks.
+ */
   closeUpdateTaskOverlay(): void {
-    this.isOverlayVisibleTask= false;
+    this.isOverlayVisibleTask = false;
     this.selectedTask = null;
     this.loadTasks();
-
   }
-
 }

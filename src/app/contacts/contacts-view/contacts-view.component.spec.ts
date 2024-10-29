@@ -24,8 +24,13 @@ describe('ContactsViewComponent', () => {
   };
 
   beforeEach(async () => {
-    const addContactServiceSpy = jasmine.createSpyObj('AddContactService', ['getContactById', 'deleteContact']);
-    const contactsOverlayServiceSpy = jasmine.createSpyObj('ContactsOverlayService', ['setOverlayVisibility']);
+    const addContactServiceSpy = jasmine.createSpyObj('AddContactService', [
+      'getContactById',
+      'deleteContact',
+    ]);
+    const contactsOverlayServiceSpy = jasmine.createSpyObj('ContactsOverlayService', [
+      'setOverlayVisibility',
+    ]);
     const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
     const activatedRouteSpy = {
       params: of({ id: 1 }),
@@ -43,7 +48,9 @@ describe('ContactsViewComponent', () => {
     }).compileComponents();
 
     addContactService = TestBed.inject(AddContactService) as jasmine.SpyObj<AddContactService>;
-    contactsOverlayService = TestBed.inject(ContactsOverlayService) as jasmine.SpyObj<ContactsOverlayService>;
+    contactsOverlayService = TestBed.inject(
+      ContactsOverlayService,
+    ) as jasmine.SpyObj<ContactsOverlayService>;
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
 
     fixture = TestBed.createComponent(ContactsViewComponent);
@@ -107,7 +114,10 @@ describe('ContactsViewComponent', () => {
     component.deleteContact();
 
     expect(addContactService.deleteContact).toHaveBeenCalledWith(mockContact.id);
-    expect(console.error).toHaveBeenCalledWith('Failed to delete contact', 'Failed to delete contact');
+    expect(console.error).toHaveBeenCalledWith(
+      'Failed to delete contact',
+      'Failed to delete contact',
+    );
   });
 
   it('should show the edit overlay when showContactsEdit is called', () => {

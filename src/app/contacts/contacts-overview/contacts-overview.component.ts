@@ -8,22 +8,22 @@ import { ContactsOverlayService } from 'src/app/services/contacts-overlay-servic
 @Component({
   selector: 'app-contacts-overview',
   templateUrl: './contacts-overview.component.html',
-  styleUrls: ['./contacts-overview.component.scss']
+  styleUrls: ['./contacts-overview.component.scss'],
 })
-export class ContactsOverviewComponent implements OnInit  {
+export class ContactsOverviewComponent implements OnInit {
   isVisible: boolean = false;
   groupedContacts: { [key: string]: Contact[] } = {};
   isHandsetOrTablet: boolean = false;
   contactsViewNotVisible: boolean = true;
-  selectedContact: Contact | null = null; 
+  selectedContact: Contact | null = null;
   storedContactId: number | null = null;
 
   constructor(
-    private addContactService: AddContactService, 
-    private router: Router, 
-    private screenSizeService: ScreenSizeService, 
-    public contactsOverlayService: ContactsOverlayService   // Inject the service
-  ) { }
+    private addContactService: AddContactService,
+    private router: Router,
+    private screenSizeService: ScreenSizeService,
+    public contactsOverlayService: ContactsOverlayService, // Inject the service
+  ) {}
 
   showContactsAdd(): void {
     this.isVisible = true; // Show the <app-contacts-add> component
@@ -31,7 +31,9 @@ export class ContactsOverviewComponent implements OnInit  {
 
   ngOnInit(): void {
     this.loadContacts();
-    this.screenSizeService.isHandsetOrTablet$.subscribe(isHandsetOrTablet => this.isHandsetOrTablet = isHandsetOrTablet);
+    this.screenSizeService.isHandsetOrTablet$.subscribe(
+      isHandsetOrTablet => (this.isHandsetOrTablet = isHandsetOrTablet),
+    );
 
     // Subscribe to the overlay visibility changes
     this.contactsOverlayService.overlayVisibility$.subscribe(isVisible => {
@@ -51,14 +53,14 @@ export class ContactsOverviewComponent implements OnInit  {
 
   loadContacts(): void {
     this.groupedContacts = {};
-  
+
     this.addContactService.getContacts().subscribe({
-      next: (contacts) => {
+      next: contacts => {
         this.groupContactsByFirstLetter(contacts);
       },
-      error: (error) => {
+      error: error => {
         console.error('Error loading contacts:', error);
-      }
+      },
     });
   }
 
@@ -69,27 +71,27 @@ export class ContactsOverviewComponent implements OnInit  {
       const firstLetter = contact.name[0].toUpperCase();
       const initials = this.getInitials(contact.name);
       const color = contact.color;
-  
+
       if (!this.groupedContacts[firstLetter]) {
         this.groupedContacts[firstLetter] = [];
       }
-      
+
       this.groupedContacts[firstLetter].push({ ...contact, initials, color });
     });
-  
+
     for (const letter in this.groupedContacts) {
       this.groupedContacts[letter].sort((a, b) => a.name.localeCompare(b.name));
     }
   }
-  
+
   getInitials(name: string): string {
     const names = name.split(' ');
     let initials = names[0].substring(0, 1).toUpperCase();
-    
+
     if (names.length > 1) {
       initials += names[names.length - 1].substring(0, 1).toUpperCase();
     }
-    
+
     return initials;
   }
 
@@ -105,7 +107,7 @@ export class ContactsOverviewComponent implements OnInit  {
 
   closeContactsView(): void {
     console.log('Closing contacts view...');
-    this.contactsOverlayService.setOverlayVisibility(false);  // Update via service
+    this.contactsOverlayService.setOverlayVisibility(false); // Update via service
   }
 
   openContact(contactId: number): void {
@@ -136,7 +138,7 @@ export class ContactsOverviewComponent implements OnInit  {
       return;
     }
     this.selectedContact = contact;
-    this.contactsOverlayService.setOverlayVisibility(true);  // Use service to set visibility
+    this.contactsOverlayService.setOverlayVisibility(true); // Use service to set visibility
   }
 
   findContactById(contactId: number): Contact | undefined {

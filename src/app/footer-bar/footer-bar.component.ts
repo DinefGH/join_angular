@@ -4,10 +4,9 @@ import { Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
 @Component({
   selector: 'app-footer-bar',
   templateUrl: './footer-bar.component.html',
-  styleUrls: ['./footer-bar.component.scss']
+  styleUrls: ['./footer-bar.component.scss'],
 })
 export class FooterBarComponent implements OnInit {
-
   isSummaryPage: boolean = false;
   isBoardPage: boolean = false;
   isAddTaskPage: boolean = false;
@@ -58,5 +57,3 @@ export class FooterBarComponent implements OnInit {
     this.router.navigate(['/board']);
   }
 }
-
-

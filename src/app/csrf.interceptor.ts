@@ -24,7 +24,7 @@
 //     if (!req.url.endsWith('/login/')) {
 //       // Log whether the request is being modified with the CSRF token and credentials
 //       console.log('Modifying request for CSRF token and withCredentials:', req.url);
-      
+
 //       modifiedReq = csrfToken ? req.clone({
 //         headers: req.headers.set('X-CSRFToken', csrfToken),
 //         withCredentials: true
