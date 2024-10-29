@@ -1,0 +1,2197 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>join2.0-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">join2.0-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  BoardTaskOverlayComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/board-task-overlay/board-task-overlay.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-board-task-overlay</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./board-task-overlay.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./board-task-overlay.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#awaitFeedbackTasks" >awaitFeedbackTasks</a>
+                            </li>
+                            <li>
+                                <a href="#categories" >categories</a>
+                            </li>
+                            <li>
+                                <a href="#contacts" >contacts</a>
+                            </li>
+                            <li>
+                                <a href="#doneTasks" >doneTasks</a>
+                            </li>
+                            <li>
+                                <a href="#inProgressTasks" >inProgressTasks</a>
+                            </li>
+                            <li>
+                                <a href="#isEditTaskVisible" >isEditTaskVisible</a>
+                            </li>
+                            <li>
+                                <a href="#isTaskOverlayContainerVisible" >isTaskOverlayContainerVisible</a>
+                            </li>
+                            <li>
+                                <a href="#maxVisibleContacts" >maxVisibleContacts</a>
+                            </li>
+                            <li>
+                                <a href="#todoTasks" >todoTasks</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categorizeTasks" >categorizeTasks</a>
+                            </li>
+                            <li>
+                                <a href="#closeEditTaskOverlay" >closeEditTaskOverlay</a>
+                            </li>
+                            <li>
+                                <a href="#deleteTask" >deleteTask</a>
+                            </li>
+                            <li>
+                                <a href="#getCategoryNameAndColor" >getCategoryNameAndColor</a>
+                            </li>
+                            <li>
+                                <a href="#getContactById" >getContactById</a>
+                            </li>
+                            <li>
+                                <a href="#getInitials" >getInitials</a>
+                            </li>
+                            <li>
+                                <a href="#getSubtaskCompletion" >getSubtaskCompletion</a>
+                            </li>
+                            <li>
+                                <a href="#getSubtaskCompletionPercentage" >getSubtaskCompletionPercentage</a>
+                            </li>
+                            <li>
+                                <a href="#handleTaskUpdatedAndClosed" >handleTaskUpdatedAndClosed</a>
+                            </li>
+                            <li>
+                                <a href="#loadCategories" >loadCategories</a>
+                            </li>
+                            <li>
+                                <a href="#loadContacts" >loadContacts</a>
+                            </li>
+                            <li>
+                                <a href="#loadTasks" >loadTasks</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onCloseTaskOverlay" >onCloseTaskOverlay</a>
+                            </li>
+                            <li>
+                                <a href="#onTaskUpdated" >onTaskUpdated</a>
+                            </li>
+                            <li>
+                                <a href="#openEditTaskOverlay" >openEditTaskOverlay</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSubtaskCompletion" >toggleSubtaskCompletion</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isOverlayVisibleTask" >isOverlayVisibleTask</a>
+                            </li>
+                            <li>
+                                <a href="#selectedTask" >selectedTask</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeTaskOverlay" >closeTaskOverlay</a>
+                            </li>
+                            <li>
+                                <a href="#taskDeleted" >taskDeleted</a>
+                            </li>
+                            <li>
+                                <a href="#taskUpdatedAndClosed" >taskUpdatedAndClosed</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(taskService: <a href="../injectables/TaskService.html" target="_self">TaskService</a>, categoryService: <a href="../injectables/CategoryService.html" target="_self">CategoryService</a>, addContactService: <a href="../injectables/AddContactService.html" target="_self">AddContactService</a>, subtaskService: <a href="../injectables/SubtaskService.html" target="_self">SubtaskService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>taskService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskService.html" target="_self" >TaskService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>categoryService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CategoryService.html" target="_self" >CategoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>addContactService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AddContactService.html" target="_self" >AddContactService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>subtaskService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SubtaskService.html" target="_self" >SubtaskService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isOverlayVisibleTask"></a>
+                        <b>isOverlayVisibleTask</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedTask"></a>
+                        <b>selectedTask</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeTaskOverlay"></a>
+                        <b>closeTaskOverlay</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="taskDeleted"></a>
+                        <b>taskDeleted</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="taskUpdatedAndClosed"></a>
+                        <b>taskUpdatedAndClosed</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categorizeTasks"></a>
+                    <span class="name">
+                        <span ><b>categorizeTasks</b></span>
+                        <a href="#categorizeTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>categorizeTasks(tasks: <a href="../interfaces/Task.html" target="_self">Task[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tasks</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Task.html" target="_self" >Task[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeEditTaskOverlay"></a>
+                    <span class="name">
+                        <span ><b>closeEditTaskOverlay</b></span>
+                        <a href="#closeEditTaskOverlay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeEditTaskOverlay()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTask"></a>
+                    <span class="name">
+                        <span ><b>deleteTask</b></span>
+                        <a href="#deleteTask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteTask()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCategoryNameAndColor"></a>
+                    <span class="name">
+                        <span ><b>getCategoryNameAndColor</b></span>
+                        <a href="#getCategoryNameAndColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCategoryNameAndColor(categoryId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>categoryId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getContactById"></a>
+                    <span class="name">
+                        <span ><b>getContactById</b></span>
+                        <a href="#getContactById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getContactById(contactId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contactId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Contact | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInitials"></a>
+                    <span class="name">
+                        <span ><b>getInitials</b></span>
+                        <a href="#getInitials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInitials(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubtaskCompletion"></a>
+                    <span class="name">
+                        <span ><b>getSubtaskCompletion</b></span>
+                        <a href="#getSubtaskCompletion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubtaskCompletion(task: <a href="../interfaces/Task.html" target="_self">Task</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>task</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubtaskCompletionPercentage"></a>
+                    <span class="name">
+                        <span ><b>getSubtaskCompletionPercentage</b></span>
+                        <a href="#getSubtaskCompletionPercentage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubtaskCompletionPercentage(task: <a href="../interfaces/Task.html" target="_self">Task</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>task</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleTaskUpdatedAndClosed"></a>
+                    <span class="name">
+                        <span ><b>handleTaskUpdatedAndClosed</b></span>
+                        <a href="#handleTaskUpdatedAndClosed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleTaskUpdatedAndClosed()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadCategories"></a>
+                    <span class="name">
+                        <span ><b>loadCategories</b></span>
+                        <a href="#loadCategories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadCategories()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadContacts"></a>
+                    <span class="name">
+                        <span ><b>loadContacts</b></span>
+                        <a href="#loadContacts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadContacts()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTasks"></a>
+                    <span class="name">
+                        <span ><b>loadTasks</b></span>
+                        <a href="#loadTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadTasks()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCloseTaskOverlay"></a>
+                    <span class="name">
+                        <span ><b>onCloseTaskOverlay</b></span>
+                        <a href="#onCloseTaskOverlay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCloseTaskOverlay()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTaskUpdated"></a>
+                    <span class="name">
+                        <span ><b>onTaskUpdated</b></span>
+                        <a href="#onTaskUpdated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTaskUpdated()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openEditTaskOverlay"></a>
+                    <span class="name">
+                        <span ><b>openEditTaskOverlay</b></span>
+                        <a href="#openEditTaskOverlay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openEditTaskOverlay()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSubtaskCompletion"></a>
+                    <span class="name">
+                        <span ><b>toggleSubtaskCompletion</b></span>
+                        <a href="#toggleSubtaskCompletion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSubtaskCompletion(subtask: <a href="../interfaces/Subtask.html" target="_self">Subtask</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subtask</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Subtask.html" target="_self" >Subtask</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="awaitFeedbackTasks"></a>
+                    <span class="name">
+                        <span ><b>awaitFeedbackTasks</b></span>
+                        <a href="#awaitFeedbackTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categories"></a>
+                    <span class="name">
+                        <span ><b>categories</b></span>
+                        <a href="#categories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Category.html" target="_self" >Category[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contacts"></a>
+                    <span class="name">
+                        <span ><b>contacts</b></span>
+                        <a href="#contacts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Contact[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="doneTasks"></a>
+                    <span class="name">
+                        <span ><b>doneTasks</b></span>
+                        <a href="#doneTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inProgressTasks"></a>
+                    <span class="name">
+                        <span ><b>inProgressTasks</b></span>
+                        <a href="#inProgressTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditTaskVisible"></a>
+                    <span class="name">
+                        <span ><b>isEditTaskVisible</b></span>
+                        <a href="#isEditTaskVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTaskOverlayContainerVisible"></a>
+                    <span class="name">
+                        <span ><b>isTaskOverlayContainerVisible</b></span>
+                        <a href="#isTaskOverlayContainerVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxVisibleContacts"></a>
+                    <span class="name">
+                        <span ><b>maxVisibleContacts</b></span>
+                        <a href="#maxVisibleContacts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>5</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="todoTasks"></a>
+                    <span class="name">
+                        <span ><b>todoTasks</b></span>
+                        <a href="#todoTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/board-task-overlay/board-task-overlay.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { TaskService, Task } from &#x27;src/app/services/task.service&#x27;;
+import { CategoryService, Category } from &#x27;src/app/services/category.service&#x27;;
+import { AddContactService } from &#x27;src/app/services/add-contact.service&#x27;;
+import { Contact } from &#x27;src/assets/models/contact.model&#x27;;
+import { SubtaskService, Subtask } from &#x27;src/app/services/subtask.service&#x27;;
+
+@Component({
+  selector: &#x27;app-board-task-overlay&#x27;,
+  templateUrl: &#x27;./board-task-overlay.component.html&#x27;,
+  styleUrls: [&#x27;./board-task-overlay.component.scss&#x27;]
+})
+export class BoardTaskOverlayComponent implements OnInit {
+  @Input() selectedTask: Task | null &#x3D; null;
+  @Input() isOverlayVisibleTask: boolean &#x3D; false;
+  @Output() closeTaskOverlay &#x3D; new EventEmitter&lt;void&gt;();
+  @Output() taskDeleted &#x3D; new EventEmitter&lt;void&gt;();
+  @Output() taskUpdatedAndClosed &#x3D; new EventEmitter&lt;void&gt;();
+
+  isEditTaskVisible &#x3D; false;
+  isTaskOverlayContainerVisible &#x3D; true;
+  todoTasks: Task[] &#x3D; [];
+  inProgressTasks: Task[] &#x3D; [];
+  awaitFeedbackTasks: Task[] &#x3D; [];
+  doneTasks: Task[] &#x3D; [];
+  categories: Category[] &#x3D; [];
+  contacts: Contact[] &#x3D; [];
+  maxVisibleContacts &#x3D; 5;
+
+  constructor(
+    private taskService: TaskService,
+    private categoryService: CategoryService,
+    private addContactService: AddContactService,
+    private subtaskService: SubtaskService
+  ) { }
+
+  ngOnInit(): void {
+    this.loadTasks();
+    this.loadCategories();
+    this.loadContacts();
+  }
+
+  loadTasks(): void {
+    this.taskService.getTasks().subscribe({
+      next: (tasks) &#x3D;&gt; {
+        this.categorizeTasks(tasks);
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error loading tasks:&#x27;, error);
+      }
+    });
+  }
+
+  loadCategories(): void {
+    this.categoryService.getCategories().subscribe({
+      next: (categories) &#x3D;&gt; {
+        this.categories &#x3D; categories;
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error loading categories:&#x27;, error);
+      }
+    });
+  }
+
+  loadContacts(): void {
+    this.addContactService.getContacts().subscribe({
+      next: (contacts) &#x3D;&gt; {
+        this.contacts &#x3D; contacts;
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error loading contacts:&#x27;, error);
+      }
+    });
+  }
+
+  categorizeTasks(tasks: Task[]): void {
+    this.todoTasks &#x3D; tasks.filter(task &#x3D;&gt; task.status &#x3D;&#x3D;&#x3D; &#x27;todo&#x27;);
+    this.inProgressTasks &#x3D; tasks.filter(task &#x3D;&gt; task.status &#x3D;&#x3D;&#x3D; &#x27;inProgress&#x27;);
+    this.awaitFeedbackTasks &#x3D; tasks.filter(task &#x3D;&gt; task.status &#x3D;&#x3D;&#x3D; &#x27;awaitFeedback&#x27;);
+    this.doneTasks &#x3D; tasks.filter(task &#x3D;&gt; task.status &#x3D;&#x3D;&#x3D; &#x27;done&#x27;);
+  }
+
+  getCategoryNameAndColor(categoryId: number): { name: string, color: string } {
+    const category &#x3D; this.categories.find(cat &#x3D;&gt; cat.id &#x3D;&#x3D;&#x3D; categoryId);
+    return category ? { name: category.name, color: category.color } : { name: &#x27;Unknown&#x27;, color: &#x27;#000000&#x27; };
+  }
+
+  getSubtaskCompletion(task: Task): string {
+    if (!task.subtasks || task.subtasks.length &#x3D;&#x3D;&#x3D; 0) return &#x27;&#x27;;
+    const completed &#x3D; task.subtasks.filter(subtask &#x3D;&gt; subtask.completed).length;
+    return &#x60;${completed}/${task.subtasks.length}&#x60;;
+  }
+
+  getSubtaskCompletionPercentage(task: Task): number {
+    if (!task.subtasks || task.subtasks.length &#x3D;&#x3D;&#x3D; 0) return 0;
+    const completed &#x3D; task.subtasks.filter(subtask &#x3D;&gt; subtask.completed).length;
+    return (completed / task.subtasks.length) * 100;
+  }
+
+  getContactById(contactId: number): Contact | undefined {
+    const contact &#x3D; this.contacts.find(contact &#x3D;&gt; contact.id &#x3D;&#x3D;&#x3D; contactId);
+    return contact;
+  }
+
+  getInitials(name: string): string {
+    return name.split(&#x27; &#x27;).map(part &#x3D;&gt; part[0]).join(&#x27;&#x27;);
+  }
+
+  onCloseTaskOverlay(): void {
+    this.closeTaskOverlay.emit();
+  }
+
+  toggleSubtaskCompletion(subtask: Subtask): void {
+    subtask.completed &#x3D; !subtask.completed;
+    this.subtaskService.updateSubtask(subtask.id!, subtask).subscribe({
+      next: (updatedSubtask) &#x3D;&gt; {
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error updating subtask:&#x27;, error);
+      }
+    });
+  }
+
+  deleteTask(): void {
+    if (this.selectedTask) {
+      this.taskService.deleteTask(this.selectedTask.id!).subscribe({
+        next: () &#x3D;&gt; {
+          this.taskDeleted.emit(); // Emit the taskDeleted event
+          this.onCloseTaskOverlay();
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error deleting task:&#x27;, error);
+        }
+      });
+    }
+  }
+  openEditTaskOverlay() {
+    this.isEditTaskVisible &#x3D; true;
+    this.isTaskOverlayContainerVisible &#x3D; false;
+  }
+
+  closeEditTaskOverlay(): void {
+    this.isEditTaskVisible &#x3D; false;
+    this.selectedTask &#x3D; null;
+  }
+
+  onTaskUpdated(): void {
+    this.loadTasks(); // Reload tasks to reflect the updates
+    this.isEditTaskVisible &#x3D; false; // Hide the edit task overlay
+  }
+
+  handleTaskUpdatedAndClosed(): void {
+    this.isOverlayVisibleTask &#x3D; false;
+    this.selectedTask &#x3D; null;
+    this.closeTaskOverlay.emit();
+    this.taskUpdatedAndClosed.emit();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;taskOverlayBackground&quot; (click)&#x3D;&quot;onCloseTaskOverlay()&quot;&gt;
+
+&lt;div class&#x3D;&quot;boardTasksOverlay&quot; (click)&#x3D;&quot;$event.stopPropagation()&quot;&gt;
+  &lt;div class&#x3D;&quot;taskOverlayContainer&quot; *ngIf&#x3D;&quot;isTaskOverlayContainerVisible&quot;&gt;
+    &lt;div class&#x3D;&quot;boardTasks&quot;&gt;
+        &lt;div class&#x3D;&quot;boardTasksHeadlineCloseContainer&quot;&gt;
+            &lt;div class&#x3D;&quot;boardTasksCategory&quot; [style.background-color]&#x3D;&quot;getCategoryNameAndColor(selectedTask?.category!).color&quot;&gt;
+                {{ getCategoryNameAndColor(selectedTask?.category!).name }}&lt;/div&gt;
+            &lt;div class&#x3D;&quot;closeBoardTasks&quot; (click)&#x3D;&quot;onCloseTaskOverlay()&quot;&gt;&lt;svg width&#x3D;&quot;14&quot; height&#x3D;&quot;14&quot; viewBox&#x3D;&quot;0 0 14 14&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;path  class&#x3D;&quot;svg-path&quot; d&#x3D;&quot;M7 8.40005L2.1 13.3C1.91667 13.4834 1.68333 13.575 1.4 13.575C1.11667 13.575 0.883333 13.4834 0.699999 13.3C0.516666 13.1167 0.424999 12.8834 0.424999 12.6C0.424999 12.3167 0.516666 12.0834 0.699999 11.9L5.6 7.00005L0.699999 2.10005C0.516666 1.91672 0.424999 1.68338 0.424999 1.40005C0.424999 1.11672 0.516666 0.883382 0.699999 0.700049C0.883333 0.516715 1.11667 0.425049 1.4 0.425049C1.68333 0.425049 1.91667 0.516715 2.1 0.700049L7 5.60005L11.9 0.700049C12.0833 0.516715 12.3167 0.425049 12.6 0.425049C12.8833 0.425049 13.1167 0.516715 13.3 0.700049C13.4833 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4833 1.91672 13.3 2.10005L8.4 7.00005L13.3 11.9C13.4833 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4833 13.1167 13.3 13.3C13.1167 13.4834 12.8833 13.575 12.6 13.575C12.3167 13.575 12.0833 13.4834 11.9 13.3L7 8.40005Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
+                &lt;/svg&gt;
+                &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;h1 class&#x3D;&quot;boardTasksTitle&quot;&gt;{{ selectedTask?.title }}&lt;/h1&gt;
+        &lt;div class&#x3D;&quot;boardTasksDescription&quot;&gt;{{ selectedTask?.description }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;boardTasksDueDate&quot;&gt;Due date:&lt;span class&#x3D;&quot;dateTasksOverlay&quot;&gt; {{ selectedTask?.due_date | date }}&lt;/span&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;boardTasksPriority&quot;&gt;&lt;ng-container [ngSwitch]&#x3D;&quot;selectedTask?.priority&quot;&gt;Priority:
+            &lt;span class&#x3D;&quot;priorityTaskOverlay&quot; *ngSwitchCase&#x3D;&quot;&#x27;Urgent&#x27;&quot;&gt;Urgent &lt;svg width&#x3D;&quot;21&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 21 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+              &lt;g clip-path&#x3D;&quot;url(#clip0_156_921)&quot;&gt;
+                  &lt;path d&#x3D;&quot;M19.2597 15.4464C19.0251 15.4468 18.7965 15.3719 18.6077 15.2328L10.3556 9.14965L2.10356 15.2328C1.98771 15.3184 1.85613 15.3803 1.71633 15.4151C1.57652 15.4498 1.43124 15.4567 1.28877 15.4354C1.14631 15.414 1.00944 15.3648 0.885997 15.2906C0.762552 15.2164 0.654943 15.1186 0.569314 15.0029C0.483684 14.8871 0.421712 14.7556 0.386936 14.6159C0.352159 14.4762 0.345259 14.331 0.366629 14.1887C0.409788 13.9012 0.565479 13.6425 0.799451 13.4697L9.70356 6.89926C9.89226 6.75967 10.1208 6.68433 10.3556 6.68433C10.5904 6.68433 10.819 6.75967 11.0077 6.89926L19.9118 13.4697C20.0977 13.6067 20.2356 13.7988 20.3057 14.0186C20.3759 14.2385 20.3747 14.4749 20.3024 14.6941C20.2301 14.9133 20.0904 15.1041 19.9031 15.2391C19.7159 15.3742 19.4907 15.4468 19.2597 15.4464Z&quot; fill&#x3D;&quot;#FF3D00&quot;/&gt;
+                  &lt;path d&#x3D;&quot;M19.2597 9.69733C19.0251 9.69774 18.7965 9.62289 18.6077 9.48379L10.3556 3.40063L2.10356 9.48379C1.86959 9.6566 1.57651 9.72945 1.28878 9.68633C1.00105 9.6432 0.742254 9.48762 0.569318 9.25383C0.396382 9.02003 0.323475 8.72716 0.366634 8.43964C0.409793 8.15213 0.565483 7.89352 0.799455 7.72072L9.70356 1.15024C9.89226 1.01065 10.1208 0.935303 10.3556 0.935303C10.5904 0.935303 10.819 1.01065 11.0077 1.15024L19.9118 7.72072C20.0977 7.85763 20.2356 8.04974 20.3057 8.26962C20.3759 8.4895 20.3747 8.72591 20.3024 8.94509C20.2301 9.16427 20.0904 9.35503 19.9031 9.49012C19.7159 9.62521 19.4907 9.69773 19.2597 9.69733Z&quot; fill&#x3D;&quot;#FF3D00&quot;/&gt;
+              &lt;/g&gt;
+              &lt;defs&gt;
+                  &lt;clipPath id&#x3D;&quot;clip0_156_921&quot;&gt;
+                      &lt;rect width&#x3D;&quot;20&quot; height&#x3D;&quot;14.5098&quot; fill&#x3D;&quot;white&quot; transform&#x3D;&quot;translate(0.355469 0.936768)&quot;/&gt;
+                  &lt;/clipPath&gt;
+              &lt;/defs&gt;
+          &lt;/svg&gt;&lt;/span&gt;
+            &lt;span class&#x3D;&quot;priorityTaskOverlay&quot; *ngSwitchCase&#x3D;&quot;&#x27;Medium&#x27;&quot;&gt;Medium &lt;svg width&#x3D;&quot;21&quot; height&#x3D;&quot;8&quot; viewBox&#x3D;&quot;0 0 21 8&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+              &lt;g clip-path&#x3D;&quot;url(#clip0_156_928)&quot;&gt;
+                  &lt;path d&#x3D;&quot;M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z&quot; fill&#x3D;&quot;#FFA800&quot;/&gt;
+                  &lt;path d&#x3D;&quot;M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z&quot; fill&#x3D;&quot;#FFA800&quot;/&gt;
+              &lt;/g&gt;
+              &lt;defs&gt;
+                  &lt;clipPath id&#x3D;&quot;clip0_156_928&quot;&gt;
+                      &lt;rect width&#x3D;&quot;20&quot; height&#x3D;&quot;7.45098&quot; fill&#x3D;&quot;white&quot; transform&#x3D;&quot;translate(0.855469 0.466064)&quot;/&gt;
+                  &lt;/clipPath&gt;
+              &lt;/defs&gt;
+          &lt;/svg&gt;&lt;/span&gt;
+            &lt;span class&#x3D;&quot;priorityTaskOverlay&quot; *ngSwitchCase&#x3D;&quot;&#x27;Low&#x27;&quot;&gt;Low &lt;svg width&#x3D;&quot;21&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 21 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+              &lt;path d&#x3D;&quot;M10.8555 9.69779C10.6209 9.69819 10.3923 9.62335 10.2035 9.48427L1.30038 2.91453C1.18454 2.82898 1.0867 2.72146 1.01245 2.59812C0.938193 2.47478 0.888977 2.33803 0.867609 2.19569C0.824455 1.90821 0.897354 1.61537 1.07027 1.3816C1.24319 1.14782 1.50196 0.992265 1.78965 0.949143C2.07734 0.906021 2.3704 0.978866 2.60434 1.15165L10.8555 7.23414L19.1066 1.15165C19.2224 1.0661 19.354 1.00418 19.4938 0.969432C19.6336 0.934685 19.7788 0.927791 19.9213 0.949143C20.0637 0.970495 20.2006 1.01967 20.324 1.09388C20.4474 1.16808 20.555 1.26584 20.6407 1.3816C20.7263 1.49735 20.7883 1.62882 20.823 1.7685C20.8578 1.90818 20.8647 2.05334 20.8433 2.19569C20.822 2.33803 20.7727 2.47478 20.6985 2.59812C20.6242 2.72146 20.5264 2.82898 20.4106 2.91453L11.5075 9.48427C11.3186 9.62335 11.0901 9.69819 10.8555 9.69779Z&quot; fill&#x3D;&quot;#7AE229&quot;/&gt;
+              &lt;path d&#x3D;&quot;M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z&quot; fill&#x3D;&quot;#7AE229&quot;/&gt;
+          &lt;/svg&gt;&lt;/span&gt;
+          &lt;/ng-container&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;boardTasksAssignedToHeadline&quot;&gt;Assigned To:&lt;/div&gt;
+        &lt;div class&#x3D;&quot;boardTasksAssignedTo&quot;&gt;
+            &lt;div *ngFor&#x3D;&quot;let contactId of selectedTask?.assigned_to&quot; class&#x3D;&quot;contactInittilsNameContainer&quot;&gt;
+              &lt;span *ngIf&#x3D;&quot;getContactById(contactId) as contact&quot; class&#x3D;&quot;colorCircleContactsBoard&quot; [style.backgroundColor]&#x3D;&quot;contact?.color&quot;&gt;
+                {{ getInitials(contact.name) }}
+              &lt;/span&gt;
+              &lt;span *ngIf&#x3D;&quot;getContactById(contactId) as contact&quot; class&#x3D;&quot;contactInittilsName&quot;&gt;{{ contact.name }}&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt; 
+          &lt;div *ngIf&#x3D;&quot;selectedTask &amp;&amp; selectedTask.subtasks &amp;&amp; selectedTask.subtasks.length &gt; 0&quot; &gt;  
+          &lt;div class&#x3D;&quot;boardTasksSubtasksHeadline&quot;&gt;Subtasks:&lt;/div&gt;
+          &lt;div class&#x3D;&quot;boardTasksSubtasks&quot;&gt;
+            &lt;div *ngFor&#x3D;&quot;let subtask of selectedTask?.subtasks&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; [checked]&#x3D;&quot;subtask.completed&quot; (change)&#x3D;&quot;toggleSubtaskCompletion(subtask)&quot;&gt;
+              &lt;span class&#x3D;&quot;subtasksTaskOverlay&quot;&gt; {{ subtask.text }}&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;boardTasksDeleteEditContainer&quot;&gt;
+            &lt;div class&#x3D;&quot;boardTasksDelete&quot; (click)&#x3D;&quot;deleteTask()&quot;&gt;
+              &lt;i class&#x3D;&quot;fas fa-trash-alt deleteEditIcon&quot;&gt;&lt;/i&gt; Delete
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;editDeleteLine&quot;&gt;&lt;/div&gt;
+            &lt;div class&#x3D;&quot;boardTasksEdit&quot; (click)&#x3D;&quot;openEditTaskOverlay()&quot;&gt;
+              &lt;i class&#x3D;&quot;fa-solid fa-pencil deleteEditIcon&quot;&gt;&lt;/i&gt; Edit
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class&#x3D;&quot;editTaskOverlayContainer&quot; *ngIf&#x3D;&quot;isEditTaskVisible&quot;&gt;
+          &lt;app-edit-task 
+            [task]&#x3D;&quot;selectedTask&quot; 
+            (taskUpdated)&#x3D;&quot;onTaskUpdated()&quot; 
+            (closeEditTaskOverlay)&#x3D;&quot;closeEditTaskOverlay()&quot;
+            (taskUpdatedAndClosed)&#x3D;&quot;handleTaskUpdatedAndClosed()&quot;&gt;
+          &lt;/app-edit-task&gt;
+        &lt;/div&gt;
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./board-task-overlay.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.taskOverlayBackground {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    z-index: 10; 
+}
+
+.boardTasksOverlay {
+    height: 80vh;
+    width: 90vw;
+    position: absolute;
+    top: 10vh;
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    background-color: #ffff;
+    padding: 32px;
+}
+
+.closeBoardTasks {
+    cursor: pointer;
+}
+
+.closeBoardTasks .svg-path {
+    transition: fill 0.3s ease;
+  }
+  
+  .closeBoardTasks:hover .svg-path {
+    fill: #29ABE2; /* Change this color to the desired hover color */
+  }
+
+.boardTasksHeadlineCloseContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boardTasksCategory {
+    color: #ffffff;
+    padding: 4px 16px 4px 16px;
+    border-radius:8px;
+}
+
+.boardTasksTitle {
+    margin-top: 16px;
+}
+
+.boardTasksDescription {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.boardTasksDueDate {
+    margin-bottom: 16px;
+}
+
+
+.boardTasksPriority {
+    margin-bottom: 16px;
+}
+
+
+.boardTasksAssignedToHeadline {
+    margin-bottom: 10px;
+}
+
+
+.colorCircleContactsBoard {
+    border-radius: 50%;
+    font-size: 0.7rem;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.contactInittilsNameContainer {
+    display: flex;
+    margin-left: 16px;
+    margin-bottom: 8px;
+}
+
+.boardTasksSubtasksHeadline {
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+
+.boardTasksSubtasks {
+    margin-left: 16px;
+}
+
+
+.contactInittilsName {
+    margin-left: 8px;
+    font-weight: 500;
+}
+
+.dateTasksOverlay {
+    font-weight: 500;
+}
+
+.priorityTaskOverlay {
+    font-weight: 500;
+}
+
+.subtasksTaskOverlay {
+    font-weight: 500;
+}
+
+.boardTasksDeleteEditContainer {
+    display: flex;
+    position: absolute;
+    bottom: 24px;
+    right:16px;
+    width: 40vw;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.boardTasksDelete {
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.boardTasksEdit {
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.editDeleteLine {
+    border-right: 2px solid #D1D1D1;
+    height: 24px;
+    margin-left: 8px;
+}
+
+@media (min-width: 1025px) { 
+    .boardTasksOverlay {
+
+        width: 40vw;
+
+    }
+}
+
+
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px){
+
+    .boardTasksOverlay  {
+        overflow-y: auto;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="taskOverlayBackground" (click)="onCloseTaskOverlay()"><div class="boardTasksOverlay" (click)="$event.stopPropagation()">  <div class="taskOverlayContainer" *ngIf="isTaskOverlayContainerVisible">    <div class="boardTasks">        <div class="boardTasksHeadlineCloseContainer">            <div class="boardTasksCategory" [style.background-color]="getCategoryNameAndColor(selectedTask?.category!).color">                {{ getCategoryNameAndColor(selectedTask?.category!).name }}</div>            <div class="closeBoardTasks" (click)="onCloseTaskOverlay()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">                <path  class="svg-path" d="M7 8.40005L2.1 13.3C1.91667 13.4834 1.68333 13.575 1.4 13.575C1.11667 13.575 0.883333 13.4834 0.699999 13.3C0.516666 13.1167 0.424999 12.8834 0.424999 12.6C0.424999 12.3167 0.516666 12.0834 0.699999 11.9L5.6 7.00005L0.699999 2.10005C0.516666 1.91672 0.424999 1.68338 0.424999 1.40005C0.424999 1.11672 0.516666 0.883382 0.699999 0.700049C0.883333 0.516715 1.11667 0.425049 1.4 0.425049C1.68333 0.425049 1.91667 0.516715 2.1 0.700049L7 5.60005L11.9 0.700049C12.0833 0.516715 12.3167 0.425049 12.6 0.425049C12.8833 0.425049 13.1167 0.516715 13.3 0.700049C13.4833 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4833 1.91672 13.3 2.10005L8.4 7.00005L13.3 11.9C13.4833 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4833 13.1167 13.3 13.3C13.1167 13.4834 12.8833 13.575 12.6 13.575C12.3167 13.575 12.0833 13.4834 11.9 13.3L7 8.40005Z" fill="#2A3647"/>                </svg>                </div>        </div>        <h1 class="boardTasksTitle">{{ selectedTask?.title }}</h1>        <div class="boardTasksDescription">{{ selectedTask?.description }}</div>        <div class="boardTasksDueDate">Due date:<span class="dateTasksOverlay"> {{ selectedTask?.due_date | date }}</span></div>        <div class="boardTasksPriority"><ng-container [ngSwitch]="selectedTask?.priority">Priority:            <span class="priorityTaskOverlay" *ngSwitchCase="\'Urgent\'">Urgent <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">              <g clip-path="url(#clip0_156_921)">                  <path d="M19.2597 15.4464C19.0251 15.4468 18.7965 15.3719 18.6077 15.2328L10.3556 9.14965L2.10356 15.2328C1.98771 15.3184 1.85613 15.3803 1.71633 15.4151C1.57652 15.4498 1.43124 15.4567 1.28877 15.4354C1.14631 15.414 1.00944 15.3648 0.885997 15.2906C0.762552 15.2164 0.654943 15.1186 0.569314 15.0029C0.483684 14.8871 0.421712 14.7556 0.386936 14.6159C0.352159 14.4762 0.345259 14.331 0.366629 14.1887C0.409788 13.9012 0.565479 13.6425 0.799451 13.4697L9.70356 6.89926C9.89226 6.75967 10.1208 6.68433 10.3556 6.68433C10.5904 6.68433 10.819 6.75967 11.0077 6.89926L19.9118 13.4697C20.0977 13.6067 20.2356 13.7988 20.3057 14.0186C20.3759 14.2385 20.3747 14.4749 20.3024 14.6941C20.2301 14.9133 20.0904 15.1041 19.9031 15.2391C19.7159 15.3742 19.4907 15.4468 19.2597 15.4464Z" fill="#FF3D00"/>                  <path d="M19.2597 9.69733C19.0251 9.69774 18.7965 9.62289 18.6077 9.48379L10.3556 3.40063L2.10356 9.48379C1.86959 9.6566 1.57651 9.72945 1.28878 9.68633C1.00105 9.6432 0.742254 9.48762 0.569318 9.25383C0.396382 9.02003 0.323475 8.72716 0.366634 8.43964C0.409793 8.15213 0.565483 7.89352 0.799455 7.72072L9.70356 1.15024C9.89226 1.01065 10.1208 0.935303 10.3556 0.935303C10.5904 0.935303 10.819 1.01065 11.0077 1.15024L19.9118 7.72072C20.0977 7.85763 20.2356 8.04974 20.3057 8.26962C20.3759 8.4895 20.3747 8.72591 20.3024 8.94509C20.2301 9.16427 20.0904 9.35503 19.9031 9.49012C19.7159 9.62521 19.4907 9.69773 19.2597 9.69733Z" fill="#FF3D00"/>              </g>              <defs>                  <clipPath id="clip0_156_921">                      <rect width="20" height="14.5098" fill="white" transform="translate(0.355469 0.936768)"/>                  </clipPath>              </defs>          </svg></span>            <span class="priorityTaskOverlay" *ngSwitchCase="\'Medium\'">Medium <svg width="21" height="8" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">              <g clip-path="url(#clip0_156_928)">                  <path d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z" fill="#FFA800"/>                  <path d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z" fill="#FFA800"/>              </g>              <defs>                  <clipPath id="clip0_156_928">                      <rect width="20" height="7.45098" fill="white" transform="translate(0.855469 0.466064)"/>                  </clipPath>              </defs>          </svg></span>            <span class="priorityTaskOverlay" *ngSwitchCase="\'Low\'">Low <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">              <path d="M10.8555 9.69779C10.6209 9.69819 10.3923 9.62335 10.2035 9.48427L1.30038 2.91453C1.18454 2.82898 1.0867 2.72146 1.01245 2.59812C0.938193 2.47478 0.888977 2.33803 0.867609 2.19569C0.824455 1.90821 0.897354 1.61537 1.07027 1.3816C1.24319 1.14782 1.50196 0.992265 1.78965 0.949143C2.07734 0.906021 2.3704 0.978866 2.60434 1.15165L10.8555 7.23414L19.1066 1.15165C19.2224 1.0661 19.354 1.00418 19.4938 0.969432C19.6336 0.934685 19.7788 0.927791 19.9213 0.949143C20.0637 0.970495 20.2006 1.01967 20.324 1.09388C20.4474 1.16808 20.555 1.26584 20.6407 1.3816C20.7263 1.49735 20.7883 1.62882 20.823 1.7685C20.8578 1.90818 20.8647 2.05334 20.8433 2.19569C20.822 2.33803 20.7727 2.47478 20.6985 2.59812C20.6242 2.72146 20.5264 2.82898 20.4106 2.91453L11.5075 9.48427C11.3186 9.62335 11.0901 9.69819 10.8555 9.69779Z" fill="#7AE229"/>              <path d="M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z" fill="#7AE229"/>          </svg></span>          </ng-container></div>        <div class="boardTasksAssignedToHeadline">Assigned To:</div>        <div class="boardTasksAssignedTo">            <div *ngFor="let contactId of selectedTask?.assigned_to" class="contactInittilsNameContainer">              <span *ngIf="getContactById(contactId) as contact" class="colorCircleContactsBoard" [style.backgroundColor]="contact?.color">                {{ getInitials(contact.name) }}              </span>              <span *ngIf="getContactById(contactId) as contact" class="contactInittilsName">{{ contact.name }}</span>            </div>          </div>           <div *ngIf="selectedTask && selectedTask.subtasks && selectedTask.subtasks.length > 0" >            <div class="boardTasksSubtasksHeadline">Subtasks:</div>          <div class="boardTasksSubtasks">            <div *ngFor="let subtask of selectedTask?.subtasks">              <input type="checkbox" [checked]="subtask.completed" (change)="toggleSubtaskCompletion(subtask)">              <span class="subtasksTaskOverlay"> {{ subtask.text }}</span>            </div>          </div>          </div>          <div class="boardTasksDeleteEditContainer">            <div class="boardTasksDelete" (click)="deleteTask()">              <i class="fas fa-trash-alt deleteEditIcon"></i> Delete            </div>            <div class="editDeleteLine"></div>            <div class="boardTasksEdit" (click)="openEditTaskOverlay()">              <i class="fa-solid fa-pencil deleteEditIcon"></i> Edit            </div>          </div>        </div>        </div>                <div class="editTaskOverlayContainer" *ngIf="isEditTaskVisible">          <app-edit-task             [task]="selectedTask"             (taskUpdated)="onTaskUpdated()"             (closeEditTaskOverlay)="closeEditTaskOverlay()"            (taskUpdatedAndClosed)="handleTaskUpdatedAndClosed()">          </app-edit-task>        </div></div>'
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BoardTaskOverlayComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BoardTaskOverlayComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

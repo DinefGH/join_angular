@@ -1,0 +1,1019 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>join2.0-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">join2.0-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FooterBarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/footer-bar/footer-bar.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-footer-bar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./footer-bar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./footer-bar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isAddTaskPage" >isAddTaskPage</a>
+                            </li>
+                            <li>
+                                <a href="#isBoardPage" >isBoardPage</a>
+                            </li>
+                            <li>
+                                <a href="#isContactsPage" >isContactsPage</a>
+                            </li>
+                            <li>
+                                <a href="#isSummaryPage" >isSummaryPage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#goToAddtask" >goToAddtask</a>
+                            </li>
+                            <li>
+                                <a href="#goToBoard" >goToBoard</a>
+                            </li>
+                            <li>
+                                <a href="#goToContacts" >goToContacts</a>
+                            </li>
+                            <li>
+                                <a href="#goToSummary" >goToSummary</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetPageFlags" >resetPageFlags</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setPageFlag" >setPageFlag</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToAddtask"></a>
+                    <span class="name">
+                        <span ><b>goToAddtask</b></span>
+                        <a href="#goToAddtask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToAddtask()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToBoard"></a>
+                    <span class="name">
+                        <span ><b>goToBoard</b></span>
+                        <a href="#goToBoard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToBoard()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToContacts"></a>
+                    <span class="name">
+                        <span ><b>goToContacts</b></span>
+                        <a href="#goToContacts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToContacts()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToSummary"></a>
+                    <span class="name">
+                        <span ><b>goToSummary</b></span>
+                        <a href="#goToSummary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToSummary()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetPageFlags"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resetPageFlags</b></span>
+                        <a href="#resetPageFlags"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetPageFlags()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPageFlag"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setPageFlag</b></span>
+                        <a href="#setPageFlag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setPageFlag(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAddTaskPage"></a>
+                    <span class="name">
+                        <span ><b>isAddTaskPage</b></span>
+                        <a href="#isAddTaskPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBoardPage"></a>
+                    <span class="name">
+                        <span ><b>isBoardPage</b></span>
+                        <a href="#isBoardPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isContactsPage"></a>
+                    <span class="name">
+                        <span ><b>isContactsPage</b></span>
+                        <a href="#isContactsPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSummaryPage"></a>
+                    <span class="name">
+                        <span ><b>isSummaryPage</b></span>
+                        <a href="#isSummaryPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/footer-bar/footer-bar.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router, NavigationEnd, Event as RouterEvent } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-footer-bar&#x27;,
+  templateUrl: &#x27;./footer-bar.component.html&#x27;,
+  styleUrls: [&#x27;./footer-bar.component.scss&#x27;]
+})
+export class FooterBarComponent implements OnInit {
+
+  isSummaryPage: boolean &#x3D; false;
+  isBoardPage: boolean &#x3D; false;
+  isAddTaskPage: boolean &#x3D; false;
+  isContactsPage: boolean &#x3D; false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events.subscribe(event &#x3D;&gt; {
+      if (event instanceof NavigationEnd) {
+        // Reset all page flags to false
+        this.resetPageFlags();
+        // Set the flag for the current page to true
+        this.setPageFlag(event.urlAfterRedirects);
+      }
+    });
+    // Set the initial page flag based on the current URL
+    this.setPageFlag(this.router.url);
+  }
+
+  private resetPageFlags() {
+    this.isSummaryPage &#x3D; false;
+    this.isBoardPage &#x3D; false;
+    this.isAddTaskPage &#x3D; false;
+    this.isContactsPage &#x3D; false;
+  }
+
+  private setPageFlag(url: string) {
+    this.isSummaryPage &#x3D; url.includes(&#x27;/summary&#x27;);
+    this.isBoardPage &#x3D; url.includes(&#x27;/board&#x27;);
+    this.isAddTaskPage &#x3D; url.includes(&#x27;/addtask&#x27;);
+    this.isContactsPage &#x3D; url.includes(&#x27;/contacts&#x27;);
+  }
+
+  goToContacts() {
+    this.router.navigate([&#x27;/contacts&#x27;]);
+  }
+
+  goToSummary() {
+    this.router.navigate([&#x27;/summary&#x27;]);
+  }
+
+  goToAddtask() {
+    this.router.navigate([&#x27;/addtask&#x27;]);
+  }
+
+  goToBoard() {
+    this.router.navigate([&#x27;/board&#x27;]);
+  }
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;footer class&#x3D;&quot;footerBar&quot;&gt;
+    &lt;div class&#x3D;&quot;iconContainerFooter hoverFooterIcons&quot; (click)&#x3D;&quot;goToSummary()&quot; [ngClass]&#x3D;&quot;{&#x27;activeRouteIcon&#x27;: isSummaryPage}&quot;&gt;
+        &lt;div class&#x3D;&quot;iconContainer&quot;&gt;&lt;svg width&#x3D;&quot;64&quot; height&#x3D;&quot;64&quot; viewBox&#x3D;&quot;0 0 76 76&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+            &lt;path d&#x3D;&quot;M47 16.5H29C27.8954 16.5 27 17.3965 27 18.501C27 18.5294 27 18.5493 27 18.5592V36.5592C27 37.6311 27.87 38.5 28.9419 38.5C28.9701 38.5 28.99 38.5 29 38.5H47C47.01 38.5 47.0299 38.5 47.0581 38.5C48.13 38.5 49 37.6311 49 36.5592V18.5591C49 18.5493 49 18.5294 49 18.501C49 17.3965 48.1046 16.5 47 16.5ZM40 36.5592H29V28.5591H40V36.5592ZM40 26.5591H29V18.5592L40 18.5591V26.5591ZM47 36.5592H42V18.5592H47V36.5592Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;path d&#x3D;&quot;M13.5068 54.8408C13.5068 55.4333 13.3587 55.9391 13.0625 56.3584C12.7708 56.7731 12.3607 57.0898 11.832 57.3086C11.3034 57.5273 10.6813 57.6367 9.96582 57.6367C9.58757 57.6367 9.22982 57.6185 8.89258 57.582C8.55534 57.5456 8.24544 57.4932 7.96289 57.4248C7.68034 57.3564 7.43197 57.2721 7.21777 57.1719V56.0576C7.55957 56.1989 7.97656 56.3311 8.46875 56.4541C8.96094 56.5726 9.47591 56.6318 10.0137 56.6318C10.515 56.6318 10.9388 56.5658 11.2852 56.4336C11.6315 56.2969 11.8936 56.1032 12.0713 55.8525C12.2536 55.5973 12.3447 55.292 12.3447 54.9365C12.3447 54.5947 12.2695 54.3099 12.1191 54.082C11.9688 53.8496 11.7181 53.64 11.3672 53.4531C11.0208 53.2617 10.5469 53.0589 9.94531 52.8447C9.52148 52.6943 9.14779 52.5303 8.82422 52.3525C8.50065 52.1702 8.22949 51.9652 8.01074 51.7373C7.79199 51.5094 7.62565 51.2451 7.51172 50.9443C7.40234 50.6436 7.34766 50.2995 7.34766 49.9121C7.34766 49.3789 7.4821 48.9232 7.75098 48.5449C8.02441 48.1621 8.40039 47.8704 8.87891 47.6699C9.36198 47.4648 9.91569 47.3623 10.54 47.3623C11.0732 47.3623 11.5654 47.4124 12.0166 47.5127C12.4723 47.613 12.8893 47.7474 13.2676 47.916L12.9053 48.9141C12.5452 48.7637 12.1624 48.6383 11.7568 48.5381C11.3558 48.4378 10.9411 48.3877 10.5127 48.3877C10.0843 48.3877 9.72201 48.4515 9.42578 48.5791C9.13411 48.7021 8.91081 48.8776 8.75586 49.1055C8.60091 49.3333 8.52344 49.6045 8.52344 49.9189C8.52344 50.2699 8.59635 50.5615 8.74219 50.7939C8.89258 51.0264 9.12956 51.2337 9.45312 51.416C9.78125 51.5938 10.2142 51.7806 10.752 51.9766C11.3398 52.1908 11.8389 52.4186 12.249 52.6602C12.6592 52.8971 12.9714 53.1888 13.1855 53.5352C13.3997 53.877 13.5068 54.3122 13.5068 54.8408ZM21.5664 50.0078V57.5H20.6367L20.4727 56.4473H20.4111C20.2562 56.707 20.0557 56.9258 19.8096 57.1035C19.5635 57.2812 19.2855 57.4134 18.9756 57.5C18.6702 57.5911 18.3444 57.6367 17.998 57.6367C17.4056 57.6367 16.9089 57.541 16.5078 57.3496C16.1068 57.1582 15.8037 56.862 15.5986 56.4609C15.3981 56.0599 15.2979 55.5449 15.2979 54.916V50.0078H16.4463V54.834C16.4463 55.4583 16.5876 55.9255 16.8701 56.2354C17.1527 56.5407 17.5833 56.6934 18.1621 56.6934C18.7181 56.6934 19.1602 56.5885 19.4883 56.3789C19.821 56.1693 20.0602 55.8617 20.2061 55.4561C20.3519 55.0459 20.4248 54.5446 20.4248 53.9521V50.0078H21.5664ZM32.1006 49.8711C32.9255 49.8711 33.5475 50.0876 33.9668 50.5205C34.3861 50.9489 34.5957 51.6393 34.5957 52.5918V57.5H33.4746V52.6465C33.4746 52.0404 33.3424 51.5869 33.0781 51.2861C32.8184 50.9808 32.431 50.8281 31.916 50.8281C31.1914 50.8281 30.665 51.0378 30.3369 51.457C30.0088 51.8763 29.8447 52.4938 29.8447 53.3096V57.5H28.7168V52.6465C28.7168 52.2409 28.6576 51.9036 28.5391 51.6348C28.4251 51.3659 28.252 51.1654 28.0195 51.0332C27.7917 50.8965 27.5023 50.8281 27.1514 50.8281C26.6546 50.8281 26.2559 50.9307 25.9551 51.1357C25.6543 51.3408 25.4355 51.6462 25.2988 52.0518C25.1667 52.4528 25.1006 52.9473 25.1006 53.5352V57.5H23.9658V50.0078H24.8818L25.0527 51.0674H25.1143C25.2646 50.8076 25.4538 50.5889 25.6816 50.4111C25.9095 50.2334 26.1647 50.099 26.4473 50.0078C26.7298 49.9167 27.0306 49.8711 27.3496 49.8711C27.9193 49.8711 28.3955 49.9782 28.7783 50.1924C29.1657 50.402 29.446 50.7233 29.6191 51.1562H29.6807C29.9268 50.7233 30.264 50.402 30.6924 50.1924C31.1208 49.9782 31.5902 49.8711 32.1006 49.8711ZM45.0615 49.8711C45.8864 49.8711 46.5085 50.0876 46.9277 50.5205C47.347 50.9489 47.5566 51.6393 47.5566 52.5918V57.5H46.4355V52.6465C46.4355 52.0404 46.3034 51.5869 46.0391 51.2861C45.7793 50.9808 45.3919 50.8281 44.877 50.8281C44.1523 50.8281 43.626 51.0378 43.2979 51.457C42.9697 51.8763 42.8057 52.4938 42.8057 53.3096V57.5H41.6777V52.6465C41.6777 52.2409 41.6185 51.9036 41.5 51.6348C41.3861 51.3659 41.2129 51.1654 40.9805 51.0332C40.7526 50.8965 40.4632 50.8281 40.1123 50.8281C39.6156 50.8281 39.2168 50.9307 38.916 51.1357C38.6152 51.3408 38.3965 51.6462 38.2598 52.0518C38.1276 52.4528 38.0615 52.9473 38.0615 53.5352V57.5H36.9268V50.0078H37.8428L38.0137 51.0674H38.0752C38.2256 50.8076 38.4147 50.5889 38.6426 50.4111C38.8704 50.2334 39.1257 50.099 39.4082 50.0078C39.6908 49.9167 39.9915 49.8711 40.3105 49.8711C40.8802 49.8711 41.3564 49.9782 41.7393 50.1924C42.1266 50.402 42.4069 50.7233 42.5801 51.1562H42.6416C42.8877 50.7233 43.2249 50.402 43.6533 50.1924C44.0817 49.9782 44.5511 49.8711 45.0615 49.8711ZM52.6904 49.8848C53.5837 49.8848 54.2467 50.0853 54.6797 50.4863C55.1126 50.8874 55.3291 51.5277 55.3291 52.4072V57.5H54.502L54.2832 56.3926H54.2285C54.0189 56.666 53.8001 56.8962 53.5723 57.083C53.3444 57.2653 53.0801 57.4043 52.7793 57.5C52.4831 57.5911 52.1185 57.6367 51.6855 57.6367C51.2298 57.6367 50.8242 57.557 50.4688 57.3975C50.1178 57.238 49.8398 56.9964 49.6348 56.6729C49.4342 56.3493 49.334 55.9391 49.334 55.4424C49.334 54.695 49.6302 54.1208 50.2227 53.7197C50.8151 53.3187 51.7174 53.0999 52.9297 53.0635L54.2217 53.0088V52.5508C54.2217 51.9036 54.0827 51.4502 53.8047 51.1904C53.5267 50.9307 53.1348 50.8008 52.6289 50.8008C52.237 50.8008 51.8633 50.8577 51.5078 50.9717C51.1523 51.0856 50.8151 51.2201 50.4961 51.375L50.1475 50.5137C50.4847 50.3405 50.8721 50.1924 51.3096 50.0693C51.7471 49.9463 52.2074 49.8848 52.6904 49.8848ZM54.208 53.8086L53.0664 53.8564C52.1322 53.8929 51.4736 54.0456 51.0908 54.3145C50.708 54.5833 50.5166 54.9639 50.5166 55.4561C50.5166 55.8844 50.6465 56.2012 50.9062 56.4062C51.166 56.6113 51.5101 56.7139 51.9385 56.7139C52.6038 56.7139 53.1484 56.5293 53.5723 56.1602C53.9961 55.791 54.208 55.2373 54.208 54.499V53.8086ZM61.0713 49.8711C61.2217 49.8711 61.3789 49.8802 61.543 49.8984C61.707 49.9121 61.8529 49.9326 61.9805 49.96L61.8369 51.0127C61.7139 50.9808 61.5771 50.9557 61.4268 50.9375C61.2764 50.9193 61.1351 50.9102 61.0029 50.9102C60.7021 50.9102 60.4173 50.9717 60.1484 51.0947C59.8841 51.2132 59.6517 51.3864 59.4512 51.6143C59.2507 51.8376 59.0934 52.1087 58.9795 52.4277C58.8656 52.7422 58.8086 53.0931 58.8086 53.4805V57.5H57.667V50.0078H58.6104L58.7334 51.3887H58.7812C58.9362 51.1107 59.123 50.8577 59.3418 50.6299C59.5605 50.3975 59.8135 50.2129 60.1006 50.0762C60.3923 49.9395 60.7158 49.8711 61.0713 49.8711ZM62.2129 50.0078H63.4297L65.084 54.3555C65.1797 54.6107 65.2686 54.8568 65.3506 55.0938C65.4326 55.3262 65.5055 55.5495 65.5693 55.7637C65.6331 55.9779 65.6833 56.1852 65.7197 56.3857H65.7676C65.8314 56.1579 65.9225 55.8594 66.041 55.4902C66.1595 55.1165 66.2871 54.736 66.4238 54.3486L67.9893 50.0078H69.2129L65.9521 58.6006C65.779 59.0609 65.5762 59.4619 65.3438 59.8037C65.1159 60.1455 64.8379 60.4076 64.5098 60.5898C64.1816 60.7767 63.7852 60.8701 63.3203 60.8701C63.1061 60.8701 62.917 60.8564 62.7529 60.8291C62.5889 60.8063 62.4476 60.779 62.3291 60.7471V59.8379C62.4294 59.8607 62.5501 59.8812 62.6914 59.8994C62.8372 59.9176 62.9876 59.9268 63.1426 59.9268C63.4251 59.9268 63.6689 59.8721 63.874 59.7627C64.0837 59.6579 64.2637 59.5029 64.4141 59.2979C64.5645 59.0928 64.6943 58.849 64.8037 58.5664L65.2139 57.5137L62.2129 50.0078Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;/svg&gt; &lt;/div&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;iconContainerFooter hoverFooterIcons&quot; (click)&#x3D;&quot;goToBoard()&quot; [ngClass]&#x3D;&quot;{&#x27;activeRouteIcon&#x27;: isBoardPage}&quot;&gt;
+        &lt;div class&#x3D;&quot;iconContainer&quot;&gt;&lt;svg width&#x3D;&quot;64&quot; height&#x3D;&quot;64&quot; viewBox&#x3D;&quot;0 0 77 76&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+            &lt;path d&#x3D;&quot;M44.7945 19.1921L44.7945 35.8075C44.7941 36.2969 44.5994 36.7662 44.2533 37.1124C43.9072 37.4585 43.4379 37.6531 42.9484 37.6536L39.2561 37.6536C38.7666 37.6531 38.2973 37.4585 37.9512 37.1124C37.6051 36.7662 37.4104 36.2969 37.4099 35.8075L37.4099 19.1921C37.4104 18.7026 37.6051 18.2333 37.9512 17.8872C38.2973 17.5411 38.7666 17.3464 39.2561 17.3459L42.9484 17.3459C43.4379 17.3464 43.9072 17.5411 44.2533 17.8872C44.5994 18.2333 44.7941 18.7026 44.7945 19.1921ZM39.2561 35.8075L42.9484 35.8075L42.9484 19.1921L39.2561 19.1921L39.2561 35.8075ZM39.2561 19.1921L39.2561 35.8075C39.2556 36.2969 39.0609 36.7662 38.7148 37.1123C38.3687 37.4584 37.8994 37.6531 37.4099 37.6536L33.7176 37.6536C33.2281 37.6531 32.7589 37.4584 32.4127 37.1123C32.0666 36.7662 31.872 36.2969 31.8715 35.8074L31.8715 19.1921C31.872 18.7026 32.0666 18.2333 32.4127 17.8872C32.7588 17.5411 33.2281 17.3464 33.7176 17.3459L37.4099 17.3459C37.8994 17.3464 38.3687 17.5411 38.7148 17.8872C39.0609 18.2333 39.2556 18.7026 39.2561 19.1921ZM33.7176 35.8074L37.4099 35.8075L37.4099 19.1921L33.7176 19.1921L33.7176 35.8074ZM33.7176 19.1921L33.7176 35.8074C33.7171 36.2969 33.5225 36.7662 33.1764 37.1123C32.8302 37.4584 32.3609 37.6531 31.8715 37.6536L28.1792 37.6536C27.6897 37.6531 27.2204 37.4584 26.8743 37.1123C26.5282 36.7662 26.3335 36.2969 26.333 35.8074L26.333 19.1921C26.3335 18.7026 26.5282 18.2333 26.8743 17.8872C27.2204 17.5411 27.6897 17.3464 28.1792 17.3459L31.8715 17.3459C32.3609 17.3464 32.8302 17.5411 33.1764 17.8872C33.5225 18.2333 33.7171 18.7026 33.7176 19.1921ZM28.1792 35.8074L31.8715 35.8074L31.8715 19.1921L28.1792 19.1921L28.1792 35.8074Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;path d&#x3D;&quot;M50.333 19.1923L50.333 35.8077C50.3325 36.2971 50.1379 36.7664 49.7917 37.1125C49.4456 37.4587 48.9763 37.6533 48.4869 37.6538L44.7945 37.6538C44.3051 37.6533 43.8358 37.4587 43.4897 37.1125C43.1435 36.7664 42.9489 36.2969 42.9484 35.8075L42.9484 19.1921C42.9489 18.7026 43.1435 18.2335 43.4897 17.8874C43.8358 17.5413 44.3051 17.3466 44.7945 17.3461L48.4869 17.3461C48.9763 17.3466 49.4456 17.5413 49.7917 17.8874C50.1379 18.2335 50.3325 18.7028 50.333 19.1923ZM44.7945 35.8075L48.4869 35.8077L48.4869 19.1923L44.7945 19.1921L44.7945 35.8075Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;path d&#x3D;&quot;M19.7002 47.5059H22.5303C23.779 47.5059 24.7178 47.6927 25.3467 48.0664C25.9756 48.4401 26.29 49.0758 26.29 49.9736C26.29 50.361 26.2148 50.7096 26.0645 51.0195C25.9186 51.3249 25.7044 51.5778 25.4219 51.7783C25.1393 51.9788 24.7907 52.1178 24.376 52.1953V52.2637C24.8135 52.332 25.2008 52.4574 25.5381 52.6396C25.8753 52.8219 26.1396 53.0771 26.3311 53.4053C26.5225 53.7334 26.6182 54.1504 26.6182 54.6562C26.6182 55.2715 26.4746 55.791 26.1875 56.2148C25.9049 56.6387 25.5039 56.96 24.9844 57.1787C24.4648 57.3929 23.8496 57.5 23.1387 57.5H19.7002V47.5059ZM20.8623 51.792H22.7764C23.6468 51.792 24.2484 51.6484 24.5811 51.3613C24.9183 51.0742 25.0869 50.6549 25.0869 50.1035C25.0869 49.5339 24.8864 49.1237 24.4854 48.873C24.0889 48.6224 23.4554 48.4971 22.585 48.4971H20.8623V51.792ZM20.8623 52.7695V56.5088H22.9404C23.8291 56.5088 24.458 56.3356 24.8271 55.9893C25.1963 55.6383 25.3809 55.1667 25.3809 54.5742C25.3809 54.196 25.2965 53.8724 25.1279 53.6035C24.9639 53.3346 24.695 53.1296 24.3213 52.9883C23.9521 52.8424 23.4577 52.7695 22.8379 52.7695H20.8623ZM35.04 53.7402C35.04 54.3555 34.9603 54.9046 34.8008 55.3877C34.6413 55.8708 34.4111 56.2786 34.1104 56.6113C33.8096 56.944 33.445 57.1992 33.0166 57.377C32.5928 57.5501 32.112 57.6367 31.5742 57.6367C31.0729 57.6367 30.6126 57.5501 30.1934 57.377C29.7786 57.1992 29.4186 56.944 29.1133 56.6113C28.8125 56.2786 28.5778 55.8708 28.4092 55.3877C28.2451 54.9046 28.1631 54.3555 28.1631 53.7402C28.1631 52.9199 28.3021 52.2227 28.5801 51.6484C28.8581 51.0697 29.2546 50.6299 29.7695 50.3291C30.2891 50.0238 30.9066 49.8711 31.6221 49.8711C32.3057 49.8711 32.9027 50.0238 33.4131 50.3291C33.9281 50.6344 34.3268 51.0765 34.6094 51.6553C34.8965 52.2295 35.04 52.9245 35.04 53.7402ZM29.3389 53.7402C29.3389 54.3418 29.4186 54.8636 29.5781 55.3057C29.7376 55.7477 29.9837 56.0895 30.3164 56.3311C30.6491 56.5726 31.0775 56.6934 31.6016 56.6934C32.1211 56.6934 32.5472 56.5726 32.8799 56.3311C33.2171 56.0895 33.4655 55.7477 33.625 55.3057C33.7845 54.8636 33.8643 54.3418 33.8643 53.7402C33.8643 53.1432 33.7845 52.6283 33.625 52.1953C33.4655 51.7578 33.2194 51.4206 32.8867 51.1836C32.554 50.9466 32.1234 50.8281 31.5947 50.8281C30.8154 50.8281 30.2435 51.0856 29.8789 51.6006C29.5189 52.1156 29.3389 52.8288 29.3389 53.7402ZM39.8047 49.8848C40.6979 49.8848 41.361 50.0853 41.7939 50.4863C42.2269 50.8874 42.4434 51.5277 42.4434 52.4072V57.5H41.6162L41.3975 56.3926H41.3428C41.1331 56.666 40.9144 56.8962 40.6865 57.083C40.4587 57.2653 40.1943 57.4043 39.8936 57.5C39.5973 57.5911 39.2327 57.6367 38.7998 57.6367C38.3441 57.6367 37.9385 57.557 37.583 57.3975C37.2321 57.238 36.9541 56.9964 36.749 56.6729C36.5485 56.3493 36.4482 55.9391 36.4482 55.4424C36.4482 54.695 36.7445 54.1208 37.3369 53.7197C37.9294 53.3187 38.8317 53.0999 40.0439 53.0635L41.3359 53.0088V52.5508C41.3359 51.9036 41.1969 51.4502 40.9189 51.1904C40.641 50.9307 40.249 50.8008 39.7432 50.8008C39.3512 50.8008 38.9775 50.8577 38.6221 50.9717C38.2666 51.0856 37.9294 51.2201 37.6104 51.375L37.2617 50.5137C37.599 50.3405 37.9863 50.1924 38.4238 50.0693C38.8613 49.9463 39.3216 49.8848 39.8047 49.8848ZM41.3223 53.8086L40.1807 53.8564C39.2464 53.8929 38.5879 54.0456 38.2051 54.3145C37.8223 54.5833 37.6309 54.9639 37.6309 55.4561C37.6309 55.8844 37.7607 56.2012 38.0205 56.4062C38.2803 56.6113 38.6243 56.7139 39.0527 56.7139C39.7181 56.7139 40.2627 56.5293 40.6865 56.1602C41.1104 55.791 41.3223 55.2373 41.3223 54.499V53.8086ZM48.1855 49.8711C48.3359 49.8711 48.4932 49.8802 48.6572 49.8984C48.8213 49.9121 48.9671 49.9326 49.0947 49.96L48.9512 51.0127C48.8281 50.9808 48.6914 50.9557 48.541 50.9375C48.3906 50.9193 48.2493 50.9102 48.1172 50.9102C47.8164 50.9102 47.5316 50.9717 47.2627 51.0947C46.9984 51.2132 46.766 51.3864 46.5654 51.6143C46.3649 51.8376 46.2077 52.1087 46.0938 52.4277C45.9798 52.7422 45.9229 53.0931 45.9229 53.4805V57.5H44.7812V50.0078H45.7246L45.8477 51.3887H45.8955C46.0505 51.1107 46.2373 50.8577 46.4561 50.6299C46.6748 50.3975 46.9277 50.2129 47.2148 50.0762C47.5065 49.9395 47.8301 49.8711 48.1855 49.8711ZM53.1758 57.6367C52.2279 57.6367 51.4759 57.3132 50.9199 56.666C50.3685 56.0189 50.0928 55.0573 50.0928 53.7812C50.0928 52.4915 50.3753 51.5186 50.9404 50.8623C51.5055 50.2015 52.2575 49.8711 53.1963 49.8711C53.5928 49.8711 53.9391 49.9235 54.2354 50.0283C54.5316 50.1331 54.7868 50.2744 55.001 50.4521C55.2152 50.6253 55.3952 50.8236 55.541 51.0469H55.623C55.6048 50.9056 55.5866 50.7119 55.5684 50.4658C55.5501 50.2197 55.541 50.0192 55.541 49.8643V46.8633H56.6758V57.5H55.7598L55.5889 56.4336H55.541C55.3997 56.6569 55.2197 56.8597 55.001 57.042C54.7868 57.2243 54.5293 57.3701 54.2285 57.4795C53.9323 57.5843 53.5814 57.6367 53.1758 57.6367ZM53.3535 56.6934C54.1556 56.6934 54.723 56.4655 55.0557 56.0098C55.3883 55.554 55.5547 54.8773 55.5547 53.9795V53.7744C55.5547 52.8219 55.3952 52.0905 55.0762 51.5801C54.7617 51.0697 54.1875 50.8145 53.3535 50.8145C52.6562 50.8145 52.1344 51.0833 51.7881 51.6211C51.4417 52.1543 51.2686 52.8835 51.2686 53.8086C51.2686 54.7292 51.4395 55.4401 51.7812 55.9414C52.1276 56.4427 52.6517 56.6934 53.3535 56.6934Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;iconContainerFooter hoverFooterIcons&quot; (click)&#x3D;&quot;goToAddtask()&quot; [ngClass]&#x3D;&quot;{&#x27;activeRouteIcon&#x27;: isAddTaskPage}&quot;&gt;
+        &lt;div class&#x3D;&quot;iconContainer&quot;&gt;&lt;svg width&#x3D;&quot;64&quot; height&#x3D;&quot;64&quot; viewBox&#x3D;&quot;0 0 77 76&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+            &lt;mask id&#x3D;&quot;mask0_149853_4971&quot; style&#x3D;&quot;mask-type:alpha&quot; maskUnits&#x3D;&quot;userSpaceOnUse&quot; x&#x3D;&quot;26&quot; y&#x3D;&quot;15&quot; width&#x3D;&quot;25&quot; height&#x3D;&quot;25&quot;&gt;
+            &lt;rect x&#x3D;&quot;26.667&quot; y&#x3D;&quot;15.5&quot; width&#x3D;&quot;24&quot; height&#x3D;&quot;24&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;/mask&gt;
+            &lt;g mask&#x3D;&quot;url(#mask0_149853_4971)&quot;&gt;
+            &lt;path d&#x3D;&quot;M29.0085 39.5149C28.3646 39.5149 27.8134 39.2856 27.3548 38.827C26.8963 38.3685 26.667 37.8173 26.667 37.1733V20.7826C26.667 20.1387 26.8963 19.5874 27.3548 19.1289C27.8134 18.6703 28.3646 18.4411 29.0085 18.4411H39.4576L37.1161 20.7826H29.0085V37.1733H45.3993V29.0365L47.7408 26.695V37.1733C47.7408 37.8173 47.5115 38.3685 47.053 38.827C46.5944 39.2856 46.0432 39.5149 45.3993 39.5149H29.0085ZM42.0919 19.1142L43.7602 20.7533L36.0331 28.4804V30.1487H37.6722L45.4285 22.3924L47.0969 24.0315L39.3405 31.7878C39.1259 32.0024 38.8771 32.1732 38.5942 32.3C38.3112 32.4268 38.0137 32.4903 37.7015 32.4903H34.8624C34.5306 32.4903 34.2526 32.3781 34.0282 32.1537C33.8038 31.9293 33.6916 31.6512 33.6916 31.3195V28.4804C33.6916 28.1682 33.7501 27.8706 33.8672 27.5877C33.9843 27.3047 34.1501 27.0559 34.3648 26.8413L42.0919 19.1142ZM47.0969 24.0315L42.0919 19.1142L45.0188 16.1873C45.4871 15.719 46.0481 15.4849 46.7017 15.4849C47.3554 15.4849 47.9067 15.719 48.3555 16.1873L49.9945 17.8557C50.4433 18.3045 50.6677 18.8508 50.6677 19.4947C50.6677 20.1387 50.4433 20.685 49.9945 21.1338L47.0969 24.0315Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;/g&gt;
+            &lt;path d&#x3D;&quot;M13.3027 57.5L12.0723 54.3281H8.06641L6.84277 57.5H5.66699L9.57715 47.4648H10.623L14.5059 57.5H13.3027ZM11.7236 53.2959L10.5547 50.1445C10.5273 50.0625 10.4818 49.9281 10.418 49.7412C10.3587 49.5544 10.2972 49.3607 10.2334 49.1602C10.1696 48.9596 10.1172 48.7979 10.0762 48.6748C10.0306 48.8617 9.98047 49.0485 9.92578 49.2354C9.87565 49.4176 9.82552 49.5885 9.77539 49.748C9.72526 49.903 9.68197 50.0352 9.64551 50.1445L8.45605 53.2959H11.7236ZM18.3887 57.6367C17.4408 57.6367 16.6888 57.3132 16.1328 56.666C15.5814 56.0189 15.3057 55.0573 15.3057 53.7812C15.3057 52.4915 15.5882 51.5186 16.1533 50.8623C16.7184 50.2015 17.4704 49.8711 18.4092 49.8711C18.8057 49.8711 19.152 49.9235 19.4482 50.0283C19.7445 50.1331 19.9997 50.2744 20.2139 50.4521C20.4281 50.6253 20.6081 50.8236 20.7539 51.0469H20.8359C20.8177 50.9056 20.7995 50.7119 20.7812 50.4658C20.763 50.2197 20.7539 50.0192 20.7539 49.8643V46.8633H21.8887V57.5H20.9727L20.8018 56.4336H20.7539C20.6126 56.6569 20.4326 56.8597 20.2139 57.042C19.9997 57.2243 19.7422 57.3701 19.4414 57.4795C19.1452 57.5843 18.7943 57.6367 18.3887 57.6367ZM18.5664 56.6934C19.3685 56.6934 19.9359 56.4655 20.2686 56.0098C20.6012 55.554 20.7676 54.8773 20.7676 53.9795V53.7744C20.7676 52.8219 20.6081 52.0905 20.2891 51.5801C19.9746 51.0697 19.4004 50.8145 18.5664 50.8145C17.8691 50.8145 17.3473 51.0833 17.001 51.6211C16.6546 52.1543 16.4814 52.8835 16.4814 53.8086C16.4814 54.7292 16.6523 55.4401 16.9941 55.9414C17.3405 56.4427 17.8646 56.6934 18.5664 56.6934ZM26.9609 57.6367C26.013 57.6367 25.2611 57.3132 24.7051 56.666C24.1536 56.0189 23.8779 55.0573 23.8779 53.7812C23.8779 52.4915 24.1605 51.5186 24.7256 50.8623C25.2907 50.2015 26.0426 49.8711 26.9814 49.8711C27.3779 49.8711 27.7243 49.9235 28.0205 50.0283C28.3167 50.1331 28.5719 50.2744 28.7861 50.4521C29.0003 50.6253 29.1803 50.8236 29.3262 51.0469H29.4082C29.39 50.9056 29.3717 50.7119 29.3535 50.4658C29.3353 50.2197 29.3262 50.0192 29.3262 49.8643V46.8633H30.4609V57.5H29.5449L29.374 56.4336H29.3262C29.1849 56.6569 29.0049 56.8597 28.7861 57.042C28.5719 57.2243 28.3145 57.3701 28.0137 57.4795C27.7174 57.5843 27.3665 57.6367 26.9609 57.6367ZM27.1387 56.6934C27.9408 56.6934 28.5081 56.4655 28.8408 56.0098C29.1735 55.554 29.3398 54.8773 29.3398 53.9795V53.7744C29.3398 52.8219 29.1803 52.0905 28.8613 51.5801C28.5469 51.0697 27.9727 50.8145 27.1387 50.8145C26.4414 50.8145 25.9196 51.0833 25.5732 51.6211C25.2269 52.1543 25.0537 52.8835 25.0537 53.8086C25.0537 54.7292 25.2246 55.4401 25.5664 55.9414C25.9128 56.4427 26.4368 56.6934 27.1387 56.6934ZM39.7441 57.5H38.5752V48.5312H35.4307V47.5059H42.875V48.5312H39.7441V57.5ZM47.0176 49.8848C47.9108 49.8848 48.5739 50.0853 49.0068 50.4863C49.4398 50.8874 49.6562 51.5277 49.6562 52.4072V57.5H48.8291L48.6104 56.3926H48.5557C48.346 56.666 48.1273 56.8962 47.8994 57.083C47.6715 57.2653 47.4072 57.4043 47.1064 57.5C46.8102 57.5911 46.4456 57.6367 46.0127 57.6367C45.557 57.6367 45.1514 57.557 44.7959 57.3975C44.445 57.238 44.167 56.9964 43.9619 56.6729C43.7614 56.3493 43.6611 55.9391 43.6611 55.4424C43.6611 54.695 43.9574 54.1208 44.5498 53.7197C45.1423 53.3187 46.0446 53.0999 47.2568 53.0635L48.5488 53.0088V52.5508C48.5488 51.9036 48.4098 51.4502 48.1318 51.1904C47.8538 50.9307 47.4619 50.8008 46.9561 50.8008C46.5641 50.8008 46.1904 50.8577 45.835 50.9717C45.4795 51.0856 45.1423 51.2201 44.8232 51.375L44.4746 50.5137C44.8118 50.3405 45.1992 50.1924 45.6367 50.0693C46.0742 49.9463 46.5345 49.8848 47.0176 49.8848ZM48.5352 53.8086L47.3936 53.8564C46.4593 53.8929 45.8008 54.0456 45.418 54.3145C45.0352 54.5833 44.8438 54.9639 44.8438 55.4561C44.8438 55.8844 44.9736 56.2012 45.2334 56.4062C45.4932 56.6113 45.8372 56.7139 46.2656 56.7139C46.931 56.7139 47.4756 56.5293 47.8994 56.1602C48.3232 55.791 48.5352 55.2373 48.5352 54.499V53.8086ZM56.8408 55.4492C56.8408 55.9277 56.7201 56.3311 56.4785 56.6592C56.2415 56.9827 55.8997 57.2266 55.4531 57.3906C55.0111 57.5547 54.4824 57.6367 53.8672 57.6367C53.3431 57.6367 52.8896 57.5957 52.5068 57.5137C52.124 57.4316 51.7891 57.3154 51.502 57.165V56.1191C51.8073 56.2695 52.1719 56.4062 52.5957 56.5293C53.0195 56.6523 53.4525 56.7139 53.8945 56.7139C54.5417 56.7139 55.0111 56.609 55.3027 56.3994C55.5944 56.1898 55.7402 55.9049 55.7402 55.5449C55.7402 55.3398 55.681 55.1598 55.5625 55.0049C55.4486 54.8454 55.2549 54.6927 54.9814 54.5469C54.708 54.3965 54.3298 54.2324 53.8467 54.0547C53.3682 53.8724 52.9535 53.6924 52.6025 53.5146C52.2562 53.3324 51.9873 53.1113 51.7959 52.8516C51.609 52.5918 51.5156 52.2546 51.5156 51.8398C51.5156 51.2064 51.7708 50.721 52.2812 50.3838C52.7962 50.042 53.4707 49.8711 54.3047 49.8711C54.7559 49.8711 55.1774 49.9167 55.5693 50.0078C55.9658 50.0944 56.335 50.2129 56.6768 50.3633L56.2939 51.2725C55.984 51.1403 55.6536 51.0286 55.3027 50.9375C54.9518 50.8464 54.5941 50.8008 54.2295 50.8008C53.7054 50.8008 53.3021 50.8874 53.0195 51.0605C52.7415 51.2337 52.6025 51.4707 52.6025 51.7715C52.6025 52.0039 52.6663 52.1953 52.7939 52.3457C52.9261 52.4961 53.1357 52.6374 53.4229 52.7695C53.71 52.9017 54.0882 53.0566 54.5576 53.2344C55.027 53.4076 55.4326 53.5876 55.7744 53.7744C56.1162 53.9567 56.3783 54.18 56.5605 54.4443C56.7474 54.7041 56.8408 55.0391 56.8408 55.4492ZM59.7939 46.8633V52.3867C59.7939 52.569 59.7871 52.7923 59.7734 53.0566C59.7598 53.3164 59.7484 53.5465 59.7393 53.7471H59.7871C59.8828 53.6286 60.0218 53.4531 60.2041 53.2207C60.391 52.9883 60.5482 52.8014 60.6758 52.6602L63.1641 50.0078H64.4971L61.4824 53.207L64.7158 57.5H63.3486L60.7031 53.9521L59.7939 54.7861V57.5H58.666V46.8633H59.7939ZM70.8682 55.4492C70.8682 55.9277 70.7474 56.3311 70.5059 56.6592C70.2689 56.9827 69.9271 57.2266 69.4805 57.3906C69.0384 57.5547 68.5098 57.6367 67.8945 57.6367C67.3704 57.6367 66.917 57.5957 66.5342 57.5137C66.1514 57.4316 65.8164 57.3154 65.5293 57.165V56.1191C65.8346 56.2695 66.1992 56.4062 66.623 56.5293C67.0469 56.6523 67.4798 56.7139 67.9219 56.7139C68.569 56.7139 69.0384 56.609 69.3301 56.3994C69.6217 56.1898 69.7676 55.9049 69.7676 55.5449C69.7676 55.3398 69.7083 55.1598 69.5898 55.0049C69.4759 54.8454 69.2822 54.6927 69.0088 54.5469C68.7354 54.3965 68.3571 54.2324 67.874 54.0547C67.3955 53.8724 66.9808 53.6924 66.6299 53.5146C66.2835 53.3324 66.0146 53.1113 65.8232 52.8516C65.6364 52.5918 65.543 52.2546 65.543 51.8398C65.543 51.2064 65.7982 50.721 66.3086 50.3838C66.8236 50.042 67.498 49.8711 68.332 49.8711C68.7832 49.8711 69.2048 49.9167 69.5967 50.0078C69.9932 50.0944 70.3623 50.2129 70.7041 50.3633L70.3213 51.2725C70.0114 51.1403 69.681 51.0286 69.3301 50.9375C68.9792 50.8464 68.6214 50.8008 68.2568 50.8008C67.7327 50.8008 67.3294 50.8874 67.0469 51.0605C66.7689 51.2337 66.6299 51.4707 66.6299 51.7715C66.6299 52.0039 66.6937 52.1953 66.8213 52.3457C66.9535 52.4961 67.1631 52.6374 67.4502 52.7695C67.7373 52.9017 68.1156 53.0566 68.585 53.2344C69.0544 53.4076 69.46 53.5876 69.8018 53.7744C70.1436 53.9567 70.4056 54.18 70.5879 54.4443C70.7747 54.7041 70.8682 55.0391 70.8682 55.4492Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;/div&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;iconContainerFooter hoverFooterIcons&quot; (click)&#x3D;&quot;goToContacts()&quot; [ngClass]&#x3D;&quot;{&#x27;activeRouteIcon&#x27;: isContactsPage}&quot;&gt;
+        &lt;div class&#x3D;&quot;iconContainer&quot;&gt;
+            &lt;svg width&#x3D;&quot;64&quot; height&#x3D;&quot;64&quot; viewBox&#x3D;&quot;0 0 76 76&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;mask id&#x3D;&quot;mask0_149853_4977&quot; style&#x3D;&quot;mask-type:alpha&quot; maskUnits&#x3D;&quot;userSpaceOnUse&quot; x&#x3D;&quot;26&quot; y&#x3D;&quot;15&quot; width&#x3D;&quot;24&quot; height&#x3D;&quot;25&quot;&gt;
+                &lt;rect x&#x3D;&quot;26&quot; y&#x3D;&quot;15.5&quot; width&#x3D;&quot;24&quot; height&#x3D;&quot;24&quot; fill&#x3D;&quot;white&quot;/&gt;
+                &lt;/mask&gt;
+                &lt;g mask&#x3D;&quot;url(#mask0_149853_4977)&quot;&gt;
+                &lt;path d&#x3D;&quot;M38.0002 34.7C36.8802 34.7 35.8102 34.875 34.7902 35.225C33.7702 35.575 32.8402 36.1 32.0002 36.8V37.1H44.0002V36.8C43.1602 36.1 42.2302 35.575 41.2102 35.225C40.1902 34.875 39.1202 34.7 38.0002 34.7ZM29.6002 35.72C30.6802 34.66 31.9352 33.825 33.3652 33.215C34.7952 32.605 36.3402 32.3 38.0002 32.3C39.6602 32.3 41.2052 32.605 42.6352 33.215C44.0652 33.825 45.3202 34.66 46.4002 35.72V20.3H29.6002V35.72ZM38.0002 29.9C36.8402 29.9 35.8502 29.49 35.0302 28.67C34.2102 27.85 33.8002 26.86 33.8002 25.7C33.8002 24.54 34.2102 23.55 35.0302 22.73C35.8502 21.91 36.8402 21.5 38.0002 21.5C39.1602 21.5 40.1502 21.91 40.9702 22.73C41.7902 23.55 42.2002 24.54 42.2002 25.7C42.2002 26.86 41.7902 27.85 40.9702 28.67C40.1502 29.49 39.1602 29.9 38.0002 29.9ZM38.0002 27.5C38.5002 27.5 38.9252 27.325 39.2752 26.975C39.6252 26.625 39.8002 26.2 39.8002 25.7C39.8002 25.2 39.6252 24.775 39.2752 24.425C38.9252 24.075 38.5002 23.9 38.0002 23.9C37.5002 23.9 37.0752 24.075 36.7252 24.425C36.3752 24.775 36.2002 25.2 36.2002 25.7C36.2002 26.2 36.3752 26.625 36.7252 26.975C37.0752 27.325 37.5002 27.5 38.0002 27.5ZM29.6002 39.5C28.9402 39.5 28.3752 39.265 27.9052 38.795C27.4352 38.325 27.2002 37.76 27.2002 37.1V20.3C27.2002 19.64 27.4352 19.075 27.9052 18.605C28.3752 18.135 28.9402 17.9 29.6002 17.9H30.8002V16.7C30.8002 16.0373 31.3375 15.5 32.0002 15.5C32.6629 15.5 33.2002 16.0373 33.2002 16.7V17.9H42.8002V16.7C42.8002 16.0373 43.3375 15.5 44.0002 15.5C44.6629 15.5 45.2002 16.0373 45.2002 16.7V17.9H46.4002C47.0602 17.9 47.6252 18.135 48.0952 18.605C48.5652 19.075 48.8002 19.64 48.8002 20.3V37.1C48.8002 37.76 48.5652 38.325 48.0952 38.795C47.6252 39.265 47.0602 39.5 46.4002 39.5H29.6002Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+                &lt;/g&gt;
+                &lt;path d&#x3D;&quot;M15.1396 48.3877C14.5882 48.3877 14.0915 48.4834 13.6494 48.6748C13.2119 48.8617 12.8382 49.1351 12.5283 49.4951C12.223 49.8506 11.9883 50.2812 11.8242 50.7871C11.6602 51.293 11.5781 51.8626 11.5781 52.4961C11.5781 53.3346 11.708 54.0638 11.9678 54.6836C12.2321 55.2988 12.624 55.7751 13.1436 56.1123C13.6676 56.4495 14.3216 56.6182 15.1055 56.6182C15.5521 56.6182 15.9714 56.5817 16.3633 56.5088C16.7598 56.4313 17.1449 56.3356 17.5186 56.2217V57.2334C17.154 57.3701 16.7712 57.4704 16.3701 57.5342C15.9691 57.6025 15.4928 57.6367 14.9414 57.6367C13.9251 57.6367 13.0752 57.4271 12.3916 57.0078C11.7126 56.584 11.2021 55.987 10.8604 55.2168C10.5231 54.4466 10.3545 53.5374 10.3545 52.4893C10.3545 51.7327 10.4593 51.0423 10.6689 50.418C10.8831 49.7891 11.193 49.2467 11.5986 48.791C12.0088 48.3353 12.5101 47.9844 13.1025 47.7383C13.6995 47.4876 14.3831 47.3623 15.1533 47.3623C15.6592 47.3623 16.1468 47.4124 16.6162 47.5127C17.0856 47.613 17.5094 47.7565 17.8877 47.9434L17.4229 48.9277C17.1038 48.7819 16.7529 48.6566 16.3701 48.5518C15.9919 48.4424 15.5817 48.3877 15.1396 48.3877ZM25.9746 53.7402C25.9746 54.3555 25.8949 54.9046 25.7354 55.3877C25.5758 55.8708 25.3457 56.2786 25.0449 56.6113C24.7441 56.944 24.3796 57.1992 23.9512 57.377C23.5273 57.5501 23.0465 57.6367 22.5088 57.6367C22.0075 57.6367 21.5472 57.5501 21.1279 57.377C20.7132 57.1992 20.3532 56.944 20.0479 56.6113C19.7471 56.2786 19.5124 55.8708 19.3438 55.3877C19.1797 54.9046 19.0977 54.3555 19.0977 53.7402C19.0977 52.9199 19.2367 52.2227 19.5146 51.6484C19.7926 51.0697 20.1891 50.6299 20.7041 50.3291C21.2236 50.0238 21.8411 49.8711 22.5566 49.8711C23.2402 49.8711 23.8372 50.0238 24.3477 50.3291C24.8626 50.6344 25.2614 51.0765 25.5439 51.6553C25.8311 52.2295 25.9746 52.9245 25.9746 53.7402ZM20.2734 53.7402C20.2734 54.3418 20.3532 54.8636 20.5127 55.3057C20.6722 55.7477 20.9183 56.0895 21.251 56.3311C21.5837 56.5726 22.012 56.6934 22.5361 56.6934C23.0557 56.6934 23.4818 56.5726 23.8145 56.3311C24.1517 56.0895 24.4001 55.7477 24.5596 55.3057C24.7191 54.8636 24.7988 54.3418 24.7988 53.7402C24.7988 53.1432 24.7191 52.6283 24.5596 52.1953C24.4001 51.7578 24.154 51.4206 23.8213 51.1836C23.4886 50.9466 23.0579 50.8281 22.5293 50.8281C21.75 50.8281 21.1781 51.0856 20.8135 51.6006C20.4535 52.1156 20.2734 52.8288 20.2734 53.7402ZM31.4844 49.8711C32.373 49.8711 33.0452 50.0898 33.501 50.5273C33.9567 50.9603 34.1846 51.6576 34.1846 52.6191V57.5H33.0635V52.6943C33.0635 52.07 32.9199 51.6029 32.6328 51.293C32.3503 50.9831 31.915 50.8281 31.3271 50.8281C30.4977 50.8281 29.9144 51.0628 29.5771 51.5322C29.2399 52.0016 29.0713 52.6829 29.0713 53.5762V57.5H27.9365V50.0078H28.8525L29.0234 51.0879H29.085C29.2445 50.8236 29.4473 50.6025 29.6934 50.4248C29.9395 50.2425 30.2152 50.1058 30.5205 50.0146C30.8258 49.9189 31.1471 49.8711 31.4844 49.8711ZM38.9424 56.707C39.1292 56.707 39.3206 56.6911 39.5166 56.6592C39.7126 56.6273 39.8721 56.5885 39.9951 56.543V57.4248C39.863 57.484 39.6784 57.5342 39.4414 57.5752C39.209 57.6162 38.9811 57.6367 38.7578 57.6367C38.3613 57.6367 38.0013 57.5684 37.6777 57.4316C37.3542 57.2904 37.0944 57.0534 36.8984 56.7207C36.707 56.388 36.6113 55.9277 36.6113 55.3398V50.8965H35.5449V50.3428L36.6182 49.8984L37.0693 48.2715H37.7529V50.0078H39.9473V50.8965H37.7529V55.3057C37.7529 55.7751 37.86 56.126 38.0742 56.3584C38.293 56.5908 38.5824 56.707 38.9424 56.707ZM44.3154 49.8848C45.2087 49.8848 45.8717 50.0853 46.3047 50.4863C46.7376 50.8874 46.9541 51.5277 46.9541 52.4072V57.5H46.127L45.9082 56.3926H45.8535C45.6439 56.666 45.4251 56.8962 45.1973 57.083C44.9694 57.2653 44.7051 57.4043 44.4043 57.5C44.1081 57.5911 43.7435 57.6367 43.3105 57.6367C42.8548 57.6367 42.4492 57.557 42.0938 57.3975C41.7428 57.238 41.4648 56.9964 41.2598 56.6729C41.0592 56.3493 40.959 55.9391 40.959 55.4424C40.959 54.695 41.2552 54.1208 41.8477 53.7197C42.4401 53.3187 43.3424 53.0999 44.5547 53.0635L45.8467 53.0088V52.5508C45.8467 51.9036 45.7077 51.4502 45.4297 51.1904C45.1517 50.9307 44.7598 50.8008 44.2539 50.8008C43.862 50.8008 43.4883 50.8577 43.1328 50.9717C42.7773 51.0856 42.4401 51.2201 42.1211 51.375L41.7725 50.5137C42.1097 50.3405 42.4971 50.1924 42.9346 50.0693C43.3721 49.9463 43.8324 49.8848 44.3154 49.8848ZM45.833 53.8086L44.6914 53.8564C43.7572 53.8929 43.0986 54.0456 42.7158 54.3145C42.333 54.5833 42.1416 54.9639 42.1416 55.4561C42.1416 55.8844 42.2715 56.2012 42.5312 56.4062C42.791 56.6113 43.1351 56.7139 43.5635 56.7139C44.2288 56.7139 44.7734 56.5293 45.1973 56.1602C45.6211 55.791 45.833 55.2373 45.833 54.499V53.8086ZM52.293 57.6367C51.6185 57.6367 51.0238 57.4977 50.5088 57.2197C49.9938 56.9417 49.5928 56.5179 49.3057 55.9482C49.0186 55.3786 48.875 54.6608 48.875 53.7949C48.875 52.888 49.0254 52.1475 49.3262 51.5732C49.6315 50.9945 50.0508 50.5661 50.584 50.2881C51.1172 50.0101 51.7233 49.8711 52.4023 49.8711C52.776 49.8711 53.1361 49.9098 53.4824 49.9873C53.8333 50.0602 54.1204 50.1536 54.3438 50.2676L54.002 51.2178C53.7741 51.1266 53.5098 51.0446 53.209 50.9717C52.9128 50.8988 52.6348 50.8623 52.375 50.8623C51.8555 50.8623 51.4225 50.974 51.0762 51.1973C50.7344 51.4206 50.4769 51.7487 50.3037 52.1816C50.1351 52.6146 50.0508 53.1478 50.0508 53.7812C50.0508 54.3874 50.1328 54.9046 50.2969 55.333C50.4655 55.7614 50.7139 56.0895 51.042 56.3174C51.3747 56.5407 51.7894 56.6523 52.2861 56.6523C52.6826 56.6523 53.0404 56.6113 53.3594 56.5293C53.6784 56.4427 53.9678 56.3424 54.2275 56.2285V57.2402C53.9769 57.3678 53.6966 57.4658 53.3867 57.5342C53.0814 57.6025 52.7168 57.6367 52.293 57.6367ZM58.4248 56.707C58.6117 56.707 58.8031 56.6911 58.999 56.6592C59.195 56.6273 59.3545 56.5885 59.4775 56.543V57.4248C59.3454 57.484 59.1608 57.5342 58.9238 57.5752C58.6914 57.6162 58.4635 57.6367 58.2402 57.6367C57.8438 57.6367 57.4837 57.5684 57.1602 57.4316C56.8366 57.2904 56.5768 57.0534 56.3809 56.7207C56.1895 56.388 56.0938 55.9277 56.0938 55.3398V50.8965H55.0273V50.3428L56.1006 49.8984L56.5518 48.2715H57.2354V50.0078H59.4297V50.8965H57.2354V55.3057C57.2354 55.7751 57.3424 56.126 57.5566 56.3584C57.7754 56.5908 58.0648 56.707 58.4248 56.707ZM65.8418 55.4492C65.8418 55.9277 65.721 56.3311 65.4795 56.6592C65.2425 56.9827 64.9007 57.2266 64.4541 57.3906C64.012 57.5547 63.4834 57.6367 62.8682 57.6367C62.3441 57.6367 61.8906 57.5957 61.5078 57.5137C61.125 57.4316 60.79 57.3154 60.5029 57.165V56.1191C60.8083 56.2695 61.1729 56.4062 61.5967 56.5293C62.0205 56.6523 62.4535 56.7139 62.8955 56.7139C63.5426 56.7139 64.012 56.609 64.3037 56.3994C64.5954 56.1898 64.7412 55.9049 64.7412 55.5449C64.7412 55.3398 64.682 55.1598 64.5635 55.0049C64.4495 54.8454 64.2559 54.6927 63.9824 54.5469C63.709 54.3965 63.3307 54.2324 62.8477 54.0547C62.3691 53.8724 61.9544 53.6924 61.6035 53.5146C61.2572 53.3324 60.9883 53.1113 60.7969 52.8516C60.61 52.5918 60.5166 52.2546 60.5166 51.8398C60.5166 51.2064 60.7718 50.721 61.2822 50.3838C61.7972 50.042 62.4717 49.8711 63.3057 49.8711C63.7568 49.8711 64.1784 49.9167 64.5703 50.0078C64.9668 50.0944 65.3359 50.2129 65.6777 50.3633L65.2949 51.2725C64.985 51.1403 64.6546 51.0286 64.3037 50.9375C63.9528 50.8464 63.5951 50.8008 63.2305 50.8008C62.7064 50.8008 62.3031 50.8874 62.0205 51.0605C61.7425 51.2337 61.6035 51.4707 61.6035 51.7715C61.6035 52.0039 61.6673 52.1953 61.7949 52.3457C61.9271 52.4961 62.1367 52.6374 62.4238 52.7695C62.7109 52.9017 63.0892 53.0566 63.5586 53.2344C64.028 53.4076 64.4336 53.5876 64.7754 53.7744C65.1172 53.9567 65.3792 54.18 65.5615 54.4443C65.7484 54.7041 65.8418 55.0391 65.8418 55.4492Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./footer-bar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.footerBar {
+    background-color: #2a3647;
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.iconContainerFooter {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.hoverFooterIcons:hover {
+    background-color: #091931;
+    cursor: pointer;
+}
+
+.activeRouteIcon {
+    background-color: #091931 !important;
+}
+
+
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px){
+
+    .footerBar {
+        height: 15vh;
+    }
+
+    svg {
+        height: 50px;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><footer class="footerBar">    <div class="iconContainerFooter hoverFooterIcons" (click)="goToSummary()" [ngClass]="{\'activeRouteIcon\': isSummaryPage}">        <div class="iconContainer"><svg width="64" height="64" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">            <path d="M47 16.5H29C27.8954 16.5 27 17.3965 27 18.501C27 18.5294 27 18.5493 27 18.5592V36.5592C27 37.6311 27.87 38.5 28.9419 38.5C28.9701 38.5 28.99 38.5 29 38.5H47C47.01 38.5 47.0299 38.5 47.0581 38.5C48.13 38.5 49 37.6311 49 36.5592V18.5591C49 18.5493 49 18.5294 49 18.501C49 17.3965 48.1046 16.5 47 16.5ZM40 36.5592H29V28.5591H40V36.5592ZM40 26.5591H29V18.5592L40 18.5591V26.5591ZM47 36.5592H42V18.5592H47V36.5592Z" fill="white"/>            <path d="M13.5068 54.8408C13.5068 55.4333 13.3587 55.9391 13.0625 56.3584C12.7708 56.7731 12.3607 57.0898 11.832 57.3086C11.3034 57.5273 10.6813 57.6367 9.96582 57.6367C9.58757 57.6367 9.22982 57.6185 8.89258 57.582C8.55534 57.5456 8.24544 57.4932 7.96289 57.4248C7.68034 57.3564 7.43197 57.2721 7.21777 57.1719V56.0576C7.55957 56.1989 7.97656 56.3311 8.46875 56.4541C8.96094 56.5726 9.47591 56.6318 10.0137 56.6318C10.515 56.6318 10.9388 56.5658 11.2852 56.4336C11.6315 56.2969 11.8936 56.1032 12.0713 55.8525C12.2536 55.5973 12.3447 55.292 12.3447 54.9365C12.3447 54.5947 12.2695 54.3099 12.1191 54.082C11.9688 53.8496 11.7181 53.64 11.3672 53.4531C11.0208 53.2617 10.5469 53.0589 9.94531 52.8447C9.52148 52.6943 9.14779 52.5303 8.82422 52.3525C8.50065 52.1702 8.22949 51.9652 8.01074 51.7373C7.79199 51.5094 7.62565 51.2451 7.51172 50.9443C7.40234 50.6436 7.34766 50.2995 7.34766 49.9121C7.34766 49.3789 7.4821 48.9232 7.75098 48.5449C8.02441 48.1621 8.40039 47.8704 8.87891 47.6699C9.36198 47.4648 9.91569 47.3623 10.54 47.3623C11.0732 47.3623 11.5654 47.4124 12.0166 47.5127C12.4723 47.613 12.8893 47.7474 13.2676 47.916L12.9053 48.9141C12.5452 48.7637 12.1624 48.6383 11.7568 48.5381C11.3558 48.4378 10.9411 48.3877 10.5127 48.3877C10.0843 48.3877 9.72201 48.4515 9.42578 48.5791C9.13411 48.7021 8.91081 48.8776 8.75586 49.1055C8.60091 49.3333 8.52344 49.6045 8.52344 49.9189C8.52344 50.2699 8.59635 50.5615 8.74219 50.7939C8.89258 51.0264 9.12956 51.2337 9.45312 51.416C9.78125 51.5938 10.2142 51.7806 10.752 51.9766C11.3398 52.1908 11.8389 52.4186 12.249 52.6602C12.6592 52.8971 12.9714 53.1888 13.1855 53.5352C13.3997 53.877 13.5068 54.3122 13.5068 54.8408ZM21.5664 50.0078V57.5H20.6367L20.4727 56.4473H20.4111C20.2562 56.707 20.0557 56.9258 19.8096 57.1035C19.5635 57.2812 19.2855 57.4134 18.9756 57.5C18.6702 57.5911 18.3444 57.6367 17.998 57.6367C17.4056 57.6367 16.9089 57.541 16.5078 57.3496C16.1068 57.1582 15.8037 56.862 15.5986 56.4609C15.3981 56.0599 15.2979 55.5449 15.2979 54.916V50.0078H16.4463V54.834C16.4463 55.4583 16.5876 55.9255 16.8701 56.2354C17.1527 56.5407 17.5833 56.6934 18.1621 56.6934C18.7181 56.6934 19.1602 56.5885 19.4883 56.3789C19.821 56.1693 20.0602 55.8617 20.2061 55.4561C20.3519 55.0459 20.4248 54.5446 20.4248 53.9521V50.0078H21.5664ZM32.1006 49.8711C32.9255 49.8711 33.5475 50.0876 33.9668 50.5205C34.3861 50.9489 34.5957 51.6393 34.5957 52.5918V57.5H33.4746V52.6465C33.4746 52.0404 33.3424 51.5869 33.0781 51.2861C32.8184 50.9808 32.431 50.8281 31.916 50.8281C31.1914 50.8281 30.665 51.0378 30.3369 51.457C30.0088 51.8763 29.8447 52.4938 29.8447 53.3096V57.5H28.7168V52.6465C28.7168 52.2409 28.6576 51.9036 28.5391 51.6348C28.4251 51.3659 28.252 51.1654 28.0195 51.0332C27.7917 50.8965 27.5023 50.8281 27.1514 50.8281C26.6546 50.8281 26.2559 50.9307 25.9551 51.1357C25.6543 51.3408 25.4355 51.6462 25.2988 52.0518C25.1667 52.4528 25.1006 52.9473 25.1006 53.5352V57.5H23.9658V50.0078H24.8818L25.0527 51.0674H25.1143C25.2646 50.8076 25.4538 50.5889 25.6816 50.4111C25.9095 50.2334 26.1647 50.099 26.4473 50.0078C26.7298 49.9167 27.0306 49.8711 27.3496 49.8711C27.9193 49.8711 28.3955 49.9782 28.7783 50.1924C29.1657 50.402 29.446 50.7233 29.6191 51.1562H29.6807C29.9268 50.7233 30.264 50.402 30.6924 50.1924C31.1208 49.9782 31.5902 49.8711 32.1006 49.8711ZM45.0615 49.8711C45.8864 49.8711 46.5085 50.0876 46.9277 50.5205C47.347 50.9489 47.5566 51.6393 47.5566 52.5918V57.5H46.4355V52.6465C46.4355 52.0404 46.3034 51.5869 46.0391 51.2861C45.7793 50.9808 45.3919 50.8281 44.877 50.8281C44.1523 50.8281 43.626 51.0378 43.2979 51.457C42.9697 51.8763 42.8057 52.4938 42.8057 53.3096V57.5H41.6777V52.6465C41.6777 52.2409 41.6185 51.9036 41.5 51.6348C41.3861 51.3659 41.2129 51.1654 40.9805 51.0332C40.7526 50.8965 40.4632 50.8281 40.1123 50.8281C39.6156 50.8281 39.2168 50.9307 38.916 51.1357C38.6152 51.3408 38.3965 51.6462 38.2598 52.0518C38.1276 52.4528 38.0615 52.9473 38.0615 53.5352V57.5H36.9268V50.0078H37.8428L38.0137 51.0674H38.0752C38.2256 50.8076 38.4147 50.5889 38.6426 50.4111C38.8704 50.2334 39.1257 50.099 39.4082 50.0078C39.6908 49.9167 39.9915 49.8711 40.3105 49.8711C40.8802 49.8711 41.3564 49.9782 41.7393 50.1924C42.1266 50.402 42.4069 50.7233 42.5801 51.1562H42.6416C42.8877 50.7233 43.2249 50.402 43.6533 50.1924C44.0817 49.9782 44.5511 49.8711 45.0615 49.8711ZM52.6904 49.8848C53.5837 49.8848 54.2467 50.0853 54.6797 50.4863C55.1126 50.8874 55.3291 51.5277 55.3291 52.4072V57.5H54.502L54.2832 56.3926H54.2285C54.0189 56.666 53.8001 56.8962 53.5723 57.083C53.3444 57.2653 53.0801 57.4043 52.7793 57.5C52.4831 57.5911 52.1185 57.6367 51.6855 57.6367C51.2298 57.6367 50.8242 57.557 50.4688 57.3975C50.1178 57.238 49.8398 56.9964 49.6348 56.6729C49.4342 56.3493 49.334 55.9391 49.334 55.4424C49.334 54.695 49.6302 54.1208 50.2227 53.7197C50.8151 53.3187 51.7174 53.0999 52.9297 53.0635L54.2217 53.0088V52.5508C54.2217 51.9036 54.0827 51.4502 53.8047 51.1904C53.5267 50.9307 53.1348 50.8008 52.6289 50.8008C52.237 50.8008 51.8633 50.8577 51.5078 50.9717C51.1523 51.0856 50.8151 51.2201 50.4961 51.375L50.1475 50.5137C50.4847 50.3405 50.8721 50.1924 51.3096 50.0693C51.7471 49.9463 52.2074 49.8848 52.6904 49.8848ZM54.208 53.8086L53.0664 53.8564C52.1322 53.8929 51.4736 54.0456 51.0908 54.3145C50.708 54.5833 50.5166 54.9639 50.5166 55.4561C50.5166 55.8844 50.6465 56.2012 50.9062 56.4062C51.166 56.6113 51.5101 56.7139 51.9385 56.7139C52.6038 56.7139 53.1484 56.5293 53.5723 56.1602C53.9961 55.791 54.208 55.2373 54.208 54.499V53.8086ZM61.0713 49.8711C61.2217 49.8711 61.3789 49.8802 61.543 49.8984C61.707 49.9121 61.8529 49.9326 61.9805 49.96L61.8369 51.0127C61.7139 50.9808 61.5771 50.9557 61.4268 50.9375C61.2764 50.9193 61.1351 50.9102 61.0029 50.9102C60.7021 50.9102 60.4173 50.9717 60.1484 51.0947C59.8841 51.2132 59.6517 51.3864 59.4512 51.6143C59.2507 51.8376 59.0934 52.1087 58.9795 52.4277C58.8656 52.7422 58.8086 53.0931 58.8086 53.4805V57.5H57.667V50.0078H58.6104L58.7334 51.3887H58.7812C58.9362 51.1107 59.123 50.8577 59.3418 50.6299C59.5605 50.3975 59.8135 50.2129 60.1006 50.0762C60.3923 49.9395 60.7158 49.8711 61.0713 49.8711ZM62.2129 50.0078H63.4297L65.084 54.3555C65.1797 54.6107 65.2686 54.8568 65.3506 55.0938C65.4326 55.3262 65.5055 55.5495 65.5693 55.7637C65.6331 55.9779 65.6833 56.1852 65.7197 56.3857H65.7676C65.8314 56.1579 65.9225 55.8594 66.041 55.4902C66.1595 55.1165 66.2871 54.736 66.4238 54.3486L67.9893 50.0078H69.2129L65.9521 58.6006C65.779 59.0609 65.5762 59.4619 65.3438 59.8037C65.1159 60.1455 64.8379 60.4076 64.5098 60.5898C64.1816 60.7767 63.7852 60.8701 63.3203 60.8701C63.1061 60.8701 62.917 60.8564 62.7529 60.8291C62.5889 60.8063 62.4476 60.779 62.3291 60.7471V59.8379C62.4294 59.8607 62.5501 59.8812 62.6914 59.8994C62.8372 59.9176 62.9876 59.9268 63.1426 59.9268C63.4251 59.9268 63.6689 59.8721 63.874 59.7627C64.0837 59.6579 64.2637 59.5029 64.4141 59.2979C64.5645 59.0928 64.6943 58.849 64.8037 58.5664L65.2139 57.5137L62.2129 50.0078Z" fill="white"/>            </svg> </div>        <div></div>    </div>    <div class="iconContainerFooter hoverFooterIcons" (click)="goToBoard()" [ngClass]="{\'activeRouteIcon\': isBoardPage}">        <div class="iconContainer"><svg width="64" height="64" viewBox="0 0 77 76" fill="none" xmlns="http://www.w3.org/2000/svg">            <path d="M44.7945 19.1921L44.7945 35.8075C44.7941 36.2969 44.5994 36.7662 44.2533 37.1124C43.9072 37.4585 43.4379 37.6531 42.9484 37.6536L39.2561 37.6536C38.7666 37.6531 38.2973 37.4585 37.9512 37.1124C37.6051 36.7662 37.4104 36.2969 37.4099 35.8075L37.4099 19.1921C37.4104 18.7026 37.6051 18.2333 37.9512 17.8872C38.2973 17.5411 38.7666 17.3464 39.2561 17.3459L42.9484 17.3459C43.4379 17.3464 43.9072 17.5411 44.2533 17.8872C44.5994 18.2333 44.7941 18.7026 44.7945 19.1921ZM39.2561 35.8075L42.9484 35.8075L42.9484 19.1921L39.2561 19.1921L39.2561 35.8075ZM39.2561 19.1921L39.2561 35.8075C39.2556 36.2969 39.0609 36.7662 38.7148 37.1123C38.3687 37.4584 37.8994 37.6531 37.4099 37.6536L33.7176 37.6536C33.2281 37.6531 32.7589 37.4584 32.4127 37.1123C32.0666 36.7662 31.872 36.2969 31.8715 35.8074L31.8715 19.1921C31.872 18.7026 32.0666 18.2333 32.4127 17.8872C32.7588 17.5411 33.2281 17.3464 33.7176 17.3459L37.4099 17.3459C37.8994 17.3464 38.3687 17.5411 38.7148 17.8872C39.0609 18.2333 39.2556 18.7026 39.2561 19.1921ZM33.7176 35.8074L37.4099 35.8075L37.4099 19.1921L33.7176 19.1921L33.7176 35.8074ZM33.7176 19.1921L33.7176 35.8074C33.7171 36.2969 33.5225 36.7662 33.1764 37.1123C32.8302 37.4584 32.3609 37.6531 31.8715 37.6536L28.1792 37.6536C27.6897 37.6531 27.2204 37.4584 26.8743 37.1123C26.5282 36.7662 26.3335 36.2969 26.333 35.8074L26.333 19.1921C26.3335 18.7026 26.5282 18.2333 26.8743 17.8872C27.2204 17.5411 27.6897 17.3464 28.1792 17.3459L31.8715 17.3459C32.3609 17.3464 32.8302 17.5411 33.1764 17.8872C33.5225 18.2333 33.7171 18.7026 33.7176 19.1921ZM28.1792 35.8074L31.8715 35.8074L31.8715 19.1921L28.1792 19.1921L28.1792 35.8074Z" fill="white"/>            <path d="M50.333 19.1923L50.333 35.8077C50.3325 36.2971 50.1379 36.7664 49.7917 37.1125C49.4456 37.4587 48.9763 37.6533 48.4869 37.6538L44.7945 37.6538C44.3051 37.6533 43.8358 37.4587 43.4897 37.1125C43.1435 36.7664 42.9489 36.2969 42.9484 35.8075L42.9484 19.1921C42.9489 18.7026 43.1435 18.2335 43.4897 17.8874C43.8358 17.5413 44.3051 17.3466 44.7945 17.3461L48.4869 17.3461C48.9763 17.3466 49.4456 17.5413 49.7917 17.8874C50.1379 18.2335 50.3325 18.7028 50.333 19.1923ZM44.7945 35.8075L48.4869 35.8077L48.4869 19.1923L44.7945 19.1921L44.7945 35.8075Z" fill="white"/>            <path d="M19.7002 47.5059H22.5303C23.779 47.5059 24.7178 47.6927 25.3467 48.0664C25.9756 48.4401 26.29 49.0758 26.29 49.9736C26.29 50.361 26.2148 50.7096 26.0645 51.0195C25.9186 51.3249 25.7044 51.5778 25.4219 51.7783C25.1393 51.9788 24.7907 52.1178 24.376 52.1953V52.2637C24.8135 52.332 25.2008 52.4574 25.5381 52.6396C25.8753 52.8219 26.1396 53.0771 26.3311 53.4053C26.5225 53.7334 26.6182 54.1504 26.6182 54.6562C26.6182 55.2715 26.4746 55.791 26.1875 56.2148C25.9049 56.6387 25.5039 56.96 24.9844 57.1787C24.4648 57.3929 23.8496 57.5 23.1387 57.5H19.7002V47.5059ZM20.8623 51.792H22.7764C23.6468 51.792 24.2484 51.6484 24.5811 51.3613C24.9183 51.0742 25.0869 50.6549 25.0869 50.1035C25.0869 49.5339 24.8864 49.1237 24.4854 48.873C24.0889 48.6224 23.4554 48.4971 22.585 48.4971H20.8623V51.792ZM20.8623 52.7695V56.5088H22.9404C23.8291 56.5088 24.458 56.3356 24.8271 55.9893C25.1963 55.6383 25.3809 55.1667 25.3809 54.5742C25.3809 54.196 25.2965 53.8724 25.1279 53.6035C24.9639 53.3346 24.695 53.1296 24.3213 52.9883C23.9521 52.8424 23.4577 52.7695 22.8379 52.7695H20.8623ZM35.04 53.7402C35.04 54.3555 34.9603 54.9046 34.8008 55.3877C34.6413 55.8708 34.4111 56.2786 34.1104 56.6113C33.8096 56.944 33.445 57.1992 33.0166 57.377C32.5928 57.5501 32.112 57.6367 31.5742 57.6367C31.0729 57.6367 30.6126 57.5501 30.1934 57.377C29.7786 57.1992 29.4186 56.944 29.1133 56.6113C28.8125 56.2786 28.5778 55.8708 28.4092 55.3877C28.2451 54.9046 28.1631 54.3555 28.1631 53.7402C28.1631 52.9199 28.3021 52.2227 28.5801 51.6484C28.8581 51.0697 29.2546 50.6299 29.7695 50.3291C30.2891 50.0238 30.9066 49.8711 31.6221 49.8711C32.3057 49.8711 32.9027 50.0238 33.4131 50.3291C33.9281 50.6344 34.3268 51.0765 34.6094 51.6553C34.8965 52.2295 35.04 52.9245 35.04 53.7402ZM29.3389 53.7402C29.3389 54.3418 29.4186 54.8636 29.5781 55.3057C29.7376 55.7477 29.9837 56.0895 30.3164 56.3311C30.6491 56.5726 31.0775 56.6934 31.6016 56.6934C32.1211 56.6934 32.5472 56.5726 32.8799 56.3311C33.2171 56.0895 33.4655 55.7477 33.625 55.3057C33.7845 54.8636 33.8643 54.3418 33.8643 53.7402C33.8643 53.1432 33.7845 52.6283 33.625 52.1953C33.4655 51.7578 33.2194 51.4206 32.8867 51.1836C32.554 50.9466 32.1234 50.8281 31.5947 50.8281C30.8154 50.8281 30.2435 51.0856 29.8789 51.6006C29.5189 52.1156 29.3389 52.8288 29.3389 53.7402ZM39.8047 49.8848C40.6979 49.8848 41.361 50.0853 41.7939 50.4863C42.2269 50.8874 42.4434 51.5277 42.4434 52.4072V57.5H41.6162L41.3975 56.3926H41.3428C41.1331 56.666 40.9144 56.8962 40.6865 57.083C40.4587 57.2653 40.1943 57.4043 39.8936 57.5C39.5973 57.5911 39.2327 57.6367 38.7998 57.6367C38.3441 57.6367 37.9385 57.557 37.583 57.3975C37.2321 57.238 36.9541 56.9964 36.749 56.6729C36.5485 56.3493 36.4482 55.9391 36.4482 55.4424C36.4482 54.695 36.7445 54.1208 37.3369 53.7197C37.9294 53.3187 38.8317 53.0999 40.0439 53.0635L41.3359 53.0088V52.5508C41.3359 51.9036 41.1969 51.4502 40.9189 51.1904C40.641 50.9307 40.249 50.8008 39.7432 50.8008C39.3512 50.8008 38.9775 50.8577 38.6221 50.9717C38.2666 51.0856 37.9294 51.2201 37.6104 51.375L37.2617 50.5137C37.599 50.3405 37.9863 50.1924 38.4238 50.0693C38.8613 49.9463 39.3216 49.8848 39.8047 49.8848ZM41.3223 53.8086L40.1807 53.8564C39.2464 53.8929 38.5879 54.0456 38.2051 54.3145C37.8223 54.5833 37.6309 54.9639 37.6309 55.4561C37.6309 55.8844 37.7607 56.2012 38.0205 56.4062C38.2803 56.6113 38.6243 56.7139 39.0527 56.7139C39.7181 56.7139 40.2627 56.5293 40.6865 56.1602C41.1104 55.791 41.3223 55.2373 41.3223 54.499V53.8086ZM48.1855 49.8711C48.3359 49.8711 48.4932 49.8802 48.6572 49.8984C48.8213 49.9121 48.9671 49.9326 49.0947 49.96L48.9512 51.0127C48.8281 50.9808 48.6914 50.9557 48.541 50.9375C48.3906 50.9193 48.2493 50.9102 48.1172 50.9102C47.8164 50.9102 47.5316 50.9717 47.2627 51.0947C46.9984 51.2132 46.766 51.3864 46.5654 51.6143C46.3649 51.8376 46.2077 52.1087 46.0938 52.4277C45.9798 52.7422 45.9229 53.0931 45.9229 53.4805V57.5H44.7812V50.0078H45.7246L45.8477 51.3887H45.8955C46.0505 51.1107 46.2373 50.8577 46.4561 50.6299C46.6748 50.3975 46.9277 50.2129 47.2148 50.0762C47.5065 49.9395 47.8301 49.8711 48.1855 49.8711ZM53.1758 57.6367C52.2279 57.6367 51.4759 57.3132 50.9199 56.666C50.3685 56.0189 50.0928 55.0573 50.0928 53.7812C50.0928 52.4915 50.3753 51.5186 50.9404 50.8623C51.5055 50.2015 52.2575 49.8711 53.1963 49.8711C53.5928 49.8711 53.9391 49.9235 54.2354 50.0283C54.5316 50.1331 54.7868 50.2744 55.001 50.4521C55.2152 50.6253 55.3952 50.8236 55.541 51.0469H55.623C55.6048 50.9056 55.5866 50.7119 55.5684 50.4658C55.5501 50.2197 55.541 50.0192 55.541 49.8643V46.8633H56.6758V57.5H55.7598L55.5889 56.4336H55.541C55.3997 56.6569 55.2197 56.8597 55.001 57.042C54.7868 57.2243 54.5293 57.3701 54.2285 57.4795C53.9323 57.5843 53.5814 57.6367 53.1758 57.6367ZM53.3535 56.6934C54.1556 56.6934 54.723 56.4655 55.0557 56.0098C55.3883 55.554 55.5547 54.8773 55.5547 53.9795V53.7744C55.5547 52.8219 55.3952 52.0905 55.0762 51.5801C54.7617 51.0697 54.1875 50.8145 53.3535 50.8145C52.6562 50.8145 52.1344 51.0833 51.7881 51.6211C51.4417 52.1543 51.2686 52.8835 51.2686 53.8086C51.2686 54.7292 51.4395 55.4401 51.7812 55.9414C52.1276 56.4427 52.6517 56.6934 53.3535 56.6934Z" fill="white"/>            </svg>        </div>        <div></div>    </div>    <div class="iconContainerFooter hoverFooterIcons" (click)="goToAddtask()" [ngClass]="{\'activeRouteIcon\': isAddTaskPage}">        <div class="iconContainer"><svg width="64" height="64" viewBox="0 0 77 76" fill="none" xmlns="http://www.w3.org/2000/svg">            <mask id="mask0_149853_4971" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="26" y="15" width="25" height="25">            <rect x="26.667" y="15.5" width="24" height="24" fill="white"/>            </mask>            <g mask="url(#mask0_149853_4971)">            <path d="M29.0085 39.5149C28.3646 39.5149 27.8134 39.2856 27.3548 38.827C26.8963 38.3685 26.667 37.8173 26.667 37.1733V20.7826C26.667 20.1387 26.8963 19.5874 27.3548 19.1289C27.8134 18.6703 28.3646 18.4411 29.0085 18.4411H39.4576L37.1161 20.7826H29.0085V37.1733H45.3993V29.0365L47.7408 26.695V37.1733C47.7408 37.8173 47.5115 38.3685 47.053 38.827C46.5944 39.2856 46.0432 39.5149 45.3993 39.5149H29.0085ZM42.0919 19.1142L43.7602 20.7533L36.0331 28.4804V30.1487H37.6722L45.4285 22.3924L47.0969 24.0315L39.3405 31.7878C39.1259 32.0024 38.8771 32.1732 38.5942 32.3C38.3112 32.4268 38.0137 32.4903 37.7015 32.4903H34.8624C34.5306 32.4903 34.2526 32.3781 34.0282 32.1537C33.8038 31.9293 33.6916 31.6512 33.6916 31.3195V28.4804C33.6916 28.1682 33.7501 27.8706 33.8672 27.5877C33.9843 27.3047 34.1501 27.0559 34.3648 26.8413L42.0919 19.1142ZM47.0969 24.0315L42.0919 19.1142L45.0188 16.1873C45.4871 15.719 46.0481 15.4849 46.7017 15.4849C47.3554 15.4849 47.9067 15.719 48.3555 16.1873L49.9945 17.8557C50.4433 18.3045 50.6677 18.8508 50.6677 19.4947C50.6677 20.1387 50.4433 20.685 49.9945 21.1338L47.0969 24.0315Z" fill="white"/>            </g>            <path d="M13.3027 57.5L12.0723 54.3281H8.06641L6.84277 57.5H5.66699L9.57715 47.4648H10.623L14.5059 57.5H13.3027ZM11.7236 53.2959L10.5547 50.1445C10.5273 50.0625 10.4818 49.9281 10.418 49.7412C10.3587 49.5544 10.2972 49.3607 10.2334 49.1602C10.1696 48.9596 10.1172 48.7979 10.0762 48.6748C10.0306 48.8617 9.98047 49.0485 9.92578 49.2354C9.87565 49.4176 9.82552 49.5885 9.77539 49.748C9.72526 49.903 9.68197 50.0352 9.64551 50.1445L8.45605 53.2959H11.7236ZM18.3887 57.6367C17.4408 57.6367 16.6888 57.3132 16.1328 56.666C15.5814 56.0189 15.3057 55.0573 15.3057 53.7812C15.3057 52.4915 15.5882 51.5186 16.1533 50.8623C16.7184 50.2015 17.4704 49.8711 18.4092 49.8711C18.8057 49.8711 19.152 49.9235 19.4482 50.0283C19.7445 50.1331 19.9997 50.2744 20.2139 50.4521C20.4281 50.6253 20.6081 50.8236 20.7539 51.0469H20.8359C20.8177 50.9056 20.7995 50.7119 20.7812 50.4658C20.763 50.2197 20.7539 50.0192 20.7539 49.8643V46.8633H21.8887V57.5H20.9727L20.8018 56.4336H20.7539C20.6126 56.6569 20.4326 56.8597 20.2139 57.042C19.9997 57.2243 19.7422 57.3701 19.4414 57.4795C19.1452 57.5843 18.7943 57.6367 18.3887 57.6367ZM18.5664 56.6934C19.3685 56.6934 19.9359 56.4655 20.2686 56.0098C20.6012 55.554 20.7676 54.8773 20.7676 53.9795V53.7744C20.7676 52.8219 20.6081 52.0905 20.2891 51.5801C19.9746 51.0697 19.4004 50.8145 18.5664 50.8145C17.8691 50.8145 17.3473 51.0833 17.001 51.6211C16.6546 52.1543 16.4814 52.8835 16.4814 53.8086C16.4814 54.7292 16.6523 55.4401 16.9941 55.9414C17.3405 56.4427 17.8646 56.6934 18.5664 56.6934ZM26.9609 57.6367C26.013 57.6367 25.2611 57.3132 24.7051 56.666C24.1536 56.0189 23.8779 55.0573 23.8779 53.7812C23.8779 52.4915 24.1605 51.5186 24.7256 50.8623C25.2907 50.2015 26.0426 49.8711 26.9814 49.8711C27.3779 49.8711 27.7243 49.9235 28.0205 50.0283C28.3167 50.1331 28.5719 50.2744 28.7861 50.4521C29.0003 50.6253 29.1803 50.8236 29.3262 51.0469H29.4082C29.39 50.9056 29.3717 50.7119 29.3535 50.4658C29.3353 50.2197 29.3262 50.0192 29.3262 49.8643V46.8633H30.4609V57.5H29.5449L29.374 56.4336H29.3262C29.1849 56.6569 29.0049 56.8597 28.7861 57.042C28.5719 57.2243 28.3145 57.3701 28.0137 57.4795C27.7174 57.5843 27.3665 57.6367 26.9609 57.6367ZM27.1387 56.6934C27.9408 56.6934 28.5081 56.4655 28.8408 56.0098C29.1735 55.554 29.3398 54.8773 29.3398 53.9795V53.7744C29.3398 52.8219 29.1803 52.0905 28.8613 51.5801C28.5469 51.0697 27.9727 50.8145 27.1387 50.8145C26.4414 50.8145 25.9196 51.0833 25.5732 51.6211C25.2269 52.1543 25.0537 52.8835 25.0537 53.8086C25.0537 54.7292 25.2246 55.4401 25.5664 55.9414C25.9128 56.4427 26.4368 56.6934 27.1387 56.6934ZM39.7441 57.5H38.5752V48.5312H35.4307V47.5059H42.875V48.5312H39.7441V57.5ZM47.0176 49.8848C47.9108 49.8848 48.5739 50.0853 49.0068 50.4863C49.4398 50.8874 49.6562 51.5277 49.6562 52.4072V57.5H48.8291L48.6104 56.3926H48.5557C48.346 56.666 48.1273 56.8962 47.8994 57.083C47.6715 57.2653 47.4072 57.4043 47.1064 57.5C46.8102 57.5911 46.4456 57.6367 46.0127 57.6367C45.557 57.6367 45.1514 57.557 44.7959 57.3975C44.445 57.238 44.167 56.9964 43.9619 56.6729C43.7614 56.3493 43.6611 55.9391 43.6611 55.4424C43.6611 54.695 43.9574 54.1208 44.5498 53.7197C45.1423 53.3187 46.0446 53.0999 47.2568 53.0635L48.5488 53.0088V52.5508C48.5488 51.9036 48.4098 51.4502 48.1318 51.1904C47.8538 50.9307 47.4619 50.8008 46.9561 50.8008C46.5641 50.8008 46.1904 50.8577 45.835 50.9717C45.4795 51.0856 45.1423 51.2201 44.8232 51.375L44.4746 50.5137C44.8118 50.3405 45.1992 50.1924 45.6367 50.0693C46.0742 49.9463 46.5345 49.8848 47.0176 49.8848ZM48.5352 53.8086L47.3936 53.8564C46.4593 53.8929 45.8008 54.0456 45.418 54.3145C45.0352 54.5833 44.8438 54.9639 44.8438 55.4561C44.8438 55.8844 44.9736 56.2012 45.2334 56.4062C45.4932 56.6113 45.8372 56.7139 46.2656 56.7139C46.931 56.7139 47.4756 56.5293 47.8994 56.1602C48.3232 55.791 48.5352 55.2373 48.5352 54.499V53.8086ZM56.8408 55.4492C56.8408 55.9277 56.7201 56.3311 56.4785 56.6592C56.2415 56.9827 55.8997 57.2266 55.4531 57.3906C55.0111 57.5547 54.4824 57.6367 53.8672 57.6367C53.3431 57.6367 52.8896 57.5957 52.5068 57.5137C52.124 57.4316 51.7891 57.3154 51.502 57.165V56.1191C51.8073 56.2695 52.1719 56.4062 52.5957 56.5293C53.0195 56.6523 53.4525 56.7139 53.8945 56.7139C54.5417 56.7139 55.0111 56.609 55.3027 56.3994C55.5944 56.1898 55.7402 55.9049 55.7402 55.5449C55.7402 55.3398 55.681 55.1598 55.5625 55.0049C55.4486 54.8454 55.2549 54.6927 54.9814 54.5469C54.708 54.3965 54.3298 54.2324 53.8467 54.0547C53.3682 53.8724 52.9535 53.6924 52.6025 53.5146C52.2562 53.3324 51.9873 53.1113 51.7959 52.8516C51.609 52.5918 51.5156 52.2546 51.5156 51.8398C51.5156 51.2064 51.7708 50.721 52.2812 50.3838C52.7962 50.042 53.4707 49.8711 54.3047 49.8711C54.7559 49.8711 55.1774 49.9167 55.5693 50.0078C55.9658 50.0944 56.335 50.2129 56.6768 50.3633L56.2939 51.2725C55.984 51.1403 55.6536 51.0286 55.3027 50.9375C54.9518 50.8464 54.5941 50.8008 54.2295 50.8008C53.7054 50.8008 53.3021 50.8874 53.0195 51.0605C52.7415 51.2337 52.6025 51.4707 52.6025 51.7715C52.6025 52.0039 52.6663 52.1953 52.7939 52.3457C52.9261 52.4961 53.1357 52.6374 53.4229 52.7695C53.71 52.9017 54.0882 53.0566 54.5576 53.2344C55.027 53.4076 55.4326 53.5876 55.7744 53.7744C56.1162 53.9567 56.3783 54.18 56.5605 54.4443C56.7474 54.7041 56.8408 55.0391 56.8408 55.4492ZM59.7939 46.8633V52.3867C59.7939 52.569 59.7871 52.7923 59.7734 53.0566C59.7598 53.3164 59.7484 53.5465 59.7393 53.7471H59.7871C59.8828 53.6286 60.0218 53.4531 60.2041 53.2207C60.391 52.9883 60.5482 52.8014 60.6758 52.6602L63.1641 50.0078H64.4971L61.4824 53.207L64.7158 57.5H63.3486L60.7031 53.9521L59.7939 54.7861V57.5H58.666V46.8633H59.7939ZM70.8682 55.4492C70.8682 55.9277 70.7474 56.3311 70.5059 56.6592C70.2689 56.9827 69.9271 57.2266 69.4805 57.3906C69.0384 57.5547 68.5098 57.6367 67.8945 57.6367C67.3704 57.6367 66.917 57.5957 66.5342 57.5137C66.1514 57.4316 65.8164 57.3154 65.5293 57.165V56.1191C65.8346 56.2695 66.1992 56.4062 66.623 56.5293C67.0469 56.6523 67.4798 56.7139 67.9219 56.7139C68.569 56.7139 69.0384 56.609 69.3301 56.3994C69.6217 56.1898 69.7676 55.9049 69.7676 55.5449C69.7676 55.3398 69.7083 55.1598 69.5898 55.0049C69.4759 54.8454 69.2822 54.6927 69.0088 54.5469C68.7354 54.3965 68.3571 54.2324 67.874 54.0547C67.3955 53.8724 66.9808 53.6924 66.6299 53.5146C66.2835 53.3324 66.0146 53.1113 65.8232 52.8516C65.6364 52.5918 65.543 52.2546 65.543 51.8398C65.543 51.2064 65.7982 50.721 66.3086 50.3838C66.8236 50.042 67.498 49.8711 68.332 49.8711C68.7832 49.8711 69.2048 49.9167 69.5967 50.0078C69.9932 50.0944 70.3623 50.2129 70.7041 50.3633L70.3213 51.2725C70.0114 51.1403 69.681 51.0286 69.3301 50.9375C68.9792 50.8464 68.6214 50.8008 68.2568 50.8008C67.7327 50.8008 67.3294 50.8874 67.0469 51.0605C66.7689 51.2337 66.6299 51.4707 66.6299 51.7715C66.6299 52.0039 66.6937 52.1953 66.8213 52.3457C66.9535 52.4961 67.1631 52.6374 67.4502 52.7695C67.7373 52.9017 68.1156 53.0566 68.585 53.2344C69.0544 53.4076 69.46 53.5876 69.8018 53.7744C70.1436 53.9567 70.4056 54.18 70.5879 54.4443C70.7747 54.7041 70.8682 55.0391 70.8682 55.4492Z" fill="white"/>            </svg>            </div>        <div></div>    </div>    <div class="iconContainerFooter hoverFooterIcons" (click)="goToContacts()" [ngClass]="{\'activeRouteIcon\': isContactsPage}">        <div class="iconContainer">            <svg width="64" height="64" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">                <mask id="mask0_149853_4977" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="26" y="15" width="24" height="25">                <rect x="26" y="15.5" width="24" height="24" fill="white"/>                </mask>                <g mask="url(#mask0_149853_4977)">                <path d="M38.0002 34.7C36.8802 34.7 35.8102 34.875 34.7902 35.225C33.7702 35.575 32.8402 36.1 32.0002 36.8V37.1H44.0002V36.8C43.1602 36.1 42.2302 35.575 41.2102 35.225C40.1902 34.875 39.1202 34.7 38.0002 34.7ZM29.6002 35.72C30.6802 34.66 31.9352 33.825 33.3652 33.215C34.7952 32.605 36.3402 32.3 38.0002 32.3C39.6602 32.3 41.2052 32.605 42.6352 33.215C44.0652 33.825 45.3202 34.66 46.4002 35.72V20.3H29.6002V35.72ZM38.0002 29.9C36.8402 29.9 35.8502 29.49 35.0302 28.67C34.2102 27.85 33.8002 26.86 33.8002 25.7C33.8002 24.54 34.2102 23.55 35.0302 22.73C35.8502 21.91 36.8402 21.5 38.0002 21.5C39.1602 21.5 40.1502 21.91 40.9702 22.73C41.7902 23.55 42.2002 24.54 42.2002 25.7C42.2002 26.86 41.7902 27.85 40.9702 28.67C40.1502 29.49 39.1602 29.9 38.0002 29.9ZM38.0002 27.5C38.5002 27.5 38.9252 27.325 39.2752 26.975C39.6252 26.625 39.8002 26.2 39.8002 25.7C39.8002 25.2 39.6252 24.775 39.2752 24.425C38.9252 24.075 38.5002 23.9 38.0002 23.9C37.5002 23.9 37.0752 24.075 36.7252 24.425C36.3752 24.775 36.2002 25.2 36.2002 25.7C36.2002 26.2 36.3752 26.625 36.7252 26.975C37.0752 27.325 37.5002 27.5 38.0002 27.5ZM29.6002 39.5C28.9402 39.5 28.3752 39.265 27.9052 38.795C27.4352 38.325 27.2002 37.76 27.2002 37.1V20.3C27.2002 19.64 27.4352 19.075 27.9052 18.605C28.3752 18.135 28.9402 17.9 29.6002 17.9H30.8002V16.7C30.8002 16.0373 31.3375 15.5 32.0002 15.5C32.6629 15.5 33.2002 16.0373 33.2002 16.7V17.9H42.8002V16.7C42.8002 16.0373 43.3375 15.5 44.0002 15.5C44.6629 15.5 45.2002 16.0373 45.2002 16.7V17.9H46.4002C47.0602 17.9 47.6252 18.135 48.0952 18.605C48.5652 19.075 48.8002 19.64 48.8002 20.3V37.1C48.8002 37.76 48.5652 38.325 48.0952 38.795C47.6252 39.265 47.0602 39.5 46.4002 39.5H29.6002Z" fill="white"/>                </g>                <path d="M15.1396 48.3877C14.5882 48.3877 14.0915 48.4834 13.6494 48.6748C13.2119 48.8617 12.8382 49.1351 12.5283 49.4951C12.223 49.8506 11.9883 50.2812 11.8242 50.7871C11.6602 51.293 11.5781 51.8626 11.5781 52.4961C11.5781 53.3346 11.708 54.0638 11.9678 54.6836C12.2321 55.2988 12.624 55.7751 13.1436 56.1123C13.6676 56.4495 14.3216 56.6182 15.1055 56.6182C15.5521 56.6182 15.9714 56.5817 16.3633 56.5088C16.7598 56.4313 17.1449 56.3356 17.5186 56.2217V57.2334C17.154 57.3701 16.7712 57.4704 16.3701 57.5342C15.9691 57.6025 15.4928 57.6367 14.9414 57.6367C13.9251 57.6367 13.0752 57.4271 12.3916 57.0078C11.7126 56.584 11.2021 55.987 10.8604 55.2168C10.5231 54.4466 10.3545 53.5374 10.3545 52.4893C10.3545 51.7327 10.4593 51.0423 10.6689 50.418C10.8831 49.7891 11.193 49.2467 11.5986 48.791C12.0088 48.3353 12.5101 47.9844 13.1025 47.7383C13.6995 47.4876 14.3831 47.3623 15.1533 47.3623C15.6592 47.3623 16.1468 47.4124 16.6162 47.5127C17.0856 47.613 17.5094 47.7565 17.8877 47.9434L17.4229 48.9277C17.1038 48.7819 16.7529 48.6566 16.3701 48.5518C15.9919 48.4424 15.5817 48.3877 15.1396 48.3877ZM25.9746 53.7402C25.9746 54.3555 25.8949 54.9046 25.7354 55.3877C25.5758 55.8708 25.3457 56.2786 25.0449 56.6113C24.7441 56.944 24.3796 57.1992 23.9512 57.377C23.5273 57.5501 23.0465 57.6367 22.5088 57.6367C22.0075 57.6367 21.5472 57.5501 21.1279 57.377C20.7132 57.1992 20.3532 56.944 20.0479 56.6113C19.7471 56.2786 19.5124 55.8708 19.3438 55.3877C19.1797 54.9046 19.0977 54.3555 19.0977 53.7402C19.0977 52.9199 19.2367 52.2227 19.5146 51.6484C19.7926 51.0697 20.1891 50.6299 20.7041 50.3291C21.2236 50.0238 21.8411 49.8711 22.5566 49.8711C23.2402 49.8711 23.8372 50.0238 24.3477 50.3291C24.8626 50.6344 25.2614 51.0765 25.5439 51.6553C25.8311 52.2295 25.9746 52.9245 25.9746 53.7402ZM20.2734 53.7402C20.2734 54.3418 20.3532 54.8636 20.5127 55.3057C20.6722 55.7477 20.9183 56.0895 21.251 56.3311C21.5837 56.5726 22.012 56.6934 22.5361 56.6934C23.0557 56.6934 23.4818 56.5726 23.8145 56.3311C24.1517 56.0895 24.4001 55.7477 24.5596 55.3057C24.7191 54.8636 24.7988 54.3418 24.7988 53.7402C24.7988 53.1432 24.7191 52.6283 24.5596 52.1953C24.4001 51.7578 24.154 51.4206 23.8213 51.1836C23.4886 50.9466 23.0579 50.8281 22.5293 50.8281C21.75 50.8281 21.1781 51.0856 20.8135 51.6006C20.4535 52.1156 20.2734 52.8288 20.2734 53.7402ZM31.4844 49.8711C32.373 49.8711 33.0452 50.0898 33.501 50.5273C33.9567 50.9603 34.1846 51.6576 34.1846 52.6191V57.5H33.0635V52.6943C33.0635 52.07 32.9199 51.6029 32.6328 51.293C32.3503 50.9831 31.915 50.8281 31.3271 50.8281C30.4977 50.8281 29.9144 51.0628 29.5771 51.5322C29.2399 52.0016 29.0713 52.6829 29.0713 53.5762V57.5H27.9365V50.0078H28.8525L29.0234 51.0879H29.085C29.2445 50.8236 29.4473 50.6025 29.6934 50.4248C29.9395 50.2425 30.2152 50.1058 30.5205 50.0146C30.8258 49.9189 31.1471 49.8711 31.4844 49.8711ZM38.9424 56.707C39.1292 56.707 39.3206 56.6911 39.5166 56.6592C39.7126 56.6273 39.8721 56.5885 39.9951 56.543V57.4248C39.863 57.484 39.6784 57.5342 39.4414 57.5752C39.209 57.6162 38.9811 57.6367 38.7578 57.6367C38.3613 57.6367 38.0013 57.5684 37.6777 57.4316C37.3542 57.2904 37.0944 57.0534 36.8984 56.7207C36.707 56.388 36.6113 55.9277 36.6113 55.3398V50.8965H35.5449V50.3428L36.6182 49.8984L37.0693 48.2715H37.7529V50.0078H39.9473V50.8965H37.7529V55.3057C37.7529 55.7751 37.86 56.126 38.0742 56.3584C38.293 56.5908 38.5824 56.707 38.9424 56.707ZM44.3154 49.8848C45.2087 49.8848 45.8717 50.0853 46.3047 50.4863C46.7376 50.8874 46.9541 51.5277 46.9541 52.4072V57.5H46.127L45.9082 56.3926H45.8535C45.6439 56.666 45.4251 56.8962 45.1973 57.083C44.9694 57.2653 44.7051 57.4043 44.4043 57.5C44.1081 57.5911 43.7435 57.6367 43.3105 57.6367C42.8548 57.6367 42.4492 57.557 42.0938 57.3975C41.7428 57.238 41.4648 56.9964 41.2598 56.6729C41.0592 56.3493 40.959 55.9391 40.959 55.4424C40.959 54.695 41.2552 54.1208 41.8477 53.7197C42.4401 53.3187 43.3424 53.0999 44.5547 53.0635L45.8467 53.0088V52.5508C45.8467 51.9036 45.7077 51.4502 45.4297 51.1904C45.1517 50.9307 44.7598 50.8008 44.2539 50.8008C43.862 50.8008 43.4883 50.8577 43.1328 50.9717C42.7773 51.0856 42.4401 51.2201 42.1211 51.375L41.7725 50.5137C42.1097 50.3405 42.4971 50.1924 42.9346 50.0693C43.3721 49.9463 43.8324 49.8848 44.3154 49.8848ZM45.833 53.8086L44.6914 53.8564C43.7572 53.8929 43.0986 54.0456 42.7158 54.3145C42.333 54.5833 42.1416 54.9639 42.1416 55.4561C42.1416 55.8844 42.2715 56.2012 42.5312 56.4062C42.791 56.6113 43.1351 56.7139 43.5635 56.7139C44.2288 56.7139 44.7734 56.5293 45.1973 56.1602C45.6211 55.791 45.833 55.2373 45.833 54.499V53.8086ZM52.293 57.6367C51.6185 57.6367 51.0238 57.4977 50.5088 57.2197C49.9938 56.9417 49.5928 56.5179 49.3057 55.9482C49.0186 55.3786 48.875 54.6608 48.875 53.7949C48.875 52.888 49.0254 52.1475 49.3262 51.5732C49.6315 50.9945 50.0508 50.5661 50.584 50.2881C51.1172 50.0101 51.7233 49.8711 52.4023 49.8711C52.776 49.8711 53.1361 49.9098 53.4824 49.9873C53.8333 50.0602 54.1204 50.1536 54.3438 50.2676L54.002 51.2178C53.7741 51.1266 53.5098 51.0446 53.209 50.9717C52.9128 50.8988 52.6348 50.8623 52.375 50.8623C51.8555 50.8623 51.4225 50.974 51.0762 51.1973C50.7344 51.4206 50.4769 51.7487 50.3037 52.1816C50.1351 52.6146 50.0508 53.1478 50.0508 53.7812C50.0508 54.3874 50.1328 54.9046 50.2969 55.333C50.4655 55.7614 50.7139 56.0895 51.042 56.3174C51.3747 56.5407 51.7894 56.6523 52.2861 56.6523C52.6826 56.6523 53.0404 56.6113 53.3594 56.5293C53.6784 56.4427 53.9678 56.3424 54.2275 56.2285V57.2402C53.9769 57.3678 53.6966 57.4658 53.3867 57.5342C53.0814 57.6025 52.7168 57.6367 52.293 57.6367ZM58.4248 56.707C58.6117 56.707 58.8031 56.6911 58.999 56.6592C59.195 56.6273 59.3545 56.5885 59.4775 56.543V57.4248C59.3454 57.484 59.1608 57.5342 58.9238 57.5752C58.6914 57.6162 58.4635 57.6367 58.2402 57.6367C57.8438 57.6367 57.4837 57.5684 57.1602 57.4316C56.8366 57.2904 56.5768 57.0534 56.3809 56.7207C56.1895 56.388 56.0938 55.9277 56.0938 55.3398V50.8965H55.0273V50.3428L56.1006 49.8984L56.5518 48.2715H57.2354V50.0078H59.4297V50.8965H57.2354V55.3057C57.2354 55.7751 57.3424 56.126 57.5566 56.3584C57.7754 56.5908 58.0648 56.707 58.4248 56.707ZM65.8418 55.4492C65.8418 55.9277 65.721 56.3311 65.4795 56.6592C65.2425 56.9827 64.9007 57.2266 64.4541 57.3906C64.012 57.5547 63.4834 57.6367 62.8682 57.6367C62.3441 57.6367 61.8906 57.5957 61.5078 57.5137C61.125 57.4316 60.79 57.3154 60.5029 57.165V56.1191C60.8083 56.2695 61.1729 56.4062 61.5967 56.5293C62.0205 56.6523 62.4535 56.7139 62.8955 56.7139C63.5426 56.7139 64.012 56.609 64.3037 56.3994C64.5954 56.1898 64.7412 55.9049 64.7412 55.5449C64.7412 55.3398 64.682 55.1598 64.5635 55.0049C64.4495 54.8454 64.2559 54.6927 63.9824 54.5469C63.709 54.3965 63.3307 54.2324 62.8477 54.0547C62.3691 53.8724 61.9544 53.6924 61.6035 53.5146C61.2572 53.3324 60.9883 53.1113 60.7969 52.8516C60.61 52.5918 60.5166 52.2546 60.5166 51.8398C60.5166 51.2064 60.7718 50.721 61.2822 50.3838C61.7972 50.042 62.4717 49.8711 63.3057 49.8711C63.7568 49.8711 64.1784 49.9167 64.5703 50.0078C64.9668 50.0944 65.3359 50.2129 65.6777 50.3633L65.2949 51.2725C64.985 51.1403 64.6546 51.0286 64.3037 50.9375C63.9528 50.8464 63.5951 50.8008 63.2305 50.8008C62.7064 50.8008 62.3031 50.8874 62.0205 51.0605C61.7425 51.2337 61.6035 51.4707 61.6035 51.7715C61.6035 52.0039 61.6673 52.1953 61.7949 52.3457C61.9271 52.4961 62.1367 52.6374 62.4238 52.7695C62.7109 52.9017 63.0892 53.0566 63.5586 53.2344C64.028 53.4076 64.4336 53.5876 64.7754 53.7744C65.1172 53.9567 65.3792 54.18 65.5615 54.4443C65.7484 54.7041 65.8418 55.0391 65.8418 55.4492Z" fill="white"/>            </svg>        </div>        <div></div>    </div></footer></div>'
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FooterBarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FooterBarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

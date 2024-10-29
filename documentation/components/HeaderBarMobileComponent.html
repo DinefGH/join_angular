@@ -1,0 +1,824 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>join2.0-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">join2.0-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderBarMobileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/header-bar-mobile/header-bar-mobile.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header-bar-mobile</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./header-bar-mobile.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header-bar-mobile.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isDropdownOpen" >isDropdownOpen</a>
+                            </li>
+                            <li>
+                                <a href="#userInitial" >userInitial</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#goToSummary" >goToSummary</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleDropdown" >toggleDropdown</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToSummary"></a>
+                    <span class="name">
+                        <span ><b>goToSummary</b></span>
+                        <a href="#goToSummary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToSummary()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleDropdown"></a>
+                    <span class="name">
+                        <span ><b>toggleDropdown</b></span>
+                        <a href="#toggleDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleDropdown()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDropdownOpen"></a>
+                    <span class="name">
+                        <span ><b>isDropdownOpen</b></span>
+                        <a href="#isDropdownOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userInitial"></a>
+                    <span class="name">
+                        <span ><b>userInitial</b></span>
+                        <a href="#userInitial"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/header-bar-mobile/header-bar-mobile.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;; // Import Router from &#x27;@angular/router&#x27;
+import { UserService } from &#x27;src/app/services/user.service&#x27;;
+import { User } from &#x27;src/assets/models/user.model&#x27;;
+
+@Component({
+  selector: &#x27;app-header-bar-mobile&#x27;,
+  templateUrl: &#x27;./header-bar-mobile.component.html&#x27;,
+  styleUrls: [&#x27;./header-bar-mobile.component.scss&#x27;]
+})
+export class HeaderBarMobileComponent implements OnInit {
+
+  isDropdownOpen: boolean &#x3D; false;
+  userInitial: string &#x3D; &#x27;&#x27;;
+
+  constructor(private router: Router, private userService: UserService) {}
+
+
+  ngOnInit() {
+    this.userService.getCurrentUser().subscribe(user &#x3D;&gt; {
+      if (user &amp;&amp; user.name) {
+        // Assuming &#x27;name&#x27; is a property of the User model and contains the full name
+        this.userInitial &#x3D; user.name.charAt(0).toUpperCase();
+      }
+    });
+  }
+
+
+  toggleDropdown() {
+    this.isDropdownOpen &#x3D; !this.isDropdownOpen;
+  }
+
+  logout() {
+    localStorage.removeItem(&#x27;auth_token&#x27;);
+    sessionStorage.removeItem(&#x27;auth_token&#x27;);
+    localStorage.removeItem(&#x27;user_details&#x27;);
+    this.router.navigateByUrl(&#x27;/login&#x27;);
+    sessionStorage.removeItem(&#x27;showOverlay&#x27;);  
+  }
+
+
+  goToSummary() {
+    this.router.navigate([&#x27;/summary&#x27;]);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;headerContainer&quot;&gt;
+        &lt;div class&#x3D;&quot;iconContainerHeader&quot;&gt;
+            &lt;svg class&#x3D;&quot;logo&quot; (click)&#x3D;&quot;goToSummary()&quot; width&#x3D;&quot;40&quot; height&#x3D;&quot;48&quot; viewBox&#x3D;&quot;0 0 32 40&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                &lt;path d&#x3D;&quot;M22.927 0.492188H15.8389V8.64696H22.927V0.492188Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
+                &lt;path d&#x3D;&quot;M15.8392 15.2793H22.9273V26.7803C22.9597 29.5478 22.1721 32.2624 20.6646 34.5791C19.1761 36.83 16.3027 39.5081 10.9866 39.5081C5.19613 39.5081 1.8211 36.7698 0 35.2692L4.47096 29.7542C6.24844 31.2055 7.96049 32.3994 11.0138 32.3994C13.3256 32.3994 14.2471 31.4574 14.7869 30.6359C15.5207 29.4949 15.9003 28.1604 15.8774 26.8022L15.8392 15.2793Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
+                &lt;path d&#x3D;&quot;M12.2239 10.1309H5.13574V17.2505H12.2239V10.1309Z&quot; fill&#x3D;&quot;#29ABE2&quot;/&gt;
+                &lt;path d&#x3D;&quot;M26.6409 36.167C26.6409 37.684 25.8721 38.5001 24.798 38.5001C23.7239 38.5001 23.0205 37.5307 23.0205 36.2437C23.0205 34.9567 23.7457 33.938 24.858 33.938C25.9703 33.938 26.6409 34.9402 26.6409 36.167ZM23.8438 36.2272C23.8438 37.1418 24.2091 37.8155 24.8362 37.8155C25.4632 37.8155 25.8176 37.1035 25.8176 36.1725C25.8176 35.3564 25.4904 34.5897 24.8362 34.5897C24.1819 34.5897 23.8438 35.3291 23.8438 36.2272Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
+                &lt;path d&#x3D;&quot;M28.0478 34.0039V38.4291H27.2627V34.0039H28.0478Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
+                &lt;path d&#x3D;&quot;M28.8975 38.4291V34.0039H29.7698L30.7077 35.8276C30.9491 36.3045 31.1639 36.7945 31.351 37.2954C31.302 36.7477 31.2802 36.1179 31.2802 35.4169V34.0039H31.9999V38.4291H31.1875L30.2387 36.567C29.9876 36.0778 29.7637 35.575 29.5681 35.0609C29.5681 35.6086 29.6063 36.2274 29.6063 36.9887V38.4236L28.8975 38.4291Z&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
+            &lt;/svg&gt;
+            
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;headerText&quot;&gt;Kanban Project Management Tool&lt;/div&gt;
+        &lt;div class&#x3D;&quot;initialsContainer&quot;&gt;
+            &lt;a class&#x3D;&quot;initials&quot; href&#x3D;&quot;#&quot; role&#x3D;&quot;button&quot; data-bs-toggle&#x3D;&quot;dropdown&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+              {{ userInitial}}
+            &lt;/a&gt;
+          
+            &lt;ul class&#x3D;&quot;dropdown-menu linkContainer&quot;&gt;
+              &lt;li&gt;&lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot;&gt;Legal Notice&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a class&#x3D;&quot;dropdown-item link&quot; href&#x3D;&quot;#&quot; (click)&#x3D;&quot;logout(); $event.preventDefault()&quot;&gt;Log out&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./header-bar-mobile.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.headerContainer {
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+    height:10vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.iconContainerHeader {
+    margin-left: 16px;
+    display: block;
+}
+
+
+.logo {
+    cursor: pointer;
+}
+
+
+.initialsContainer {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #2A3647;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    
+}
+
+.initials {
+    font-weight: bold;
+    color: #29ABE2;
+    text-decoration: none;
+}
+
+.linkContainer {
+    background-color: #2A3647;
+    inset: 56px 4px auto auto !important;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transform: none !important;
+}
+
+.link {
+    color: #FFFFFF;
+
+}
+
+.link:hover {
+    background-color: #091931;
+    border-radius: 10px;
+}
+
+.headerText {
+    display: none;
+}
+
+@media (min-width: 1025px) { 
+    .headerContainer {
+        width: 85vw;
+        right: 0;
+    }
+    
+    .iconContainerHeader {
+        display: none;
+    }
+
+    .headerText {
+        display: block;
+        font-weight: 500;
+        margin-left: 48px;
+    }
+
+}
+
+
+@media screen and (orientation: landscape) and (max-width: 1024px)  and (max-height: 512px) {
+    .headerContainer {
+        height:15vh;
+        
+    }
+    
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="headerContainer">        <div class="iconContainerHeader">            <svg class="logo" (click)="goToSummary()" width="40" height="48" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">                <path d="M22.927 0.492188H15.8389V8.64696H22.927V0.492188Z" fill="#2A3647"/>                <path d="M15.8392 15.2793H22.9273V26.7803C22.9597 29.5478 22.1721 32.2624 20.6646 34.5791C19.1761 36.83 16.3027 39.5081 10.9866 39.5081C5.19613 39.5081 1.8211 36.7698 0 35.2692L4.47096 29.7542C6.24844 31.2055 7.96049 32.3994 11.0138 32.3994C13.3256 32.3994 14.2471 31.4574 14.7869 30.6359C15.5207 29.4949 15.9003 28.1604 15.8774 26.8022L15.8392 15.2793Z" fill="#2A3647"/>                <path d="M12.2239 10.1309H5.13574V17.2505H12.2239V10.1309Z" fill="#29ABE2"/>                <path d="M26.6409 36.167C26.6409 37.684 25.8721 38.5001 24.798 38.5001C23.7239 38.5001 23.0205 37.5307 23.0205 36.2437C23.0205 34.9567 23.7457 33.938 24.858 33.938C25.9703 33.938 26.6409 34.9402 26.6409 36.167ZM23.8438 36.2272C23.8438 37.1418 24.2091 37.8155 24.8362 37.8155C25.4632 37.8155 25.8176 37.1035 25.8176 36.1725C25.8176 35.3564 25.4904 34.5897 24.8362 34.5897C24.1819 34.5897 23.8438 35.3291 23.8438 36.2272Z" fill="#2A3647"/>                <path d="M28.0478 34.0039V38.4291H27.2627V34.0039H28.0478Z" fill="#2A3647"/>                <path d="M28.8975 38.4291V34.0039H29.7698L30.7077 35.8276C30.9491 36.3045 31.1639 36.7945 31.351 37.2954C31.302 36.7477 31.2802 36.1179 31.2802 35.4169V34.0039H31.9999V38.4291H31.1875L30.2387 36.567C29.9876 36.0778 29.7637 35.575 29.5681 35.0609C29.5681 35.6086 29.6063 36.2274 29.6063 36.9887V38.4236L28.8975 38.4291Z" fill="#2A3647"/>            </svg>                    </div>        <div class="headerText">Kanban Project Management Tool</div>        <div class="initialsContainer">            <a class="initials" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">              {{ userInitial}}            </a>                      <ul class="dropdown-menu linkContainer">              <li><a class="dropdown-item link" href="#">Legal Notice</a></li>              <li><a class="dropdown-item link" href="#">Privacy Policy</a></li>              <li><a class="dropdown-item link" href="#" (click)="logout(); $event.preventDefault()">Log out</a></li>            </ul>          </div></div></div>'
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeaderBarMobileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderBarMobileComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

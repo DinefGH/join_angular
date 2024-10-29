@@ -1,3 +1,9 @@
+/**
+ * Component for adding a new task, handling form data and interactions with services.
+ * Manages subtasks, contacts, and date selection. 
+ *
+ * @component
+ */
 import { Component, ViewChild, ElementRef, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -39,6 +45,21 @@ export class AddTaskComponent implements OnInit {
   subtasks: Subtask[] = [];
   newSubtask: string = '';
 
+
+
+  /**
+ * Constructs the AddTaskComponent and initializes necessary services for task handling.
+ * Sets up the reactive form with validation rules for adding tasks.
+ * 
+ * @constructor
+ * @param ngbDateParserFormatter - Service for parsing and formatting date input.
+ * @param addContactService - Service for handling contact-related operations.
+ * @param fb - FormBuilder service for constructing reactive forms.
+ * @param categoryService - Service to manage task categories.
+ * @param taskService - Service to handle task operations, including add and update.
+ * @param subtaskService - Service for managing subtasks related to tasks.
+ * @param router - Router service for navigation within the application.
+ */
   constructor(
     private ngbDateParserFormatter: NgbDateParserFormatter,
     private addContactService: AddContactService,
@@ -59,6 +80,10 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
+
+    /**
+   * Initializes the component by setting minimum date and loading categories and contacts.
+   */
   ngOnInit(): void {
     const today = new Date();
     this.minDate = { year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate() };
@@ -74,20 +99,40 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
+
+
+    /**
+   * Handles date selection and updates the form's due date.
+   * @param date Selected date from date picker
+   */
   onDateSelect(date: NgbDateStruct): void {
     const formattedDate = `${date.year}-${date.month.toString().padStart(2, '0')}-${date.day.toString().padStart(2, '0')}`;
     this.dpInput.nativeElement.value = formattedDate;
     this.taskForm.get('due_date')?.setValue(formattedDate);
   }
 
+
+    /**
+   * Toggles the display of the category dropdown.
+   */
   toggleDropdown(): void {
     this.isOpen = !this.isOpen;
   }
 
+
+  /**
+ * Toggles the display of the contacts dropdown.
+ */
   toggleDropdownContacts(): void {
     this.isOpenContacts = !this.isOpenContacts;
   }
 
+
+  /**
+ * Selects a task category and updates the form with the selected category ID.
+ * @param category - The selected category object.
+ * @param event - The MouseEvent to prevent further event propagation.
+ */
   selectOption(category: Category, event: MouseEvent): void {
     event.stopPropagation();
     this.selectedOption = category;
@@ -95,12 +140,25 @@ export class AddTaskComponent implements OnInit {
     this.isOpen = false;
   }
 
+
+
+  /**
+ * Selects a contact for the task and closes the contacts dropdown.
+ * @param contact - The selected contact object.
+ * @param event - The MouseEvent to stop further event propagation.
+ */
   selectContact(contact: Contact, event: MouseEvent): void {
     this.selectedContact = contact;
     this.isOpenContacts = false;
     event.stopPropagation();
   }
 
+
+
+  /**
+ * Loads contacts from the AddContactService.
+ * Logs an error if loading fails.
+ */
   loadContacts(): void {
     this.addContactService.getContacts().subscribe({
       next: (contacts) => {
@@ -112,6 +170,13 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
+
+
+/**
+ * Generates initials from a contact's name, using the first two words.
+ * @param name - The name string to derive initials from.
+ * @returns The initials as a string.
+ */
   getInitials(name: string | undefined): string {
     if (!name) return '';
 
@@ -123,6 +188,14 @@ export class AddTaskComponent implements OnInit {
     return initials.join('');
   }
 
+
+
+  /**
+ * Toggles the selection of a contact for assignment to the task.
+ * Updates the task form with the current selected contacts.
+ * @param contactId - The ID of the contact being selected or deselected.
+ * @param isChecked - Boolean indicating whether the contact is selected or not.
+ */
   toggleContactSelection(contactId: number, isChecked: boolean): void {
     const currentContacts = this.taskForm.get('assigned_to')?.value || [];
     if (isChecked) {
@@ -138,6 +211,13 @@ export class AddTaskComponent implements OnInit {
     this.taskForm.get('assigned_to')?.setValue(currentContacts);
   }
 
+
+
+  /**
+ * Handles clicking on a contact by toggling its selection.
+ * @param contactId - The ID of the contact clicked.
+ * @param event - Mouse event to prevent further event propagation.
+ */
   handleContactClick(contactId: number, event: MouseEvent): void {
     event.stopPropagation();
 
@@ -149,10 +229,23 @@ export class AddTaskComponent implements OnInit {
     }
   }
 
+
+
+  /**
+ * Retrieves a contact by ID from the contacts list.
+ * @param contactId - The ID of the contact to retrieve.
+ * @returns The Contact object if found, undefined otherwise.
+ */
   getContactById(contactId: number): Contact | undefined {
     return this.contacts.find(contact => contact.id === contactId);
   }
 
+
+
+  /**
+ * Toggles the visibility of icons based on input focus state.
+ * @param focused - Boolean indicating the focus state of the input.
+ */
   toggleIcons(focused: boolean): void {
     if (!focused) {
       setTimeout(() => this.isInputFocused = focused, 100);
@@ -161,6 +254,13 @@ export class AddTaskComponent implements OnInit {
     }
   }
 
+
+
+  /**
+ * Adds a new subtask to the subtasks list after trimming input.
+ * @param event - Mouse event to prevent default form submission.
+ * @param subtaskValue - The value of the new subtask input.
+ */
   addSubtask(event: MouseEvent, subtaskValue: string): void {
     event.preventDefault();
     const trimmedValue = subtaskValue.trim();
@@ -171,14 +271,32 @@ export class AddTaskComponent implements OnInit {
     }
   }
 
+
+
+  /**
+ * Clears the subtask input field.
+ */
   clearInput(): void {
     this.subtaskInput.nativeElement.value = '';
   }
 
+
+
+  /**
+ * Deletes a subtask from the subtasks list at the specified index.
+ * @param index - The index of the subtask to delete.
+ */
   deleteSubtask(index: number): void {
     this.subtasks.splice(index, 1);
   }
 
+
+
+  /**
+ * Edits an existing subtask, updating its text based on user input.
+ * @param index - The index of the subtask to edit.
+ * @param subtaskText - The current text of the subtask.
+ */
   editSubtask(index: number, subtaskText: string): void {
     const editedSubtaskText = prompt('Edit Subtask:', subtaskText);
     if (editedSubtaskText !== null && editedSubtaskText.trim() !== '') {
@@ -207,6 +325,12 @@ export class AddTaskComponent implements OnInit {
     }
   }
 
+
+
+  /**
+ * Creates a new task by submitting the form data, including subtasks.
+ * Navigates to the task board upon success.
+ */
   createTask(): void {
     if (!this.taskForm.valid) {
       this.logFormErrors();
@@ -233,11 +357,22 @@ export class AddTaskComponent implements OnInit {
     }, 3000);
   }
 
+
+
+  /**
+ * Logs form validation errors to the console.
+ */
   logFormErrors() {
     console.log('Form Errors:', this.taskForm.errors);
     this.hideRequireDialog= true;
   }
 
+
+
+  /**
+ * Updates an existing task by submitting updated form data.
+ * @param taskId - The ID of the task to update.
+ */
   updateTask(taskId: number): void {
     this.taskService.updateTask(taskId, this.taskForm.value).subscribe({
       next: (task) => console.log('Task updated successfully:', task),
@@ -245,6 +380,13 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
+
+
+  /**
+ * Prepares the form data for task submission, including formatting the due date
+ * and structuring assigned contacts and subtasks.
+ * @returns The formatted task data object.
+ */
   prepareSubmitData() {
     const formData = this.taskForm.value;
   
@@ -262,6 +404,11 @@ export class AddTaskComponent implements OnInit {
     return formData;
   }
   
+
+
+  /**
+ * Closes the dialog that displays missing required fields.
+ */
   closeRequireDialog() {
     this.hideRequireDialog = false;
   }

@@ -1,0 +1,1645 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>join2.0-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">join2.0-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SummaryComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/summary/summary.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-summary</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./summary.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./summary.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currentDate" >currentDate</a>
+                            </li>
+                            <li>
+                                <a href="#currentUser" >currentUser</a>
+                            </li>
+                            <li>
+                                <a href="#greeting$" >greeting$</a>
+                            </li>
+                            <li>
+                                <a href="#nearestDueDate" >nearestDueDate</a>
+                            </li>
+                            <li>
+                                <a href="#showOverlaySummary" >showOverlaySummary</a>
+                            </li>
+                            <li>
+                                <a href="#tasks" >tasks</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#countTasksByPriority" >countTasksByPriority</a>
+                            </li>
+                            <li>
+                                <a href="#countTasksByStatus" >countTasksByStatus</a>
+                            </li>
+                            <li>
+                                <a href="#findNearestDueDate" >findNearestDueDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#generateGreeting" >generateGreeting</a>
+                            </li>
+                            <li>
+                                <a href="#goToBoardSummary" >goToBoardSummary</a>
+                            </li>
+                            <li>
+                                <a href="#loadTasks" >loadTasks</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, taskService: <a href="../injectables/TaskService.html" target="_self">TaskService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/summary/summary.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>taskService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskService.html" target="_self" >TaskService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countTasksByPriority"></a>
+                    <span class="name">
+                        <span ><b>countTasksByPriority</b></span>
+                        <a href="#countTasksByPriority"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>countTasksByPriority(priority: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>priority</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countTasksByStatus"></a>
+                    <span class="name">
+                        <span ><b>countTasksByStatus</b></span>
+                        <a href="#countTasksByStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>countTasksByStatus(status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findNearestDueDate"></a>
+                    <span class="name">
+                        <span ><b>findNearestDueDate</b></span>
+                        <a href="#findNearestDueDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findNearestDueDate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateGreeting"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>generateGreeting</b></span>
+                        <a href="#generateGreeting"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateGreeting(user: User | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                        <code>User | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToBoardSummary"></a>
+                    <span class="name">
+                        <span ><b>goToBoardSummary</b></span>
+                        <a href="#goToBoardSummary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToBoardSummary()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTasks"></a>
+                    <span class="name">
+                        <span ><b>loadTasks</b></span>
+                        <a href="#loadTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadTasks()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentDate"></a>
+                    <span class="name">
+                        <span ><b>currentDate</b></span>
+                        <a href="#currentDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Date()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/summary/summary.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentUser"></a>
+                    <span class="name">
+                        <span ><b>currentUser</b></span>
+                        <a href="#currentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>User | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/summary/summary.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="greeting$"></a>
+                    <span class="name">
+                        <span ><b>greeting$</b></span>
+                        <a href="#greeting$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;string&gt; | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/summary/summary.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nearestDueDate"></a>
+                    <span class="name">
+                        <span ><b>nearestDueDate</b></span>
+                        <a href="#nearestDueDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Date | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/summary/summary.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showOverlaySummary"></a>
+                    <span class="name">
+                        <span ><b>showOverlaySummary</b></span>
+                        <a href="#showOverlaySummary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/summary/summary.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tasks"></a>
+                    <span class="name">
+                        <span ><b>tasks</b></span>
+                        <a href="#tasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/summary/summary.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { UserService } from &#x27;src/app/services/user.service&#x27;;
+import { User } from &#x27;src/assets/models/user.model&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+import { TaskService, Task } from &#x27;src/app/services/task.service&#x27;;
+import { Router, NavigationEnd, Event as RouterEvent } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-summary&#x27;,
+  templateUrl: &#x27;./summary.component.html&#x27;,
+  styleUrls: [&#x27;./summary.component.scss&#x27;]
+})
+
+export class SummaryComponent implements OnInit {
+  currentDate &#x3D; new Date();
+  greeting$: Observable&lt;string&gt; | undefined;
+  currentUser: User | null &#x3D; null;
+  tasks: Task[] &#x3D; [];
+  nearestDueDate: Date | null &#x3D; null;
+  showOverlaySummary: boolean &#x3D; true;
+
+  constructor(private userService: UserService, private taskService: TaskService, private router: Router) { }
+
+  ngOnInit(): void {
+    const showOverlayStored &#x3D; sessionStorage.getItem(&#x27;showOverlaySummary&#x27;);
+    console.log(this.showOverlaySummary)
+    this.loadTasks();
+    this.greeting$ &#x3D; this.userService.getCurrentUser().pipe(
+      map(user &#x3D;&gt; this.generateGreeting(user))
+    );
+
+    this.userService.getCurrentUser().subscribe(user &#x3D;&gt; {
+      this.currentUser &#x3D; user;
+    });
+
+
+
+    if (showOverlayStored &#x3D;&#x3D;&#x3D; &#x27;true&#x27;) {
+      this.showOverlaySummary &#x3D; true;
+  
+      setTimeout(() &#x3D;&gt; {
+        sessionStorage.setItem(&#x27;showOverlaySummary&#x27;, &#x27;false&#x27;); 
+        this.showOverlaySummary &#x3D; false; 
+      }, 5000);
+    } else {
+      this.showOverlaySummary &#x3D; false;
+    }
+  }
+
+
+  private generateGreeting(user: User | null): string {
+    const now &#x3D; new Date();
+    const hour &#x3D; now.getHours();
+
+    let greeting &#x3D; &#x27;Hello,&#x27;;
+
+    if (hour &gt;&#x3D; 5 &amp;&amp; hour &lt; 12) {
+      greeting &#x3D; &#x27;Good morning,&#x27;;
+    } else if (hour &gt;&#x3D; 12 &amp;&amp; hour &lt; 18) {
+      greeting &#x3D; &#x27;Good afternoon,&#x27;;
+    } else {
+      greeting &#x3D; &#x27;Good evening,&#x27;;
+    }
+
+
+    return greeting;
+  }
+
+
+  loadTasks(): void {
+    this.taskService.getTasks().subscribe(
+      tasks &#x3D;&gt; {
+        this.tasks &#x3D; tasks;
+        this.findNearestDueDate();
+      },
+      error &#x3D;&gt; {
+        console.error(&#x27;Error loading tasks:&#x27;, error);
+        // Handle error loading tasks
+      }
+    );
+  }
+
+  countTasksByStatus(status: string): number {
+    const filteredTasks &#x3D; this.tasks.filter(task &#x3D;&gt; task.status &#x3D;&#x3D;&#x3D; status);
+    return filteredTasks.length;
+  }
+
+  countTasksByPriority(priority: string): number {
+    const filteredTasks &#x3D; this.tasks.filter(task &#x3D;&gt; task.priority &#x3D;&#x3D;&#x3D; priority);
+    return filteredTasks.length;
+  }
+
+
+
+  findNearestDueDate(): void {
+    if (this.tasks.length &#x3D;&#x3D;&#x3D; 0) {
+      this.nearestDueDate &#x3D; null;
+      return;
+    }
+
+    // Find the task with the nearest due_date
+    const now &#x3D; new Date().getTime();
+    let nearestTask &#x3D; this.tasks[0];
+    let minDifference &#x3D; Math.abs(new Date(nearestTask.due_date!).getTime() - now);
+
+    this.tasks.forEach(task &#x3D;&gt; {
+      const difference &#x3D; Math.abs(new Date(task.due_date!).getTime() - now);
+      if (difference &lt; minDifference) {
+        minDifference &#x3D; difference;
+        nearestTask &#x3D; task;
+      }
+    });
+
+    this.nearestDueDate &#x3D; new Date(nearestTask.due_date!);
+  }
+
+  goToBoardSummary() {
+    this.router.navigate([&#x27;/board&#x27;]);
+  }
+}
+
+
+
+
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;showOverlaySummary&quot; class&#x3D;&quot;overlaySummary&quot;&gt;
+    &lt;div class&#x3D;&quot;greetingNameContainerOverlay&quot;&gt;
+        &lt;span class&#x3D;&quot;greetingContainerGreetingOverlay&quot;&gt;{{ greeting$ | async }}&lt;/span&gt;        
+        &lt;span class&#x3D;&quot;greetingContainerNameOverlay&quot;&gt;{{ currentUser?.name }}&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;summaryContainer&quot;&gt;
+    &lt;header&gt;
+        &lt;app-header-bar-mobile&gt;&lt;/app-header-bar-mobile&gt;
+    &lt;/header&gt;
+
+&lt;div class&#x3D;&quot;summaryDesktopContainer&quot;&gt;
+    &lt;app-sidebar class&#x3D;&quot;sidebarComponent&quot;&gt;&lt;/app-sidebar&gt;
+    &lt;main class&#x3D;&quot;summaryContent&quot;&gt;
+        &lt;article class&#x3D;&quot;headlinesContainer&quot;&gt;
+            &lt;h1&gt;Join&lt;/h1&gt;
+            &lt;div class&#x3D;&quot;summaryDividingLine&quot;&gt;&lt;/div&gt;
+            &lt;span class&#x3D;&quot;smallHeadline&quot;&gt;Key Metrics at a Glance&lt;/span&gt;
+            &lt;div class&#x3D;&quot;summaryUnderline&quot;&gt;&lt;/div&gt;
+        &lt;/article&gt;
+
+        &lt;div class&#x3D;&quot;cardContainer&quot;&gt;
+
+            &lt;div class&#x3D;&quot;cardsFirstRow&quot;&gt;
+                &lt;div class&#x3D;&quot;card firstRow cardsStyle hoverTodo&quot; (click)&#x3D;&quot;goToBoardSummary()&quot;&gt;
+                    &lt;div&gt;
+                        &lt;svg class&#x3D;&quot;pencilIcon iconLandscape&quot; width&#x3D;&quot;64&quot; height&#x3D;&quot;64&quot; viewBox&#x3D;&quot;0 0 70 70&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                        &lt;circle cx&#x3D;&quot;35.3945&quot; cy&#x3D;&quot;34.8083&quot; r&#x3D;&quot;34.5&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
+                        &lt;mask id&#x3D;&quot;mask0_62_577&quot; style&#x3D;&quot;mask-type:alpha&quot; maskUnits&#x3D;&quot;userSpaceOnUse&quot; x&#x3D;&quot;19&quot; y&#x3D;&quot;18&quot; width&#x3D;&quot;33&quot; height&#x3D;&quot;33&quot;&gt;
+                        &lt;rect x&#x3D;&quot;19.3945&quot; y&#x3D;&quot;18.8083&quot; width&#x3D;&quot;32&quot; height&#x3D;&quot;32&quot; fill&#x3D;&quot;#D9D9D9&quot;/&gt;
+                        &lt;/mask&gt;
+                        &lt;g mask&#x3D;&quot;url(#mask0_62_577)&quot;&gt;
+                        &lt;path d&#x3D;&quot;M26.0612 44.1418H27.9279L39.4279 32.6418L37.5612 30.7751L26.0612 42.2751V44.1418ZM45.1279 30.7084L39.4612 25.1084L41.3279 23.2418C41.839 22.7307 42.4668 22.4751 43.2112 22.4751C43.9556 22.4751 44.5834 22.7307 45.0945 23.2418L46.9612 25.1084C47.4723 25.6195 47.739 26.2362 47.7612 26.9584C47.7834 27.6807 47.539 28.2973 47.0279 28.8084L45.1279 30.7084ZM43.1945 32.6751L29.0612 46.8084H23.3945V41.1418L37.5279 27.0084L43.1945 32.6751Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+                        &lt;/g&gt;
+                        &lt;/svg&gt;&lt;/div&gt;
+                    &lt;div class&#x3D;&quot;numberTextContainer&quot;&gt;
+                        &lt;div class&#x3D;&quot;numberStyle&quot;&gt;{{ countTasksByStatus(&#x27;todo&#x27;) }}&lt;/div&gt;
+                        &lt;div&gt;To-do&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                
+                &lt;div class&#x3D;&quot;card firstRow cardsStyle hoverDone &quot; (click)&#x3D;&quot;goToBoardSummary()&quot;&gt;
+                    &lt;div&gt;
+                        &lt;svg class&#x3D;&quot;tickIcon  iconLandscape&quot; width&#x3D;&quot;64&quot; height&#x3D;&quot;64&quot; viewBox&#x3D;&quot;0 0 70 70&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;circle cx&#x3D;&quot;34.8945&quot; cy&#x3D;&quot;34.8083&quot; r&#x3D;&quot;34.5&quot; fill&#x3D;&quot;#2A3647&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M19.9229 34.8085L31.1516 45.8745L49.8662 23.7424&quot; stroke&#x3D;&quot;white&quot; stroke-width&#x3D;&quot;7&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;/&gt;
+                        &lt;/svg&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;numberTextContainer&quot;&gt;
+                        &lt;div class&#x3D;&quot;numberStyle&quot;&gt;{{ countTasksByStatus(&#x27;done&#x27;) }}&lt;/div&gt;
+                        &lt;div&gt;Done&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;cardsSecondRow&quot;&gt;
+                &lt;div class&#x3D;&quot;card secondRow cardsStyle hoverUrgent&quot; (click)&#x3D;&quot;goToBoardSummary()&quot;&gt;
+                    &lt;div class&#x3D;&quot;urgentIconTextContainer&quot;&gt;
+                        &lt;div&gt;
+                            &lt;svg class&#x3D;&quot;iconLandscape&quot; width&#x3D;&quot;64&quot; height&#x3D;&quot;64&quot; viewBox&#x3D;&quot;0 0 41 40&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                                &lt;circle cx&#x3D;&quot;20.5&quot; cy&#x3D;&quot;20&quot; r&#x3D;&quot;20&quot; fill&#x3D;&quot;#FF3D00&quot;/&gt;
+                                &lt;g clip-path&#x3D;&quot;url(#clip0_151696_3346)&quot;&gt;
+                                &lt;path d&#x3D;&quot;M30.4143 27.4424C30.1469 27.4428 29.8864 27.3565 29.6712 27.1959L20.2677 20.176L10.8642 27.1959C10.7322 27.2947 10.5823 27.3661 10.4229 27.4062C10.2636 27.4463 10.0981 27.4543 9.93574 27.4297C9.77339 27.405 9.61743 27.3483 9.47676 27.2626C9.33609 27.177 9.21347 27.0642 9.11589 26.9306C9.01831 26.797 8.94769 26.6452 8.90806 26.484C8.86844 26.3228 8.86057 26.1553 8.88492 25.991C8.93411 25.6592 9.11152 25.3608 9.37814 25.1614L19.5247 17.5791C19.7397 17.418 20.0002 17.3311 20.2677 17.3311C20.5353 17.3311 20.7957 17.418 21.0108 17.5791L31.1573 25.1614C31.3692 25.3194 31.5263 25.5411 31.6062 25.7948C31.6862 26.0485 31.6848 26.3213 31.6024 26.5743C31.5201 26.8272 31.3608 27.0473 31.1474 27.2032C30.934 27.3591 30.6774 27.4428 30.4143 27.4424Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+                                &lt;path d&#x3D;&quot;M30.4143 20.8076C30.1469 20.8081 29.8865 20.7217 29.6712 20.5612L20.2677 13.5413L10.8642 20.5612C10.5976 20.7606 10.2636 20.8447 9.93575 20.7949C9.60787 20.7451 9.31296 20.5656 9.1159 20.2958C8.91883 20.026 8.83575 19.688 8.88493 19.3562C8.93411 19.0244 9.11153 18.726 9.37814 18.5266L19.5247 10.9443C19.7397 10.7832 20.0002 10.6963 20.2677 10.6963C20.5353 10.6963 20.7957 10.7832 21.0108 10.9443L31.1573 18.5266C31.3692 18.6846 31.5263 18.9063 31.6062 19.16C31.6862 19.4138 31.6848 19.6866 31.6025 19.9395C31.5201 20.1924 31.3608 20.4126 31.1474 20.5685C30.934 20.7244 30.6774 20.8081 30.4143 20.8076Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+                                &lt;/g&gt;
+                                &lt;defs&gt;
+                                &lt;clipPath id&#x3D;&quot;clip0_151696_3346&quot;&gt;
+                                &lt;rect width&#x3D;&quot;22.7907&quot; height&#x3D;&quot;16.7442&quot; fill&#x3D;&quot;white&quot; transform&#x3D;&quot;translate(8.87207 10.6978)&quot;/&gt;
+                                &lt;/clipPath&gt;
+                                &lt;/defs&gt;
+                            &lt;/svg&gt; 
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;numberTextContainer&quot;&gt;
+                            &lt;div class&#x3D;&quot;numberStyle&quot;&gt; {{ countTasksByPriority(&#x27;Urgent&#x27;) }}&lt;/div&gt;
+                            &lt;div&gt;Urgent&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;urgentShadow&quot;&gt;&lt;/div&gt;
+                    &lt;div class&#x3D;&quot;urgentDateDeadline&quot;&gt;
+                        &lt;div class&#x3D;&quot;urgentDate&quot;&gt;{{ nearestDueDate | date:&#x27;longDate&#x27; }}&lt;/div&gt;
+                        &lt;div class&#x3D;&quot;urgentDeadline&quot;&gt;Upcoming Deadline&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;cardsThirdRow&quot;&gt;
+                &lt;div class&#x3D;&quot;card thirdRow cardsStyle hoverthirdRow&quot; (click)&#x3D;&quot;goToBoardSummary()&quot;&gt;
+                    &lt;div class&#x3D;&quot;numberStyle&quot;&gt; {{ tasks.length }}&lt;/div&gt;
+                    &lt;div class&#x3D;&quot;textCenter&quot;&gt;Tasks in Board&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card thirdRow cardsStyle hoverthirdRow&quot; (click)&#x3D;&quot;goToBoardSummary()&quot;&gt;
+                    &lt;div class&#x3D;&quot;numberStyle&quot;&gt; {{ countTasksByStatus(&#x27;inProgress&#x27;) }}&lt;/div&gt;
+                    &lt;div class&#x3D;&quot;textCenter&quot;&gt;Tasks in Progress&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card thirdRow cardsStyle hoverthirdRow&quot; (click)&#x3D;&quot;goToBoardSummary()&quot;&gt;
+                    &lt;div class&#x3D;&quot;numberStyle&quot;&gt;{{ countTasksByStatus(&#x27;awaitFeedback&#x27;) }}&lt;/div&gt;
+                    &lt;div class&#x3D;&quot;textCenter&quot;&gt;Awaiting Feedback&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+    &lt;div class&#x3D;&quot;greetingContainer&quot;&gt;
+        &lt;div class&#x3D;&quot;greetingNameContainer&quot;&gt;
+        &lt;span class&#x3D;&quot;greetingContainerGreeting&quot;&gt;{{ greeting$ | async }}&lt;/span&gt;        
+        &lt;span class&#x3D;&quot;greetingContainerName&quot;&gt;{{ currentUser?.name }}&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+    &lt;footer  class&#x3D;&quot;footerComponent&quot;&gt;
+        &lt;app-footer-bar&gt;&lt;/app-footer-bar&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;
+
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./summary.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.summaryContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F6F7F8;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.summaryContent {
+    height: 80vh;
+    position: absolute;
+    top: 10vh;
+}
+
+
+.headlinesContainer {
+    height: 15vh;
+    margin-left: 16px;
+}
+
+
+.smallHeadline {
+    font-size: calc(1.175rem + 0.5vw) !important;
+}
+
+
+.summaryUnderline {
+    display: block;
+    border-bottom: 3px solid;
+    border-color: #29ABE2;
+    width: min(120px, 50%);
+}
+
+
+.footerComponent {
+    bottom: 0;
+    left: 0;
+}
+
+
+.cardContainer {
+    height:65vh;
+    width: min(1024px, 100vw);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.cardsStyle {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    height: 110px;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+}
+
+
+.firstRow {
+    width: min(264px, 47vw);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.secondRow {
+    width: min(560px, 96vw);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.cardsFirstRow {
+    display: flex;
+    justify-content: space-between;
+    width: min(560px, 96vw);
+}
+
+
+.thirdRow {
+    width: min(168px, 31vw);
+    display: flex;
+    align-items: center;
+}
+
+
+.cardsThirdRow {
+    display: flex;
+    justify-content: space-between;
+    width: min(560px, 96vw);
+}
+
+
+.numberTextContainer {
+    height:110px;
+}
+
+
+.numberStyle {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+
+.hoverDone {
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.textCenter {
+    text-align: center;
+}
+
+
+.hoverDone:hover {
+    color: white;
+    background-color:#2A3647;
+    cursor: pointer;
+    transform: scale(1.05);
+
+    .tickIcon circle {
+        fill: white;
+    }
+
+    .tickIcon path {
+        stroke: #2A3647;
+    }
+}
+
+
+.hoverTodo {
+    transition: transform 0.2s ease-in-out;}
+
+
+.hoverTodo:hover {
+    color: white;
+    background-color:#2A3647;
+    cursor: pointer;
+    transform: scale(1.05);
+
+    .pencilIcon circle {
+        fill: white;
+    }
+
+    .pencilIcon path {
+        fill: #2A3647;
+    }
+}
+
+.hoverUrgent {
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.hoverUrgent:hover {
+    color: white;
+    background-color:#2A3647;
+    cursor: pointer;
+    transform: scale(1.02);
+
+    .urgentShadow {
+        border-color: white;
+    }
+
+}
+
+.hoverthirdRow {
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.hoverthirdRow:hover {
+    color: white;
+    background-color:#2A3647;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.urgentIconTextContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    width: 150px;
+}
+
+.urgentShadow {
+    border: 2px solid;
+    width: 2px;
+    height: 80px;
+    border-color: #D1D1D1;
+}
+
+.urgentDate {
+    font-weight: bold;
+}
+
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+
+
+    .cardsStyle {
+    height: 15vh;
+    }
+
+
+    .headlinesContainer {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .summaryUnderline  {
+        display: none;
+    }
+
+    .summaryDividingLine {
+        display: block  ;
+        border-right: 3px solid;
+        border-color: #29ABE2;
+        height: 32px;
+        padding-bottom: 8px;
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+    .summaryContent {
+        top: 15vh;
+    }
+
+    .numberTextContainer {
+        height: 15vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .numberStyle {
+        font-size: 1rem;
+    }
+
+    .cardContainer {
+        height: 50vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .urgentShadow {
+        height: 12vh;
+    }
+
+    .iconLandscape {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (min-width: 1025px) { 
+
+    .summaryDesktopContainer {
+        display: flex;
+    }
+
+    .summaryContent {
+        width: 55vw;
+        position: relative;
+        margin-left: 48px;
+    }
+
+
+    .headlinesContainer {
+        display: flex;
+        align-items: center;
+    }
+
+    .smallHeadline {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .summaryUnderline {
+        display: none;
+    }
+
+
+    .summaryDividingLine {
+        display: block  ;
+        border-right: 3px solid;
+        border-color: #29ABE2;
+        height: 48px;
+        padding-bottom: 8px;
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+
+    .cardContainer {
+        width: 560px;
+    }
+
+    .greetingContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(1.475rem + 0.5vw);
+        height: 90vh;
+        margin-top: 10vh;
+    }
+
+    .greetingNameContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .greetingContainerGreeting {
+        font-weight: 500;
+    }
+
+    .greetingContainerName {
+        color: #29ABE2;
+        font-weight: 700;
+    }
+}
+
+
+.overlaySummary {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it&#x27;s on top of everything */
+    animation: overlayFadeOut 3s ease-in-out forwards;
+    animation-delay: 2s;
+}
+
+
+.greetingContainerGreetingOverlay {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+
+.greetingContainerNameOverlay {
+    color: #29ABE2;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+
+.greetingNameContainerOverlay {
+    animation: overlayFadeOutGreeting 1.5s ease-in-out forwards;
+    animation-delay: 1s;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@keyframes overlayFadeOutGreeting {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden; /* Ensure the overlay is completely hidden at the end */
+    }
+  }
+
+
+@keyframes overlayFadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden; /* Ensure the overlay is completely hidden at the end */
+    }
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="showOverlaySummary" class="overlaySummary">    <div class="greetingNameContainerOverlay">        <span class="greetingContainerGreetingOverlay">{{ greeting$ | async }}</span>                <span class="greetingContainerNameOverlay">{{ currentUser?.name }}</span></div></div><div class="summaryContainer">    <header>        <app-header-bar-mobile></app-header-bar-mobile>    </header><div class="summaryDesktopContainer">    <app-sidebar class="sidebarComponent"></app-sidebar>    <main class="summaryContent">        <article class="headlinesContainer">            <h1>Join</h1>            <div class="summaryDividingLine"></div>            <span class="smallHeadline">Key Metrics at a Glance</span>            <div class="summaryUnderline"></div>        </article>        <div class="cardContainer">            <div class="cardsFirstRow">                <div class="card firstRow cardsStyle hoverTodo" (click)="goToBoardSummary()">                    <div>                        <svg class="pencilIcon iconLandscape" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">                        <circle cx="35.3945" cy="34.8083" r="34.5" fill="#2A3647"/>                        <mask id="mask0_62_577" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="19" y="18" width="33" height="33">                        <rect x="19.3945" y="18.8083" width="32" height="32" fill="#D9D9D9"/>                        </mask>                        <g mask="url(#mask0_62_577)">                        <path d="M26.0612 44.1418H27.9279L39.4279 32.6418L37.5612 30.7751L26.0612 42.2751V44.1418ZM45.1279 30.7084L39.4612 25.1084L41.3279 23.2418C41.839 22.7307 42.4668 22.4751 43.2112 22.4751C43.9556 22.4751 44.5834 22.7307 45.0945 23.2418L46.9612 25.1084C47.4723 25.6195 47.739 26.2362 47.7612 26.9584C47.7834 27.6807 47.539 28.2973 47.0279 28.8084L45.1279 30.7084ZM43.1945 32.6751L29.0612 46.8084H23.3945V41.1418L37.5279 27.0084L43.1945 32.6751Z" fill="white"/>                        </g>                        </svg></div>                    <div class="numberTextContainer">                        <div class="numberStyle">{{ countTasksByStatus(\'todo\') }}</div>                        <div>To-do</div>                    </div>                </div>                                            <div class="card firstRow cardsStyle hoverDone " (click)="goToBoardSummary()">                    <div>                        <svg class="tickIcon  iconLandscape" width="64" height="64" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">                            <circle cx="34.8945" cy="34.8083" r="34.5" fill="#2A3647"/>                            <path d="M19.9229 34.8085L31.1516 45.8745L49.8662 23.7424" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>                        </svg>                    </div>                    <div class="numberTextContainer">                        <div class="numberStyle">{{ countTasksByStatus(\'done\') }}</div>                        <div>Done</div>                    </div>                </div>            </div>            <div class="cardsSecondRow">                <div class="card secondRow cardsStyle hoverUrgent" (click)="goToBoardSummary()">                    <div class="urgentIconTextContainer">                        <div>                            <svg class="iconLandscape" width="64" height="64" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">                                <circle cx="20.5" cy="20" r="20" fill="#FF3D00"/>                                <g clip-path="url(#clip0_151696_3346)">                                <path d="M30.4143 27.4424C30.1469 27.4428 29.8864 27.3565 29.6712 27.1959L20.2677 20.176L10.8642 27.1959C10.7322 27.2947 10.5823 27.3661 10.4229 27.4062C10.2636 27.4463 10.0981 27.4543 9.93574 27.4297C9.77339 27.405 9.61743 27.3483 9.47676 27.2626C9.33609 27.177 9.21347 27.0642 9.11589 26.9306C9.01831 26.797 8.94769 26.6452 8.90806 26.484C8.86844 26.3228 8.86057 26.1553 8.88492 25.991C8.93411 25.6592 9.11152 25.3608 9.37814 25.1614L19.5247 17.5791C19.7397 17.418 20.0002 17.3311 20.2677 17.3311C20.5353 17.3311 20.7957 17.418 21.0108 17.5791L31.1573 25.1614C31.3692 25.3194 31.5263 25.5411 31.6062 25.7948C31.6862 26.0485 31.6848 26.3213 31.6024 26.5743C31.5201 26.8272 31.3608 27.0473 31.1474 27.2032C30.934 27.3591 30.6774 27.4428 30.4143 27.4424Z" fill="white"/>                                <path d="M30.4143 20.8076C30.1469 20.8081 29.8865 20.7217 29.6712 20.5612L20.2677 13.5413L10.8642 20.5612C10.5976 20.7606 10.2636 20.8447 9.93575 20.7949C9.60787 20.7451 9.31296 20.5656 9.1159 20.2958C8.91883 20.026 8.83575 19.688 8.88493 19.3562C8.93411 19.0244 9.11153 18.726 9.37814 18.5266L19.5247 10.9443C19.7397 10.7832 20.0002 10.6963 20.2677 10.6963C20.5353 10.6963 20.7957 10.7832 21.0108 10.9443L31.1573 18.5266C31.3692 18.6846 31.5263 18.9063 31.6062 19.16C31.6862 19.4138 31.6848 19.6866 31.6025 19.9395C31.5201 20.1924 31.3608 20.4126 31.1474 20.5685C30.934 20.7244 30.6774 20.8081 30.4143 20.8076Z" fill="white"/>                                </g>                                <defs>                                <clipPath id="clip0_151696_3346">                                <rect width="22.7907" height="16.7442" fill="white" transform="translate(8.87207 10.6978)"/>                                </clipPath>                                </defs>                            </svg>                         </div>                        <div class="numberTextContainer">                            <div class="numberStyle"> {{ countTasksByPriority(\'Urgent\') }}</div>                            <div>Urgent</div>                        </div>                    </div>                    <div class="urgentShadow"></div>                    <div class="urgentDateDeadline">                        <div class="urgentDate">{{ nearestDueDate | date:\'longDate\' }}</div>                        <div class="urgentDeadline">Upcoming Deadline</div>                    </div>                </div>            </div>            <div class="cardsThirdRow">                <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">                    <div class="numberStyle"> {{ tasks.length }}</div>                    <div class="textCenter">Tasks in Board</div>                </div>                <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">                    <div class="numberStyle"> {{ countTasksByStatus(\'inProgress\') }}</div>                    <div class="textCenter">Tasks in Progress</div>                </div>                <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">                    <div class="numberStyle">{{ countTasksByStatus(\'awaitFeedback\') }}</div>                    <div class="textCenter">Awaiting Feedback</div>                </div>            </div>        </div>    </main>    <div class="greetingContainer">        <div class="greetingNameContainer">        <span class="greetingContainerGreeting">{{ greeting$ | async }}</span>                <span class="greetingContainerName">{{ currentUser?.name }}</span>      </div>    </div></div>    <footer  class="footerComponent">        <app-footer-bar></app-footer-bar>    </footer></div></div>'
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SummaryComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SummaryComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

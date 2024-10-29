@@ -43,7 +43,7 @@
   display: flex;
     align-items: center;
     position: relative;
-    cursor: pointer; /* Indicates it's clickable */
+    cursor: pointer; 
     padding: 6px 0;
     padding-left: 8px;
 }
@@ -53,14 +53,14 @@
   content: '';
   position: absolute;
   top: 50%;
-  right: 10px; /* Adjust as needed */
+  right: 10px; 
   transform: translateY(-50%);
-  border: 5px solid transparent; /* Creates the arrow shape */
-  border-top-color: #333; /* Arrow color */
+  border: 5px solid transparent; 
+  border-top-color: #333; 
 }
 
 
-/* Rotate the arrow when the dropdown is open */
+
 .dropdown-container.open .dropdownDisplayContacts::after {
   transform: translateY(-50%) rotate(180deg);
 }
@@ -316,29 +316,29 @@
 
 
 .dropdownContactsCheckInput {
-  display: none; /* Hide the original checkbox */
+  display: none; 
 }
 
 .checkbox-label {
   display: inline-block;
-  width: 16px; /* Custom width */
-  height: 16px; /* Custom height */
-  background-color: #f0f0f0; /* Default background color */
-  border: 1px solid #d1d1d1; /* Border to mimic a checkbox */
+  width: 16px; 
+  height: 16px; 
+  background-color: #f0f0f0; 
+  border: 1px solid #d1d1d1; 
   cursor: pointer;
   border-radius: 5px;
 }
 
-/* Style for when the checkbox is checked */
+
 .dropdownContactsCheckInput:checked + .checkbox-label {
-  background-color: #091931; /* Checked background color */
+  background-color: #091931; 
   color: #ffffff;
- /* You might want to use this for an icon or text inside the label */
+ 
 }
 
 
 .dropdown-option.selected {
-  background-color: #091931; /* Checked background color */
+  background-color: #091931; 
   color: #ffffff;
 
   .colorCircleContacts {
@@ -346,10 +346,10 @@
   }
 }
 
-/* Additional styles for the checked state (e.g., displaying a checkmark) */
+
 .dropdownContactsCheckInput:checked + .checkbox-label::after {
-  content: '✔'; /* Example: a checkmark */
-  color: #ffffff; /* Color of the checkmark */
+  content: '✔'; 
+  color: #ffffff; 
   display: block;
   text-align: center;
   line-height: 16px; 
@@ -369,14 +369,14 @@
 
 .dropdown-container {
     position: relative;
-    user-select: none; /* Prevent text selection */
+    user-select: none; 
     z-index: 10;
 }
   
 
 .dropdown-display {
     position: relative;
-    cursor: pointer; /* Indicates it's clickable */
+    cursor: pointer; 
     padding: 6px 0;
     padding-left: 8px;
 }
@@ -386,14 +386,14 @@
     content: '';
     position: absolute;
     top: 50%;
-    right: 10px; /* Adjust as needed */
+    right: 10px; 
     transform: translateY(-50%);
-    border: 5px solid transparent; /* Creates the arrow shape */
-    border-top-color: #333; /* Arrow color */
+    border: 5px solid transparent; 
+    border-top-color: #333; 
 }
   
 
-  /* Rotate the arrow when the dropdown is open */
+  
 .dropdown-container.open .dropdown-display::after {
   transform: translateY(-50%) rotate(180deg);
 }
@@ -513,21 +513,21 @@
 
 .subtask-item {
   display: flex;
-  justify-content: space-between; /* Aligns content to both ends */
-  align-items: center; /* Centers items vertically */
-  margin-bottom: 10px; /* Adds space between items */
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 10px; 
 }
 
 
 
 .subtask-text {
-  flex-grow: 1; /* Allows text to take up any extra space */
+  flex-grow: 1; 
 }
 
 
 .editSubtask, .deleteSubtask {
-  margin-left: 8px; /* Space between icons */
-  cursor: pointer; /* Changes cursor to indicate clickable items */
+  margin-left: 8px; 
+  cursor: pointer; 
 }
 
 
@@ -590,16 +590,6 @@
 
 
 
-  // @media (max-width: 800px) {
-  //   .addTaskContent::-webkit-scrollbar {
-  //     display: none;
-  //   }
-  
-  //   .addTaskContent {
-  //     -ms-overflow-style: none;  /* IE and Edge */
-  //     scrollbar-width: none;  /* Firefox */
-  //   }
-  // }
 
   @media (min-width: 1025px) { 
 

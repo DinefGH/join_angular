@@ -148,18 +148,12 @@
             <div class="categoryInput">
               <div class="dropdown-container" [class.open]="isOpen" (click)="toggleDropdown()">
                 <div class="dropdown-display">
-                  <!-- Color circle for the selected option, shown only if a selection has been made -->
                   <span *ngIf="selectedOption" class="color-circle" [style.backgroundColor]="selectedOption.color"></span>
-                  <!-- Display the selected option's name or a placeholder if no option is selected -->
                   {{ selectedOption?.name || 'Select a Category' }}
                 </div>
-                <!-- Dropdown options list, shown only when 'isOpen' is true -->
                 <div *ngIf="isOpen" class="dropdown-options">
-                  <!-- Iterating over each category in the categories array -->
                   <div *ngFor="let category of categories" (click)="selectOption(category, $event); $event.stopPropagation();" class="dropdown-option">
-                    <!-- Color circle next to the category name, color based on 'category.color' -->
                     <span class="color-circle" [style.backgroundColor]="category.color"></span>
-                    <!-- Category name -->
                     {{ category.name }}
                   </div>
                 </div>

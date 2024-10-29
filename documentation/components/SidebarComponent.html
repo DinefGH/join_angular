@@ -1,0 +1,1162 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>join2.0-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">join2.0-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SidebarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/sidebar/sidebar.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sidebar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./sidebar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sidebar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isAddTaskPage" >isAddTaskPage</a>
+                            </li>
+                            <li>
+                                <a href="#isBoardPage" >isBoardPage</a>
+                            </li>
+                            <li>
+                                <a href="#isContactsPage" >isContactsPage</a>
+                            </li>
+                            <li>
+                                <a href="#isSummaryPage" >isSummaryPage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#goToAddtask" >goToAddtask</a>
+                            </li>
+                            <li>
+                                <a href="#goToBoard" >goToBoard</a>
+                            </li>
+                            <li>
+                                <a href="#goToContacts" >goToContacts</a>
+                            </li>
+                            <li>
+                                <a href="#goToLegal" >goToLegal</a>
+                            </li>
+                            <li>
+                                <a href="#goToPolicy" >goToPolicy</a>
+                            </li>
+                            <li>
+                                <a href="#goToSummary" >goToSummary</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetPageFlags" >resetPageFlags</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setPageFlag" >setPageFlag</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/sidebar/sidebar.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToAddtask"></a>
+                    <span class="name">
+                        <span ><b>goToAddtask</b></span>
+                        <a href="#goToAddtask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToAddtask()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToBoard"></a>
+                    <span class="name">
+                        <span ><b>goToBoard</b></span>
+                        <a href="#goToBoard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToBoard()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToContacts"></a>
+                    <span class="name">
+                        <span ><b>goToContacts</b></span>
+                        <a href="#goToContacts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToContacts()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToLegal"></a>
+                    <span class="name">
+                        <span ><b>goToLegal</b></span>
+                        <a href="#goToLegal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToLegal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToPolicy"></a>
+                    <span class="name">
+                        <span ><b>goToPolicy</b></span>
+                        <a href="#goToPolicy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToPolicy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToSummary"></a>
+                    <span class="name">
+                        <span ><b>goToSummary</b></span>
+                        <a href="#goToSummary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToSummary()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetPageFlags"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resetPageFlags</b></span>
+                        <a href="#resetPageFlags"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetPageFlags()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPageFlag"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setPageFlag</b></span>
+                        <a href="#setPageFlag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setPageFlag(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/sidebar/sidebar.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAddTaskPage"></a>
+                    <span class="name">
+                        <span ><b>isAddTaskPage</b></span>
+                        <a href="#isAddTaskPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/sidebar/sidebar.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBoardPage"></a>
+                    <span class="name">
+                        <span ><b>isBoardPage</b></span>
+                        <a href="#isBoardPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/sidebar/sidebar.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isContactsPage"></a>
+                    <span class="name">
+                        <span ><b>isContactsPage</b></span>
+                        <a href="#isContactsPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/sidebar/sidebar.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSummaryPage"></a>
+                    <span class="name">
+                        <span ><b>isSummaryPage</b></span>
+                        <a href="#isSummaryPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/sidebar/sidebar.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router, NavigationEnd, Event as RouterEvent } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-sidebar&#x27;,
+  templateUrl: &#x27;./sidebar.component.html&#x27;,
+  styleUrls: [&#x27;./sidebar.component.scss&#x27;]
+})
+export class SidebarComponent implements OnInit {
+
+  isSummaryPage: boolean &#x3D; false;
+  isBoardPage: boolean &#x3D; false;
+  isAddTaskPage: boolean &#x3D; false;
+  isContactsPage: boolean &#x3D; false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events.subscribe(event &#x3D;&gt; {
+      if (event instanceof NavigationEnd) {
+        // Reset all page flags to false
+        this.resetPageFlags();
+        // Set the flag for the current page to true
+        this.setPageFlag(event.urlAfterRedirects);
+      }
+    });
+    // Set the initial page flag based on the current URL
+    this.setPageFlag(this.router.url);
+  }
+
+  private resetPageFlags() {
+    this.isSummaryPage &#x3D; false;
+    this.isBoardPage &#x3D; false;
+    this.isAddTaskPage &#x3D; false;
+    this.isContactsPage &#x3D; false;
+  }
+
+  private setPageFlag(url: string) {
+    this.isSummaryPage &#x3D; url.includes(&#x27;/summary&#x27;);
+    this.isBoardPage &#x3D; url.includes(&#x27;/board&#x27;);
+    this.isAddTaskPage &#x3D; url.includes(&#x27;/addtask&#x27;);
+    this.isContactsPage &#x3D; url.includes(&#x27;/contacts&#x27;);
+  }
+
+  goToContacts() {
+    this.router.navigate([&#x27;/contacts&#x27;]);
+  }
+
+  goToSummary() {
+    this.router.navigate([&#x27;/summary&#x27;]);
+  }
+
+  goToAddtask() {
+    this.router.navigate([&#x27;/addtask&#x27;]);
+  }
+
+  goToBoard() {
+    this.router.navigate([&#x27;/board&#x27;]);
+  }
+
+
+  goToPolicy() {
+    window.open(&#x27;/privacy-policy&#x27;, &#x27;_blank&#x27;)
+  }
+
+  goToLegal() {
+    window.open(&#x27;/legal-notice&#x27;, &#x27;_blank&#x27;)
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;sidebarContnentContainer&quot;&gt;
+    &lt;div class&#x3D;&quot;logoContainer&quot;&gt;
+        &lt;svg class&#x3D;&quot;logo&quot; (click)&#x3D;&quot;goToSummary()&quot; width&#x3D;&quot;101&quot; height&#x3D;&quot;122&quot; viewBox&#x3D;&quot;0 0 101 122&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+            &lt;g clip-path&#x3D;&quot;url(#clip0_301_1264)&quot;&gt;
+            &lt;path d&#x3D;&quot;M71.7067 0H49.5488V25.4923H71.7067V0Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;path d&#x3D;&quot;M49.5484 46.2251H71.7062V82.1779C71.8075 90.8292 69.3453 99.3153 64.6328 106.557C59.9796 113.594 50.9972 121.966 34.3788 121.966C16.2776 121.966 5.72704 113.406 0.0341797 108.715L14.0107 91.4743C19.5672 96.0112 24.9191 99.7435 34.464 99.7435C41.6909 99.7435 44.5714 96.7988 46.2588 94.2307C48.5528 90.6637 49.7393 86.4923 49.6677 82.2464L49.5484 46.2251Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;path d&#x3D;&quot;M38.2477 30.1318H16.0898V52.3884H38.2477V30.1318Z&quot; fill&#x3D;&quot;#29ABE2&quot;/&gt;
+            &lt;path d&#x3D;&quot;M83.3136 111.522C83.3136 116.265 80.9104 118.815 77.5526 118.815C74.1948 118.815 71.9961 115.785 71.9961 111.762C71.9961 107.739 74.263 104.554 77.7401 104.554C81.2172 104.554 83.3136 107.687 83.3136 111.522ZM74.5698 111.711C74.5698 114.57 75.7118 116.675 77.6719 116.675C79.632 116.675 80.7399 114.45 80.7399 111.539C80.7399 108.988 79.7172 106.592 77.6719 106.592C75.6266 106.592 74.5698 108.903 74.5698 111.711Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;path d&#x3D;&quot;M87.7112 104.76V118.593H85.2568V104.76H87.7112Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;path d&#x3D;&quot;M90.3701 118.593V104.76H93.0972L96.0289 110.461C96.7836 111.952 97.455 113.483 98.0401 115.049C97.8867 113.337 97.8186 111.368 97.8186 109.177V104.76H100.068V118.593H97.5288L94.5631 112.772C93.7779 111.243 93.078 109.671 92.4666 108.064C92.4666 109.776 92.5859 111.711 92.5859 114.09V118.576L90.3701 118.593Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;/g&gt;
+            &lt;defs&gt;
+            &lt;clipPath id&#x3D;&quot;clip0_301_1264&quot;&gt;
+            &lt;rect width&#x3D;&quot;100.034&quot; height&#x3D;&quot;121.966&quot; fill&#x3D;&quot;white&quot; transform&#x3D;&quot;translate(0.0341797)&quot;/&gt;
+            &lt;/clipPath&gt;
+            &lt;/defs&gt;
+            &lt;/svg&gt;
+    &lt;/div&gt;
+&lt;div class&#x3D;&quot;allIconsContainer&quot;&gt;
+&lt;div class&#x3D;&quot;iconContainerSidebar hoverSidebarIcons&quot; (click)&#x3D;&quot;goToSummary()&quot; [ngClass]&#x3D;&quot;{&#x27;activeRouteIconSidebar&#x27;: isSummaryPage}&quot;&gt;
+    &lt;div class&#x3D;&quot;iconSidebar&quot;&gt;&lt;svg width&#x3D;&quot;30&quot; height&#x3D;&quot;31&quot; viewBox&#x3D;&quot;0 0 30 31&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;path d&#x3D;&quot;M25.2273 3.46582H4.77273H4.5C3.39543 3.46582 2.5 4.36155 2.5 5.46612C2.5 5.64591 2.5 5.77328 2.5 5.80579V26.2603V26.4658C2.5 27.5704 3.39572 28.4658 4.50029 28.4658C4.64377 28.4658 4.74401 28.4658 4.77272 28.4658H25.2273C25.256 28.4658 25.3562 28.4658 25.4997 28.4658C26.6043 28.4658 27.5 27.5699 27.5 26.4653C27.5 26.3585 27.5 26.2846 27.5 26.2603V5.80576C27.5 5.77326 27.5 5.6459 27.5 5.46612C27.5 4.36155 26.6043 3.46582 25.4997 3.46582C25.3562 3.46582 25.256 3.46582 25.2273 3.46582ZM17.2727 26.2603H4.77273V17.1694H17.2727V26.2603ZM17.2727 14.8967H4.77273V5.80579L17.2727 5.80576V14.8967ZM25.2273 26.2603H19.5455V5.80579H25.2273V26.2603Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+        &lt;/svg&gt; &lt;/div&gt;
+    &lt;div class&#x3D;&quot;iconText&quot;&gt;Summary&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;iconContainerSidebar boardIcon hoverSidebarIcons&quot; (click)&#x3D;&quot;goToBoard()&quot; [ngClass]&#x3D;&quot;{&#x27;activeRouteIconSidebar&#x27;: isBoardPage}&quot;&gt;
+    &lt;div class&#x3D;&quot;iconSidebar&quot;&gt;&lt;svg width&#x3D;&quot;30&quot; height&#x3D;&quot;31&quot; viewBox&#x3D;&quot;0 0 30 31&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;path d&#x3D;&quot;M22.9575 5.73855L22.9575 26.1929C22.9569 26.7955 22.7173 27.3732 22.2912 27.7993C21.8651 28.2253 21.2874 28.465 20.6848 28.4656L16.1394 28.4656C15.5368 28.465 14.9591 28.2253 14.533 27.7993C14.1069 27.3732 13.8673 26.7955 13.8667 26.1929L13.8667 5.73855C13.8673 5.13597 14.1069 4.55825 14.533 4.13217C14.9591 3.70608 15.5368 3.46644 16.1394 3.46584L20.6848 3.46584C21.2874 3.46644 21.8651 3.70608 22.2912 4.13217C22.7173 4.55825 22.9569 5.13597 22.9575 5.73855ZM16.1394 26.1929L20.6848 26.1929L20.6848 5.73855L16.1394 5.73855L16.1394 26.1929ZM16.1394 5.73855L16.1394 26.1929C16.1388 26.7955 15.8992 27.3731 15.4731 27.7992C15.047 28.2253 14.4693 28.4649 13.8667 28.4655L9.32128 28.4655C8.71871 28.4649 8.14099 28.2253 7.7149 27.7992C7.28882 27.3731 7.04918 26.7954 7.04858 26.1928L7.04858 5.73852C7.04918 5.13595 7.28882 4.55823 7.7149 4.13214C8.14099 3.70606 8.71871 3.46642 9.32128 3.46582L13.8667 3.46582C14.4693 3.46642 15.047 3.70606 15.4731 4.13214C15.8992 4.55823 16.1388 5.13597 16.1394 5.73855ZM9.32128 26.1928L13.8667 26.1929L13.8667 5.73855L9.32128 5.73852L9.32128 26.1928ZM9.32128 5.73852L9.32128 26.1928C9.32068 26.7954 9.08104 27.3731 8.65496 27.7992C8.22887 28.2253 7.65115 28.4649 7.04858 28.4656L2.50317 28.4656C1.9006 28.4649 1.32288 28.2253 0.896793 27.7992C0.470708 27.3731 0.23107 26.7954 0.230469 26.1928L0.230468 5.73852C0.231069 5.13595 0.470707 4.55823 0.896792 4.13214C1.32288 3.70606 1.9006 3.46642 2.50317 3.46582L7.04858 3.46582C7.65115 3.46642 8.22887 3.70606 8.65496 4.13214C9.08104 4.55823 9.32068 5.13595 9.32128 5.73852ZM2.50317 26.1928L7.04858 26.1928L7.04858 5.73852L2.50317 5.73852L2.50317 26.1928Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+        &lt;path d&#x3D;&quot;M29.7756 5.7388L29.7756 26.1931C29.775 26.7957 29.5354 27.3734 29.1093 27.7995C28.6832 28.2256 28.1055 28.4652 27.5029 28.4658L22.9575 28.4658C22.3549 28.4652 21.7772 28.2256 21.3511 27.7995C20.925 27.3734 20.6854 26.7955 20.6848 26.1929L20.6848 5.73855C20.6854 5.13597 20.925 4.5585 21.3511 4.13242C21.7772 3.70633 22.3549 3.4667 22.9575 3.46609L27.5029 3.46609C28.1055 3.4667 28.6832 3.70633 29.1093 4.13242C29.5354 4.5585 29.775 5.13622 29.7756 5.7388ZM22.9575 26.1929L27.5029 26.1931L27.5029 5.7388L22.9575 5.73855L22.9575 26.1929Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+        &lt;/svg&gt; 
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;iconText&quot;&gt;Board&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;iconContainerSidebar hoverSidebarIcons&quot; (click)&#x3D;&quot;goToAddtask()&quot; [ngClass]&#x3D;&quot;{&#x27;activeRouteIconSidebar&#x27;: isAddTaskPage}&quot;&gt;
+    &lt;div class&#x3D;&quot;iconSidebar&quot;&gt;&lt;svg width&#x3D;&quot;30&quot; height&#x3D;&quot;31&quot; viewBox&#x3D;&quot;0 0 30 31&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;mask id&#x3D;&quot;mask0_69323_5260&quot; style&#x3D;&quot;mask-type:alpha&quot; maskUnits&#x3D;&quot;userSpaceOnUse&quot; x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; width&#x3D;&quot;30&quot; height&#x3D;&quot;31&quot;&gt;
+        &lt;rect y&#x3D;&quot;0.96582&quot; width&#x3D;&quot;30&quot; height&#x3D;&quot;30&quot; fill&#x3D;&quot;#D9D9D9&quot;/&gt;
+        &lt;/mask&gt;
+        &lt;g mask&#x3D;&quot;url(#mask0_69323_5260)&quot;&gt;
+        &lt;path d&#x3D;&quot;M4.62652 28.1682C3.95579 28.1682 3.38161 27.9294 2.90396 27.4517C2.42632 26.9741 2.1875 26.3999 2.1875 25.7292V8.65599C2.1875 7.98526 2.42632 7.41107 2.90396 6.93343C3.38161 6.45578 3.95579 6.21696 4.62652 6.21696H15.5107L13.0716 8.65599H4.62652V25.7292H21.6997V17.2535L24.1387 14.8145V25.7292C24.1387 26.3999 23.8999 26.9741 23.4223 27.4517C22.9446 27.9294 22.3704 28.1682 21.6997 28.1682H4.62652ZM18.2546 6.91818L19.9924 8.6255L11.9436 16.6743V18.4121H13.6509L21.7302 10.3328L23.468 12.0401L15.3887 20.1194C15.1651 20.343 14.906 20.5208 14.6113 20.6529C14.3166 20.7851 14.0066 20.8511 13.6814 20.8511H10.7241C10.3786 20.8511 10.0889 20.7342 9.85518 20.5005C9.62144 20.2668 9.50457 19.9771 9.50457 19.6316V16.6743C9.50457 16.3491 9.56555 16.0391 9.6875 15.7444C9.80945 15.4497 9.98222 15.1905 10.2058 14.967L18.2546 6.91818ZM23.468 12.0401L18.2546 6.91818L21.3034 3.8694C21.7912 3.3816 22.3755 3.1377 23.0564 3.1377C23.7373 3.1377 24.3115 3.3816 24.779 3.8694L26.4863 5.60721C26.9538 6.07469 27.1875 6.64379 27.1875 7.31452C27.1875 7.98526 26.9538 8.55436 26.4863 9.02184L23.468 12.0401Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+        &lt;/g&gt;
+        &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;div class&#x3D;&quot;iconText&quot;&gt;Add Task&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;iconContainerSidebar hoverSidebarIcons&quot; (click)&#x3D;&quot;goToContacts()&quot; [ngClass]&#x3D;&quot;{&#x27;activeRouteIconSidebar&#x27;: isContactsPage}&quot;&gt;
+    &lt;div class&#x3D;&quot;iconSidebar&quot;&gt;
+        &lt;svg width&#x3D;&quot;30&quot; height&#x3D;&quot;31&quot; viewBox&#x3D;&quot;0 0 30 31&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+&lt;mask id&#x3D;&quot;mask0_69323_5265&quot; style&#x3D;&quot;mask-type:alpha&quot; maskUnits&#x3D;&quot;userSpaceOnUse&quot; x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; width&#x3D;&quot;31&quot; height&#x3D;&quot;31&quot;&gt;
+&lt;rect x&#x3D;&quot;0.00292969&quot; y&#x3D;&quot;0.96582&quot; width&#x3D;&quot;30&quot; height&#x3D;&quot;30&quot; fill&#x3D;&quot;#D9D9D9&quot;/&gt;
+&lt;/mask&gt;
+&lt;g mask&#x3D;&quot;url(#mask0_69323_5265)&quot;&gt;
+&lt;path d&#x3D;&quot;M15.0029 23.4658C13.8363 23.4658 12.7217 23.6481 11.6592 24.0127C10.5967 24.3773 9.62793 24.9242 8.75293 25.6533V25.9658H21.2529V25.6533C20.3779 24.9242 19.4092 24.3773 18.3467 24.0127C17.2842 23.6481 16.1696 23.4658 15.0029 23.4658ZM6.25293 24.5283C7.37793 23.4242 8.68522 22.5544 10.1748 21.9189C11.6644 21.2835 13.2738 20.9658 15.0029 20.9658C16.7321 20.9658 18.3415 21.2835 19.8311 21.9189C21.3206 22.5544 22.6279 23.4242 23.7529 24.5283V8.46582H6.25293V24.5283ZM15.0029 18.4658C13.7946 18.4658 12.7633 18.0387 11.9092 17.1846C11.055 16.3304 10.6279 15.2992 10.6279 14.0908C10.6279 12.8825 11.055 11.8512 11.9092 10.9971C12.7633 10.1429 13.7946 9.71582 15.0029 9.71582C16.2113 9.71582 17.2425 10.1429 18.0967 10.9971C18.9508 11.8512 19.3779 12.8825 19.3779 14.0908C19.3779 15.2992 18.9508 16.3304 18.0967 17.1846C17.2425 18.0387 16.2113 18.4658 15.0029 18.4658ZM15.0029 15.9658C15.5238 15.9658 15.9665 15.7835 16.3311 15.4189C16.6956 15.0544 16.8779 14.6117 16.8779 14.0908C16.8779 13.57 16.6956 13.1273 16.3311 12.7627C15.9665 12.3981 15.5238 12.2158 15.0029 12.2158C14.4821 12.2158 14.0394 12.3981 13.6748 12.7627C13.3102 13.1273 13.1279 13.57 13.1279 14.0908C13.1279 14.6117 13.3102 15.0544 13.6748 15.4189C14.0394 15.7835 14.4821 15.9658 15.0029 15.9658ZM6.25293 28.4658C5.56543 28.4658 4.97689 28.221 4.4873 27.7314C3.99772 27.2419 3.75293 26.6533 3.75293 25.9658V8.46582C3.75293 7.77832 3.99772 7.18978 4.4873 6.7002C4.97689 6.21061 5.56543 5.96582 6.25293 5.96582H7.50293V3.46582H10.0029V5.96582H20.0029V3.46582H22.5029V5.96582H23.7529C24.4404 5.96582 25.029 6.21061 25.5186 6.7002C26.0081 7.18978 26.2529 7.77832 26.2529 8.46582V25.9658C26.2529 26.6533 26.0081 27.2419 25.5186 27.7314C25.029 28.221 24.4404 28.4658 23.7529 28.4658H6.25293Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;iconText&quot;&gt;Contacts&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;imprintContainer&quot;&gt;
+    &lt;div class&#x3D;&quot;policyLinkContainer imprintLink&quot; (click)&#x3D;&quot;goToPolicy()&quot; &gt;Privacy Policy&lt;/div&gt;
+    &lt;div class&#x3D;&quot;legalLinkContainer imprintLink&quot; (click)&#x3D;&quot;goToLegal()&quot; &gt;Legal Notice&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./sidebar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.sidebarContnentContainer {
+    background-color: #2a3647;
+    height: 100vh;
+    width: 15vw;
+    display: flex;;
+    align-items: center;
+    flex-direction: column
+}
+
+.iconContainerSidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 40px;
+    width: 15vw;
+}
+
+.boardIcon {
+    padding-right: 16px;
+}
+
+.iconText {
+    color: white;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.hoverSidebarIcons:hover {
+    background-color: #091931;
+    cursor: pointer;
+}
+
+.activeRouteIconSidebar {
+    background-color: #091931 !important;
+}
+
+
+
+.logoContainer {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo {
+    cursor: pointer;
+}
+
+
+.allIconsContainer {
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+
+}
+
+.imprintContainer {
+    height: 10vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.imprintLink {
+    cursor: pointer;
+}
+
+.imprintLink:hover {
+    color:#29ABE2;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="sidebarContnentContainer">    <div class="logoContainer">        <svg class="logo" (click)="goToSummary()" width="101" height="122" viewBox="0 0 101 122" fill="none" xmlns="http://www.w3.org/2000/svg">            <g clip-path="url(#clip0_301_1264)">            <path d="M71.7067 0H49.5488V25.4923H71.7067V0Z" fill="white"/>            <path d="M49.5484 46.2251H71.7062V82.1779C71.8075 90.8292 69.3453 99.3153 64.6328 106.557C59.9796 113.594 50.9972 121.966 34.3788 121.966C16.2776 121.966 5.72704 113.406 0.0341797 108.715L14.0107 91.4743C19.5672 96.0112 24.9191 99.7435 34.464 99.7435C41.6909 99.7435 44.5714 96.7988 46.2588 94.2307C48.5528 90.6637 49.7393 86.4923 49.6677 82.2464L49.5484 46.2251Z" fill="white"/>            <path d="M38.2477 30.1318H16.0898V52.3884H38.2477V30.1318Z" fill="#29ABE2"/>            <path d="M83.3136 111.522C83.3136 116.265 80.9104 118.815 77.5526 118.815C74.1948 118.815 71.9961 115.785 71.9961 111.762C71.9961 107.739 74.263 104.554 77.7401 104.554C81.2172 104.554 83.3136 107.687 83.3136 111.522ZM74.5698 111.711C74.5698 114.57 75.7118 116.675 77.6719 116.675C79.632 116.675 80.7399 114.45 80.7399 111.539C80.7399 108.988 79.7172 106.592 77.6719 106.592C75.6266 106.592 74.5698 108.903 74.5698 111.711Z" fill="white"/>            <path d="M87.7112 104.76V118.593H85.2568V104.76H87.7112Z" fill="white"/>            <path d="M90.3701 118.593V104.76H93.0972L96.0289 110.461C96.7836 111.952 97.455 113.483 98.0401 115.049C97.8867 113.337 97.8186 111.368 97.8186 109.177V104.76H100.068V118.593H97.5288L94.5631 112.772C93.7779 111.243 93.078 109.671 92.4666 108.064C92.4666 109.776 92.5859 111.711 92.5859 114.09V118.576L90.3701 118.593Z" fill="white"/>            </g>            <defs>            <clipPath id="clip0_301_1264">            <rect width="100.034" height="121.966" fill="white" transform="translate(0.0341797)"/>            </clipPath>            </defs>            </svg>    </div><div class="allIconsContainer"><div class="iconContainerSidebar hoverSidebarIcons" (click)="goToSummary()" [ngClass]="{\'activeRouteIconSidebar\': isSummaryPage}">    <div class="iconSidebar"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">        <path d="M25.2273 3.46582H4.77273H4.5C3.39543 3.46582 2.5 4.36155 2.5 5.46612C2.5 5.64591 2.5 5.77328 2.5 5.80579V26.2603V26.4658C2.5 27.5704 3.39572 28.4658 4.50029 28.4658C4.64377 28.4658 4.74401 28.4658 4.77272 28.4658H25.2273C25.256 28.4658 25.3562 28.4658 25.4997 28.4658C26.6043 28.4658 27.5 27.5699 27.5 26.4653C27.5 26.3585 27.5 26.2846 27.5 26.2603V5.80576C27.5 5.77326 27.5 5.6459 27.5 5.46612C27.5 4.36155 26.6043 3.46582 25.4997 3.46582C25.3562 3.46582 25.256 3.46582 25.2273 3.46582ZM17.2727 26.2603H4.77273V17.1694H17.2727V26.2603ZM17.2727 14.8967H4.77273V5.80579L17.2727 5.80576V14.8967ZM25.2273 26.2603H19.5455V5.80579H25.2273V26.2603Z" fill="white"/>        </svg> </div>    <div class="iconText">Summary</div></div><div class="iconContainerSidebar boardIcon hoverSidebarIcons" (click)="goToBoard()" [ngClass]="{\'activeRouteIconSidebar\': isBoardPage}">    <div class="iconSidebar"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">        <path d="M22.9575 5.73855L22.9575 26.1929C22.9569 26.7955 22.7173 27.3732 22.2912 27.7993C21.8651 28.2253 21.2874 28.465 20.6848 28.4656L16.1394 28.4656C15.5368 28.465 14.9591 28.2253 14.533 27.7993C14.1069 27.3732 13.8673 26.7955 13.8667 26.1929L13.8667 5.73855C13.8673 5.13597 14.1069 4.55825 14.533 4.13217C14.9591 3.70608 15.5368 3.46644 16.1394 3.46584L20.6848 3.46584C21.2874 3.46644 21.8651 3.70608 22.2912 4.13217C22.7173 4.55825 22.9569 5.13597 22.9575 5.73855ZM16.1394 26.1929L20.6848 26.1929L20.6848 5.73855L16.1394 5.73855L16.1394 26.1929ZM16.1394 5.73855L16.1394 26.1929C16.1388 26.7955 15.8992 27.3731 15.4731 27.7992C15.047 28.2253 14.4693 28.4649 13.8667 28.4655L9.32128 28.4655C8.71871 28.4649 8.14099 28.2253 7.7149 27.7992C7.28882 27.3731 7.04918 26.7954 7.04858 26.1928L7.04858 5.73852C7.04918 5.13595 7.28882 4.55823 7.7149 4.13214C8.14099 3.70606 8.71871 3.46642 9.32128 3.46582L13.8667 3.46582C14.4693 3.46642 15.047 3.70606 15.4731 4.13214C15.8992 4.55823 16.1388 5.13597 16.1394 5.73855ZM9.32128 26.1928L13.8667 26.1929L13.8667 5.73855L9.32128 5.73852L9.32128 26.1928ZM9.32128 5.73852L9.32128 26.1928C9.32068 26.7954 9.08104 27.3731 8.65496 27.7992C8.22887 28.2253 7.65115 28.4649 7.04858 28.4656L2.50317 28.4656C1.9006 28.4649 1.32288 28.2253 0.896793 27.7992C0.470708 27.3731 0.23107 26.7954 0.230469 26.1928L0.230468 5.73852C0.231069 5.13595 0.470707 4.55823 0.896792 4.13214C1.32288 3.70606 1.9006 3.46642 2.50317 3.46582L7.04858 3.46582C7.65115 3.46642 8.22887 3.70606 8.65496 4.13214C9.08104 4.55823 9.32068 5.13595 9.32128 5.73852ZM2.50317 26.1928L7.04858 26.1928L7.04858 5.73852L2.50317 5.73852L2.50317 26.1928Z" fill="white"/>        <path d="M29.7756 5.7388L29.7756 26.1931C29.775 26.7957 29.5354 27.3734 29.1093 27.7995C28.6832 28.2256 28.1055 28.4652 27.5029 28.4658L22.9575 28.4658C22.3549 28.4652 21.7772 28.2256 21.3511 27.7995C20.925 27.3734 20.6854 26.7955 20.6848 26.1929L20.6848 5.73855C20.6854 5.13597 20.925 4.5585 21.3511 4.13242C21.7772 3.70633 22.3549 3.4667 22.9575 3.46609L27.5029 3.46609C28.1055 3.4667 28.6832 3.70633 29.1093 4.13242C29.5354 4.5585 29.775 5.13622 29.7756 5.7388ZM22.9575 26.1929L27.5029 26.1931L27.5029 5.7388L22.9575 5.73855L22.9575 26.1929Z" fill="white"/>        </svg>     </div>    <div class="iconText">Board</div></div><div class="iconContainerSidebar hoverSidebarIcons" (click)="goToAddtask()" [ngClass]="{\'activeRouteIconSidebar\': isAddTaskPage}">    <div class="iconSidebar"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">        <mask id="mask0_69323_5260" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="31">        <rect y="0.96582" width="30" height="30" fill="#D9D9D9"/>        </mask>        <g mask="url(#mask0_69323_5260)">        <path d="M4.62652 28.1682C3.95579 28.1682 3.38161 27.9294 2.90396 27.4517C2.42632 26.9741 2.1875 26.3999 2.1875 25.7292V8.65599C2.1875 7.98526 2.42632 7.41107 2.90396 6.93343C3.38161 6.45578 3.95579 6.21696 4.62652 6.21696H15.5107L13.0716 8.65599H4.62652V25.7292H21.6997V17.2535L24.1387 14.8145V25.7292C24.1387 26.3999 23.8999 26.9741 23.4223 27.4517C22.9446 27.9294 22.3704 28.1682 21.6997 28.1682H4.62652ZM18.2546 6.91818L19.9924 8.6255L11.9436 16.6743V18.4121H13.6509L21.7302 10.3328L23.468 12.0401L15.3887 20.1194C15.1651 20.343 14.906 20.5208 14.6113 20.6529C14.3166 20.7851 14.0066 20.8511 13.6814 20.8511H10.7241C10.3786 20.8511 10.0889 20.7342 9.85518 20.5005C9.62144 20.2668 9.50457 19.9771 9.50457 19.6316V16.6743C9.50457 16.3491 9.56555 16.0391 9.6875 15.7444C9.80945 15.4497 9.98222 15.1905 10.2058 14.967L18.2546 6.91818ZM23.468 12.0401L18.2546 6.91818L21.3034 3.8694C21.7912 3.3816 22.3755 3.1377 23.0564 3.1377C23.7373 3.1377 24.3115 3.3816 24.779 3.8694L26.4863 5.60721C26.9538 6.07469 27.1875 6.64379 27.1875 7.31452C27.1875 7.98526 26.9538 8.55436 26.4863 9.02184L23.468 12.0401Z" fill="white"/>        </g>        </svg>        </div>    <div class="iconText">Add Task</div></div><div class="iconContainerSidebar hoverSidebarIcons" (click)="goToContacts()" [ngClass]="{\'activeRouteIconSidebar\': isContactsPage}">    <div class="iconSidebar">        <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_69323_5265" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="31" height="31"><rect x="0.00292969" y="0.96582" width="30" height="30" fill="#D9D9D9"/></mask><g mask="url(#mask0_69323_5265)"><path d="M15.0029 23.4658C13.8363 23.4658 12.7217 23.6481 11.6592 24.0127C10.5967 24.3773 9.62793 24.9242 8.75293 25.6533V25.9658H21.2529V25.6533C20.3779 24.9242 19.4092 24.3773 18.3467 24.0127C17.2842 23.6481 16.1696 23.4658 15.0029 23.4658ZM6.25293 24.5283C7.37793 23.4242 8.68522 22.5544 10.1748 21.9189C11.6644 21.2835 13.2738 20.9658 15.0029 20.9658C16.7321 20.9658 18.3415 21.2835 19.8311 21.9189C21.3206 22.5544 22.6279 23.4242 23.7529 24.5283V8.46582H6.25293V24.5283ZM15.0029 18.4658C13.7946 18.4658 12.7633 18.0387 11.9092 17.1846C11.055 16.3304 10.6279 15.2992 10.6279 14.0908C10.6279 12.8825 11.055 11.8512 11.9092 10.9971C12.7633 10.1429 13.7946 9.71582 15.0029 9.71582C16.2113 9.71582 17.2425 10.1429 18.0967 10.9971C18.9508 11.8512 19.3779 12.8825 19.3779 14.0908C19.3779 15.2992 18.9508 16.3304 18.0967 17.1846C17.2425 18.0387 16.2113 18.4658 15.0029 18.4658ZM15.0029 15.9658C15.5238 15.9658 15.9665 15.7835 16.3311 15.4189C16.6956 15.0544 16.8779 14.6117 16.8779 14.0908C16.8779 13.57 16.6956 13.1273 16.3311 12.7627C15.9665 12.3981 15.5238 12.2158 15.0029 12.2158C14.4821 12.2158 14.0394 12.3981 13.6748 12.7627C13.3102 13.1273 13.1279 13.57 13.1279 14.0908C13.1279 14.6117 13.3102 15.0544 13.6748 15.4189C14.0394 15.7835 14.4821 15.9658 15.0029 15.9658ZM6.25293 28.4658C5.56543 28.4658 4.97689 28.221 4.4873 27.7314C3.99772 27.2419 3.75293 26.6533 3.75293 25.9658V8.46582C3.75293 7.77832 3.99772 7.18978 4.4873 6.7002C4.97689 6.21061 5.56543 5.96582 6.25293 5.96582H7.50293V3.46582H10.0029V5.96582H20.0029V3.46582H22.5029V5.96582H23.7529C24.4404 5.96582 25.029 6.21061 25.5186 6.7002C26.0081 7.18978 26.2529 7.77832 26.2529 8.46582V25.9658C26.2529 26.6533 26.0081 27.2419 25.5186 27.7314C25.029 28.221 24.4404 28.4658 23.7529 28.4658H6.25293Z" fill="white"/></g></svg>    </div>    <div class="iconText">Contacts</div></div></div><div class="imprintContainer">    <div class="policyLinkContainer imprintLink" (click)="goToPolicy()" >Privacy Policy</div>    <div class="legalLinkContainer imprintLink" (click)="goToLegal()" >Legal Notice</div></div></div></div>'
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SidebarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SidebarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

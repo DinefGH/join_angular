@@ -1,0 +1,1878 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>join2.0-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">join2.0-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ContactsOverviewComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/contacts/contacts-overview/contacts-overview.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-contacts-overview</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./contacts-overview.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./contacts-overview.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#contactsOverlayService" >contactsOverlayService</a>
+                            </li>
+                            <li>
+                                <a href="#contactsViewNotVisible" >contactsViewNotVisible</a>
+                            </li>
+                            <li>
+                                <a href="#groupedContacts" >groupedContacts</a>
+                            </li>
+                            <li>
+                                <a href="#isHandsetOrTablet" >isHandsetOrTablet</a>
+                            </li>
+                            <li>
+                                <a href="#isVisible" >isVisible</a>
+                            </li>
+                            <li>
+                                <a href="#selectedContact" >selectedContact</a>
+                            </li>
+                            <li>
+                                <a href="#storedContactId" >storedContactId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeContactsView" >closeContactsView</a>
+                            </li>
+                            <li>
+                                <a href="#findContactById" >findContactById</a>
+                            </li>
+                            <li>
+                                <a href="#getInitials" >getInitials</a>
+                            </li>
+                            <li>
+                                <a href="#getSortedLetters" >getSortedLetters</a>
+                            </li>
+                            <li>
+                                <a href="#goToContactDetails" >goToContactDetails</a>
+                            </li>
+                            <li>
+                                <a href="#goToDesktopContactDetails" >goToDesktopContactDetails</a>
+                            </li>
+                            <li>
+                                <a href="#groupContactsByFirstLetter" >groupContactsByFirstLetter</a>
+                            </li>
+                            <li>
+                                <a href="#loadContacts" >loadContacts</a>
+                            </li>
+                            <li>
+                                <a href="#loadStoredContactDetails" >loadStoredContactDetails</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onContactAdded" >onContactAdded</a>
+                            </li>
+                            <li>
+                                <a href="#openContact" >openContact</a>
+                            </li>
+                            <li>
+                                <a href="#refreshContacts" >refreshContacts</a>
+                            </li>
+                            <li>
+                                <a href="#showContactsAdd" >showContactsAdd</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(addContactService: <a href="../injectables/AddContactService.html" target="_self">AddContactService</a>, router: Router, screenSizeService: <a href="../injectables/ScreenSizeService.html" target="_self">ScreenSizeService</a>, contactsOverlayService: <a href="../injectables/ContactsOverlayService.html" target="_self">ContactsOverlayService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>addContactService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AddContactService.html" target="_self" >AddContactService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>screenSizeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ScreenSizeService.html" target="_self" >ScreenSizeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contactsOverlayService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContactsOverlayService.html" target="_self" >ContactsOverlayService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeContactsView"></a>
+                    <span class="name">
+                        <span ><b>closeContactsView</b></span>
+                        <a href="#closeContactsView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeContactsView()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findContactById"></a>
+                    <span class="name">
+                        <span ><b>findContactById</b></span>
+                        <a href="#findContactById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findContactById(contactId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contactId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Contact | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInitials"></a>
+                    <span class="name">
+                        <span ><b>getInitials</b></span>
+                        <a href="#getInitials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInitials(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSortedLetters"></a>
+                    <span class="name">
+                        <span ><b>getSortedLetters</b></span>
+                        <a href="#getSortedLetters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSortedLetters()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToContactDetails"></a>
+                    <span class="name">
+                        <span ><b>goToContactDetails</b></span>
+                        <a href="#goToContactDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToContactDetails(contactId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contactId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToDesktopContactDetails"></a>
+                    <span class="name">
+                        <span ><b>goToDesktopContactDetails</b></span>
+                        <a href="#goToDesktopContactDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToDesktopContactDetails(contactId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contactId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="groupContactsByFirstLetter"></a>
+                    <span class="name">
+                        <span ><b>groupContactsByFirstLetter</b></span>
+                        <a href="#groupContactsByFirstLetter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>groupContactsByFirstLetter(contacts: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contacts</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadContacts"></a>
+                    <span class="name">
+                        <span ><b>loadContacts</b></span>
+                        <a href="#loadContacts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadContacts()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadStoredContactDetails"></a>
+                    <span class="name">
+                        <span ><b>loadStoredContactDetails</b></span>
+                        <a href="#loadStoredContactDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadStoredContactDetails()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onContactAdded"></a>
+                    <span class="name">
+                        <span ><b>onContactAdded</b></span>
+                        <a href="#onContactAdded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onContactAdded(contactAdded: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contactAdded</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openContact"></a>
+                    <span class="name">
+                        <span ><b>openContact</b></span>
+                        <a href="#openContact"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openContact(contactId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contactId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshContacts"></a>
+                    <span class="name">
+                        <span ><b>refreshContacts</b></span>
+                        <a href="#refreshContacts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refreshContacts()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showContactsAdd"></a>
+                    <span class="name">
+                        <span ><b>showContactsAdd</b></span>
+                        <a href="#showContactsAdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showContactsAdd()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contactsOverlayService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>contactsOverlayService</b></span>
+                        <a href="#contactsOverlayService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/ContactsOverlayService.html" target="_self" >ContactsOverlayService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contactsViewNotVisible"></a>
+                    <span class="name">
+                        <span ><b>contactsViewNotVisible</b></span>
+                        <a href="#contactsViewNotVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="groupedContacts"></a>
+                    <span class="name">
+                        <span ><b>groupedContacts</b></span>
+                        <a href="#groupedContacts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isHandsetOrTablet"></a>
+                    <span class="name">
+                        <span ><b>isHandsetOrTablet</b></span>
+                        <a href="#isHandsetOrTablet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isVisible"></a>
+                    <span class="name">
+                        <span ><b>isVisible</b></span>
+                        <a href="#isVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedContact"></a>
+                    <span class="name">
+                        <span ><b>selectedContact</b></span>
+                        <a href="#selectedContact"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Contact | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="storedContactId"></a>
+                    <span class="name">
+                        <span ><b>storedContactId</b></span>
+                        <a href="#storedContactId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { AddContactService } from &#x27;src/app/services/add-contact.service&#x27;;
+import { Contact } from &#x27;src/assets/models/contact.model&#x27;;
+import { ScreenSizeService } from &#x27;src/app/services/screen-size.service&#x27;;
+import { ContactsOverlayService } from &#x27;src/app/services/contacts-overlay-service.service&#x27;;
+
+@Component({
+  selector: &#x27;app-contacts-overview&#x27;,
+  templateUrl: &#x27;./contacts-overview.component.html&#x27;,
+  styleUrls: [&#x27;./contacts-overview.component.scss&#x27;]
+})
+export class ContactsOverviewComponent implements OnInit  {
+  isVisible: boolean &#x3D; false;
+  groupedContacts: { [key: string]: Contact[] } &#x3D; {};
+  isHandsetOrTablet: boolean &#x3D; false;
+  contactsViewNotVisible: boolean &#x3D; true;
+  selectedContact: Contact | null &#x3D; null; 
+  storedContactId: number | null &#x3D; null;
+
+  constructor(
+    private addContactService: AddContactService, 
+    private router: Router, 
+    private screenSizeService: ScreenSizeService, 
+    public contactsOverlayService: ContactsOverlayService   // Inject the service
+  ) { }
+
+  showContactsAdd(): void {
+    this.isVisible &#x3D; true; // Show the &lt;app-contacts-add&gt; component
+  }
+
+  ngOnInit(): void {
+    this.loadContacts();
+    this.screenSizeService.isHandsetOrTablet$.subscribe(isHandsetOrTablet &#x3D;&gt; this.isHandsetOrTablet &#x3D; isHandsetOrTablet);
+
+    // Subscribe to the overlay visibility changes
+    this.contactsOverlayService.overlayVisibility$.subscribe(isVisible &#x3D;&gt; {
+      this.contactsViewNotVisible &#x3D; !isVisible;
+    });
+
+    if (this.storedContactId) {
+      this.loadStoredContactDetails();
+    }
+  }
+
+  loadStoredContactDetails(): void {
+    if (this.storedContactId !&#x3D;&#x3D; null) {
+      this.goToDesktopContactDetails(this.storedContactId);
+    }
+  }
+
+  loadContacts(): void {
+    this.groupedContacts &#x3D; {};
+  
+    this.addContactService.getContacts().subscribe({
+      next: (contacts) &#x3D;&gt; {
+        this.groupContactsByFirstLetter(contacts);
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error loading contacts:&#x27;, error);
+      }
+    });
+  }
+
+  groupContactsByFirstLetter(contacts: any[]): void {
+    this.groupedContacts &#x3D; {};
+
+    contacts.forEach(contact &#x3D;&gt; {
+      const firstLetter &#x3D; contact.name[0].toUpperCase();
+      const initials &#x3D; this.getInitials(contact.name);
+      const color &#x3D; contact.color;
+  
+      if (!this.groupedContacts[firstLetter]) {
+        this.groupedContacts[firstLetter] &#x3D; [];
+      }
+      
+      this.groupedContacts[firstLetter].push({ ...contact, initials, color });
+    });
+  
+    for (const letter in this.groupedContacts) {
+      this.groupedContacts[letter].sort((a, b) &#x3D;&gt; a.name.localeCompare(b.name));
+    }
+  }
+  
+  getInitials(name: string): string {
+    const names &#x3D; name.split(&#x27; &#x27;);
+    let initials &#x3D; names[0].substring(0, 1).toUpperCase();
+    
+    if (names.length &gt; 1) {
+      initials +&#x3D; names[names.length - 1].substring(0, 1).toUpperCase();
+    }
+    
+    return initials;
+  }
+
+  getSortedLetters(): string[] {
+    return Object.keys(this.groupedContacts).sort();
+  }
+
+  onContactAdded(contactAdded: boolean): void {
+    if (contactAdded) {
+      this.loadContacts(); // Refresh the contacts list
+    }
+  }
+
+  closeContactsView(): void {
+    console.log(&#x27;Closing contacts view...&#x27;);
+    this.contactsOverlayService.setOverlayVisibility(false);  // Update via service
+  }
+
+  openContact(contactId: number): void {
+    if (this.isHandsetOrTablet) {
+      this.goToContactDetails(contactId);
+    } else {
+      this.goToDesktopContactDetails(contactId);
+    }
+  }
+
+  goToContactDetails(contactId: number) {
+    if (typeof contactId &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; || isNaN(contactId)) {
+      console.error(&#x27;Contact ID is undefined or NaN&#x27;);
+      return;
+    }
+    this.router.navigate([&#x27;/contacts-detail&#x27;, contactId]);
+  }
+
+  goToDesktopContactDetails(contactId: number) {
+    this.storedContactId &#x3D; contactId;
+    if (typeof contactId &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; || isNaN(contactId)) {
+      console.error(&#x27;Contact ID is undefined or NaN&#x27;);
+      return;
+    }
+    const contact &#x3D; this.findContactById(contactId);
+    if (!contact) {
+      console.error(&#x27;Contact not found&#x27;);
+      return;
+    }
+    this.selectedContact &#x3D; contact;
+    this.contactsOverlayService.setOverlayVisibility(true);  // Use service to set visibility
+  }
+
+  findContactById(contactId: number): Contact | undefined {
+    for (const letter in this.groupedContacts) {
+      const contact &#x3D; this.groupedContacts[letter].find(contact &#x3D;&gt; contact.id &#x3D;&#x3D;&#x3D; contactId);
+      if (contact) {
+        return contact;
+      }
+    }
+    return undefined;
+  }
+
+  refreshContacts(): void {
+    this.loadContacts();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;contactsContainer&quot;&gt;
+&lt;header&gt;
+    &lt;app-header-bar-mobile&gt;&lt;/app-header-bar-mobile&gt;
+&lt;/header&gt;
+
+
+&lt;div class&#x3D;&quot;contactsDesktopContainer&quot;&gt;
+&lt;app-sidebar class&#x3D;&quot;sidebarComponent&quot;&gt;&lt;/app-sidebar&gt;
+&lt;main class&#x3D;&quot;contactsContent&quot;&gt;
+
+    &lt;div class&#x3D;&quot;showContactsContainer&quot;&gt;
+
+&lt;div class&#x3D;&quot;contactsAddDesktop&quot; (click)&#x3D;&quot;showContactsAdd()&quot;&gt;Add new contact
+    
+        &lt;svg class&#x3D;&quot;addIconDesktop&quot; width&#x3D;&quot;30&quot; height&#x3D;&quot;22&quot; viewBox&#x3D;&quot;0 0 30 22&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+            &lt;path d&#x3D;&quot;M24.3975 13.6667C24.0816 13.6667 23.818 13.5602 23.6069 13.3473C23.3958 13.1343 23.2903 12.8704 23.2903 12.5556V9.44448H20.1791C19.8643 9.44448 19.6004 9.33763 19.3875 9.12392C19.1745 8.9102 19.068 8.64539 19.068 8.32948C19.068 8.01357 19.1745 7.75006 19.3875 7.53895C19.6004 7.32784 19.8643 7.22228 20.1791 7.22228H23.2903V4.11115C23.2903 3.79635 23.3971 3.53246 23.6108 3.31948C23.8245 3.10653 24.0894 3.00005 24.4053 3.00005C24.7212 3.00005 24.9847 3.10653 25.1958 3.31948C25.4069 3.53246 25.5125 3.79635 25.5125 4.11115V7.22228H28.6236C28.9384 7.22228 29.2023 7.32914 29.4153 7.54285C29.6282 7.75656 29.7347 8.02137 29.7347 8.33728C29.7347 8.65319 29.6282 8.91671 29.4153 9.12782C29.2023 9.33893 28.9384 9.44448 28.6236 9.44448H25.5125V12.5556C25.5125 12.8704 25.4056 13.1343 25.1919 13.3473C24.9782 13.5602 24.7134 13.6667 24.3975 13.6667ZM11.068 10.9778C9.60137 10.9778 8.38284 10.4926 7.41247 9.52228C6.44211 8.5519 5.95693 7.33338 5.95693 5.86672C5.95693 4.40005 6.44211 3.18154 7.41247 2.21118C8.38284 1.2408 9.60137 0.755615 11.068 0.755615C12.5347 0.755615 13.7532 1.2408 14.7236 2.21118C15.694 3.18154 16.1791 4.40005 16.1791 5.86672C16.1791 7.33338 15.694 8.5519 14.7236 9.52228C13.7532 10.4926 12.5347 10.9778 11.068 10.9778ZM1.51247 21.6667C1.19767 21.6667 0.933778 21.5602 0.720801 21.3473C0.507845 21.1343 0.401367 20.8704 0.401367 20.5556V18.3334C0.401367 17.563 0.599512 16.8612 0.995801 16.2279C1.39211 15.5945 1.93471 15.1186 2.6236 14.8C4.19398 14.0815 5.64833 13.5649 6.98667 13.25C8.32502 12.9352 9.68428 12.7779 11.0644 12.7779C12.4446 12.7779 13.8051 12.9352 15.1458 13.25C16.4865 13.5649 17.9347 14.0815 19.4903 14.8C20.1792 15.1334 20.7254 15.613 21.1291 16.2389C21.5328 16.8649 21.7347 17.563 21.7347 18.3334V20.5556C21.7347 20.8704 21.6282 21.1343 21.4153 21.3473C21.2023 21.5602 20.9384 21.6667 20.6236 21.6667H1.51247ZM2.62357 19.4445H19.5125V18.3334C19.5125 18.0149 19.4329 17.7149 19.2736 17.4334C19.1143 17.1519 18.8754 16.9408 18.5569 16.8C17.1199 16.0963 15.831 15.6204 14.6903 15.3723C13.5495 15.1241 12.3421 15 11.068 15C9.79397 15 8.58656 15.1278 7.4458 15.3834C6.30507 15.6389 5.00878 16.1112 3.55693 16.8C3.26802 16.9408 3.04023 17.1519 2.87357 17.4334C2.7069 17.7149 2.62357 18.0149 2.62357 18.3334V19.4445ZM11.068 8.75562C11.8903 8.75562 12.5773 8.47969 13.1291 7.92785C13.681 7.37598 13.9569 6.68894 13.9569 5.86672C13.9569 5.04449 13.681 4.35746 13.1291 3.80562C12.5773 3.25375 11.8903 2.97782 11.068 2.97782C10.2458 2.97782 9.55878 3.25375 9.00693 3.80562C8.45507 4.35746 8.17913 5.04449 8.17913 5.86672C8.17913 6.68894 8.45507 7.37598 9.00693 7.92785C9.55878 8.47969 10.2458 8.75562 11.068 8.75562Z&quot; fill&#x3D;&quot;white&quot;/&gt;
+            &lt;/svg&gt;
+            
+    
+&lt;/div&gt;
+
+        &lt;div *ngFor&#x3D;&quot;let letter of getSortedLetters()&quot; class&#x3D;&quot;rowContainerContacts&quot;&gt;
+            &lt;div&gt;
+                &lt;div class&#x3D;&quot;headlineContactOverview&quot;&gt;{{ letter }}&lt;/div&gt;
+                &lt;div class&#x3D;&quot;headlineUnderline&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;showContactContainer&quot;&gt;
+              &lt;div *ngFor&#x3D;&quot;let contact of groupedContacts[letter]&quot; class&#x3D;&quot;contactItem&quot; (click)&#x3D;&quot;openContact(contact.id)&quot;&gt;
+                &lt;span class&#x3D;&quot;initialsCircle&quot;  [style.background-color]&#x3D;&quot;contact.color&quot; &gt;{{ contact.initials }}&lt;/span&gt;
+                &lt;div class&#x3D;&quot;contactNameEmailContainer&quot;&gt;
+                    &lt;div class&#x3D;&quot;contactName&quot;&gt;{{ contact.name }}&lt;/div&gt;
+                    &lt;div class&#x3D;&quot;contactEmail&quot;&gt;{{ contact.email }}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+    &lt;/div&gt;
+
+
+
+
+    
+&lt;div class&#x3D;&quot;addIconContainer&quot; (click)&#x3D;&quot;showContactsAdd()&quot;&gt;
+    &lt;img class&#x3D;&quot;personAddIcon&quot; src&#x3D;&quot;/assets/img/person_add.png&quot; alt&#x3D;&quot;Person add icon&quot;&gt;
+&lt;/div&gt;
+&lt;/main&gt;
+
+&lt;app-contacts-view
+*ngIf&#x3D;&quot;(contactsOverlayService.overlayVisibility$ | async)&quot;
+class&#x3D;&quot;contactsViewDesktop&quot;
+[contact]&#x3D;&quot;selectedContact&quot;
+[contactId]&#x3D;&quot;storedContactId&quot;
+(close)&#x3D;&quot;closeContactsView()&quot;
+(contactDeleted)&#x3D;&quot;refreshContacts()&quot;  
+(contactUpdated)&#x3D;&quot;refreshContacts()&quot;&gt; 
+&lt;/app-contacts-view&gt;
+
+
+&lt;div *ngIf&#x3D;&quot;contactsViewNotVisible&quot; class&#x3D;&quot;contactsDesktopScreen&quot;&gt;
+    &lt;div class&#x3D;&quot;contactsSmallHeadline&quot;&gt;
+        &lt;h1&gt;Contacts&lt;/h1&gt;
+        &lt;div class&#x3D;&quot;contactsDividingLine&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;smallHeadlineContacts&quot;&gt;Better with a team&lt;/div&gt;    
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;app-contacts-add (contactAdded)&#x3D;&quot;onContactAdded($event)&quot;  *ngIf&#x3D;&quot;isVisible&quot; (close)&#x3D;&quot;isVisible &#x3D; false&quot;&gt;&lt;/app-contacts-add&gt;
+
+
+&lt;/div&gt;
+&lt;footer  class&#x3D;&quot;footerComponent&quot;&gt;
+    &lt;app-footer-bar&gt;&lt;/app-footer-bar&gt;
+&lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./contacts-overview.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.contactsContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F6F7F8;
+    display: flex;
+    flex-direction: column;
+}
+
+.contactsContent {
+    height: 80vh;
+    position: relative;
+    width: 100vw;
+    padding-right: 32px;
+    padding-left: 32px;
+    overflow: auto;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.addIconContainer {
+    height: 56px;
+    width: 56px;
+    background-color: #2A3647;
+    border-radius: 50%;
+    position: fixed;
+    bottom: calc(10vh + 16px);
+    right: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.personAddIcon {
+    padding-left: 4px;
+    padding-bottom: 4px;
+}
+
+.headlineContactOverview {
+    font-size: 1.3rem;
+    padding-left: 24px;
+}
+
+.headlineUnderline {
+    border-bottom: 1px solid;
+    border-color: #D1D1D1;
+    width: 100%;
+}
+
+.initialsCircle {
+    color: #ffffff;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.contactNameEmailContainer {
+    margin-left: 32px;
+}
+
+.contactName {
+    font-size: 1.3rem;
+}
+
+.contactEmail {
+    color: #007CEE;
+    font-size: 0.75rem;
+
+}
+
+.sidebarComponent {
+    display: none;
+}
+
+.contactsDesktopScreen {
+    display: none;
+}
+
+.contactsAddDesktop {
+    display: none;
+}
+
+@media (min-width: 1025px) {
+
+    .sidebarComponent {
+        display: block;
+    }
+    
+
+    .addIconContainer {
+        display: none;
+    }
+
+    .contactsDesktopContainer {
+        display: flex;
+    }
+
+    .footerComponent {
+        display: none;
+    }
+
+    .contactsContent {
+        height: 90vh;
+        margin-bottom: 0vh;
+        margin-top: 10vh;
+        padding-top: 5vh;
+        width: 30vw;
+        background-color: white;
+    }
+
+    .contactsAddDesktop {
+        background-color: #2A3647;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+
+    }
+
+    .contactsAddDesktop:hover {
+        background-color: #29ABE2;
+    }
+
+
+    .addIconDesktop {
+        padding-left: 8px;
+    }
+
+    .contactItem:hover {
+        background-color: #F6F7F8;
+        border-radius: 10px;
+    }
+
+    .contactsDesktopScreen {
+        width: 55vw;
+        background-color: #F6F7F8;
+        margin-top: 15vh;
+        height: 80vh;
+        padding-left: 32px;
+        display: block;
+    }
+
+    .contactsSmallHeadline {
+        display: flex;
+        align-items: center;
+    }
+
+    .contactsDividingLine {
+        display: block  ;
+        border-right: 3px solid;
+        border-color: #29ABE2;
+        height: 48px;
+        padding-bottom: 8px;
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+    .smallHeadlineContacts {
+        font-size: calc(1.175rem + 0.5vw) !important;
+    }
+
+
+}
+
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 512px){
+
+    .contactsContent {
+        height: 70vh;
+        margin-top: 15vh;
+        margin-bottom: 15vh;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="contactsContainer"><header>    <app-header-bar-mobile></app-header-bar-mobile></header><div class="contactsDesktopContainer"><app-sidebar class="sidebarComponent"></app-sidebar><main class="contactsContent">    <div class="showContactsContainer"><div class="contactsAddDesktop" (click)="showContactsAdd()">Add new contact            <svg class="addIconDesktop" width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">            <path d="M24.3975 13.6667C24.0816 13.6667 23.818 13.5602 23.6069 13.3473C23.3958 13.1343 23.2903 12.8704 23.2903 12.5556V9.44448H20.1791C19.8643 9.44448 19.6004 9.33763 19.3875 9.12392C19.1745 8.9102 19.068 8.64539 19.068 8.32948C19.068 8.01357 19.1745 7.75006 19.3875 7.53895C19.6004 7.32784 19.8643 7.22228 20.1791 7.22228H23.2903V4.11115C23.2903 3.79635 23.3971 3.53246 23.6108 3.31948C23.8245 3.10653 24.0894 3.00005 24.4053 3.00005C24.7212 3.00005 24.9847 3.10653 25.1958 3.31948C25.4069 3.53246 25.5125 3.79635 25.5125 4.11115V7.22228H28.6236C28.9384 7.22228 29.2023 7.32914 29.4153 7.54285C29.6282 7.75656 29.7347 8.02137 29.7347 8.33728C29.7347 8.65319 29.6282 8.91671 29.4153 9.12782C29.2023 9.33893 28.9384 9.44448 28.6236 9.44448H25.5125V12.5556C25.5125 12.8704 25.4056 13.1343 25.1919 13.3473C24.9782 13.5602 24.7134 13.6667 24.3975 13.6667ZM11.068 10.9778C9.60137 10.9778 8.38284 10.4926 7.41247 9.52228C6.44211 8.5519 5.95693 7.33338 5.95693 5.86672C5.95693 4.40005 6.44211 3.18154 7.41247 2.21118C8.38284 1.2408 9.60137 0.755615 11.068 0.755615C12.5347 0.755615 13.7532 1.2408 14.7236 2.21118C15.694 3.18154 16.1791 4.40005 16.1791 5.86672C16.1791 7.33338 15.694 8.5519 14.7236 9.52228C13.7532 10.4926 12.5347 10.9778 11.068 10.9778ZM1.51247 21.6667C1.19767 21.6667 0.933778 21.5602 0.720801 21.3473C0.507845 21.1343 0.401367 20.8704 0.401367 20.5556V18.3334C0.401367 17.563 0.599512 16.8612 0.995801 16.2279C1.39211 15.5945 1.93471 15.1186 2.6236 14.8C4.19398 14.0815 5.64833 13.5649 6.98667 13.25C8.32502 12.9352 9.68428 12.7779 11.0644 12.7779C12.4446 12.7779 13.8051 12.9352 15.1458 13.25C16.4865 13.5649 17.9347 14.0815 19.4903 14.8C20.1792 15.1334 20.7254 15.613 21.1291 16.2389C21.5328 16.8649 21.7347 17.563 21.7347 18.3334V20.5556C21.7347 20.8704 21.6282 21.1343 21.4153 21.3473C21.2023 21.5602 20.9384 21.6667 20.6236 21.6667H1.51247ZM2.62357 19.4445H19.5125V18.3334C19.5125 18.0149 19.4329 17.7149 19.2736 17.4334C19.1143 17.1519 18.8754 16.9408 18.5569 16.8C17.1199 16.0963 15.831 15.6204 14.6903 15.3723C13.5495 15.1241 12.3421 15 11.068 15C9.79397 15 8.58656 15.1278 7.4458 15.3834C6.30507 15.6389 5.00878 16.1112 3.55693 16.8C3.26802 16.9408 3.04023 17.1519 2.87357 17.4334C2.7069 17.7149 2.62357 18.0149 2.62357 18.3334V19.4445ZM11.068 8.75562C11.8903 8.75562 12.5773 8.47969 13.1291 7.92785C13.681 7.37598 13.9569 6.68894 13.9569 5.86672C13.9569 5.04449 13.681 4.35746 13.1291 3.80562C12.5773 3.25375 11.8903 2.97782 11.068 2.97782C10.2458 2.97782 9.55878 3.25375 9.00693 3.80562C8.45507 4.35746 8.17913 5.04449 8.17913 5.86672C8.17913 6.68894 8.45507 7.37598 9.00693 7.92785C9.55878 8.47969 10.2458 8.75562 11.068 8.75562Z" fill="white"/>            </svg>                </div>        <div *ngFor="let letter of getSortedLetters()" class="rowContainerContacts">            <div>                <div class="headlineContactOverview">{{ letter }}</div>                <div class="headlineUnderline"></div>            </div>            <div class="showContactContainer">              <div *ngFor="let contact of groupedContacts[letter]" class="contactItem" (click)="openContact(contact.id)">                <span class="initialsCircle"  [style.background-color]="contact.color" >{{ contact.initials }}</span>                <div class="contactNameEmailContainer">                    <div class="contactName">{{ contact.name }}</div>                    <div class="contactEmail">{{ contact.email }}</div>                </div>            </div>            </div>          </div>    </div>    <div class="addIconContainer" (click)="showContactsAdd()">    <img class="personAddIcon" src="/assets/img/person_add.png" alt="Person add icon"></div></main><app-contacts-view*ngIf="(contactsOverlayService.overlayVisibility$ | async)"class="contactsViewDesktop"[contact]="selectedContact"[contactId]="storedContactId"(close)="closeContactsView()"(contactDeleted)="refreshContacts()"  (contactUpdated)="refreshContacts()"> </app-contacts-view><div *ngIf="contactsViewNotVisible" class="contactsDesktopScreen">    <div class="contactsSmallHeadline">        <h1>Contacts</h1>        <div class="contactsDividingLine"></div>        <div class="smallHeadlineContacts">Better with a team</div>        </div></div><app-contacts-add (contactAdded)="onContactAdded($event)"  *ngIf="isVisible" (close)="isVisible = false"></app-contacts-add></div><footer  class="footerComponent">    <app-footer-bar></app-footer-bar></footer></div></div>'
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ContactsOverviewComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContactsOverviewComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
