@@ -124,6 +124,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>LoginComponent handles user authentication by managing login credentials,
+visibility of the password, and error messages. It also allows guest login and
+redirects upon successful login.</p>
+
+    </p>
 
 
 
@@ -265,12 +274,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/login/login.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/login/login.component.ts:36</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject necessary services for login, user management, and navigation.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -279,6 +290,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -293,6 +305,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for handling login requests.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -305,6 +323,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Router for navigation.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>userService</td>
@@ -317,6 +341,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for managing user data.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>http</td>
@@ -329,6 +359,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>HttpClient for making HTTP requests.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -368,14 +404,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">src/app/login/login.component.ts:59</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/login/login.component.ts:96</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Displays an error message indicating incorrect username or password.
+Resets the input fields to blank.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -405,14 +444,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="88"
-                                    class="link-to-prism">src/app/login/login.component.ts:88</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/login/login.component.ts:141</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates directly to the Summary page after logging in.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -442,14 +483,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="71"
-                                    class="link-to-prism">src/app/login/login.component.ts:71</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/login/login.component.ts:114</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to the sign-up page.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -479,14 +522,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="65"
-                                    class="link-to-prism">src/app/login/login.component.ts:65</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/login/login.component.ts:106</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Logs in as a guest user by setting predefined credentials.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -516,14 +561,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/app/login/login.component.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/login/login.component.ts:64</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Attempts to log the user in using the provided credentials.
+Upon successful login, stores the token and navigates to the Summary page.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -555,14 +603,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="83"
-                                    class="link-to-prism">src/app/login/login.component.ts:83</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/login/login.component.ts:134</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Clears the email and password fields.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -594,14 +644,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="75"
-                                    class="link-to-prism">src/app/login/login.component.ts:75</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/login/login.component.ts:124</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Stores the authentication token in either localStorage or sessionStorage,
+based on the &quot;Remember Me&quot; selection.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -612,6 +665,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -626,6 +680,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The authentication token to store.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -661,14 +721,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/login/login.component.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/login/login.component.ts:55</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Toggles the visibility of the password field.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -708,10 +770,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/login/login.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/login/login.component.ts:21</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Stores the entered email address for login.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -739,10 +807,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/login/login.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/login/login.component.ts:30</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Tracks if an incorrect password error is displayed.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -770,10 +844,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/login/login.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/login/login.component.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Tracks if an incorrect username error is displayed.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -801,10 +881,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/login/login.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/login/login.component.ts:24</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Stores the entered password for login.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -832,10 +918,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/login/login.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/login/login.component.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controls visibility of the password field.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -863,10 +955,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/login/login.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/login/login.component.ts:36</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Determines if the authentication token should be stored persistently.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -882,20 +980,45 @@ import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { LoginService } from &#x27;src/app/auth/login.service&#x27;;
 import { UserService } from &#x27;src/app/services/user.service&#x27;;
 
+
+/**
+ * LoginComponent handles user authentication by managing login credentials,
+ * visibility of the password, and error messages. It also allows guest login and
+ * redirects upon successful login.
+ */
 @Component({
   selector: &#x27;app-login&#x27;,
   templateUrl: &#x27;./login.component.html&#x27;,
   styleUrls: [&#x27;./login.component.scss&#x27;],
 })
 export class LoginComponent {
+
+  /** Stores the entered email address for login. */
   email: string &#x3D; &#x27;&#x27;;
+
+  /** Stores the entered password for login. */
   password: string &#x3D; &#x27;&#x27;;
 
+  /** Controls visibility of the password field. */
   passwordVisible: boolean &#x3D; false;
+
+  /** Tracks if an incorrect password error is displayed. */
   isPasswordWrong: boolean &#x3D; false;
+
+  /** Tracks if an incorrect username error is displayed. */
   isUsernameWrong: boolean &#x3D; false;
+
+  /** Determines if the authentication token should be stored persistently. */
   rememberMe: boolean &#x3D; false;
 
+
+    /**
+   * Constructor to inject necessary services for login, user management, and navigation.
+   * @param loginService - Service for handling login requests.
+   * @param router - Router for navigation.
+   * @param userService - Service for managing user data.
+   * @param http - HttpClient for making HTTP requests.
+   */
   constructor(
     private loginService: LoginService,
     private router: Router,
@@ -903,10 +1026,17 @@ export class LoginComponent {
     private http: HttpClient,
   ) {}
 
+
+    /** Toggles the visibility of the password field. */
   togglePasswordVisibility(): void {
     this.passwordVisible &#x3D; !this.passwordVisible;
   }
 
+
+    /**
+   * Attempts to log the user in using the provided credentials.
+   * Upon successful login, stores the token and navigates to the Summary page.
+   */
   login(): void {
     this.loginService.login(this.email, this.password).subscribe({
       next: response &#x3D;&gt; {
@@ -914,9 +1044,9 @@ export class LoginComponent {
           this.storeToken(response.token);
 
           if (response.user) {
-            this.userService.setCurrentUser(response.user); // Update UserService with the user details
+            this.userService.setCurrentUser(response.user); 
           } else {
-            console.log(&#x27;No user details in response&#x27;); // Log if user details are missing
+            console.log(&#x27;No user details in response&#x27;); 
           }
 
           this.router.navigate([&#x27;/summary&#x27;]);
@@ -924,32 +1054,49 @@ export class LoginComponent {
           this.isUsernameWrong &#x3D; false;
         } else {
           console.error(&#x27;Invalid response structure&#x27;, response);
-          this.displayErrorMessage(); // Display error message if token or response is missing
+          this.displayErrorMessage(); 
         }
       },
       error: error &#x3D;&gt; {
         console.error(&#x27;Login failed:&#x27;, error);
-        this.displayErrorMessage(); // Display error message on login failure
+        this.displayErrorMessage(); 
       },
     });
   }
 
+
+    /**
+   * Displays an error message indicating incorrect username or password.
+   * Resets the input fields to blank.
+   */
   displayErrorMessage(): void {
     this.isPasswordWrong &#x3D; true;
     this.isUsernameWrong &#x3D; true;
-    this.resetFields(); // Reset the fields if the login fails
+    this.resetFields(); 
   }
 
+
+    /**
+   * Logs in as a guest user by setting predefined credentials.
+   */
   guestLogin(): void {
     this.email &#x3D; &#x27;guest@guest.com&#x27;;
     this.password &#x3D; &#x27;L!9NbQY.3V&#x27;;
     this.login();
   }
 
+
+    /** Navigates to the sign-up page. */
   goToSignUp(): void {
     this.router.navigate([&#x27;/signup&#x27;]);
   }
 
+
+    /**
+   * Stores the authentication token in either localStorage or sessionStorage,
+   * based on the &quot;Remember Me&quot; selection.
+   * @param token - The authentication token to store.
+   */
   private storeToken(token: string): void {
     if (this.rememberMe) {
       localStorage.setItem(&#x27;auth_token&#x27;, token);
@@ -958,11 +1105,15 @@ export class LoginComponent {
     }
   }
 
+
+    /** Clears the email and password fields. */
   private resetFields(): void {
     this.email &#x3D; &#x27;&#x27;;
     this.password &#x3D; &#x27;&#x27;;
   }
 
+
+    /** Navigates directly to the Summary page after logging in. */
   goToLogIn(): void {
     this.router.navigate([&#x27;/summary&#x27;]);
   }
@@ -1299,7 +1450,6 @@ export class LoginComponent {
   }
 }
 
-/* Overlay styles */
 .overlay {
   position: fixed;
   top: 0;
@@ -1310,42 +1460,42 @@ export class LoginComponent {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensure it&#x27;s on top of everything */
-  animation: overlayFadeOut 2s ease-in-out forwards; /* Fade out the overlay */
+  z-index: 9999; 
+  animation: overlayFadeOut 2s ease-in-out forwards;
 }
 
-/* SVG logo animation */
+
 .logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(2); /* Centered and large */
+  transform: translate(-50%, -50%) scale(2); 
   animation: logoMove 2s ease-in-out forwards;
-  transform-origin: center center; /* Ensure scaling happens from the center */
+  transform-origin: center center; 
 }
 
-/* Keyframes for moving the logo and reducing opacity */
+
 @keyframes logoMove {
   0% {
-    transform: scale(2) translate(-50%, -50%); /* Start large in the center */
+    transform: scale(2) translate(-50%, -50%); 
     opacity: 1;
   }
   100% {
-    transform: scale(1) translate(0, 0); /* End small in the top-left corner */
-    opacity: 0; /* Fade out */
+    transform: scale(1) translate(0, 0); 
+    opacity: 0; 
     top: 16px;
     left: 16px;
   }
 }
 
-/* Keyframes for overlay fade out */
+
 @keyframes overlayFadeOut {
   0% {
     opacity: 1;
   }
   100% {
     opacity: 0;
-    visibility: hidden; /* Ensure the overlay is completely hidden at the end */
+    visibility: hidden; 
   }
 }
 </code></pre>
@@ -1377,7 +1527,7 @@ export class LoginComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="overlay">  <svg    class="logo"    width="64"    height="79"    viewBox="0 0 64 79"    fill="none"    xmlns="http://www.w3.org/2000/svg"  >    <path d="M45.8539 0H31.6777V16.3095H45.8539V0Z" fill="#2A3647" />    <path      d="M31.6783 29.5737H45.8544V52.5757C45.9192 58.1106 44.344 63.5398 41.329 68.1732C38.352 72.675 32.6052 78.0312 21.973 78.0312C10.3922 78.0312 3.64218 72.5545 0 69.5533L8.94188 58.5233C12.4968 61.426 15.9209 63.8138 22.0276 63.8138C26.6512 63.8138 28.4941 61.9298 29.5737 60.2868C31.0413 58.0047 31.8004 55.3359 31.7546 52.6195L31.6783 29.5737Z"      fill="#2A3647"    />    <path d="M24.4476 19.2778H10.2715V33.5171H24.4476V19.2778Z" fill="#29ABE2" />    <path      d="M53.2818 71.3496C53.2818 74.3837 51.7442 76.0157 49.596 76.0157C47.4477 76.0157 46.041 74.077 46.041 71.5029C46.041 68.9289 47.4913 66.8916 49.7159 66.8916C51.9405 66.8916 53.2818 68.8961 53.2818 71.3496ZM47.6876 71.4701C47.6876 73.2993 48.4182 74.6465 49.6723 74.6465C50.9263 74.6465 51.6351 73.2226 51.6351 71.3606C51.6351 69.7285 50.9809 68.195 49.6723 68.195C48.3637 68.195 47.6876 69.6737 47.6876 71.4701Z"      fill="#2A3647"    />    <path d="M56.0947 67.0234V75.8737H54.5244V67.0234H56.0947Z" fill="#2A3647" />    <path      d="M57.7949 75.8737V67.0234H59.5397L61.4153 70.6709C61.8981 71.6246 62.3277 72.6046 62.7021 73.6064C62.6039 72.511 62.5603 71.2514 62.5603 69.8494V67.0234H63.9997V75.8737H62.3749L60.4775 72.1496C59.9751 71.1713 59.5273 70.1657 59.1362 69.1374C59.1362 70.2328 59.2125 71.4705 59.2125 72.993V75.8628L57.7949 75.8737Z"      fill="#2A3647"    />  </svg></div><div class="loginContainer">  <header class="logoContainer">    <svg      class="cursor loginAnimation"      width="64"      height="79"      viewBox="0 0 64 79"      fill="none"      xmlns="http://www.w3.org/2000/svg"      (click)="goToLogIn()"    >      <path d="M45.8539 0H31.6777V16.3095H45.8539V0Z" fill="#2A3647" />      <path        d="M31.6783 29.5737H45.8544V52.5757C45.9192 58.1106 44.344 63.5398 41.329 68.1732C38.352 72.675 32.6052 78.0312 21.973 78.0312C10.3922 78.0312 3.64218 72.5545 0 69.5533L8.94188 58.5233C12.4968 61.426 15.9209 63.8138 22.0276 63.8138C26.6512 63.8138 28.4941 61.9298 29.5737 60.2868C31.0413 58.0047 31.8004 55.3359 31.7546 52.6195L31.6783 29.5737Z"        fill="#2A3647"      />      <path d="M24.4476 19.2778H10.2715V33.5171H24.4476V19.2778Z" fill="#29ABE2" />      <path        d="M53.2818 71.3496C53.2818 74.3837 51.7442 76.0157 49.596 76.0157C47.4477 76.0157 46.041 74.077 46.041 71.5029C46.041 68.9289 47.4913 66.8916 49.7159 66.8916C51.9405 66.8916 53.2818 68.8961 53.2818 71.3496ZM47.6876 71.4701C47.6876 73.2993 48.4182 74.6465 49.6723 74.6465C50.9263 74.6465 51.6351 73.2226 51.6351 71.3606C51.6351 69.7285 50.9809 68.195 49.6723 68.195C48.3637 68.195 47.6876 69.6737 47.6876 71.4701Z"        fill="#2A3647"      />      <path d="M56.0947 67.0234V75.8737H54.5244V67.0234H56.0947Z" fill="#2A3647" />      <path        d="M57.7949 75.8737V67.0234H59.5397L61.4153 70.6709C61.8981 71.6246 62.3277 72.6046 62.7021 73.6064C62.6039 72.511 62.5603 71.2514 62.5603 69.8494V67.0234H63.9997V75.8737H62.3749L60.4775 72.1496C59.9751 71.1713 59.5273 70.1657 59.1362 69.1374C59.1362 70.2328 59.2125 71.4705 59.2125 72.993V75.8628L57.7949 75.8737Z"        fill="#2A3647"      />    </svg>  </header>  <main class="mainContainer">    <div class="headlineContainer">      <h1>Log in</h1>      <div class="underline"></div>    </div>    <header class="logoContainerMobile">      <svg        width="64"        height="79"        viewBox="0 0 64 79"        fill="none"        xmlns="http://www.w3.org/2000/svg"      >        <path d="M45.8539 0H31.6777V16.3095H45.8539V0Z" fill="#2A3647" />        <path          d="M31.6783 29.5737H45.8544V52.5757C45.9192 58.1106 44.344 63.5398 41.329 68.1732C38.352 72.675 32.6052 78.0312 21.973 78.0312C10.3922 78.0312 3.64218 72.5545 0 69.5533L8.94188 58.5233C12.4968 61.426 15.9209 63.8138 22.0276 63.8138C26.6512 63.8138 28.4941 61.9298 29.5737 60.2868C31.0413 58.0047 31.8004 55.3359 31.7546 52.6195L31.6783 29.5737Z"          fill="#2A3647"        />        <path d="M24.4476 19.2778H10.2715V33.5171H24.4476V19.2778Z" fill="#29ABE2" />        <path          d="M53.2818 71.3496C53.2818 74.3837 51.7442 76.0157 49.596 76.0157C47.4477 76.0157 46.041 74.077 46.041 71.5029C46.041 68.9289 47.4913 66.8916 49.7159 66.8916C51.9405 66.8916 53.2818 68.8961 53.2818 71.3496ZM47.6876 71.4701C47.6876 73.2993 48.4182 74.6465 49.6723 74.6465C50.9263 74.6465 51.6351 73.2226 51.6351 71.3606C51.6351 69.7285 50.9809 68.195 49.6723 68.195C48.3637 68.195 47.6876 69.6737 47.6876 71.4701Z"          fill="#2A3647"        />        <path d="M56.0947 67.0234V75.8737H54.5244V67.0234H56.0947Z" fill="#2A3647" />        <path          d="M57.7949 75.8737V67.0234H59.5397L61.4153 70.6709C61.8981 71.6246 62.3277 72.6046 62.7021 73.6064C62.6039 72.511 62.5603 71.2514 62.5603 69.8494V67.0234H63.9997V75.8737H62.3749L60.4775 72.1496C59.9751 71.1713 59.5273 70.1657 59.1362 69.1374C59.1362 70.2328 59.2125 71.4705 59.2125 72.993V75.8628L57.7949 75.8737Z"          fill="#2A3647"        />      </svg>    </header>    <div class="formContainer">      <div class="form-floating mb-3 inputContainer">        <input          type="email"          [(ngModel)]="email"          id="floatingInput"          class="form-control formInput"          name="email"          placeholder="Email"          required        />        <label for="floatingInput">Email address</label>      </div>      <label *ngIf="isPasswordWrong || isUsernameWrong" class="text-danger"        >Username or password is wrong! Try again.</label      >      <div class="form-floating mb-3 inputContainer">        <input          [type]="passwordVisible ? \'text\' : \'password\'"          [(ngModel)]="password"          class="form-control formInputPassword"          id="floatingPassword"          placeholder="Password"        />        <label for="floatingPassword">Password</label>        <button          type="button"          class="btn borderNone position-absolute h58 end-0 top-0"          (click)="togglePasswordVisibility()"        >          <img            [src]="              passwordVisible ? \'/assets/img/visibility.png\' : \'/assets/img/visibility_off.png\'            "            alt="Toggle Password Visibility"          />        </button>      </div>      <div class="form-check checkboxContainer">        <input          class="form-check-input checkboxInput"          type="checkbox"          value=""          id="flexCheckDefault"        />        <label class="form-check-label" for="flexCheckDefault"> Remember me </label>      </div>      <button type="button" class="btn btn-primary btn-lg w180" (click)="login()">Log in</button>      <button type="button" class="btn btn-default btn-lg w180" (click)="guestLogin()">        Guest Log in      </button>    </div>  </main>  <footer class="footerContainer">    <div class="SignupFootercontainer">      <div>        <span class="notJoin">Not a Join user?</span>      </div>      <div>        <button type="button" class="btn btn-primary btn-lg" (click)="goToSignUp()">Sign up</button>      </div>    </div>    <div class="linkContainer">      <i class="link">Privacy Policy</i>      <i class="link">Legal notice</i>    </div>  </footer></div></div>'
-    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

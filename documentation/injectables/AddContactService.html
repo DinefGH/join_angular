@@ -119,6 +119,15 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>AddContactService is responsible for managing contact data by providing
+methods to add, fetch, update, and delete contacts. It includes authentication
+in the header of each request.</p>
+
+            </p>
 
 
 
@@ -192,12 +201,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/add-contact.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/add-contact.service.ts:19</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject HttpClient for making HTTP requests.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -206,6 +217,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -220,6 +232,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The HttpClient instance for making HTTP requests.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -255,14 +273,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:34</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Adds a new contact with the provided contact data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -273,6 +293,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -287,6 +308,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Object containing the contact&#39;s information.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -296,7 +323,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits the response from the API.</p>
+
                             </div>
                 </td>
             </tr>
@@ -324,19 +352,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:64</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Creates an HTTP Authorization header with the stored authentication token.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>HttpHeaders</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>An HttpHeaders object containing the Authorization header.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -361,14 +395,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:94</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a contact by its ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -379,6 +415,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -393,6 +430,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the contact to delete.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -402,7 +445,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits the response from the API.</p>
+
                             </div>
                 </td>
             </tr>
@@ -428,14 +472,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:43</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:78</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Fetches a contact by its ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -446,6 +492,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -460,6 +507,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the contact to fetch.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -469,7 +522,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits the contact&#39;s data.</p>
+
                             </div>
                 </td>
             </tr>
@@ -495,19 +549,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:49</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the list of contacts from the API.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>An Observable that emits the list of contacts.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -532,14 +592,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">src/app/services/add-contact.service.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/services/add-contact.service.ts:111</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Updates an existing contact with new data.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -550,6 +612,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -564,6 +627,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the contact to update.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>contactData</td>
@@ -576,6 +645,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Object containing the updated contact information.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -585,7 +660,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits the response from the API.</p>
+
                             </div>
                 </td>
             </tr>
@@ -622,10 +698,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/add-contact.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/add-contact.service.ts:19</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Base URL for the API endpoints.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -641,14 +723,33 @@ import { Observable, pipe } from &#x27;rxjs&#x27;;
 import { catchError, tap } from &#x27;rxjs/operators&#x27;;
 import { throwError } from &#x27;rxjs&#x27;;
 
+
+/**
+ * AddContactService is responsible for managing contact data by providing
+ * methods to add, fetch, update, and delete contacts. It includes authentication
+ * in the header of each request.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class AddContactService {
+
+  /** Base URL for the API endpoints. */
   private baseUrl &#x3D; &#x27;https://join.server.fabianduerr.com&#x27;;
 
+
+    /**
+   * Constructor to inject HttpClient for making HTTP requests.
+   * @param http - The HttpClient instance for making HTTP requests.
+   */
   constructor(private http: HttpClient) {}
 
+
+    /**
+   * Adds a new contact with the provided contact data.
+   * @param contactData - Object containing the contact&#x27;s information.
+   * @returns An Observable that emits the response from the API.
+   */
   addContact(contactData: any): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
     return this.http.post(&#x60;${this.baseUrl}/addcontact/&#x60;, contactData, { headers }).pipe(
@@ -659,6 +760,11 @@ export class AddContactService {
     );
   }
 
+
+    /**
+   * Retrieves the list of contacts from the API.
+   * @returns An Observable that emits the list of contacts.
+   */
   getContacts(): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
     return this.http.get(&#x60;${this.baseUrl}/addcontact/&#x60;, { headers }).pipe(
@@ -669,6 +775,11 @@ export class AddContactService {
     );
   }
 
+
+  /**
+   * Creates an HTTP Authorization header with the stored authentication token.
+   * @returns An HttpHeaders object containing the Authorization header.
+   */
   private createAuthorizationHeader(): HttpHeaders {
     const token &#x3D; localStorage.getItem(&#x27;auth_token&#x27;) || sessionStorage.getItem(&#x27;auth_token&#x27;);
     return new HttpHeaders({
@@ -677,6 +788,12 @@ export class AddContactService {
     });
   }
 
+
+    /**
+   * Fetches a contact by its ID.
+   * @param contactId - The ID of the contact to fetch.
+   * @returns An Observable that emits the contact&#x27;s data.
+   */
   getContactById(contactId: number): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
     return this.http.get(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, { headers }).pipe(
@@ -687,6 +804,12 @@ export class AddContactService {
     );
   }
 
+
+    /**
+   * Deletes a contact by its ID.
+   * @param contactId - The ID of the contact to delete.
+   * @returns An Observable that emits the response from the API.
+   */
   deleteContact(contactId: number): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
     return this.http.delete(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, { headers }).pipe(
@@ -697,6 +820,13 @@ export class AddContactService {
     );
   }
 
+
+    /**
+   * Updates an existing contact with new data.
+   * @param contactId - The ID of the contact to update.
+   * @param contactData - Object containing the updated contact information.
+   * @returns An Observable that emits the response from the API.
+   */
   updateContact(contactId: number, contactData: any): Observable&lt;any&gt; {
     const headers &#x3D; this.createAuthorizationHeader();
     return this.http.put(&#x60;${this.baseUrl}/contact/${contactId}/&#x60;, contactData, { headers }).pipe(

@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for editing a task, including details, subtasks, and assigned contacts.
+Supports form validation, updates, and emits events upon task modifications.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -406,12 +414,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/edit-task/edit-task.component.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/app/edit-task/edit-task.component.ts:111</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject services for managing tasks, categories, contacts, subtasks, date formatting, and routing.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -420,6 +430,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -434,6 +445,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for parsing date structures.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>addContactService</td>
@@ -446,6 +463,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for managing contacts.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>fb</td>
@@ -458,6 +481,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>FormBuilder for creating reactive forms.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>categoryService</td>
@@ -470,6 +499,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for fetching task categories.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>taskService</td>
@@ -482,6 +517,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for managing tasks.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>subtaskService</td>
@@ -494,6 +535,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for managing subtasks.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -506,6 +553,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Angular Router for navigation.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -539,9 +592,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/edit-task/edit-task.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/edit-task/edit-task.component.ts:63</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Custom height for the task component.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -565,9 +624,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/edit-task/edit-task.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/edit-task/edit-task.component.ts:60</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controls visibility of header and footer in the component.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -591,9 +656,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/edit-task/edit-task.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/edit-task/edit-task.component.ts:54</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controls visibility of the edit task component.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -617,9 +688,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/edit-task/edit-task.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/edit-task/edit-task.component.ts:57</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controls overlay visibility for the task edit view.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -643,9 +720,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/edit-task/edit-task.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/edit-task/edit-task.component.ts:84</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Task object containing details of the task to be edited.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -664,9 +747,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/edit-task/edit-task.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/edit-task/edit-task.component.ts:69</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Task ID for the task to be edited.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -690,9 +779,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/edit-task/edit-task.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/edit-task/edit-task.component.ts:66</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Custom width for the task component.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -714,9 +809,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/edit-task/edit-task.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/edit-task/edit-task.component.ts:75</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event emitted to close the task edit overlay.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -735,9 +836,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/edit-task/edit-task.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/edit-task/edit-task.component.ts:78</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event emitted to close the update task overlay.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -756,9 +863,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/edit-task/edit-task.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/edit-task/edit-task.component.ts:72</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event emitted when the task is successfully updated.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -777,9 +890,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/edit-task/edit-task.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/edit-task/edit-task.component.ts:81</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event emitted when the task is updated and the overlay is closed.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -810,14 +929,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="207"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:207</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="350"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:350</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Adds a new subtask to the task.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -828,6 +949,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -842,6 +964,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The mouse event to prevent default.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>subtaskValue</td>
@@ -854,6 +982,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The text of the new subtask.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -889,14 +1023,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="217"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:217</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="363"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:363</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Clears the subtask input field.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -926,14 +1062,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="221"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:221</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="372"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:372</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a subtask from the task based on its index.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -944,6 +1082,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -958,6 +1097,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Index of the subtask to delete.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -993,14 +1138,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="225"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:225</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="382"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:382</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Edits an existing subtask and updates it in the backend if it has an ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1011,6 +1158,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1025,6 +1173,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Index of the subtask to edit.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>subtaskText</td>
@@ -1037,6 +1191,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Current text of the subtask for editing.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1072,14 +1232,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="195"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:195</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="327"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:327</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Finds a contact by ID from the list of loaded contacts.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1090,6 +1252,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1104,6 +1267,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the contact to retrieve.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1113,7 +1282,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The Contact object if found, or undefined.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1139,14 +1309,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="157"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:157</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="271"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:271</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Generates initials from a contact&#39;s name for display purposes.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1157,6 +1329,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1171,6 +1344,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The name of the contact.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1180,7 +1359,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The initials of the contact&#39;s name.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1206,14 +1386,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="184"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:184</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="310"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:310</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Handles click events for selecting a contact and toggles their selection state.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1224,6 +1406,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1238,6 +1421,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>ID of the contact to handle.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>event</td>
@@ -1250,6 +1439,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The mouse event to stop propagation.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1285,14 +1480,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="105"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:105</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:187</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Loads available categories from the CategoryService and sets the task form data if a task is provided.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1322,14 +1519,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="146"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:146</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="254"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:254</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Loads contacts from the AddContactService and sets them for selection in the form.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1359,14 +1558,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="252"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:252</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="412"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:412</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Loads a task by ID and sets the data in the form.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1377,6 +1578,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1391,6 +1593,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the task to load.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1426,14 +1634,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="319"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:319</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="489"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:489</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Logs validation errors for each control in the form.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>{ [key: string]: any; }</code>
@@ -1463,14 +1673,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="98"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:98</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:176</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Detects changes to input properties, especially the <code>task</code>, and loads new task data if changed.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1481,6 +1693,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1495,6 +1708,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Object containing the changes in component input properties.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1530,14 +1749,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:76</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:149</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the component by setting the minimum date, loading contacts and categories,
+and fetching task details if a task ID is provided.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1567,14 +1789,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="354"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:354</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="530"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:530</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Emits an event to close the edit task overlay.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1604,14 +1828,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="119"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:119</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="206"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:206</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Formats the selected date and sets it in the task form.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1622,6 +1848,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1636,6 +1863,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The selected date in NgbDateStruct format.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1671,19 +1904,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="335"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:335</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="510"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:510</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Prepares the form data for submission, formatting the date and subtasks.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The formatted task data.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1708,14 +1947,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="140"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:140</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="244"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:244</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sets the selected contact and closes the contacts dropdown.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1726,6 +1967,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1740,6 +1982,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The selected contact.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>event</td>
@@ -1752,6 +2000,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The mouse event to stop propagation.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1787,14 +2041,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="133"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:133</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:231</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sets the selected category in the form and closes the dropdown.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1805,6 +2061,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1819,6 +2076,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The selected category.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>event</td>
@@ -1831,6 +2094,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The mouse event to stop propagation.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1866,14 +2135,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="263"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:263</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="428"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:428</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sets the form data with the task details.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1884,6 +2155,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1898,6 +2170,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Task object containing details to populate the form.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1933,14 +2211,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="169"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:169</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="289"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:289</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Toggles the selection of a contact in the assigned contacts list.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1951,6 +2231,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1965,6 +2246,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the contact to toggle.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>isChecked</td>
@@ -1977,6 +2264,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Boolean indicating if the contact is selected or deselected.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2012,14 +2305,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="125"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:125</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:215</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Toggles the visibility of the category dropdown.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -2049,14 +2344,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="129"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:129</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="221"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:221</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Toggles the visibility of the contacts dropdown.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -2086,14 +2383,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="199"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:199</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="336"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:336</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Toggles the visibility of input icons based on focus.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -2104,6 +2403,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2118,6 +2418,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Boolean indicating if the input is focused.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2153,14 +2459,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="289"
-                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:289</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="457"
+                                    class="link-to-prism">src/app/edit-task/edit-task.component.ts:457</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Updates the task with form data and clears the form upon success.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -2194,10 +2502,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/edit-task/edit-task.component.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/edit-task/edit-task.component.ts:87</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag indicating if the task was added successfully.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2225,10 +2539,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/edit-task/edit-task.component.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/edit-task/edit-task.component.ts:45</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>List of available task categories.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2256,10 +2576,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/edit-task/edit-task.component.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/edit-task/edit-task.component.ts:90</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>List of contacts available for task assignment.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2292,10 +2618,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/edit-task/edit-task.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/edit-task/edit-task.component.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Date input element reference for task due date.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2323,10 +2655,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/edit-task/edit-task.component.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/edit-task/edit-task.component.ts:105</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean tracking input focus state for contact selection.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2348,10 +2686,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/edit-task/edit-task.component.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/edit-task/edit-task.component.ts:51</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controls visibility of the category dropdown.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2373,10 +2717,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/edit-task/edit-task.component.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/edit-task/edit-task.component.ts:96</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controls visibility of the contacts dropdown.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2404,10 +2754,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/edit-task/edit-task.component.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/edit-task/edit-task.component.ts:102</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Maximum number of visible contacts in the dropdown.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2430,10 +2786,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/edit-task/edit-task.component.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/edit-task/edit-task.component.ts:36</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Minimum date allowed for task due date selection.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2461,10 +2823,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/edit-task/edit-task.component.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/app/edit-task/edit-task.component.ts:111</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Holds the text of a new subtask being added.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2492,10 +2860,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/edit-task/edit-task.component.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/edit-task/edit-task.component.ts:93</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Currently selected contact for assignment.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2523,10 +2897,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/edit-task/edit-task.component.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/edit-task/edit-task.component.ts:99</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>List of selected contact IDs for the task.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2550,10 +2930,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/edit-task/edit-task.component.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/edit-task/edit-task.component.ts:48</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selected category for the task.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2586,10 +2972,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/edit-task/edit-task.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/edit-task/edit-task.component.ts:42</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subtask input element reference.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2617,10 +3009,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/edit-task/edit-task.component.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/edit-task/edit-task.component.ts:108</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>List of subtasks associated with the task.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2643,10 +3041,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/edit-task/edit-task.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/edit-task/edit-task.component.ts:39</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reactive form group for task details.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -2675,42 +3079,110 @@ import { Contact } from &#x27;src/assets/models/contact.model&#x27;;
 import { SubtaskService, Subtask } from &#x27;src/app/services/subtask.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
+
+/**
+ * Component for editing a task, including details, subtasks, and assigned contacts.
+ * Supports form validation, updates, and emits events upon task modifications.
+ */
 @Component({
   selector: &#x27;app-edit-task&#x27;,
   templateUrl: &#x27;./edit-task.component.html&#x27;,
   styleUrls: [&#x27;./edit-task.component.scss&#x27;],
 })
 export class EditTaskComponent implements OnInit, OnChanges {
+
+  /** Date input element reference for task due date. */
   @ViewChild(&#x27;dpInput&#x27;) dpInput!: ElementRef&lt;HTMLInputElement&gt;;
+
+  /** Minimum date allowed for task due date selection. */
   minDate!: NgbDateStruct;
+
+  /** Reactive form group for task details. */
   taskForm: FormGroup;
+
+  /** Subtask input element reference. */
   @ViewChild(&#x27;subtaskInput&#x27;) subtaskInput!: ElementRef&lt;HTMLInputElement&gt;;
+
+  /** List of available task categories. */
   categories: Category[] &#x3D; [];
+
+  /** Selected category for the task. */
   selectedOption?: Category;
+
+  /** Controls visibility of the category dropdown. */
   isOpen &#x3D; false;
+
+  /** Controls visibility of the edit task component. */
   @Input() isEditTaskVisible: boolean &#x3D; false;
+
+  /** Controls overlay visibility for the task edit view. */
   @Input() isOverlayVisibleTask: boolean &#x3D; false;
+
+  /** Controls visibility of header and footer in the component. */
   @Input() hideHeaderFooter: boolean &#x3D; false;
+
+  /** Custom height for the task component. */
   @Input() height: string &#x3D; &#x27;100%&#x27;;
+
+  /** Custom width for the task component. */
   @Input() width: string &#x3D; &#x27;100%&#x27;;
-  @Input() taskId!: number; // Task ID to edit
+
+  /** Task ID for the task to be edited. */
+  @Input() taskId!: number; 
+
+  /** Event emitted when the task is successfully updated. */
   @Output() taskUpdated &#x3D; new EventEmitter&lt;void&gt;();
+
+  /** Event emitted to close the task edit overlay. */
   @Output() closeEditTaskOverlay &#x3D; new EventEmitter&lt;void&gt;();
+
+  /** Event emitted to close the update task overlay. */
   @Output() closeUpdateTaskOverlay &#x3D; new EventEmitter&lt;void&gt;();
+
+  /** Event emitted when the task is updated and the overlay is closed. */
   @Output() taskUpdatedAndClosed &#x3D; new EventEmitter&lt;void&gt;();
+
+  /** Task object containing details of the task to be edited. */
   @Input() task: Task | null &#x3D; null;
 
+  /** Flag indicating if the task was added successfully. */
   addTaskSuccess &#x3D; false;
+
+  /** List of contacts available for task assignment. */
   contacts: Contact[] &#x3D; [];
+
+  /** Currently selected contact for assignment. */
   selectedContact: Contact | null &#x3D; null;
+
+  /** Controls visibility of the contacts dropdown. */
   isOpenContacts &#x3D; false;
+
+  /** List of selected contact IDs for the task. */
   selectedContacts: number[] &#x3D; [];
+
+  /** Maximum number of visible contacts in the dropdown. */
   maxVisibleContacts: number &#x3D; 3;
+
+  /** Boolean tracking input focus state for contact selection. */
   isInputFocused: boolean &#x3D; false;
 
+  /** List of subtasks associated with the task. */
   subtasks: Subtask[] &#x3D; [];
+
+  /** Holds the text of a new subtask being added. */
   newSubtask: string &#x3D; &#x27;&#x27;;
 
+
+    /**
+   * Constructor to inject services for managing tasks, categories, contacts, subtasks, date formatting, and routing.
+   * @param ngbDateParserFormatter - Service for parsing date structures.
+   * @param addContactService - Service for managing contacts.
+   * @param fb - FormBuilder for creating reactive forms.
+   * @param categoryService - Service for fetching task categories.
+   * @param taskService - Service for managing tasks.
+   * @param subtaskService - Service for managing subtasks.
+   * @param router - Angular Router for navigation.
+   */
   constructor(
     private ngbDateParserFormatter: NgbDateParserFormatter,
     private addContactService: AddContactService,
@@ -2731,6 +3203,11 @@ export class EditTaskComponent implements OnInit, OnChanges {
     });
   }
 
+
+    /**
+   * Initializes the component by setting the minimum date, loading contacts and categories,
+   * and fetching task details if a task ID is provided.
+   */
   ngOnInit(): void {
     const today &#x3D; new Date();
     this.minDate &#x3D; { year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate() };
@@ -2753,19 +3230,28 @@ export class EditTaskComponent implements OnInit, OnChanges {
     }
   }
 
+
+    /**
+   * Detects changes to input properties, especially the &#x60;task&#x60;, and loads new task data if changed.
+   * @param changes - Object containing the changes in component input properties.
+   */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes[&#x27;task&#x27;] &amp;&amp; changes[&#x27;task&#x27;].currentValue) {
-      this.taskId &#x3D; changes[&#x27;task&#x27;].currentValue.id; // Set taskId from task
+      this.taskId &#x3D; changes[&#x27;task&#x27;].currentValue.id; 
       this.setTaskFormData(changes[&#x27;task&#x27;].currentValue);
     }
   }
 
+
+  /**
+ * Loads available categories from the CategoryService and sets the task form data if a task is provided.
+ */
   loadCategories(): void {
     this.categoryService.getCategories().subscribe({
       next: categories &#x3D;&gt; {
         this.categories &#x3D; categories;
         if (this.task) {
-          this.setTaskFormData(this.task); // Ensure the task is set after categories are loaded
+          this.setTaskFormData(this.task); 
         }
       },
       error: error &#x3D;&gt; {
@@ -2774,20 +3260,36 @@ export class EditTaskComponent implements OnInit, OnChanges {
     });
   }
 
+
+  /**
+ * Formats the selected date and sets it in the task form.
+ * @param date - The selected date in NgbDateStruct format.
+ */
   onDateSelect(date: NgbDateStruct): void {
     const formattedDate &#x3D; &#x60;${date.year}-${date.month.toString().padStart(2, &#x27;0&#x27;)}-${date.day.toString().padStart(2, &#x27;0&#x27;)}&#x60;;
     this.dpInput.nativeElement.value &#x3D; formattedDate;
     this.taskForm.get(&#x27;due_date&#x27;)?.setValue(formattedDate);
   }
 
+
+  /** Toggles the visibility of the category dropdown. */
+
   toggleDropdown(): void {
     this.isOpen &#x3D; !this.isOpen;
   }
 
+
+  /** Toggles the visibility of the contacts dropdown. */
   toggleDropdownContacts(): void {
     this.isOpenContacts &#x3D; !this.isOpenContacts;
   }
 
+
+  /**
+ * Sets the selected category in the form and closes the dropdown.
+ * @param category - The selected category.
+ * @param event - The mouse event to stop propagation.
+ */
   selectOption(category: Category, event: MouseEvent): void {
     event.stopPropagation();
     this.selectedOption &#x3D; category;
@@ -2795,12 +3297,22 @@ export class EditTaskComponent implements OnInit, OnChanges {
     this.isOpen &#x3D; false;
   }
 
+
+  /**
+ * Sets the selected contact and closes the contacts dropdown.
+ * @param contact - The selected contact.
+ * @param event - The mouse event to stop propagation.
+ */
   selectContact(contact: Contact, event: MouseEvent): void {
     this.selectedContact &#x3D; contact;
     this.isOpenContacts &#x3D; false;
     event.stopPropagation();
   }
 
+
+  /**
+ * Loads contacts from the AddContactService and sets them for selection in the form.
+ */
   loadContacts(): void {
     this.addContactService.getContacts().subscribe({
       next: contacts &#x3D;&gt; {
@@ -2812,6 +3324,12 @@ export class EditTaskComponent implements OnInit, OnChanges {
     });
   }
 
+
+  /**
+ * Generates initials from a contact&#x27;s name for display purposes.
+ * @param name - The name of the contact.
+ * @returns The initials of the contact&#x27;s name.
+ */
   getInitials(name: string | undefined): string {
     if (!name) return &#x27;&#x27;;
 
@@ -2824,6 +3342,12 @@ export class EditTaskComponent implements OnInit, OnChanges {
     return initials.join(&#x27;&#x27;);
   }
 
+
+  /**
+ * Toggles the selection of a contact in the assigned contacts list.
+ * @param contactId - The ID of the contact to toggle.
+ * @param isChecked - Boolean indicating if the contact is selected or deselected.
+ */
   toggleContactSelection(contactId: number, isChecked: boolean): void {
     const currentContacts &#x3D; this.taskForm.get(&#x27;assigned_to&#x27;)?.value || [];
     if (isChecked) {
@@ -2839,6 +3363,12 @@ export class EditTaskComponent implements OnInit, OnChanges {
     this.taskForm.get(&#x27;assigned_to&#x27;)?.setValue(currentContacts);
   }
 
+
+  /**
+ * Handles click events for selecting a contact and toggles their selection state.
+ * @param contactId - ID of the contact to handle.
+ * @param event - The mouse event to stop propagation.
+ */
   handleContactClick(contactId: number, event: MouseEvent): void {
     event.stopPropagation();
 
@@ -2850,10 +3380,21 @@ export class EditTaskComponent implements OnInit, OnChanges {
     }
   }
 
+
+  /**
+ * Finds a contact by ID from the list of loaded contacts.
+ * @param contactId - The ID of the contact to retrieve.
+ * @returns The Contact object if found, or undefined.
+ */
   getContactById(contactId: number): Contact | undefined {
     return this.contacts.find(contact &#x3D;&gt; contact.id &#x3D;&#x3D;&#x3D; contactId);
   }
 
+
+  /**
+ * Toggles the visibility of input icons based on focus.
+ * @param focused - Boolean indicating if the input is focused.
+ */
   toggleIcons(focused: boolean): void {
     if (!focused) {
       setTimeout(() &#x3D;&gt; (this.isInputFocused &#x3D; focused), 100);
@@ -2862,24 +3403,44 @@ export class EditTaskComponent implements OnInit, OnChanges {
     }
   }
 
+
+  /**
+ * Adds a new subtask to the task.
+ * @param event - The mouse event to prevent default.
+ * @param subtaskValue - The text of the new subtask.
+ */
   addSubtask(event: MouseEvent, subtaskValue: string): void {
     event.preventDefault();
     const trimmedValue &#x3D; subtaskValue.trim();
     if (trimmedValue) {
-      const newSubtask &#x3D; { text: trimmedValue, completed: false }; // Do not create in backend here
+      const newSubtask &#x3D; { text: trimmedValue, completed: false }; 
       this.subtasks.push(newSubtask);
       this.clearInput();
     }
   }
 
+
+  /** Clears the subtask input field. */
+
   clearInput(): void {
     this.subtaskInput.nativeElement.value &#x3D; &#x27;&#x27;;
   }
 
+
+  /**
+ * Deletes a subtask from the task based on its index.
+ * @param index - Index of the subtask to delete.
+ */
   deleteSubtask(index: number): void {
     this.subtasks.splice(index, 1);
   }
 
+
+  /**
+ * Edits an existing subtask and updates it in the backend if it has an ID.
+ * @param index - Index of the subtask to edit.
+ * @param subtaskText - Current text of the subtask for editing.
+ */
   editSubtask(index: number, subtaskText: string): void {
     const editedSubtaskText &#x3D; prompt(&#x27;Edit Subtask:&#x27;, subtaskText);
     if (editedSubtaskText !&#x3D;&#x3D; null &amp;&amp; editedSubtaskText.trim() !&#x3D;&#x3D; &#x27;&#x27;) {
@@ -2887,7 +3448,6 @@ export class EditTaskComponent implements OnInit, OnChanges {
       if (subtask) {
         subtask.text &#x3D; editedSubtaskText.trim();
 
-        // Check if subtask has an ID, meaning it exists in the backend
         if (subtask.id !&#x3D;&#x3D; undefined) {
           this.subtaskService.updateSubtask(subtask.id, subtask).subscribe({
             next: updatedSubtask &#x3D;&gt; {},
@@ -2897,7 +3457,6 @@ export class EditTaskComponent implements OnInit, OnChanges {
             },
           });
         } else {
-          // If no ID, it is a new subtask and just update the local array
           this.subtasks[index] &#x3D; subtask;
         }
       } else {
@@ -2907,6 +3466,11 @@ export class EditTaskComponent implements OnInit, OnChanges {
     }
   }
 
+
+  /**
+ * Loads a task by ID and sets the data in the form.
+ * @param taskId - The ID of the task to load.
+ */
   loadTask(taskId: number): void {
     this.taskService.getTask(taskId).subscribe({
       next: task &#x3D;&gt; {
@@ -2918,6 +3482,11 @@ export class EditTaskComponent implements OnInit, OnChanges {
     });
   }
 
+
+  /**
+ * Sets the form data with the task details.
+ * @param task - Task object containing details to populate the form.
+ */
   setTaskFormData(task: Task): void {
     if (task.due_date) {
       const date &#x3D; new Date(task.due_date);
@@ -2938,12 +3507,15 @@ export class EditTaskComponent implements OnInit, OnChanges {
       status: task.status,
     });
 
-    // Ensure the selected category is correctly set
     this.selectedOption &#x3D; this.categories.find(category &#x3D;&gt; category.id &#x3D;&#x3D;&#x3D; task.category);
     this.selectedContacts &#x3D; task.assigned_to ? [...task.assigned_to] : [];
     this.subtasks &#x3D; task.subtasks;
   }
 
+
+  /**
+ * Updates the task with form data and clears the form upon success.
+ */
   updateTask(): void {
     if (!this.taskForm.valid) {
       this.logFormErrors();
@@ -2974,22 +3546,29 @@ export class EditTaskComponent implements OnInit, OnChanges {
     }, 3000);
   }
 
+
+  /** Logs validation errors for each control in the form. */
   logFormErrors() {
     const formErrors: { [key: string]: any } &#x3D; {};
     Object.keys(this.taskForm.controls).forEach(key &#x3D;&gt; {
       const control &#x3D; this.taskForm.get(key);
       if (control &amp;&amp; control.invalid) {
-        formErrors[key] &#x3D; control.errors; // Collect invalid control errors
+        formErrors[key] &#x3D; control.errors; 
       }
     });
 
     if (Object.keys(formErrors).length &gt; 0) {
-      console.error(&#x27;Form Errors:&#x27;, formErrors); // Log errors to the console
+      console.error(&#x27;Form Errors:&#x27;, formErrors); 
     }
 
-    return formErrors; // Optionally return errors for testing purposes
+    return formErrors; 
   }
 
+
+  /**
+ * Prepares the form data for submission, formatting the date and subtasks.
+ * @returns The formatted task data.
+ */
   prepareSubmitData() {
     const formData &#x3D; this.taskForm.value;
 
@@ -2999,9 +3578,8 @@ export class EditTaskComponent implements OnInit, OnChanges {
     }
     formData.assigned_to &#x3D; this.selectedContacts;
 
-    // Include both new subtasks (without IDs) and existing subtasks (with IDs)
     formData.subtasks &#x3D; this.subtasks.map(subtask &#x3D;&gt; ({
-      id: subtask.id || null, // Use null for new subtasks
+      id: subtask.id || null, 
       text: subtask.text,
       completed: subtask.completed,
     }));
@@ -3009,6 +3587,8 @@ export class EditTaskComponent implements OnInit, OnChanges {
     return formData;
   }
 
+
+  /** Emits an event to close the edit task overlay. */
   onCloseEditTaskOverlay(): void {
     this.closeEditTaskOverlay.emit();
   }
@@ -3381,7 +3961,7 @@ export class EditTaskComponent implements OnInit, OnChanges {
   display: flex;
   align-items: center;
   position: relative;
-  cursor: pointer; /* Indicates it&#x27;s clickable */
+  cursor: pointer; 
   padding: 6px 0;
   padding-left: 8px;
 }
@@ -3390,13 +3970,13 @@ export class EditTaskComponent implements OnInit, OnChanges {
   content: &#x27;&#x27;;
   position: absolute;
   top: 50%;
-  right: 10px; /* Adjust as needed */
+  right: 10px; 
   transform: translateY(-50%);
-  border: 5px solid transparent; /* Creates the arrow shape */
-  border-top-color: #333; /* Arrow color */
+  border: 5px solid transparent; 
+  border-top-color: #333; 
 }
 
-/* Rotate the arrow when the dropdown is open */
+
 .dropdown-container.open .dropdownDisplayContacts::after {
   transform: translateY(-50%) rotate(180deg);
 }
@@ -3619,28 +4199,28 @@ input[type&#x3D;&#x27;radio&#x27;] {
 }
 
 .dropdownContactsCheckInput {
-  display: none; /* Hide the original checkbox */
+  display: none; 
 }
 
 .checkbox-label {
   display: inline-block;
-  width: 16px; /* Custom width */
-  height: 16px; /* Custom height */
-  background-color: #f0f0f0; /* Default background color */
-  border: 1px solid #d1d1d1; /* Border to mimic a checkbox */
+  width: 16px; 
+  height: 16px; 
+  background-color: #f0f0f0; 
+  border: 1px solid #d1d1d1; 
   cursor: pointer;
   border-radius: 5px;
 }
 
-/* Style for when the checkbox is checked */
+
 .dropdownContactsCheckInput:checked + .checkbox-label {
-  background-color: #091931; /* Checked background color */
+  background-color: #091931; 
   color: #ffffff;
-  /* You might want to use this for an icon or text inside the label */
+  
 }
 
 .dropdown-option.selected {
-  background-color: #091931; /* Checked background color */
+  background-color: #091931; 
   color: #ffffff;
 
   .colorCircleContacts {
@@ -3648,10 +4228,10 @@ input[type&#x3D;&#x27;radio&#x27;] {
   }
 }
 
-/* Additional styles for the checked state (e.g., displaying a checkmark) */
+
 .dropdownContactsCheckInput:checked + .checkbox-label::after {
-  content: &#x27;✔&#x27;; /* Example: a checkmark */
-  color: #ffffff; /* Color of the checkmark */
+  content: &#x27;✔&#x27;; 
+  color: #ffffff; 
   display: block;
   text-align: center;
   line-height: 16px;
@@ -3668,13 +4248,13 @@ input[type&#x3D;&#x27;radio&#x27;] {
 
 .dropdown-container {
   position: relative;
-  user-select: none; /* Prevent text selection */
+  user-select: none; 
   z-index: 10;
 }
 
 .dropdown-display {
   position: relative;
-  cursor: pointer; /* Indicates it&#x27;s clickable */
+  cursor: pointer; 
   padding: 6px 0;
   padding-left: 8px;
 }
@@ -3683,13 +4263,13 @@ input[type&#x3D;&#x27;radio&#x27;] {
   content: &#x27;&#x27;;
   position: absolute;
   top: 50%;
-  right: 10px; /* Adjust as needed */
+  right: 10px; 
   transform: translateY(-50%);
-  border: 5px solid transparent; /* Creates the arrow shape */
-  border-top-color: #333; /* Arrow color */
+  border: 5px solid transparent; 
+  border-top-color: #333; 
 }
 
-/* Rotate the arrow when the dropdown is open */
+
 .dropdown-container.open .dropdown-display::after {
   transform: translateY(-50%) rotate(180deg);
 }
@@ -3793,19 +4373,19 @@ input[type&#x3D;&#x27;radio&#x27;] {
 
 .subtask-item {
   display: flex;
-  justify-content: space-between; /* Aligns content to both ends */
-  align-items: center; /* Centers items vertically */
-  margin-bottom: 10px; /* Adds space between items */
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 10px; 
 }
 
 .subtask-text {
-  flex-grow: 1; /* Allows text to take up any extra space */
+  flex-grow: 1; 
 }
 
 .editSubtask,
 .deleteSubtask {
-  margin-left: 8px; /* Space between icons */
-  cursor: pointer; /* Changes cursor to indicate clickable items */
+  margin-left: 8px; 
+  cursor: pointer; 
 }
 
 .discList {
@@ -3877,19 +4457,19 @@ input[type&#x3D;&#x27;radio&#x27;] {
   }
 
   :host ::ng-deep .addTaskContainer::-webkit-scrollbar-track {
-    background: #f6f7f8; /* Color of the track */
-    border-radius: 5px; /* Rounded corners for the track */
-    margin-top: 24px; /* Add top margin */
-    margin-bottom: 24px; /* Add bottom margin */
+    background: #f6f7f8; 
+    border-radius: 5px; 
+    margin-top: 24px; 
+    margin-bottom: 24px;
   }
 
   :host ::ng-deep .addTaskContainer::-webkit-scrollbar-thumb {
-    background: #29abe2 !important; /* Color of the thumbscrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
+    background: #29abe2 !important;
+    border-radius: 10px; 
   }
 
   :host ::ng-deep .addTaskContainer::-webkit-scrollbar-thumb:hover {
-    background: #29abe2; /* Color of the scrollbar thumb when hovered */
+    background: #29abe2; 
   }
 
   .requiredButtonContainer {
@@ -3905,8 +4485,8 @@ input[type&#x3D;&#x27;radio&#x27;] {
   }
 
   .addTaskContent {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
   }
 }
 </code></pre>
@@ -3938,7 +4518,7 @@ input[type&#x3D;&#x27;radio&#x27;] {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="addTaskContainerBackground">  <main class="addTaskContainer">    <article class="headlinesAddTaskContainer">      <h1>Edit Task</h1>    </article>    <form [formGroup]="taskForm">      <div class="mb-3 titleContainer">        <label for="exampleFormControlInput1" class="form-label"          >Title<span class="requiredStar">*</span></label        >        <input          type="text"          class="form-control title"          id="title"          placeholder="Enter a title"          formControlName="title"          required        />      </div>      <div class="mb-3 descriptionContainer">        <label for="description" class="form-label">Description</label>        <input          type="text"          class="form-control description"          id="description"          placeholder="Enter a description"          formControlName="description"        />      </div>      <div class="categoryContainer">        <div class="categoryHeadline">Assigned to</div>        <div class="categoryInput">          <div            class="dropdown-container"            [class.open]="isOpenContacts"            (click)="toggleDropdownContacts()"          >            <div class="dropdownDisplayContacts">              <span                *ngIf="selectedContact"                class="colorCircleContacts"                [style.backgroundColor]="selectedContact.color"              >                {{ getInitials(selectedContact.name) }}              </span>              <span>{{ selectedContact?.name || \'Select a Contact\' }}</span>            </div>            <div *ngIf="isOpenContacts" class="dropdownOptionsContacts">              <div                *ngFor="let contact of contacts; let i = index"                class="dropdown-option"                [class.selected]="selectedContacts.includes(contact.id)"                (click)="handleContactClick(contact.id, $event)"              >                <span class="colorCircleContacts" [style.backgroundColor]="contact.color">                  {{ getInitials(contact.name) }}                </span>                {{ contact.name }}                <input                  id="dropdownContactsCheckInput{{ i }}"                  class="dropdownContactsCheckInput"                  type="checkbox"                  [checked]="selectedContacts.includes(contact.id)"                  (click)="$event.stopPropagation()"                />                <label                  for="dropdownContactsCheckInput{{ i }}"                  class="checkbox-label dropdownContactsCheck"                ></label>              </div>            </div>          </div>        </div>      </div>      <div *ngIf="!isOpenContacts" class="selectedContactsDisplay">        <ng-container *ngFor="let contactId of selectedContacts; let i = index">          <ng-container *ngIf="i < maxVisibleContacts; else moreContacts">            <span              *ngIf="getContactById(contactId) as contact"              class="colorCircleContacts"              [style.backgroundColor]="contact.color"            >              {{ getInitials(contact?.name) }}            </span>          </ng-container>        </ng-container>        <ng-template #moreContacts>...</ng-template>      </div>      <div class="dateContainer" [formGroup]="taskForm">        <div class="dueDateHeadline">Due date<span class="requiredStar">*</span></div>        <div class="row row-cols-sm-auto">          <div class="col-12">            <div class="input-group calendarButtonBackground">              <input                #dpInput                class="form-control borderNone"                placeholder="dd-mm-yyyy"                name="dp"                [minDate]="minDate"                ngbDatepicker                #d="ngbDatepicker"                (dateSelect)="onDateSelect($event)"                formControlName="due_date"                readonly              />              <button                class="btn calendarButton btn-outline-secondary bi bi-calendar3"                (click)="d.toggle()"                type="button"              >                <i class="fa-regular fa-calendar"></i>              </button>            </div>          </div>        </div>      </div>      <div>        <div class="prioButtonContainer">          <label for="prio" class="form-label prioHeadline"            >Priority<span class="requiredStar">*</span></label          >        </div>        <div class="btn-group valueContainer">          <input            type="radio"            class="checkedUrgent"            id="urgent"            name="priority"            value="Urgent"            formControlName="priority"          />          <label for="urgent" class="btn">            <span>Urgent</span>            <svg              width="21"              height="16"              viewBox="0 0 21 16"              fill="none"              xmlns="http://www.w3.org/2000/svg"            >              <g clip-path="url(#clip0_156_921)">                <path                  d="M19.2597 15.4464C19.0251 15.4468 18.7965 15.3719 18.6077 15.2328L10.3556 9.14965L2.10356 15.2328C1.98771 15.3184 1.85613 15.3803 1.71633 15.4151C1.57652 15.4498 1.43124 15.4567 1.28877 15.4354C1.14631 15.414 1.00944 15.3648 0.885997 15.2906C0.762552 15.2164 0.654943 15.1186 0.569314 15.0029C0.483684 14.8871 0.421712 14.7556 0.386936 14.6159C0.352159 14.4762 0.345259 14.331 0.366629 14.1887C0.409788 13.9012 0.565479 13.6425 0.799451 13.4697L9.70356 6.89926C9.89226 6.75967 10.1208 6.68433 10.3556 6.68433C10.5904 6.68433 10.819 6.75967 11.0077 6.89926L19.9118 13.4697C20.0977 13.6067 20.2356 13.7988 20.3057 14.0186C20.3759 14.2385 20.3747 14.4749 20.3024 14.6941C20.2301 14.9133 20.0904 15.1041 19.9031 15.2391C19.7159 15.3742 19.4907 15.4468 19.2597 15.4464Z"                  fill="#FF3D00"                />                <path                  d="M19.2597 9.69733C19.0251 9.69774 18.7965 9.62289 18.6077 9.48379L10.3556 3.40063L2.10356 9.48379C1.86959 9.6566 1.57651 9.72945 1.28878 9.68633C1.00105 9.6432 0.742254 9.48762 0.569318 9.25383C0.396382 9.02003 0.323475 8.72716 0.366634 8.43964C0.409793 8.15213 0.565483 7.89352 0.799455 7.72072L9.70356 1.15024C9.89226 1.01065 10.1208 0.935303 10.3556 0.935303C10.5904 0.935303 10.819 1.01065 11.0077 1.15024L19.9118 7.72072C20.0977 7.85763 20.2356 8.04974 20.3057 8.26962C20.3759 8.4895 20.3747 8.72591 20.3024 8.94509C20.2301 9.16427 20.0904 9.35503 19.9031 9.49012C19.7159 9.62521 19.4907 9.69773 19.2597 9.69733Z"                  fill="#FF3D00"                />              </g>              <defs>                <clipPath id="clip0_156_921">                  <rect                    width="20"                    height="14.5098"                    fill="white"                    transform="translate(0.355469 0.936768)"                  />                </clipPath>              </defs>            </svg>          </label>          <input            type="radio"            class="checkedMedium"            id="medium"            name="priority"            value="Medium"            formControlName="priority"          />          <label for="medium" class="btn">            <span>Medium</span>            <svg              width="21"              height="8"              viewBox="0 0 21 8"              fill="none"              xmlns="http://www.w3.org/2000/svg"            >              <g clip-path="url(#clip0_156_928)">                <path                  d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z"                  fill="#FFA800"                />                <path                  d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"                  fill="#FFA800"                />              </g>              <defs>                <clipPath id="clip0_156_928">                  <rect                    width="20"                    height="7.45098"                    fill="white"                    transform="translate(0.855469 0.466064)"                  />                </clipPath>              </defs>            </svg>          </label>          <input            type="radio"            class="checkedLow"            id="low"            name="priority"            value="Low"            formControlName="priority"          />          <label for="low" class="btn">            <span>Low</span>            <svg              width="21"              height="16"              viewBox="0 0 21 16"              fill="none"              xmlns="http://www.w3.org/2000/svg"            >              <path                d="M10.8555 9.69779C10.6209 9.69819 10.3923 9.62335 10.2035 9.48427L1.30038 2.91453C1.18454 2.82898 1.0867 2.72146 1.01245 2.59812C0.938193 2.47478 0.888977 2.33803 0.867609 2.19569C0.824455 1.90821 0.897354 1.61537 1.07027 1.3816C1.24319 1.14782 1.50196 0.992265 1.78965 0.949143C2.07734 0.906021 2.3704 0.978866 2.60434 1.15165L10.8555 7.23414L19.1066 1.15165C19.2224 1.0661 19.354 1.00418 19.4938 0.969432C19.6336 0.934685 19.7788 0.927791 19.9213 0.949143C20.0637 0.970495 20.2006 1.01967 20.324 1.09388C20.4474 1.16808 20.555 1.26584 20.6407 1.3816C20.7263 1.49735 20.7883 1.62882 20.823 1.7685C20.8578 1.90818 20.8647 2.05334 20.8433 2.19569C20.822 2.33803 20.7727 2.47478 20.6985 2.59812C20.6242 2.72146 20.5264 2.82898 20.4106 2.91453L11.5075 9.48427C11.3186 9.62335 11.0901 9.69819 10.8555 9.69779Z"                fill="#7AE229"              />              <path                d="M10.8555 15.4463C10.6209 15.4467 10.3923 15.3719 10.2035 15.2328L1.30038 8.66307C1.06644 8.49028 0.910763 8.2317 0.867609 7.94422C0.824455 7.65674 0.897354 7.3639 1.07027 7.13013C1.24319 6.89636 1.50196 6.7408 1.78965 6.69768C2.07734 6.65456 2.3704 6.7274 2.60434 6.90019L10.8555 12.9827L19.1066 6.90019C19.3405 6.7274 19.6336 6.65456 19.9213 6.69768C20.209 6.7408 20.4678 6.89636 20.6407 7.13013C20.8136 7.3639 20.8865 7.65674 20.8433 7.94422C20.8002 8.2317 20.6445 8.49028 20.4106 8.66307L11.5075 15.2328C11.3186 15.3719 11.0901 15.4467 10.8555 15.4463Z"                fill="#7AE229"              />            </svg>          </label>        </div>      </div>      <div class="categoryContainer">        <div class="categoryHeadline">Category<span class="requiredStar">*</span></div>        <div class="categoryInput">          <div class="dropdown-container" [class.open]="isOpen" (click)="toggleDropdown()">            <div class="dropdown-display">              <!-- Color circle for the selected option, shown only if a selection has been made -->              <span                *ngIf="selectedOption"                class="color-circle"                [style.backgroundColor]="selectedOption.color"              ></span>              <!-- Display the selected option\'s name or a placeholder if no option is selected -->              {{ selectedOption?.name || \'Select a Category\' }}            </div>            <!-- Dropdown options list, shown only when \'isOpen\' is true -->            <div *ngIf="isOpen" class="dropdown-options">              <!-- Iterating over each category in the categories array -->              <div                *ngFor="let category of categories"                (click)="selectOption(category, $event); $event.stopPropagation()"                class="dropdown-option"              >                <!-- Color circle next to the category name, color based on \'category.color\' -->                <span class="color-circle" [style.backgroundColor]="category.color"></span>                <!-- Category name -->                {{ category.name }}              </div>            </div>          </div>        </div>      </div>      <div class="mb-3 subtasksContainer subtasksHeadline">        <label for="subtasks" class="form-label">Subtasks</label>        <div class="input-icon-container">          <input            type="text"            class="form-control subtasksInput"            id="subtasks"            placeholder="Add new subtask"            #subtaskInput            (focus)="toggleIcons(true)"          />          <span class="icon" *ngIf="!isInputFocused">+</span>          <div class="icon check-icon" *ngIf="isInputFocused">            <div class="xmarkContainer" (click)="clearInput()">              <i class="fa-solid fa-xmark"></i>            </div>            <div class="checkIconLine"></div>            <div class="checkContainer" (click)="addSubtask($event, subtaskInput.value)">              <i class="fa-solid fa-check"></i>            </div>          </div>        </div>        <ul class="subtasks-list">          <li *ngFor="let subtask of subtasks; let i = index" class="subtask-item">            <div class="discList"></div>            <span class="subtask-text">{{ subtask.text }}</span>            <span class="icon-container">              <i class="fa-solid fa-pencil editSubtask" (click)="editSubtask(i, subtask.text)"></i>              <i class="fa-regular fa-trash-can deleteSubtask" (click)="deleteSubtask(i)"></i>            </span>          </li>        </ul>      </div>      <div class="requiredButtonContainer">        <div>          <span class="requiredStar">*</span>          <i>This field is required</i>        </div>        <button type="submit" class="btn btn-primary btn-lg w180" (click)="updateTask()">          Update Task        </button>      </div>    </form>    <div *ngIf="addTaskSuccess" class="addedTaskSuccessContainer">Task successfully updated!</div>  </main></div></div>'
-    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'EditTaskComponent'};
 </script>

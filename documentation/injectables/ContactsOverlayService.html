@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ContactsOverlayService manages the visibility state of the contacts overlay.
+It provides methods to set and retrieve the overlay visibility status.</p>
+
+            </p>
 
 
 
@@ -197,19 +205,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/app/services/contacts-overlay-service.service.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/app/services/contacts-overlay-service.service.ts:33</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the current visibility state of the contacts overlay.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>A boolean representing the current visibility of the overlay.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -234,14 +248,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="11"
-                                    class="link-to-prism">src/app/services/contacts-overlay-service.service.ts:11</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/services/contacts-overlay-service.service.ts:24</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sets the visibility state of the contacts overlay.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -252,6 +268,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -266,6 +283,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Boolean indicating whether the overlay should be visible.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -305,10 +328,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/contacts-overlay-service.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/contacts-overlay-service.service.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Observable for overlay visibility changes, allowing components to subscribe to visibility updates.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -331,10 +360,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/services/contacts-overlay-service.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/contacts-overlay-service.service.ts:14</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>BehaviorSubject that holds the current visibility state of the overlay.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -347,17 +382,35 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { BehaviorSubject } from &#x27;rxjs&#x27;;
 
-@Injectable({
+
+/**
+ * ContactsOverlayService manages the visibility state of the contacts overlay.
+ * It provides methods to set and retrieve the overlay visibility status.
+ */@Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class ContactsOverlayService {
+
+  /** BehaviorSubject that holds the current visibility state of the overlay. */
   private overlayVisibilitySubject &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
+
+  /** Observable for overlay visibility changes, allowing components to subscribe to visibility updates. */
   overlayVisibility$ &#x3D; this.overlayVisibilitySubject.asObservable();
 
+
+    /**
+   * Sets the visibility state of the contacts overlay.
+   * @param isVisible - Boolean indicating whether the overlay should be visible.
+   */
   setOverlayVisibility(isVisible: boolean): void {
     this.overlayVisibilitySubject.next(isVisible);
   }
 
+
+  /**
+   * Retrieves the current visibility state of the contacts overlay.
+   * @returns A boolean representing the current visibility of the overlay.
+   */
   getOverlayVisibility(): boolean {
     return this.overlayVisibilitySubject.value;
   }

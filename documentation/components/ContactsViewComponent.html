@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component to view detailed information of a contact. Allows editing and deleting a contact.
+Supports displaying contact details in an overlay or standalone view based on screen size and visibility settings.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -300,12 +308,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:49</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject necessary services for managing contact data, navigation, and overlay visibility.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -314,6 +324,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -328,6 +339,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>ActivatedRoute for accessing route parameters.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -340,6 +357,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Angular Router for navigation.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>addContactService</td>
@@ -352,6 +375,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for managing contact data.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>contactsOverlayService</td>
@@ -364,6 +393,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for managing overlay visibility.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -397,9 +432,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:37</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Contact model containing details of the current contact.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -423,9 +464,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:28</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The ID of the contact to view, which triggers fetching of contact details.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -449,9 +496,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:31</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Boolean to control the visibility of the contact view overlay.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -473,9 +526,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:46</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event emitted when the contact view component is closed.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -494,9 +553,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:40</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event emitted when a contact is deleted.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -515,9 +580,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:43</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event emitted when a contact is updated.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -548,14 +619,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="88"
-                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:88</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:148</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Deletes the current contact and emits a contactDeleted event.
+If deletion is successful, navigates back to the contacts list.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -587,14 +661,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:59</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:103</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Fetches contact details based on the provided contact ID.
+If retrieval fails, navigates back to the contacts list.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -605,6 +682,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -619,6 +697,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the contact to retrieve.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -654,14 +738,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="79"
-                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:79</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:133</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Generates initials from the contact&#39;s name for display purposes.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -672,6 +758,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -686,6 +773,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The name of the contact.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -695,7 +788,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A string with the initials derived from the name.</p>
+
                             </div>
                 </td>
             </tr>
@@ -721,14 +815,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="121"
-                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:121</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:190</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates back to the contacts list view.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -758,14 +854,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:91</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Updates the contact details when the contact ID input changes.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -776,6 +874,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -790,6 +889,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Object containing the changes in component input properties.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -825,14 +930,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:71</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the component by loading contact details if a contact ID is provided
+or if present in the route parameters.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -862,14 +970,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="107"
-                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:107</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:172</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Handles the contact edit event. If successful, reloads contact details and emits contactUpdated event.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -880,6 +990,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -894,6 +1005,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Boolean indicating whether the contact was successfully edited.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -929,14 +1046,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="71"
-                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:71</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:119</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Displays the edit overlay for the current contact, if available.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -976,10 +1095,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:34</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean to manage internal visibility of the overlay within the component.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1008,10 +1133,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/contacts/contacts-view/contacts-view.component.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean to control the display of the edit overlay for the contact.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1035,22 +1166,50 @@ import { AddContactService } from &#x27;src/app/services/add-contact.service&#x2
 import { Contact } from &#x27;src/assets/models/contact.model&#x27;;
 import { ContactsOverlayService } from &#x27;src/app/services/contacts-overlay-service.service&#x27;;
 
+
+/**
+ * Component to view detailed information of a contact. Allows editing and deleting a contact.
+ * Supports displaying contact details in an overlay or standalone view based on screen size and visibility settings.
+ */
 @Component({
   selector: &#x27;app-contacts-view&#x27;,
   templateUrl: &#x27;./contacts-view.component.html&#x27;,
   styleUrls: [&#x27;./contacts-view.component.scss&#x27;],
 })
 export class ContactsViewComponent implements OnInit, OnChanges {
+
+  /** The ID of the contact to view, which triggers fetching of contact details. */
   @Input() contactId: number | null &#x3D; null;
+
+  /** Boolean to control the visibility of the contact view overlay. */
   @Input() isOverlayVisibleContactsView: boolean &#x3D; false;
+
+  /** Boolean to manage internal visibility of the overlay within the component. */
   isVisible: boolean &#x3D; false;
+
+  /** Contact model containing details of the current contact. */
   @Input() contact: Contact | null &#x3D; null;
+
+  /** Event emitted when a contact is deleted. */
   @Output() contactDeleted &#x3D; new EventEmitter&lt;void&gt;();
+
+  /** Event emitted when a contact is updated. */
   @Output() contactUpdated &#x3D; new EventEmitter&lt;void&gt;();
+
+  /** Event emitted when the contact view component is closed. */
   @Output() close &#x3D; new EventEmitter&lt;void&gt;();
 
+  /** Boolean to control the display of the edit overlay for the contact. */
   public showEditOverlay: boolean &#x3D; false;
 
+
+    /**
+   * Constructor to inject necessary services for managing contact data, navigation, and overlay visibility.
+   * @param route - ActivatedRoute for accessing route parameters.
+   * @param router - Angular Router for navigation.
+   * @param addContactService - Service for managing contact data.
+   * @param contactsOverlayService - Service for managing overlay visibility.
+   */
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -1058,6 +1217,11 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     private contactsOverlayService: ContactsOverlayService,
   ) {}
 
+
+    /**
+   * Initializes the component by loading contact details if a contact ID is provided
+   * or if present in the route parameters.
+   */
   ngOnInit(): void {
     if (this.contactId) {
       this.fetchContactDetails(this.contactId);
@@ -1073,12 +1237,23 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     }
   }
 
+
+    /**
+   * Updates the contact details when the contact ID input changes.
+   * @param changes - Object containing the changes in component input properties.
+   */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes[&#x27;contactId&#x27;] &amp;&amp; changes[&#x27;contactId&#x27;].currentValue) {
       this.fetchContactDetails(changes[&#x27;contactId&#x27;].currentValue);
     }
   }
 
+
+  /**
+   * Fetches contact details based on the provided contact ID.
+   * If retrieval fails, navigates back to the contacts list.
+   * @param contactId - The ID of the contact to retrieve.
+   */
   private fetchContactDetails(contactId: number): void {
     this.addContactService.getContactById(contactId).subscribe({
       next: (response: Contact) &#x3D;&gt; {
@@ -1091,6 +1266,10 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     });
   }
 
+
+    /**
+   * Displays the edit overlay for the current contact, if available.
+   */
   showContactsEdit(): void {
     if (this.contact) {
       this.showEditOverlay &#x3D; true;
@@ -1099,6 +1278,12 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     }
   }
 
+
+    /**
+   * Generates initials from the contact&#x27;s name for display purposes.
+   * @param name - The name of the contact.
+   * @returns A string with the initials derived from the name.
+   */
   getInitials(name: string | undefined): string {
     if (!name) return &#x27;&#x27;;
     return name
@@ -1107,6 +1292,12 @@ export class ContactsViewComponent implements OnInit, OnChanges {
       .join(&#x27;&#x27;)
       .toUpperCase();
   }
+
+
+    /**
+   * Deletes the current contact and emits a contactDeleted event.
+   * If deletion is successful, navigates back to the contacts list.
+   */
 
   deleteContact(): void {
     if (!this.contact || !this.contact.id) {
@@ -1127,6 +1318,11 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     });
   }
 
+
+    /**
+   * Handles the contact edit event. If successful, reloads contact details and emits contactUpdated event.
+   * @param contactEdited - Boolean indicating whether the contact was successfully edited.
+   */
   onContactEdited(contactEdited: boolean): void {
     if (contactEdited) {
       if (this.contact &amp;&amp; this.contact.id) {
@@ -1141,6 +1337,10 @@ export class ContactsViewComponent implements OnInit, OnChanges {
     }
   }
 
+
+    /**
+   * Navigates back to the contacts list view.
+   */
   goBackToContacts(): void {
     this.router.navigate([&#x27;/contacts&#x27;]);
   }
@@ -1375,8 +1575,8 @@ export class ContactsViewComponent implements OnInit, OnChanges {
 
 .dropup {
   position: fixed;
-  bottom: calc(10vh + 56px + 16px); /* Height of icon container + its bottom offset */
-  right: 16px; /* Align with the icon */
+  bottom: calc(10vh + 56px + 16px); 
+  right: 16px; 
   cursor: pointer;
 }
 
@@ -1385,8 +1585,8 @@ export class ContactsViewComponent implements OnInit, OnChanges {
   border-radius: 20px 20px 0px 20px;
   background-color: #ffffff;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-  position: absolute; /* Positions it above the .dropup container */
-  transform: translateY(80%) !important; /* Center it horizontally */
+  position: absolute; 
+  transform: translateY(80%) !important; 
 }
 
 .footerComponent {
@@ -1589,7 +1789,7 @@ export class ContactsViewComponent implements OnInit, OnChanges {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="contactsViewPage">  <div class="contactsViewContainer">    <header class="headerDesktopContactsView">      <app-header-bar-mobile></app-header-bar-mobile>    </header>    <main class="contactsViewContent">      <div class="contactsSmallHeadline">        <h1>Contacts</h1>        <div class="contactsDividingLine"></div>        <div class="smallHeadlineContacts">Better with a team</div>        <div class="contactsUnderline"></div>        <div class="contactsBackArrow" (click)="goBackToContacts()">          <svg            width="25"            height="23"            viewBox="0 0 25 23"            fill="none"            xmlns="http://www.w3.org/2000/svg"          >            <path              d="M6.00972 9.88554H23.1871C24.0362 9.88554 24.7246 10.5739 24.7246 11.4231C24.7246 12.2722 24.0362 12.9606 23.1871 12.9606H6.00972L13.17 20.1209C13.7704 20.7213 13.7704 21.6946 13.17 22.295C12.5697 22.8954 11.5963 22.8954 10.996 22.295L1.53824 12.8373C0.757188 12.0562 0.757188 10.7899 1.53824 10.0089L10.996 0.55115C11.5963 -0.0492049 12.5697 -0.0492048 13.17 0.55115C13.7704 1.1515 13.7704 2.12487 13.17 2.72523L6.00972 9.88554Z"              fill="#29ABE2"            />          </svg>        </div>      </div>      <div class="intitialsContactNameContainer">        <span class="initialsCircleContactView" [style.backgroundColor]="contact?.color">{{          getInitials(contact?.name)        }}</span>        <div class="contactsNameEditContainer">          <div class="contactName">{{ contact?.name }}</div>          <div class="contactsEditDeleteDesktop">            <span class="contactsEditLink" (click)="showContactsEdit()"              ><i class="fa-solid fa-pencil"></i> Edit</span            >            <span class="contactsEditLink" (click)="deleteContact()"              ><i class="fas fa-trash-alt"></i> Delete</span            >          </div>        </div>      </div>      <article class="contactsInformationContainer">        <p class="contactsInformation">Contact information</p>        <div class="contactsInformationContainerSmall">          <strong class="contactsEmailHeadline">Email</strong>          <a class="contactsEmail">{{ contact?.email }}</a>          <strong class="contactsPhoneHeadline">Phone</strong>          <p class="contactsPhone">{{ contact?.phone }}</p>        </div>      </article>      <div class="dropup">        <div          type="button"          class="moreIconContainer"          data-bs-toggle="dropdown"          aria-expanded="false"        >          <img class="moreIcon" src="/assets/img/more.png" alt="More options icon" />        </div>        <ul class="dropdown-menu linkContainerContactView">          <li>            <span class="dropdown-item linkContactView" (click)="showContactsEdit()">              <i class="fa-solid fa-pencil"></i> Edit            </span>          </li>          <li>            <span class="dropdown-item linkContactView" href="#" (click)="deleteContact()">              <i class="fas fa-trash-alt"></i>              Delete            </span>          </li>        </ul>      </div>    </main>    <app-contacts-edit      class="editContactsComponent"      (contactEdited)="onContactEdited($event)"      *ngIf="showEditOverlay"      [contactId]="contactId"      (close)="showEditOverlay = false"    ></app-contacts-edit>    <footer class="footerComponent">      <app-footer-bar></app-footer-bar>    </footer>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ContactsViewComponent'};
 </script>

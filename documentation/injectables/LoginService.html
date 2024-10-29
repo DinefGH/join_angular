@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service responsible for handling user login, logout, and access to protected data.</p>
+
+            </p>
 
 
 
@@ -189,12 +196,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth/login.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/login.service.ts:18</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor that injects HttpClient for making HTTP requests.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -203,6 +212,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -217,6 +227,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Angular&#39;s HttpClient for HTTP communication.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -252,19 +268,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/app/auth/login.service.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/auth/login.service.ts:62</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves protected data from the server, including an authorization token in the request headers.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Observable<any> - Observable with the server&#39;s protected data or null in case of error.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -289,19 +311,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="51"
-                                    class="link-to-prism">src/app/auth/login.service.ts:51</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/auth/login.service.ts:79</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Checks if the user is currently logged in by verifying the presence of an auth token.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>boolean - True if the user is logged in, false otherwise.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -326,14 +354,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/app/auth/login.service.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/auth/login.service.ts:35</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Logs in a user with the provided email and password.
+Stores the authentication token in local storage upon successful login.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -344,6 +375,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -358,6 +390,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>User&#39;s email address.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>password</td>
@@ -370,6 +408,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>User&#39;s password.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -379,7 +423,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Observable<any> - Observable with the server response or null in case of error.</p>
+
                             </div>
                 </td>
             </tr>
@@ -405,14 +450,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/app/auth/login.service.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/auth/login.service.ts:52</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Logs out the user by removing the authentication token from local storage.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -453,10 +500,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/auth/login.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/auth/login.service.ts:15</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL for the login endpoint</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -485,10 +538,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth/login.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/login.service.ts:18</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL for accessing protected resources</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -503,51 +562,79 @@ import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
 import { catchError, tap } from &#x27;rxjs/operators&#x27;;
 
+/**
+ * Service responsible for handling user login, logout, and access to protected data.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class LoginService {
+
+    /** URL for the login endpoint */
   private loginUrl &#x3D; &#x27;https://join.server.fabianduerr.com/login/&#x27;;
+
+  /** URL for accessing protected resources */
   private protectedUrl &#x3D; &#x27;https://join.server.fabianduerr.com/protected/&#x27;;
 
+
+    /**
+   * Constructor that injects HttpClient for making HTTP requests.
+   * @param http - Angular&#x27;s HttpClient for HTTP communication.
+   */
   constructor(private http: HttpClient) {}
 
+
+    /**
+   * Logs in a user with the provided email and password.
+   * Stores the authentication token in local storage upon successful login.
+   * @param email - User&#x27;s email address.
+   * @param password - User&#x27;s password.
+   * @returns Observable&lt;any&gt; - Observable with the server response or null in case of error.
+   */
   login(email: string, password: string): Observable&lt;any&gt; {
     return this.http.post&lt;{ token: string }&gt;(this.loginUrl, { email, password }).pipe(
       tap(response &#x3D;&gt; {
-        // Store the received token in localStorage
         localStorage.setItem(&#x27;auth_token&#x27;, response.token);
         sessionStorage.setItem(&#x27;showOverlaySummary&#x27;, &#x27;true&#x27;);
       }),
       catchError(error &#x3D;&gt; {
         console.error(&#x27;Login error:&#x27;, error);
-        return of(null); // or throw an error
+        return of(null); 
       }),
     );
   }
 
+
+    /**
+   * Logs out the user by removing the authentication token from local storage.
+   */
   logout(): void {
-    // Remove the token from localStorage
     localStorage.removeItem(&#x27;auth_token&#x27;);
-    // Redirect to login page or home page as needed
-    // this.router.navigate([&#x27;/login&#x27;]);
     sessionStorage.removeItem(&#x27;showOverlay&#x27;);
   }
 
+
+    /**
+   * Retrieves protected data from the server, including an authorization token in the request headers.
+   * @returns Observable&lt;any&gt; - Observable with the server&#x27;s protected data or null in case of error.
+   */
   getProtectedData(): Observable&lt;any&gt; {
-    // Include the token in the Authorization header
     const headers &#x3D; new HttpHeaders({
       Authorization: &#x60;Token ${localStorage.getItem(&#x27;auth_token&#x27;)}&#x60;,
     });
     return this.http.get(this.protectedUrl, { headers }).pipe(
       catchError(error &#x3D;&gt; {
         console.error(&#x27;Error fetching protected data:&#x27;, error);
-        return of(null); // Handle the error appropriately
+        return of(null); 
       }),
     );
   }
 
-  // Helper function to check if the user is logged in
+
+    /**
+   * Checks if the user is currently logged in by verifying the presence of an auth token.
+   * @returns boolean - True if the user is logged in, false otherwise.
+   */
   isLoggedIn(): boolean {
     return !!localStorage.getItem(&#x27;auth_token&#x27;);
   }

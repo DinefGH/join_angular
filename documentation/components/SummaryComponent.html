@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>SummaryComponent displays a summary view for the user, including
+a greeting, tasks overview, and nearest task due date.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -267,12 +275,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/summary/summary.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/summary/summary.component.ts:37</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject necessary services, including UserService, TaskService, and Router.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -281,6 +291,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -295,6 +306,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service to manage user data.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>taskService</td>
@@ -307,6 +324,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service to manage tasks data.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -319,6 +342,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Router for navigation within the app.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -358,14 +387,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="87"
-                                    class="link-to-prism">src/app/summary/summary.component.ts:87</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:136</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Counts tasks by their priority level (e.g., &quot;high&quot;, &quot;medium&quot;).</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -376,6 +407,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -390,6 +422,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The priority level of tasks to filter by.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -399,7 +437,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The count of tasks with the specified priority.</p>
+
                             </div>
                 </td>
             </tr>
@@ -425,14 +464,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="82"
-                                    class="link-to-prism">src/app/summary/summary.component.ts:82</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:125</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Counts tasks by their status (e.g., &quot;todo&quot;, &quot;done&quot;).</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -443,6 +484,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -457,6 +499,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The status of tasks to filter by.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -466,7 +514,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The count of tasks with the specified status.</p>
+
                             </div>
                 </td>
             </tr>
@@ -492,14 +541,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">src/app/summary/summary.component.ts:92</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:146</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Finds the nearest due date among the tasks and sets it as nearestDueDate.
+If no tasks are available, sets nearestDueDate to null.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -531,14 +583,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="52"
-                                    class="link-to-prism">src/app/summary/summary.component.ts:52</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:86</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Generates a greeting message based on the current time of day.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -549,6 +603,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -563,6 +618,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The current user to personalize the greeting.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -572,7 +633,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A greeting string (e.g., &quot;Good morning,&quot;).</p>
+
                             </div>
                 </td>
             </tr>
@@ -598,14 +660,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="114"
-                                    class="link-to-prism">src/app/summary/summary.component.ts:114</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:169</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to the Board page when the summary button is clicked.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -635,14 +699,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="69"
-                                    class="link-to-prism">src/app/summary/summary.component.ts:69</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:107</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Loads tasks from the server and calculates the nearest due date.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -672,14 +738,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/summary/summary.component.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/summary/summary.component.ts:56</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the component, loads tasks, sets up greeting, and manages the overlay.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -713,10 +781,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/summary/summary.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/summary/summary.component.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Current date displayed in the summary view.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -744,10 +818,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/summary/summary.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/summary/summary.component.ts:28</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The currently logged-in user, retrieved from the UserService.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -770,10 +850,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/summary/summary.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/summary/summary.component.ts:25</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Observable to dynamically display a greeting based on the time of day.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -801,10 +887,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/summary/summary.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/summary/summary.component.ts:34</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Nearest task due date among all tasks, calculated after loading tasks.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -832,10 +924,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/summary/summary.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/summary/summary.component.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean to control the display of an introductory overlay in the summary.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -863,10 +961,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/summary/summary.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/summary/summary.component.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>List of tasks retrieved from the TaskService.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -884,25 +988,53 @@ import { map } from &#x27;rxjs/operators&#x27;;
 import { TaskService, Task } from &#x27;src/app/services/task.service&#x27;;
 import { Router, NavigationEnd, Event as RouterEvent } from &#x27;@angular/router&#x27;;
 
+
+/**
+ * SummaryComponent displays a summary view for the user, including
+ * a greeting, tasks overview, and nearest task due date.
+ */
 @Component({
   selector: &#x27;app-summary&#x27;,
   templateUrl: &#x27;./summary.component.html&#x27;,
   styleUrls: [&#x27;./summary.component.scss&#x27;],
 })
 export class SummaryComponent implements OnInit {
+
+    /** Current date displayed in the summary view. */
   currentDate &#x3D; new Date();
+
+    /** Observable to dynamically display a greeting based on the time of day. */
   greeting$: Observable&lt;string&gt; | undefined;
+
+    /** The currently logged-in user, retrieved from the UserService. */
   currentUser: User | null &#x3D; null;
+
+    /** List of tasks retrieved from the TaskService. */
   tasks: Task[] &#x3D; [];
+
+    /** Nearest task due date among all tasks, calculated after loading tasks. */
   nearestDueDate: Date | null &#x3D; null;
+
+    /** Boolean to control the display of an introductory overlay in the summary. */
   showOverlaySummary: boolean &#x3D; true;
 
+
+    /**
+   * Constructor to inject necessary services, including UserService, TaskService, and Router.
+   * @param userService - Service to manage user data.
+   * @param taskService - Service to manage tasks data.
+   * @param router - Router for navigation within the app.
+   */
   constructor(
     private userService: UserService,
     private taskService: TaskService,
     private router: Router,
   ) {}
 
+
+    /**
+   * Initializes the component, loads tasks, sets up greeting, and manages the overlay.
+   */
   ngOnInit(): void {
     const showOverlayStored &#x3D; sessionStorage.getItem(&#x27;showOverlaySummary&#x27;);
     console.log(this.showOverlaySummary);
@@ -927,6 +1059,12 @@ export class SummaryComponent implements OnInit {
     }
   }
 
+
+    /**
+   * Generates a greeting message based on the current time of day.
+   * @param user - The current user to personalize the greeting.
+   * @returns A greeting string (e.g., &quot;Good morning,&quot;).
+   */
   private generateGreeting(user: User | null): string {
     const now &#x3D; new Date();
     const hour &#x3D; now.getHours();
@@ -944,6 +1082,10 @@ export class SummaryComponent implements OnInit {
     return greeting;
   }
 
+
+    /**
+   * Loads tasks from the server and calculates the nearest due date.
+   */
   loadTasks(): void {
     this.taskService.getTasks().subscribe(
       tasks &#x3D;&gt; {
@@ -952,28 +1094,43 @@ export class SummaryComponent implements OnInit {
       },
       error &#x3D;&gt; {
         console.error(&#x27;Error loading tasks:&#x27;, error);
-        // Handle error loading tasks
       },
     );
   }
 
+
+    /**
+   * Counts tasks by their status (e.g., &quot;todo&quot;, &quot;done&quot;).
+   * @param status - The status of tasks to filter by.
+   * @returns The count of tasks with the specified status.
+   */
   countTasksByStatus(status: string): number {
     const filteredTasks &#x3D; this.tasks.filter(task &#x3D;&gt; task.status &#x3D;&#x3D;&#x3D; status);
     return filteredTasks.length;
   }
 
+
+    /**
+   * Counts tasks by their priority level (e.g., &quot;high&quot;, &quot;medium&quot;).
+   * @param priority - The priority level of tasks to filter by.
+   * @returns The count of tasks with the specified priority.
+   */
   countTasksByPriority(priority: string): number {
     const filteredTasks &#x3D; this.tasks.filter(task &#x3D;&gt; task.priority &#x3D;&#x3D;&#x3D; priority);
     return filteredTasks.length;
   }
 
+
+    /**
+   * Finds the nearest due date among the tasks and sets it as nearestDueDate.
+   * If no tasks are available, sets nearestDueDate to null.
+   */
   findNearestDueDate(): void {
     if (this.tasks.length &#x3D;&#x3D;&#x3D; 0) {
       this.nearestDueDate &#x3D; null;
       return;
     }
 
-    // Find the task with the nearest due_date
     const now &#x3D; new Date().getTime();
     let nearestTask &#x3D; this.tasks[0];
     let minDifference &#x3D; Math.abs(new Date(nearestTask.due_date!).getTime() - now);
@@ -989,6 +1146,8 @@ export class SummaryComponent implements OnInit {
     this.nearestDueDate &#x3D; new Date(nearestTask.due_date!);
   }
 
+
+  /** Navigates to the Board page when the summary button is clicked. */
   goToBoardSummary() {
     this.router.navigate([&#x27;/board&#x27;]);
   }
@@ -1479,7 +1638,7 @@ export class SummaryComponent implements OnInit {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensure it&#x27;s on top of everything */
+  z-index: 9999; 
   animation: overlayFadeOut 3s ease-in-out forwards;
   animation-delay: 2s;
 }
@@ -1508,7 +1667,7 @@ export class SummaryComponent implements OnInit {
   }
   100% {
     opacity: 0;
-    visibility: hidden; /* Ensure the overlay is completely hidden at the end */
+    visibility: hidden; 
   }
 }
 
@@ -1518,7 +1677,7 @@ export class SummaryComponent implements OnInit {
   }
   100% {
     opacity: 0;
-    visibility: hidden; /* Ensure the overlay is completely hidden at the end */
+    visibility: hidden;
   }
 }
 </code></pre>
@@ -1550,7 +1709,7 @@ export class SummaryComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div *ngIf="showOverlaySummary" class="overlaySummary">  <div class="greetingNameContainerOverlay">    <span class="greetingContainerGreetingOverlay">{{ greeting$ | async }}</span>    <span class="greetingContainerNameOverlay">{{ currentUser?.name }}</span>  </div></div><div class="summaryContainer">  <header>    <app-header-bar-mobile></app-header-bar-mobile>  </header>  <div class="summaryDesktopContainer">    <app-sidebar class="sidebarComponent"></app-sidebar>    <main class="summaryContent">      <article class="headlinesContainer">        <h1>Join</h1>        <div class="summaryDividingLine"></div>        <span class="smallHeadline">Key Metrics at a Glance</span>        <div class="summaryUnderline"></div>      </article>      <div class="cardContainer">        <div class="cardsFirstRow">          <div class="card firstRow cardsStyle hoverTodo" (click)="goToBoardSummary()">            <div>              <svg                class="pencilIcon iconLandscape"                width="64"                height="64"                viewBox="0 0 70 70"                fill="none"                xmlns="http://www.w3.org/2000/svg"              >                <circle cx="35.3945" cy="34.8083" r="34.5" fill="#2A3647" />                <mask                  id="mask0_62_577"                  style="mask-type: alpha"                  maskUnits="userSpaceOnUse"                  x="19"                  y="18"                  width="33"                  height="33"                >                  <rect x="19.3945" y="18.8083" width="32" height="32" fill="#D9D9D9" />                </mask>                <g mask="url(#mask0_62_577)">                  <path                    d="M26.0612 44.1418H27.9279L39.4279 32.6418L37.5612 30.7751L26.0612 42.2751V44.1418ZM45.1279 30.7084L39.4612 25.1084L41.3279 23.2418C41.839 22.7307 42.4668 22.4751 43.2112 22.4751C43.9556 22.4751 44.5834 22.7307 45.0945 23.2418L46.9612 25.1084C47.4723 25.6195 47.739 26.2362 47.7612 26.9584C47.7834 27.6807 47.539 28.2973 47.0279 28.8084L45.1279 30.7084ZM43.1945 32.6751L29.0612 46.8084H23.3945V41.1418L37.5279 27.0084L43.1945 32.6751Z"                    fill="white"                  />                </g>              </svg>            </div>            <div class="numberTextContainer">              <div class="numberStyle">{{ countTasksByStatus(\'todo\') }}</div>              <div>To-do</div>            </div>          </div>          <div class="card firstRow cardsStyle hoverDone" (click)="goToBoardSummary()">            <div>              <svg                class="tickIcon iconLandscape"                width="64"                height="64"                viewBox="0 0 70 70"                fill="none"                xmlns="http://www.w3.org/2000/svg"              >                <circle cx="34.8945" cy="34.8083" r="34.5" fill="#2A3647" />                <path                  d="M19.9229 34.8085L31.1516 45.8745L49.8662 23.7424"                  stroke="white"                  stroke-width="7"                  stroke-linecap="round"                  stroke-linejoin="round"                />              </svg>            </div>            <div class="numberTextContainer">              <div class="numberStyle">{{ countTasksByStatus(\'done\') }}</div>              <div>Done</div>            </div>          </div>        </div>        <div class="cardsSecondRow">          <div class="card secondRow cardsStyle hoverUrgent" (click)="goToBoardSummary()">            <div class="urgentIconTextContainer">              <div>                <svg                  class="iconLandscape"                  width="64"                  height="64"                  viewBox="0 0 41 40"                  fill="none"                  xmlns="http://www.w3.org/2000/svg"                >                  <circle cx="20.5" cy="20" r="20" fill="#FF3D00" />                  <g clip-path="url(#clip0_151696_3346)">                    <path                      d="M30.4143 27.4424C30.1469 27.4428 29.8864 27.3565 29.6712 27.1959L20.2677 20.176L10.8642 27.1959C10.7322 27.2947 10.5823 27.3661 10.4229 27.4062C10.2636 27.4463 10.0981 27.4543 9.93574 27.4297C9.77339 27.405 9.61743 27.3483 9.47676 27.2626C9.33609 27.177 9.21347 27.0642 9.11589 26.9306C9.01831 26.797 8.94769 26.6452 8.90806 26.484C8.86844 26.3228 8.86057 26.1553 8.88492 25.991C8.93411 25.6592 9.11152 25.3608 9.37814 25.1614L19.5247 17.5791C19.7397 17.418 20.0002 17.3311 20.2677 17.3311C20.5353 17.3311 20.7957 17.418 21.0108 17.5791L31.1573 25.1614C31.3692 25.3194 31.5263 25.5411 31.6062 25.7948C31.6862 26.0485 31.6848 26.3213 31.6024 26.5743C31.5201 26.8272 31.3608 27.0473 31.1474 27.2032C30.934 27.3591 30.6774 27.4428 30.4143 27.4424Z"                      fill="white"                    />                    <path                      d="M30.4143 20.8076C30.1469 20.8081 29.8865 20.7217 29.6712 20.5612L20.2677 13.5413L10.8642 20.5612C10.5976 20.7606 10.2636 20.8447 9.93575 20.7949C9.60787 20.7451 9.31296 20.5656 9.1159 20.2958C8.91883 20.026 8.83575 19.688 8.88493 19.3562C8.93411 19.0244 9.11153 18.726 9.37814 18.5266L19.5247 10.9443C19.7397 10.7832 20.0002 10.6963 20.2677 10.6963C20.5353 10.6963 20.7957 10.7832 21.0108 10.9443L31.1573 18.5266C31.3692 18.6846 31.5263 18.9063 31.6062 19.16C31.6862 19.4138 31.6848 19.6866 31.6025 19.9395C31.5201 20.1924 31.3608 20.4126 31.1474 20.5685C30.934 20.7244 30.6774 20.8081 30.4143 20.8076Z"                      fill="white"                    />                  </g>                  <defs>                    <clipPath id="clip0_151696_3346">                      <rect                        width="22.7907"                        height="16.7442"                        fill="white"                        transform="translate(8.87207 10.6978)"                      />                    </clipPath>                  </defs>                </svg>              </div>              <div class="numberTextContainer">                <div class="numberStyle">{{ countTasksByPriority(\'Urgent\') }}</div>                <div>Urgent</div>              </div>            </div>            <div class="urgentShadow"></div>            <div class="urgentDateDeadline">              <div class="urgentDate">{{ nearestDueDate | date: \'longDate\' }}</div>              <div class="urgentDeadline">Upcoming Deadline</div>            </div>          </div>        </div>        <div class="cardsThirdRow">          <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">            <div class="numberStyle">{{ tasks.length }}</div>            <div class="textCenter">Tasks in Board</div>          </div>          <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">            <div class="numberStyle">{{ countTasksByStatus(\'inProgress\') }}</div>            <div class="textCenter">Tasks in Progress</div>          </div>          <div class="card thirdRow cardsStyle hoverthirdRow" (click)="goToBoardSummary()">            <div class="numberStyle">{{ countTasksByStatus(\'awaitFeedback\') }}</div>            <div class="textCenter">Awaiting Feedback</div>          </div>        </div>      </div>    </main>    <div class="greetingContainer">      <div class="greetingNameContainer">        <span class="greetingContainerGreeting">{{ greeting$ | async }}</span>        <span class="greetingContainerName">{{ currentUser?.name }}</span>      </div>    </div>  </div>  <footer class="footerComponent">    <app-footer-bar></app-footer-bar>  </footer></div></div>'
-    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SummaryComponent'};
 </script>

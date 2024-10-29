@@ -120,6 +120,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>AuthInterceptorService intercepts HTTP requests to add an authorization token
+and redirects to the login page if the user is unauthorized (401 error).</p>
+
+            </p>
 
 
             <section data-compodoc="block-index">
@@ -161,12 +169,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/auth-interceptor.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/auth-interceptor.service.ts:20</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject the Router for navigation upon authentication failure.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -175,6 +185,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -189,6 +200,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Angular Router to navigate on unauthorized access.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -224,14 +241,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/app/services/auth-interceptor.service.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/services/auth-interceptor.service.ts:37</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Intercepts HTTP requests to add an Authorization header with a token, if available.
+Handles errors, specifically redirecting to login on 401 Unauthorized errors.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -242,6 +262,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -256,6 +277,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The outgoing HTTP request to be intercepted.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>next</td>
@@ -268,6 +295,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The next interceptor in the chain or the final backend handler.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -277,7 +310,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable of the HTTP event with authorization headers applied, if a token is available.</p>
+
                             </div>
                 </td>
             </tr>
@@ -300,11 +334,31 @@ import { Injectable } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { Observable, catchError, throwError } from &#x27;rxjs&#x27;;
 
+
+/**
+ * AuthInterceptorService intercepts HTTP requests to add an authorization token
+ * and redirects to the login page if the user is unauthorized (401 error).
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class AuthInterceptorService implements HttpInterceptor {
+
+
+    /**
+   * Constructor to inject the Router for navigation upon authentication failure.
+   * @param router - Angular Router to navigate on unauthorized access.
+   */
   constructor(private router: Router) {}
+
+
+    /**
+   * Intercepts HTTP requests to add an Authorization header with a token, if available.
+   * Handles errors, specifically redirecting to login on 401 Unauthorized errors.
+   * @param request - The outgoing HTTP request to be intercepted.
+   * @param next - The next interceptor in the chain or the final backend handler.
+   * @returns An Observable of the HTTP event with authorization headers applied, if a token is available.
+   */
   intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
     const token &#x3D; localStorage.getItem(&#x27;token&#x27;);
     if (token) {

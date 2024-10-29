@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>CategoryService handles retrieval of categories from the server,
+providing an observable that emits the list of categories.</p>
+
+            </p>
 
 
 
@@ -176,12 +184,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/category.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/category.service.ts:33</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject HttpClient for making HTTP requests.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -190,6 +200,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -204,6 +215,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>HttpClient instance for sending requests to the API.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -239,19 +256,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/app/services/category.service.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/services/category.service.ts:47</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the list of categories from the server.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../interfaces/Category.html" target="_self" >Observable&lt;Category[]&gt;</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>An Observable that emits an array of Category objects.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -281,10 +304,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/category.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/category.service.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>API URL for accessing category data.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -299,22 +328,47 @@ import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { environment } from &#x27;src/environments/environment&#x27;;
 
-// Define the Category model directly within the service
+
+/**
+ * Represents a Category with its ID, name, and associated color.
+ */
 export interface Category {
+
+  /** Unique identifier for the category. */
   id: number;
+
+  /** Name of the category. */
   name: string;
+
+  /** Color associated with the category, represented as a string. */
   color: string;
 }
 
+
+/**
+ * CategoryService handles retrieval of categories from the server,
+ * providing an observable that emits the list of categories.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class CategoryService {
-  private apiUrl &#x3D; &#x60;${environment.apiUrl}/categories&#x60;; // Adjust if your API URL is different
 
+    /** API URL for accessing category data. */
+  private apiUrl &#x3D; &#x60;${environment.apiUrl}/categories&#x60;;
+
+
+    /**
+   * Constructor to inject HttpClient for making HTTP requests.
+   * @param http - HttpClient instance for sending requests to the API.
+   */
   constructor(private http: HttpClient) {}
 
-  // Fetch categories from the backend
+
+    /**
+   * Retrieves the list of categories from the server.
+   * @returns An Observable that emits an array of Category objects.
+   */
   getCategories(): Observable&lt;Category[]&gt; {
     return this.http.get&lt;Category[]&gt;(this.apiUrl);
   }

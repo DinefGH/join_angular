@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>TaskService manages tasks by providing methods to create, retrieve, update, and delete tasks.
+It also includes error handling for HTTP requests.</p>
+
+            </p>
 
 
 
@@ -192,12 +200,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/task.service.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/services/task.service.ts:78</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject HttpClient for making HTTP requests.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -206,6 +216,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -220,6 +231,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>HttpClient instance for sending requests to the server.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -255,14 +272,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="57"
-                                    class="link-to-prism">src/app/services/task.service.ts:57</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/services/task.service.ts:130</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Adds a new task with a default status of &#39;todo&#39;.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -273,6 +292,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -287,6 +307,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The Task object to be added.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -296,7 +322,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits the created Task object.</p>
+
                             </div>
                 </td>
             </tr>
@@ -322,14 +349,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">src/app/services/task.service.ts:76</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/app/services/task.service.ts:161</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a task by its ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -340,6 +369,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -354,6 +384,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the task to delete.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -363,7 +399,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that completes when the task is deleted.</p>
+
                             </div>
                 </td>
             </tr>
@@ -389,14 +426,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/services/task.service.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/services/task.service.ts:120</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a specific task by its ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -407,6 +446,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -421,6 +461,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the task to retrieve.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -430,7 +476,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits the requested Task object.</p>
+
                             </div>
                 </td>
             </tr>
@@ -456,19 +503,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="46"
-                                    class="link-to-prism">src/app/services/task.service.ts:46</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/services/task.service.ts:107</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all tasks from the server.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../interfaces/Task.html" target="_self" >Observable&lt;Task[]&gt;</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>An Observable that emits an array of Task objects.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -495,14 +548,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/app/services/task.service.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/services/task.service.ts:93</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Handles errors from HTTP requests, logging the error and providing a generic error message.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -513,6 +568,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -527,6 +583,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The error response from the HTTP request.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -536,7 +598,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An observable that emits an error message.</p>
+
                             </div>
                 </td>
             </tr>
@@ -562,14 +625,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">src/app/services/task.service.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/services/task.service.ts:142</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Updates an existing task by its ID, ensuring unique subtasks.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -580,6 +645,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -594,6 +660,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the task to update.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>task</td>
@@ -606,6 +678,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The updated Task object.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -615,7 +693,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits the updated Task object.</p>
+
                             </div>
                 </td>
             </tr>
@@ -646,10 +725,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/task.service.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/services/task.service.ts:78</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Base URL for task-related API endpoints.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -663,65 +748,144 @@
 import { HttpClient, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
 import { Observable, throwError } from &#x27;rxjs&#x27;;
 import { catchError, retry } from &#x27;rxjs/operators&#x27;;
-import { environment } from &#x27;src/environments/environment&#x27;; // Import environment for dynamic API URLs
+import { environment } from &#x27;src/environments/environment&#x27;;
 
+
+/**
+ * Interface representing a subtask, with optional ID, text description, and completion status.
+ */
 export interface Subtask {
+
+  /** Unique identifier for the subtask. */
   id?: number;
+
+/** Text description of the subtask. */
   text: string;
+
+  /** Boolean indicating if the subtask is completed. */
   completed: boolean;
 }
 
-export interface Task {
-  id?: number;
-  title: string;
-  description?: string;
-  priority: string;
-  due_date?: string;
-  category?: number;
-  assigned_to: number[];
-  subtasks: Subtask[];
-  status?: string; // Add status field
-  contacts: number[]; // Add this line
-  creator?: number; // Add this line
 
+/**
+ * Interface representing a task, with optional ID, title, priority, due date, category, and more.
+ * Includes subtasks and contacts associated with the task.
+ */
+export interface Task {
+
+  /** Unique identifier for the task. */
+  id?: number;
+
+  /** Title of the task. */
+  title: string;
+
+  /** Optional description of the task. */
+  description?: string;
+
+  /** Priority level of the task (e.g., high, medium, low). */
+  priority: string;
+
+  /** Optional due date for the task, represented as a string. */
+  due_date?: string;
+
+  /** Optional ID of the category associated with the task. */
+  category?: number;
+
+  /** Array of user IDs assigned to the task. */
+  assigned_to: number[];
+
+  /** Array of subtasks associated with the task. */
+  subtasks: Subtask[];
+
+  /** Optional status of the task (e.g., todo, in progress, done). */
+  status?: string; 
+
+  /** Array of contact IDs associated with the task. */
+  contacts: number[]; 
+
+  /** Optional ID of the user who created the task. */
+  creator?: number; 
+
+  /** Optional boolean to toggle the visibility of the status dropdown. */
   showStatusDropdown?: boolean;
 }
 
+
+/**
+ * TaskService manages tasks by providing methods to create, retrieve, update, and delete tasks.
+ * It also includes error handling for HTTP requests.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class TaskService {
-  private baseUrl &#x3D; environment.apiUrl; // Use environment to manage API URL
 
+  /** Base URL for task-related API endpoints. */
+  private baseUrl &#x3D; environment.apiUrl; 
+
+
+    /**
+   * Constructor to inject HttpClient for making HTTP requests.
+   * @param http - HttpClient instance for sending requests to the server.
+   */
   constructor(private http: HttpClient) {}
 
+
+    /**
+   * Handles errors from HTTP requests, logging the error and providing a generic error message.
+   * @param error - The error response from the HTTP request.
+   * @returns An observable that emits an error message.
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.status &#x3D;&#x3D;&#x3D; 0) {
-      console.error(&#x27;An error occurred:&#x27;, error.error); // A client-side or network error occurred.
+      console.error(&#x27;An error occurred:&#x27;, error.error); 
     } else {
-      console.error(&#x60;Backend returned code ${error.status}, body was: &#x60;, error.error); // The backend returned an unsuccessful response code.
+      console.error(&#x60;Backend returned code ${error.status}, body was: &#x60;, error.error); 
     }
-    return throwError(&#x27;Something bad happened; please try again later.&#x27;); // Return an observable with a user-facing error message.
+    return throwError(&#x27;Something bad happened; please try again later.&#x27;); 
   }
 
+
+    /**
+   * Retrieves all tasks from the server.
+   * @returns An Observable that emits an array of Task objects.
+   */
   getTasks(): Observable&lt;Task[]&gt; {
     return this.http.get&lt;Task[]&gt;(&#x60;${this.baseUrl}/tasks/&#x60;).pipe(
-      retry(3), // Retry this request up to three times.
-      catchError(this.handleError), // Handle errors
+      retry(3), 
+      catchError(this.handleError), 
     );
   }
 
+
+    /**
+   * Retrieves a specific task by its ID.
+   * @param id - The ID of the task to retrieve.
+   * @returns An Observable that emits the requested Task object.
+   */
   getTask(id: number): Observable&lt;Task&gt; {
     return this.http.get&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/${id}/&#x60;).pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Adds a new task with a default status of &#x27;todo&#x27;.
+   * @param task - The Task object to be added.
+   * @returns An Observable that emits the created Task object.
+   */
   addTask(task: Task): Observable&lt;Task&gt; {
-    task.status &#x3D; &#x27;todo&#x27;; // Ensure the status is set to &#x27;todo&#x27;
+    task.status &#x3D; &#x27;todo&#x27;; 
     return this.http.post&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/&#x60;, task).pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Updates an existing task by its ID, ensuring unique subtasks.
+   * @param id - The ID of the task to update.
+   * @param task - The updated Task object.
+   * @returns An Observable that emits the updated Task object.
+   */
   updateTask(id: number, task: Task): Observable&lt;Task&gt; {
-    // Ensure no duplicate subtasks are sent to the backend
     const uniqueSubtasks &#x3D; task.subtasks.filter(
       (subtask, index, self) &#x3D;&gt;
         index &#x3D;&#x3D;&#x3D; self.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; subtask.id &amp;&amp; t.text &#x3D;&#x3D;&#x3D; subtask.text),
@@ -734,6 +898,12 @@ export class TaskService {
       .pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Deletes a task by its ID.
+   * @param id - The ID of the task to delete.
+   * @returns An Observable that completes when the task is deleted.
+   */
   deleteTask(id: number): Observable&lt;{}&gt; {
     return this.http.delete(&#x60;${this.baseUrl}/tasks/${id}/&#x60;).pipe(catchError(this.handleError));
   }

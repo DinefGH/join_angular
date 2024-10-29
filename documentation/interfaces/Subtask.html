@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface representing a subtask with optional ID, text, and completion status.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -201,6 +208,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Boolean indicating if the subtask is completed.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -239,6 +252,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Unique identifier for the subtask.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -272,6 +291,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Text description of the subtask.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -285,30 +310,67 @@ import { Observable, throwError } from &#x27;rxjs&#x27;;
 import { catchError } from &#x27;rxjs/operators&#x27;;
 import { environment } from &#x27;src/environments/environment&#x27;;
 
-// Define the Subtask model
+
+/**
+ * Interface representing a subtask with optional ID, text, and completion status.
+ */
 export interface Subtask {
-  id?: number; // Optional if not yet created
+
+  /** Unique identifier for the subtask. */
+  id?: number; 
+
+  /** Text description of the subtask. */
   text: string;
+
+  /** Boolean indicating if the subtask is completed. */
   completed: boolean;
 }
 
-// Define the service that handles API operations for Subtasks
+
+/**
+ * SubtaskService provides methods to create, retrieve, update, and delete subtasks.
+ * It communicates with the server API and handles any HTTP errors that occur during requests.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class SubtaskService {
+
+  /** Base URL for the subtasks API. */
   private apiUrl &#x3D; &#x60;${environment.apiUrl}/subtasks/&#x60;;
 
+
+  /**
+   * Constructor to inject HttpClient for making HTTP requests.
+   * @param http - HttpClient instance for handling HTTP requests.
+   */
   constructor(private http: HttpClient) {}
 
+
+    /**
+   * Retrieves the list of all subtasks from the server.
+   * @returns An Observable that emits an array of Subtask objects.
+   */
   getSubtasks(): Observable&lt;Subtask[]&gt; {
     return this.http.get&lt;Subtask[]&gt;(this.apiUrl).pipe(catchError(this.handleError));
   }
 
+
+  /**
+   * Retrieves a specific subtask by ID.
+   * @param id - The ID of the subtask to retrieve.
+   * @returns An Observable that emits the requested Subtask.
+   */
   getSubtask(id: number): Observable&lt;Subtask&gt; {
     return this.http.get&lt;Subtask&gt;(&#x60;${this.apiUrl}/${id}&#x60;).pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Creates a new subtask on the server.
+   * @param subtask - The Subtask object to create.
+   * @returns An Observable that emits the created Subtask.
+   */
   createSubtask(subtask: Subtask): Observable&lt;Subtask&gt; {
     return this.http.post&lt;Subtask&gt;(this.apiUrl, subtask).pipe(
       catchError(error &#x3D;&gt; {
@@ -318,24 +380,40 @@ export class SubtaskService {
     );
   }
 
+
+    /**
+   * Updates an existing subtask by its ID.
+   * @param id - The ID of the subtask to update.
+   * @param subtask - The updated Subtask object.
+   * @returns An Observable that emits the updated Subtask.
+   */
   updateSubtask(id: number, subtask: Subtask): Observable&lt;Subtask&gt; {
     const url &#x3D; &#x60;${this.apiUrl.replace(/\/+$/, &#x27;&#x27;)}/${id}/&#x60;; // Ensure trailing slash
 
     return this.http.put&lt;Subtask&gt;(url, subtask).pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Deletes a subtask by its ID.
+   * @param id - The ID of the subtask to delete.
+   * @returns An Observable that completes when the subtask is deleted.
+   */
   deleteSubtask(id: number): Observable&lt;void&gt; {
     return this.http.delete&lt;void&gt;(&#x60;${this.apiUrl}/${id}&#x60;).pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Handles HTTP errors that occur during requests, logging error details to the console.
+   * @param error - The error response received.
+   * @returns An Observable that emits an error message.
+   */
   private handleError(error: any) {
-    // You might use a remote logging infrastructure
     let errorMessage &#x3D; &#x27;An unknown error occurred!&#x27;;
     if (error.error instanceof ErrorEvent) {
-      // Client-side errors
       errorMessage &#x3D; &#x60;Error: ${error.error.message}&#x60;;
     } else {
-      // Server-side errors
       errorMessage &#x3D; &#x60;Error Code: ${error.status}\nMessage: ${error.message}&#x60;;
     }
     console.error(errorMessage);

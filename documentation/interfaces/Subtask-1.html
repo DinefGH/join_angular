@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface representing a subtask, with optional ID, text description, and completion status.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -201,6 +208,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Boolean indicating if the subtask is completed.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -239,6 +252,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Unique identifier for the subtask.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -272,6 +291,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Text description of the subtask.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -283,65 +308,144 @@
 import { HttpClient, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
 import { Observable, throwError } from &#x27;rxjs&#x27;;
 import { catchError, retry } from &#x27;rxjs/operators&#x27;;
-import { environment } from &#x27;src/environments/environment&#x27;; // Import environment for dynamic API URLs
+import { environment } from &#x27;src/environments/environment&#x27;;
 
+
+/**
+ * Interface representing a subtask, with optional ID, text description, and completion status.
+ */
 export interface Subtask {
+
+  /** Unique identifier for the subtask. */
   id?: number;
+
+/** Text description of the subtask. */
   text: string;
+
+  /** Boolean indicating if the subtask is completed. */
   completed: boolean;
 }
 
-export interface Task {
-  id?: number;
-  title: string;
-  description?: string;
-  priority: string;
-  due_date?: string;
-  category?: number;
-  assigned_to: number[];
-  subtasks: Subtask[];
-  status?: string; // Add status field
-  contacts: number[]; // Add this line
-  creator?: number; // Add this line
 
+/**
+ * Interface representing a task, with optional ID, title, priority, due date, category, and more.
+ * Includes subtasks and contacts associated with the task.
+ */
+export interface Task {
+
+  /** Unique identifier for the task. */
+  id?: number;
+
+  /** Title of the task. */
+  title: string;
+
+  /** Optional description of the task. */
+  description?: string;
+
+  /** Priority level of the task (e.g., high, medium, low). */
+  priority: string;
+
+  /** Optional due date for the task, represented as a string. */
+  due_date?: string;
+
+  /** Optional ID of the category associated with the task. */
+  category?: number;
+
+  /** Array of user IDs assigned to the task. */
+  assigned_to: number[];
+
+  /** Array of subtasks associated with the task. */
+  subtasks: Subtask[];
+
+  /** Optional status of the task (e.g., todo, in progress, done). */
+  status?: string; 
+
+  /** Array of contact IDs associated with the task. */
+  contacts: number[]; 
+
+  /** Optional ID of the user who created the task. */
+  creator?: number; 
+
+  /** Optional boolean to toggle the visibility of the status dropdown. */
   showStatusDropdown?: boolean;
 }
 
+
+/**
+ * TaskService manages tasks by providing methods to create, retrieve, update, and delete tasks.
+ * It also includes error handling for HTTP requests.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class TaskService {
-  private baseUrl &#x3D; environment.apiUrl; // Use environment to manage API URL
 
+  /** Base URL for task-related API endpoints. */
+  private baseUrl &#x3D; environment.apiUrl; 
+
+
+    /**
+   * Constructor to inject HttpClient for making HTTP requests.
+   * @param http - HttpClient instance for sending requests to the server.
+   */
   constructor(private http: HttpClient) {}
 
+
+    /**
+   * Handles errors from HTTP requests, logging the error and providing a generic error message.
+   * @param error - The error response from the HTTP request.
+   * @returns An observable that emits an error message.
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.status &#x3D;&#x3D;&#x3D; 0) {
-      console.error(&#x27;An error occurred:&#x27;, error.error); // A client-side or network error occurred.
+      console.error(&#x27;An error occurred:&#x27;, error.error); 
     } else {
-      console.error(&#x60;Backend returned code ${error.status}, body was: &#x60;, error.error); // The backend returned an unsuccessful response code.
+      console.error(&#x60;Backend returned code ${error.status}, body was: &#x60;, error.error); 
     }
-    return throwError(&#x27;Something bad happened; please try again later.&#x27;); // Return an observable with a user-facing error message.
+    return throwError(&#x27;Something bad happened; please try again later.&#x27;); 
   }
 
+
+    /**
+   * Retrieves all tasks from the server.
+   * @returns An Observable that emits an array of Task objects.
+   */
   getTasks(): Observable&lt;Task[]&gt; {
     return this.http.get&lt;Task[]&gt;(&#x60;${this.baseUrl}/tasks/&#x60;).pipe(
-      retry(3), // Retry this request up to three times.
-      catchError(this.handleError), // Handle errors
+      retry(3), 
+      catchError(this.handleError), 
     );
   }
 
+
+    /**
+   * Retrieves a specific task by its ID.
+   * @param id - The ID of the task to retrieve.
+   * @returns An Observable that emits the requested Task object.
+   */
   getTask(id: number): Observable&lt;Task&gt; {
     return this.http.get&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/${id}/&#x60;).pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Adds a new task with a default status of &#x27;todo&#x27;.
+   * @param task - The Task object to be added.
+   * @returns An Observable that emits the created Task object.
+   */
   addTask(task: Task): Observable&lt;Task&gt; {
-    task.status &#x3D; &#x27;todo&#x27;; // Ensure the status is set to &#x27;todo&#x27;
+    task.status &#x3D; &#x27;todo&#x27;; 
     return this.http.post&lt;Task&gt;(&#x60;${this.baseUrl}/tasks/&#x60;, task).pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Updates an existing task by its ID, ensuring unique subtasks.
+   * @param id - The ID of the task to update.
+   * @param task - The updated Task object.
+   * @returns An Observable that emits the updated Task object.
+   */
   updateTask(id: number, task: Task): Observable&lt;Task&gt; {
-    // Ensure no duplicate subtasks are sent to the backend
     const uniqueSubtasks &#x3D; task.subtasks.filter(
       (subtask, index, self) &#x3D;&gt;
         index &#x3D;&#x3D;&#x3D; self.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; subtask.id &amp;&amp; t.text &#x3D;&#x3D;&#x3D; subtask.text),
@@ -354,6 +458,12 @@ export class TaskService {
       .pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Deletes a task by its ID.
+   * @param id - The ID of the task to delete.
+   * @returns An Observable that completes when the task is deleted.
+   */
   deleteTask(id: number): Observable&lt;{}&gt; {
     return this.http.delete(&#x60;${this.baseUrl}/tasks/${id}/&#x60;).pipe(catchError(this.handleError));
   }

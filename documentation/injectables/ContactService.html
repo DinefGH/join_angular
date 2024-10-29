@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ContactService is responsible for managing the state of the contact being edited.
+It provides methods to set and retrieve the current contact for editing.</p>
+
+            </p>
 
 
 
@@ -194,19 +202,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/app/services/contact.service.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/services/contact.service.ts:32</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves an observable of the current contact being edited.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>Observable&lt;Contact | null&gt;</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>An Observable that emits the Contact object or null if no contact is set.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -231,14 +245,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="11"
-                                    class="link-to-prism">src/app/services/contact.service.ts:11</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">src/app/services/contact.service.ts:23</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Sets the contact to be edited by updating the contactSubject.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -249,6 +265,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -263,6 +280,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The Contact object to set as the current contact for editing.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -303,10 +326,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/contact.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/contact.service.ts:16</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>BehaviorSubject that holds the contact currently being edited.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -320,16 +349,33 @@
 import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
 import { Contact } from &#x27;src/assets/models/contact.model&#x27;; // Adjust path as necessary
 
+
+/**
+ * ContactService is responsible for managing the state of the contact being edited.
+ * It provides methods to set and retrieve the current contact for editing.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class ContactService {
+
+  /** BehaviorSubject that holds the contact currently being edited. */
   private contactSubject &#x3D; new BehaviorSubject&lt;Contact | null&gt;(null);
 
+
+    /**
+   * Sets the contact to be edited by updating the contactSubject.
+   * @param contact - The Contact object to set as the current contact for editing.
+   */
   setContactToEdit(contact: Contact): void {
     this.contactSubject.next(contact);
   }
 
+
+    /**
+   * Retrieves an observable of the current contact being edited.
+   * @returns An Observable that emits the Contact object or null if no contact is set.
+   */
   getContactToEdit(): Observable&lt;Contact | null&gt; {
     return this.contactSubject.asObservable();
   }

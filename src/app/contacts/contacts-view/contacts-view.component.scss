@@ -124,8 +124,8 @@
 
 .dropup {
   position: fixed;
-  bottom: calc(10vh + 56px + 16px); /* Height of icon container + its bottom offset */
-  right: 16px; /* Align with the icon */
+  bottom: calc(10vh + 56px + 16px); 
+  right: 16px; 
   cursor: pointer;
 }
 
@@ -134,8 +134,8 @@
   border-radius: 20px 20px 0px 20px;
   background-color: #ffffff;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-  position: absolute; /* Positions it above the .dropup container */
-  transform: translateY(80%) !important; /* Center it horizontally */
+  position: absolute; 
+  transform: translateY(80%) !important; 
 }
 
 .footerComponent {

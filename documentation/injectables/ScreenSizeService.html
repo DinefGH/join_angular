@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ScreenSizeService provides an observable to detect screen size changes,
+specifically for identifying handset or tablet devices based on custom breakpoints.</p>
+
+            </p>
 
 
 
@@ -165,12 +173,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/screen-size.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/screen-size.service.ts:29</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject the BreakpointObserver, which observes screen size changes.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -179,6 +189,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -193,6 +204,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Angular CDK BreakpointObserver for monitoring screen size.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -231,16 +248,22 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
     Breakpoints.Handset,
-    &#x27;(max-width: 1024px)&#x27;, // Adjust this to match tablet size (1024px for iPad Air)
+    &#x27;(max-width: 1024px)&#x27;,
   ]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/screen-size.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/screen-size.service.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Custom breakpoints that define handset or tablet screen sizes.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -270,10 +293,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/screen-size.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/services/screen-size.service.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Observable that emits a boolean indicating if the screen size matches
+the handset or tablet breakpoints.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -288,20 +318,36 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from &#x27;@angular/
 import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
 
+
+/**
+ * ScreenSizeService provides an observable to detect screen size changes,
+ * specifically for identifying handset or tablet devices based on custom breakpoints.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class ScreenSizeService {
-  // Define custom breakpoints
+
+  /** Custom breakpoints that define handset or tablet screen sizes. */
   private handsetOrTabletBreakpoints &#x3D; [
     Breakpoints.Handset,
-    &#x27;(max-width: 1024px)&#x27;, // Adjust this to match tablet size (1024px for iPad Air)
+    &#x27;(max-width: 1024px)&#x27;,
   ];
 
+
+  /**
+   * Observable that emits a boolean indicating if the screen size matches
+   * the handset or tablet breakpoints.
+   */
   isHandsetOrTablet$: Observable&lt;boolean&gt; &#x3D; this.breakpointObserver
     .observe(this.handsetOrTabletBreakpoints)
     .pipe(map((state: BreakpointState) &#x3D;&gt; state.matches));
 
+
+    /**
+   * Constructor to inject the BreakpointObserver, which observes screen size changes.
+   * @param breakpointObserver - Angular CDK BreakpointObserver for monitoring screen size.
+   */
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
 </code></pre>

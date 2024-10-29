@@ -119,6 +119,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>UserRegistrationService handles user registration requests to the server.
+It sends user data to the API and manages error handling during the registration process.</p>
+
+            </p>
 
 
 
@@ -180,12 +188,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/auth.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/auth.service.ts:17</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject HttpClient for making HTTP requests.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -194,6 +204,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -208,6 +219,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The HttpClient instance for sending registration data.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -245,14 +262,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/app/services/auth.service.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/services/auth.service.ts:51</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Handles errors that occur during the registration process.
+Logs the error to the console and rethrows it for further handling.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -263,6 +283,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -277,6 +298,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The error response object.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -286,7 +313,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits an error notification.</p>
+
                             </div>
                 </td>
             </tr>
@@ -312,14 +340,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="14"
-                                    class="link-to-prism">src/app/services/auth.service.ts:14</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/services/auth.service.ts:32</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Registers a new user by sending user data to the registration API.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -330,6 +360,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -344,6 +375,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Object containing user details: name, email, password, and confirmPassword.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -353,7 +390,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An Observable that emits the server&#39;s response or an error if the registration fails.</p>
+
                             </div>
                 </td>
             </tr>
@@ -390,10 +428,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/auth.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/auth.service.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL endpoint for user registration.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -408,14 +452,32 @@ import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Observable, throwError } from &#x27;rxjs&#x27;;
 import { catchError } from &#x27;rxjs/operators&#x27;;
 
+
+/**
+ * UserRegistrationService handles user registration requests to the server.
+ * It sends user data to the API and manages error handling during the registration process.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class UserRegistrationService {
+
+    /** URL endpoint for user registration. */
   private registrationUrl &#x3D; &#x27;https://join.server.fabianduerr.com/signup/&#x27;;
 
+
+    /**
+   * Constructor to inject HttpClient for making HTTP requests.
+   * @param http - The HttpClient instance for sending registration data.
+   */
   constructor(private http: HttpClient) {}
 
+
+    /**
+   * Registers a new user by sending user data to the registration API.
+   * @param userData - Object containing user details: name, email, password, and confirmPassword.
+   * @returns An Observable that emits the server&#x27;s response or an error if the registration fails.
+   */
   registerUser(userData: {
     name: string;
     email: string;
@@ -428,8 +490,14 @@ export class UserRegistrationService {
       .pipe(catchError(this.handleError));
   }
 
+
+    /**
+   * Handles errors that occur during the registration process.
+   * Logs the error to the console and rethrows it for further handling.
+   * @param error - The error response object.
+   * @returns An Observable that emits an error notification.
+   */
   private handleError(error: any) {
-    // Log error to console or display to the user
     console.error(&#x27;There was an error in Service!&#x27;, error);
     return throwError(error);
   }

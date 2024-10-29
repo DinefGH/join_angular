@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for displaying an overview of contacts. Groups contacts alphabetically,
+handles display based on screen size, and manages visibility of the contacts overlay.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -291,12 +299,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:36</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject necessary services for managing contacts, routing, screen size, and overlay visibility.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -305,6 +315,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -319,6 +330,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for handling contact data.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -331,6 +348,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Angular Router for navigation.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>screenSizeService</td>
@@ -343,6 +366,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for detecting screen size.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>contactsOverlayService</td>
@@ -355,6 +384,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Service for managing overlay visibility.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -394,14 +429,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="108"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:108</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:176</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Closes the contacts view overlay.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -431,14 +468,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="144"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:144</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:236</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Finds a contact by ID within the grouped contacts.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -449,6 +488,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -463,6 +503,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>ID of the contact to find.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -472,7 +518,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The contact object if found, otherwise undefined.</p>
+
                             </div>
                 </td>
             </tr>
@@ -498,14 +545,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="87"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:87</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:141</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Generates initials from a contact&#39;s name.
+Takes the first letter of the first and last name, if available.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -516,6 +566,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -530,6 +581,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The full name of the contact.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -539,7 +596,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A string containing the initials.</p>
+
                             </div>
                 </td>
             </tr>
@@ -565,19 +623,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="98"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:98</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:157</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns an array of sorted letters used to group contacts.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>string[]</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>An alphabetically sorted array of first letters.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -602,14 +666,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="121"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:121</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="201"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:201</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to the contact detail page for mobile or tablet view.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -620,6 +686,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -634,6 +701,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>ID of the contact to navigate to.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -669,14 +742,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="129"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:129</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:215</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Opens the desktop contact details overlay and sets the selected contact.
+Stores the contact ID and displays the overlay with contact details.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -687,6 +763,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -701,6 +778,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>ID of the contact to display in overlay.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -736,14 +819,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="67"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:67</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:114</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Groups an array of contacts by the first letter of each contact&#39;s name.
+Adds initials and color properties to each contact.
+Sorts contacts within each letter group alphabetically by name.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -754,6 +841,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -768,6 +856,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Array of contacts to group.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -803,14 +897,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="54"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:54</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:94</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Loads all contacts from the service and groups them alphabetically by the first letter.
+Initializes <code>groupedContacts</code> as an empty object before adding contacts.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -840,14 +937,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:83</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Loads contact details for a stored contact ID, if available.
+Navigates to the desktop contact details view for the contact.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -877,14 +977,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:62</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the component by loading contacts and setting up subscriptions to screen size and overlay visibility.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -914,14 +1016,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="102"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:102</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="166"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:166</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Reloads the contacts list when a new contact is successfully added.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -932,6 +1036,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -946,6 +1051,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Boolean indicating if a contact was added.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -981,14 +1092,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="113"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:113</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:188</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Opens the contact details view based on screen size.
+For handset or tablet, navigates to the contact detail route.
+For larger screens, shows the contact details in an overlay.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -999,6 +1114,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1013,6 +1129,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>ID of the contact to display.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1048,14 +1170,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="154"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:154</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:250</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Refreshes the contacts list by reloading contacts from the service.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1085,8 +1209,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -1128,10 +1252,15 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:51</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">- Service for managing overlay visibility.</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1159,10 +1288,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:30</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean to control the visibility of the contacts view overlay.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1190,10 +1325,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:24</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Object to store contacts grouped alphabetically by first letter.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1221,10 +1362,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean to indicate if the device is a handset or tablet.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1252,10 +1399,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:21</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controls visibility of the add contact overlay.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1283,10 +1436,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Currently selected contact to display in detail view.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1314,10 +1473,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/contacts/contacts-overview/contacts-overview.component.ts:36</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Stores contact ID for desktop contact detail display.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1334,37 +1499,67 @@ import { Contact } from &#x27;src/assets/models/contact.model&#x27;;
 import { ScreenSizeService } from &#x27;src/app/services/screen-size.service&#x27;;
 import { ContactsOverlayService } from &#x27;src/app/services/contacts-overlay-service.service&#x27;;
 
+
+/**
+ * Component for displaying an overview of contacts. Groups contacts alphabetically,
+ * handles display based on screen size, and manages visibility of the contacts overlay.
+ */
 @Component({
   selector: &#x27;app-contacts-overview&#x27;,
   templateUrl: &#x27;./contacts-overview.component.html&#x27;,
   styleUrls: [&#x27;./contacts-overview.component.scss&#x27;],
 })
 export class ContactsOverviewComponent implements OnInit {
+
+/** Controls visibility of the add contact overlay. */
   isVisible: boolean &#x3D; false;
+
+  /** Object to store contacts grouped alphabetically by first letter. */
   groupedContacts: { [key: string]: Contact[] } &#x3D; {};
+
+  /** Boolean to indicate if the device is a handset or tablet. */
   isHandsetOrTablet: boolean &#x3D; false;
+
+  /** Boolean to control the visibility of the contacts view overlay. */
   contactsViewNotVisible: boolean &#x3D; true;
+
+  /** Currently selected contact to display in detail view. */
   selectedContact: Contact | null &#x3D; null;
+
+  /** Stores contact ID for desktop contact detail display. */
   storedContactId: number | null &#x3D; null;
 
+
+
+    /**
+   * Constructor to inject necessary services for managing contacts, routing, screen size, and overlay visibility.
+   * @param addContactService - Service for handling contact data.
+   * @param router - Angular Router for navigation.
+   * @param screenSizeService - Service for detecting screen size.
+   * @param contactsOverlayService - Service for managing overlay visibility.
+   */
   constructor(
     private addContactService: AddContactService,
     private router: Router,
     private screenSizeService: ScreenSizeService,
-    public contactsOverlayService: ContactsOverlayService, // Inject the service
+    public contactsOverlayService: ContactsOverlayService, 
   ) {}
 
   showContactsAdd(): void {
-    this.isVisible &#x3D; true; // Show the &lt;app-contacts-add&gt; component
+    this.isVisible &#x3D; true; 
   }
 
+
+    /**
+   * Initializes the component by loading contacts and setting up subscriptions to screen size and overlay visibility.
+   */
   ngOnInit(): void {
     this.loadContacts();
     this.screenSizeService.isHandsetOrTablet$.subscribe(
       isHandsetOrTablet &#x3D;&gt; (this.isHandsetOrTablet &#x3D; isHandsetOrTablet),
     );
 
-    // Subscribe to the overlay visibility changes
+    
     this.contactsOverlayService.overlayVisibility$.subscribe(isVisible &#x3D;&gt; {
       this.contactsViewNotVisible &#x3D; !isVisible;
     });
@@ -1374,12 +1569,22 @@ export class ContactsOverviewComponent implements OnInit {
     }
   }
 
+
+  /**
+ * Loads contact details for a stored contact ID, if available.
+ * Navigates to the desktop contact details view for the contact.
+ */
   loadStoredContactDetails(): void {
     if (this.storedContactId !&#x3D;&#x3D; null) {
       this.goToDesktopContactDetails(this.storedContactId);
     }
   }
 
+
+  /**
+ * Loads all contacts from the service and groups them alphabetically by the first letter.
+ * Initializes &#x60;groupedContacts&#x60; as an empty object before adding contacts.
+ */
   loadContacts(): void {
     this.groupedContacts &#x3D; {};
 
@@ -1393,6 +1598,13 @@ export class ContactsOverviewComponent implements OnInit {
     });
   }
 
+
+  /**
+ * Groups an array of contacts by the first letter of each contact&#x27;s name.
+ * Adds initials and color properties to each contact.
+ * Sorts contacts within each letter group alphabetically by name.
+ * @param contacts - Array of contacts to group.
+ */
   groupContactsByFirstLetter(contacts: any[]): void {
     this.groupedContacts &#x3D; {};
 
@@ -1413,6 +1625,13 @@ export class ContactsOverviewComponent implements OnInit {
     }
   }
 
+
+  /**
+ * Generates initials from a contact&#x27;s name.
+ * Takes the first letter of the first and last name, if available.
+ * @param name - The full name of the contact.
+ * @returns A string containing the initials.
+ */
   getInitials(name: string): string {
     const names &#x3D; name.split(&#x27; &#x27;);
     let initials &#x3D; names[0].substring(0, 1).toUpperCase();
@@ -1424,21 +1643,42 @@ export class ContactsOverviewComponent implements OnInit {
     return initials;
   }
 
+
+  /**
+ * Returns an array of sorted letters used to group contacts.
+ * @returns An alphabetically sorted array of first letters.
+ */
   getSortedLetters(): string[] {
     return Object.keys(this.groupedContacts).sort();
   }
 
+
+  /**
+ * Reloads the contacts list when a new contact is successfully added.
+ * @param contactAdded - Boolean indicating if a contact was added.
+ */
   onContactAdded(contactAdded: boolean): void {
     if (contactAdded) {
-      this.loadContacts(); // Refresh the contacts list
+      this.loadContacts(); 
     }
   }
 
+
+  /**
+ * Closes the contacts view overlay.
+ */
   closeContactsView(): void {
     console.log(&#x27;Closing contacts view...&#x27;);
-    this.contactsOverlayService.setOverlayVisibility(false); // Update via service
+    this.contactsOverlayService.setOverlayVisibility(false); 
   }
 
+
+  /**
+ * Opens the contact details view based on screen size.
+ * For handset or tablet, navigates to the contact detail route.
+ * For larger screens, shows the contact details in an overlay.
+ * @param contactId - ID of the contact to display.
+ */
   openContact(contactId: number): void {
     if (this.isHandsetOrTablet) {
       this.goToContactDetails(contactId);
@@ -1447,6 +1687,11 @@ export class ContactsOverviewComponent implements OnInit {
     }
   }
 
+
+  /**
+ * Navigates to the contact detail page for mobile or tablet view.
+ * @param contactId - ID of the contact to navigate to.
+ */
   goToContactDetails(contactId: number) {
     if (typeof contactId &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; || isNaN(contactId)) {
       console.error(&#x27;Contact ID is undefined or NaN&#x27;);
@@ -1455,6 +1700,12 @@ export class ContactsOverviewComponent implements OnInit {
     this.router.navigate([&#x27;/contacts-detail&#x27;, contactId]);
   }
 
+
+  /**
+ * Opens the desktop contact details overlay and sets the selected contact.
+ * Stores the contact ID and displays the overlay with contact details.
+ * @param contactId - ID of the contact to display in overlay.
+ */
   goToDesktopContactDetails(contactId: number) {
     this.storedContactId &#x3D; contactId;
     if (typeof contactId &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; || isNaN(contactId)) {
@@ -1467,9 +1718,15 @@ export class ContactsOverviewComponent implements OnInit {
       return;
     }
     this.selectedContact &#x3D; contact;
-    this.contactsOverlayService.setOverlayVisibility(true); // Use service to set visibility
+    this.contactsOverlayService.setOverlayVisibility(true);
   }
 
+
+  /**
+ * Finds a contact by ID within the grouped contacts.
+ * @param contactId - ID of the contact to find.
+ * @returns The contact object if found, otherwise undefined.
+ */
   findContactById(contactId: number): Contact | undefined {
     for (const letter in this.groupedContacts) {
       const contact &#x3D; this.groupedContacts[letter].find(contact &#x3D;&gt; contact.id &#x3D;&#x3D;&#x3D; contactId);
@@ -1480,6 +1737,10 @@ export class ContactsOverviewComponent implements OnInit {
     return undefined;
   }
 
+
+  /**
+ * Refreshes the contacts list by reloading contacts from the service.
+ */
   refreshContacts(): void {
     this.loadContacts();
   }
@@ -1789,7 +2050,7 @@ export class ContactsOverviewComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="contactsContainer">  <header>    <app-header-bar-mobile></app-header-bar-mobile>  </header>  <div class="contactsDesktopContainer">    <app-sidebar class="sidebarComponent"></app-sidebar>    <main class="contactsContent">      <div class="showContactsContainer">        <div class="contactsAddDesktop" (click)="showContactsAdd()">          Add new contact          <svg            class="addIconDesktop"            width="30"            height="22"            viewBox="0 0 30 22"            fill="none"            xmlns="http://www.w3.org/2000/svg"          >            <path              d="M24.3975 13.6667C24.0816 13.6667 23.818 13.5602 23.6069 13.3473C23.3958 13.1343 23.2903 12.8704 23.2903 12.5556V9.44448H20.1791C19.8643 9.44448 19.6004 9.33763 19.3875 9.12392C19.1745 8.9102 19.068 8.64539 19.068 8.32948C19.068 8.01357 19.1745 7.75006 19.3875 7.53895C19.6004 7.32784 19.8643 7.22228 20.1791 7.22228H23.2903V4.11115C23.2903 3.79635 23.3971 3.53246 23.6108 3.31948C23.8245 3.10653 24.0894 3.00005 24.4053 3.00005C24.7212 3.00005 24.9847 3.10653 25.1958 3.31948C25.4069 3.53246 25.5125 3.79635 25.5125 4.11115V7.22228H28.6236C28.9384 7.22228 29.2023 7.32914 29.4153 7.54285C29.6282 7.75656 29.7347 8.02137 29.7347 8.33728C29.7347 8.65319 29.6282 8.91671 29.4153 9.12782C29.2023 9.33893 28.9384 9.44448 28.6236 9.44448H25.5125V12.5556C25.5125 12.8704 25.4056 13.1343 25.1919 13.3473C24.9782 13.5602 24.7134 13.6667 24.3975 13.6667ZM11.068 10.9778C9.60137 10.9778 8.38284 10.4926 7.41247 9.52228C6.44211 8.5519 5.95693 7.33338 5.95693 5.86672C5.95693 4.40005 6.44211 3.18154 7.41247 2.21118C8.38284 1.2408 9.60137 0.755615 11.068 0.755615C12.5347 0.755615 13.7532 1.2408 14.7236 2.21118C15.694 3.18154 16.1791 4.40005 16.1791 5.86672C16.1791 7.33338 15.694 8.5519 14.7236 9.52228C13.7532 10.4926 12.5347 10.9778 11.068 10.9778ZM1.51247 21.6667C1.19767 21.6667 0.933778 21.5602 0.720801 21.3473C0.507845 21.1343 0.401367 20.8704 0.401367 20.5556V18.3334C0.401367 17.563 0.599512 16.8612 0.995801 16.2279C1.39211 15.5945 1.93471 15.1186 2.6236 14.8C4.19398 14.0815 5.64833 13.5649 6.98667 13.25C8.32502 12.9352 9.68428 12.7779 11.0644 12.7779C12.4446 12.7779 13.8051 12.9352 15.1458 13.25C16.4865 13.5649 17.9347 14.0815 19.4903 14.8C20.1792 15.1334 20.7254 15.613 21.1291 16.2389C21.5328 16.8649 21.7347 17.563 21.7347 18.3334V20.5556C21.7347 20.8704 21.6282 21.1343 21.4153 21.3473C21.2023 21.5602 20.9384 21.6667 20.6236 21.6667H1.51247ZM2.62357 19.4445H19.5125V18.3334C19.5125 18.0149 19.4329 17.7149 19.2736 17.4334C19.1143 17.1519 18.8754 16.9408 18.5569 16.8C17.1199 16.0963 15.831 15.6204 14.6903 15.3723C13.5495 15.1241 12.3421 15 11.068 15C9.79397 15 8.58656 15.1278 7.4458 15.3834C6.30507 15.6389 5.00878 16.1112 3.55693 16.8C3.26802 16.9408 3.04023 17.1519 2.87357 17.4334C2.7069 17.7149 2.62357 18.0149 2.62357 18.3334V19.4445ZM11.068 8.75562C11.8903 8.75562 12.5773 8.47969 13.1291 7.92785C13.681 7.37598 13.9569 6.68894 13.9569 5.86672C13.9569 5.04449 13.681 4.35746 13.1291 3.80562C12.5773 3.25375 11.8903 2.97782 11.068 2.97782C10.2458 2.97782 9.55878 3.25375 9.00693 3.80562C8.45507 4.35746 8.17913 5.04449 8.17913 5.86672C8.17913 6.68894 8.45507 7.37598 9.00693 7.92785C9.55878 8.47969 10.2458 8.75562 11.068 8.75562Z"              fill="white"            />          </svg>        </div>        <div *ngFor="let letter of getSortedLetters()" class="rowContainerContacts">          <div>            <div class="headlineContactOverview">{{ letter }}</div>            <div class="headlineUnderline"></div>          </div>          <div class="showContactContainer">            <div              *ngFor="let contact of groupedContacts[letter]"              class="contactItem"              (click)="openContact(contact.id)"            >              <span class="initialsCircle" [style.background-color]="contact.color">{{                contact.initials              }}</span>              <div class="contactNameEmailContainer">                <div class="contactName">{{ contact.name }}</div>                <div class="contactEmail">{{ contact.email }}</div>              </div>            </div>          </div>        </div>      </div>      <div class="addIconContainer" (click)="showContactsAdd()">        <img class="personAddIcon" src="/assets/img/person_add.png" alt="Person add icon" />      </div>    </main>    <app-contacts-view      *ngIf="contactsOverlayService.overlayVisibility$ | async"      class="contactsViewDesktop"      [contact]="selectedContact"      [contactId]="storedContactId"      (close)="closeContactsView()"      (contactDeleted)="refreshContacts()"      (contactUpdated)="refreshContacts()"    >    </app-contacts-view>    <div *ngIf="contactsViewNotVisible" class="contactsDesktopScreen">      <div class="contactsSmallHeadline">        <h1>Contacts</h1>        <div class="contactsDividingLine"></div>        <div class="smallHeadlineContacts">Better with a team</div>      </div>    </div>    <app-contacts-add      (contactAdded)="onContactAdded($event)"      *ngIf="isVisible"      (close)="isVisible = false"    ></app-contacts-add>  </div>  <footer class="footerComponent">    <app-footer-bar></app-footer-bar>  </footer></div></div>'
-    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardEditTaskComponent', 'selector': 'app-board-edit-task'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardTaskOverlayComponent', 'selector': 'app-board-task-overlay'},{'name': 'ContactsAddComponent', 'selector': 'app-contacts-add'},{'name': 'ContactsEditComponent', 'selector': 'app-contacts-edit'},{'name': 'ContactsOverviewComponent', 'selector': 'app-contacts-overview'},{'name': 'ContactsViewComponent', 'selector': 'app-contacts-view'},{'name': 'EditTaskComponent', 'selector': 'app-edit-task'},{'name': 'FooterBarComponent', 'selector': 'app-footer-bar'},{'name': 'HeaderBarMobileComponent', 'selector': 'app-header-bar-mobile'},{'name': 'LegalNoticeComponent', 'selector': 'app-legal-notice'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SummaryComponent', 'selector': 'app-summary'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ContactsOverviewComponent'};
 </script>

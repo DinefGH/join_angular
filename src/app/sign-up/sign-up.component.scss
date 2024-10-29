@@ -61,7 +61,7 @@ h1 {
 
 .formInputPassword {
   background-repeat: no-repeat;
-  background-position: right 10px center; // Adjust this value based on your design needs
+  background-position: right 10px center;
   padding-right: 40px;
 }
 
@@ -189,11 +189,11 @@ h1 {
 
 @keyframes slideInFromBottom {
   0% {
-    transform: translateY(100vh); // Start from below the view
+    transform: translateY(100vh);
     opacity: 0;
   }
   100% {
-    transform: translateY(0); // End at the center
+    transform: translateY(0);
     opacity: 1;
   }
 }
